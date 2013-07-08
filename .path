@@ -1,0 +1,2 @@
+PATH=$PATH:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/git/bin
+PATH=$PATH:$HOME/.dotfiles/bin
