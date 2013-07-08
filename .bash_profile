@@ -7,7 +7,7 @@ unset file
 
 
 # init z (https://github.com/rupa/z)
-. ~/code/z/z.sh
+. ~/.dotfiles/z/z.sh
 
 
 # loads RVM (as pasted from http://net.tutsplus.com/tutorials/ruby/how-to-install-ruby-on-a-mac/)
