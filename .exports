@@ -21,7 +21,7 @@ export HISTTIMEFORMAT
 export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
 # Template directory which git uses when you 'git init'
-export GIT_TEMPLATE_DIR=$HOME/...
+export GIT_TEMPLATE_DIR=$HOME/.dotfiles/git/git-template-dir
 
 # Where to store post-commit pics
 export GITSHOTS="$HOME/Google Drive/Pics/gitshots"
