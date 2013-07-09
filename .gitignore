@@ -1,3 +1,4 @@
 # Local gitignore - concerning this repository (.dotfiles)
 # Folder view configuration files
 .DS_Store
+.vim/undo
