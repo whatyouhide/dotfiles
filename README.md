@@ -1,36 +1,34 @@
-# Paul's dotfiles
+# Andrea's dotfiles
 
-[mathias's readme](https://github.com/mathiasbynens/dotfiles/) is awesome. go read it.
+This repository is actually almost a copy of [Paul Irish's](https://github.com/paulirish/dotfiles) one, which is in turn a fork of [this](https://github.com/mathiasbynens/dotfiles/) one. Still, I'm not so keen on forking and I like to keep my own stuff neat and organized. Sorry Paul!
 
-This repo is mostly for me but you're welcome to make suggestions. Mathias's is the project to fork.  I'm mostly catching up to him, @cowboy, and @gf3.
+These are my (and Paul's and Mathias's) dotfiles, but you're free (and encouraged) to steal them and do whatever you want to them.
+Anyway, this whole repository makes the smallest possible number of assunctions, so it should work pretty well on any OS X machine (and on Linux paying a little more attention).
 
-## install the necessary apps
+## `install-deps.sh`
 
-My basic setup is captured in `install-deps.sh` which adds homebrew, z, nave, etc.
+This installs some stuff (like rvm, brew, z, Pygments) and I run it on every fresh OS X install or new machine.
 
-## private config
+## `synclinks.sh`
 
-Toss it into a file called `.extra` which you do not commit to this repo and just keep in your `~/`
+As you can see, I like to keep all of my dotfiles inside `~/.dotfiles` so that I don't have to version control `~`, which is a horrible and very unwise thing to do.
+In order to use all the dotfiles in this repo, just run
 
-I do something nice with my `PATH` there:
-
-```shell
-# PATH like a bawss
-      PATH=/opt/local/bin
-PATH=$PATH:/opt/local/sbin
-PATH=$PATH:/bin
-PATH=$PATH:~/.rvm/bin
-PATH=$PATH:~/code/git-friendly
-# ...
-
-export PATH
+```bash
+./synclinks.sh
 ```
 
-## Syntax highlighting
+It will symlink all the necessary stuff inside `~` so you don't have to.
 
-…is really important. even for these files.
+### That big and super-modular `.bash_profile`
 
-Install [Dotfiles Syntax Highlighting](https://github.com/mattbanks/dotfiles-syntax-highlighting-st2) via [Sublime Text 2 Package Control](http://wbond.net/sublime_packages/package_control)
+`.bashrc` calls `.bash_profile`, which does little by itself: everything is modular (thank you again, Paul) and so it loads a bunch of files (`.aliases`, `.functions` etc.).
+
+I'm keeping Paul's strategy alive by letting you use `.extra` for all your personal stuff you don't want to commit (it's loaded by default but ignored by git).
+
+Actually, there's a neat little "bug" inside `.exports`, which uses a custom path in order to store git snaps-after-commit in GDrive, but either remove it or re-export your `GITSHOTS` variable inside `.extra`.
+
+
 
 
 ### Sensible OS X defaults
@@ -41,19 +39,7 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 ./.osx
 ```
 
-## Similar projects
-
-I recommend getting a [`.jshintrc`](https://github.com/jshint/node-jshint/blob/master/.jshintrc) and [`.editorconfig`](http://editorconfig.org/) defined for all your projects.
-
-
-
-
-
-## overview of files
-
-####  Automatic config
-* `.ackrc` - for ack (better than grep)
-* `.vimrc`, `.vim` - vim config, obv.
+### Contents
 
 #### shell environment
 * `.aliases`
@@ -62,26 +48,19 @@ I recommend getting a [`.jshintrc`](https://github.com/jshint/node-jshint/blob/m
 * `.bashrc`
 * `.exports`
 * `.functions`
+* `.path`
+* `.inputrc` - config for bash readline
 * `.extra` - not included, explained above
 
 #### manual run
-* `install-deps.sh` - random apps i need installed
-* `.osx` - run on a fresh osx machine
-* `.brew` - homebrew initialization
+* `install-deps.sh`
+* `.osx`
+* `.brew` - homebrew initial setup
 
-#### git, brah
-* `.git`
-* `.gitattributes`
-* `.gitconfig`
-* `.gitignore`
+#### A note on git
 
-* `.inputrc` - config for bash readline
+This is another tip I stole from Paul (he showed this at a talk sometimes ago): taking a picture of yourself everytime you commit on a repo.
 
+The idea comes from [this](https://coderwall.com/p/xlatfq), and here's the reason on the directory `git/git-template-dir`: it already contains the proper hook in order to snap after commit, and the `GIT_TEMPLATE_DIR` variable is exported so that everytime you `git init` a repo you have the snap feature.
 
-## Installation
-
-```bash
-git clone https://github.com/paulirish/dotfiles.git && cd dotfiles && ./sync.sh
-```
-
-To update later on, just run the sync again.
+(Note: easily do a `git init` again on every existing repo if you want: it will use the template directory and therefore the snap feature but without you losing any data).
