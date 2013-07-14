@@ -14,6 +14,14 @@ cdf() {  # short for cdfinder
   cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
 }
 
+# wraps the argument file inside a directory with the same name (without extension)
+wrappadir() {
+	filename=$(basename "$1")
+	dirname="${filename%.*}" # cutting off the extension
+	mkdir "$dirname"
+	mv "$filename" "$dirname"
+}
+
 
 # lets toss an image onto my server and pbcopy that bitch.
 function scpp() {
