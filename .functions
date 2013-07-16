@@ -4,9 +4,14 @@ function md() {
 }
 
 
-# find shorthand
+# find shorthand (case-insensitive: change -iname to -name for case sentitivity)
 function f() {
-    find . -name "$1"
+    find . -iname "$1"
+}
+
+# find pattern: searches for a path in the current folder which contains the argument
+function fp() {
+	find . -iname "*$1*"
 }
 
 # cd into whatever is the forefront Finder window.
@@ -15,7 +20,7 @@ cdf() {  # short for cdfinder
 }
 
 # wraps the argument file inside a directory with the same name (without extension)
-wrappadir() {
+function wrappadir() {
 	filename=$(basename "$1")
 	dirname="${filename%.*}" # cutting off the extension
 	mkdir "$dirname"
