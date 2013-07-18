@@ -21,19 +21,20 @@ cdf() {  # short for cdfinder
 
 # wraps the argument file inside a directory with the same name (without extension)
 function wrappadir() {
+	path=$(dirname "$1")
 	filename=$(basename "$1")
-	dirname="${filename%.*}" # cutting off the extension
-	mkdir "$dirname"
-	mv "$filename" "$dirname"
+	newdirname="${filename%.*}" # cutting off the extension
+	mkdir "$path/$newdirname"
+	mv "$1" "$path/$newdirname"
 }
 
 
 # lets toss an image onto my server and pbcopy that bitch.
-function scpp() {
-    scp "$1" aurgasm@aurgasm.us:~/paulirish.com/i;
-    echo "http://paulirish.com/i/$1" | pbcopy;
-    echo "Copied to clipboard: http://paulirish.com/i/$1"
-}
+# function scpp() {
+#     scp "$1" aurgasm@aurgasm.us:~/paulirish.com/i;
+#     echo "http://paulirish.com/i/$1" | pbcopy;
+#     echo "Copied to clipboard: http://paulirish.com/i/$1"
+# }
 
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
