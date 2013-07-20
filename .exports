@@ -23,5 +23,12 @@ export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 # Template directory which git uses when you 'git init'
 export GIT_TEMPLATE_DIR=$HOME/.dotfiles/git/git-template-dir
 
+
+# CUSTOM EXPORTS
+# this exports are not variables that the shell understands - they're just for user's stuff conveniency
+
 # Where to store post-commit pics
 export GITSHOTS="$HOME/Google Drive/Pics/gitshots"
+
+# change this variable if you use another GUI text editor
+export GUIEDITOR="Sublime Text 2"

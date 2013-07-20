@@ -6,12 +6,17 @@ function md() {
 
 # find shorthand (case-insensitive: change -iname to -name for case sentitivity)
 function f() {
-    find . -iname "$1"
+    find . -name "$1"
 }
 
 # find pattern: searches for a path in the current folder which contains the argument
 function fp() {
 	find . -iname "*$1*"
+}
+
+function newted() {
+	touch "$1"
+	open -a "$GUIEDITOR" "$1"
 }
 
 # cd into whatever is the forefront Finder window.
