@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-project = `basename $(dirname $(dirname $PWD))`.gsub("\n", "")
+# project = `basename $(dirname $(dirname $PWD))`.gsub("\n", "")
 file="#{ENV['GITSHOTS']}/#{Time.now.to_i}--#{project}.jpg"
 unless File.directory?(File.expand_path("../../rebase-merge", __FILE__))
     puts "Taking capture into #{file}!"
