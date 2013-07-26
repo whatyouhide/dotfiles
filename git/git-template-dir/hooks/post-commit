@@ -1,18 +1,16 @@
 #!/usr/bin/env ruby
 
-left_coord = 35
-
+pic = "#{ENV['GITSHOTS']}/#{Time.now.to_i}-#{project}.jpg"
 project = `basename $(dirname $(dirname $PWD))`.gsub("\n", "")
-file = "#{ENV['GITSHOTS']}/#{Time.now.to_i}-#{project}.jpg"
 last_commit = `git log -1 HEAD --pretty=format:'%s'`
 
 unless File.directory?(File.expand_path("../../rebase-merge", __FILE__))
-    puts "Taking capture into #{file}!"
+    puts "Taking capture into #{pic}!"
 
-    command = "imagesnap -q -w 3 \"#{file}\" && "
-    command += "convert -font Helvetica-Bold -pointsize 20 -draw \"text #{left_coord},50 'Project: #{project}'\" \"#{file}\" \"#{file}\" && "
-    command += "convert -font Helvetica -pointsize 20 -draw \"text #{left_coord},75 'Commit: #{last_commit}'\" \"#{file}\" \"#{file}\" && "
-    command += "convert -font Helvetica -pointsize 16 -draw \"text #{left_coord},90 'Date: #{Time.now.strftime('%b %d %Y at %I:%M %P')}'\" \"#{file}\" \"#{file}\" &"
+    command = "imagesnap -q -w 3 \"#{pic}\" && "
+    # command += "convert -font Helvetica-Bold -pointsize 20 -draw \"text 35,50 ''\" \"#{file}\" \"#{file}\" && "
+    # command += "convert -font Helvetica -pointsize 20 -draw \"text 35,75 'Commit: #{last_commit}'\" \"#{file}\" \"#{file}\" && "
+    # command += "convert -font Helvetica -pointsize 16 -draw \"text 35,90 'Date: #{Time.now.strftime('%b %d %Y at %I:%M %P')}'\" \"#{file}\" \"#{file}\" &"
     system command
 end
 exit 0
