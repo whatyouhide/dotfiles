@@ -29,7 +29,9 @@ brew install rename
 brew install tree
 
 # Install some cool formulae - useless ones for the most part
-brew install imagesnap # snap a picture after every commit
+brew install imagesnap 		# snap a picture after every commit
+brew install ghostscript 	# below dependency
+brew install ImageMagick	# write text on images
 
 # Remove outdated versions from the cellar
 brew cleanup
