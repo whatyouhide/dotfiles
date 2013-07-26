@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
 pic = "#{ENV['GITSHOTS']}/#{Time.now.to_i}-#{project}.jpg"
-project = `basename $(dirname $(dirname $PWD))`.gsub("\n", "")
-last_commit = `git log -1 HEAD --pretty=format:'%s'`
+# project = `basename $(dirname $(dirname $PWD))`.gsub("\n", "")
+# last_commit = `git log -1 HEAD --pretty=format:'%s'`
 
 unless File.directory?(File.expand_path("../../rebase-merge", __FILE__))
     puts "Taking capture into #{pic}!"
