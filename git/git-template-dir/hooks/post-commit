@@ -7,7 +7,7 @@ pic = "#{ENV['GITSHOTS']}/#{Time.now.to_i}.jpg"
 unless File.directory?(File.expand_path("../../rebase-merge", __FILE__))
     puts "Taking capture into #{pic}!"
 
-    command = "imagesnap -q -w 3 \"#{pic}\" && "
+    command = "imagesnap -q -w 3 \"#{pic}\" &"
     # command += "convert -font Helvetica-Bold -pointsize 20 -draw \"text 35,50 ''\" \"#{file}\" \"#{file}\" && "
     # command += "convert -font Helvetica -pointsize 20 -draw \"text 35,75 'Commit: #{last_commit}'\" \"#{file}\" \"#{file}\" && "
     # command += "convert -font Helvetica -pointsize 16 -draw \"text 35,90 'Date: #{Time.now.strftime('%b %d %Y at %I:%M %P')}'\" \"#{file}\" \"#{file}\" &"
