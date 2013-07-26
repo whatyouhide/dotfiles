@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-pic = "#{ENV['GITSHOTS']}/#{Time.now.to_i}-#{project}.jpg"
+pic = "#{ENV['GITSHOTS']}/#{Time.now.to_i}.jpg"
 # project = `basename $(dirname $(dirname $PWD))`.gsub("\n", "")
 # last_commit = `git log -1 HEAD --pretty=format:'%s'`
 
