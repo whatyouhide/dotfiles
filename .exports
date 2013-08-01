@@ -32,3 +32,5 @@ export GITSHOTS="$HOME/Google Drive/Pics/gitshots"
 
 # change this variable if you use another GUI text editor
 export GUIEDITOR="Sublime Text 2"
+
+export USRTMPDIR="$HOME/temp"
