@@ -33,6 +33,50 @@ function wrappadir() {
 	mv "$1" "$path/$newdirname"
 }
 
+# creates a new directory at the specified path, initializing a new Sublime Text
+# project in it (and opening Sublime too)
+function sublime-project() {
+	projectpath=$1
+	if [ -d "$projectpath" ]; then
+		echo "sublime-project: that directory already exists ($projectpath)"
+		return 1
+	fi
+	mkdir -pv "$projectpath" && cd "$projectpath"
+	projectname="`basename "$PWD"`"
+	cat "$HOME/.dotfiles/sublime/sublime-project-template" > "$projectname.sublime-project"
+	open -a "Sublime Text 2" .
+	return 0
+}
+
+# creates a temporary dir inside $USRTMPDIR (defined in .exports)
+# passing "clean" to this function removes all the previously generated dirs
+# in $USTTMPDIR; passing nothing creates a dir with a 5 digits name (part of a timestamp)
+# WARNING: using `ontheflydir clean` removes folders in $USRTMPDIR based on a regexp,
+# so avoid calling directories with 5 digits names
+function ontheflydir() {
+	cd "$USRTMPDIR"
+	if [[ "$1" == "clean" ]]; then
+		IFSBKP=$IFS; IFS=$(echo -en "\n\b")
+		for d in `ls`; do
+			if [[ $d =~ [0-9]{5} ]]; then
+				rm -r "$d"
+				echo "rm: $USRTMPDIR/$d"
+			fi
+		done
+		IFS=$IFSBKP
+		return 0
+	fi
+
+	timestamp=`date +%s`
+	rnd_numbers=${timestamp:5}
+	newdir="$USRTMPDIR/$rnd_numbers"
+	if [ -d "$newdir" ]; then
+		ontheflydir
+	fi
+	mkdir -v "$newdir" && cd "$newdir"
+	open -g .
+	return 0
+}
 
 # lets toss an image onto my server and pbcopy that bitch.
 # function scpp() {
