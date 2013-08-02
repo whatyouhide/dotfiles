@@ -30,7 +30,5 @@ export GIT_TEMPLATE_DIR=$HOME/.dotfiles/git/git-template-dir
 # Where to store post-commit pics
 export GITSHOTS="$HOME/Google Drive/Pics/gitshots"
 
-# change this variable if you use another GUI text editor
-export GUIEDITOR="Sublime Text 2"
-
+# my user tmp folder is located at ~/temp
 export USRTMPDIR="$HOME/temp"
