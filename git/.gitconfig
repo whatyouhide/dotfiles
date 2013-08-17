@@ -12,7 +12,7 @@
 [color]
 	ui = always
 [core]
-	excludesfile = /Users/ironmac/.dotfiles/git/gitignore_global
+	excludesfile = ~/.dotfiles/git/gitignore_global
 	attributesfile = ~/.gitattributes
 [color "branch"]
 	current = yellow reverse
