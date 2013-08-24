@@ -2,6 +2,7 @@ PATH=/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/git/bin
 
 PATH=$PATH:$HOME/.rvm/bin:
 PATH=$PATH:$HOME/.dotfiles/bin
+PATH=$PATH:/Library/Frameworks/Python.framework/Versions/2.7/bin
 PATH=$PATH:$HOME/Libs/android-sdk/tools:$HOME/Libs/android-sdk/platform-tools
 
 export PATH
