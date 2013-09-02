@@ -1,8 +1,21 @@
 PATH=/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/git/bin
 
-PATH=$PATH:$HOME/.rvm/bin:
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin
+
+# Ruby gems
+PATH=$PATH:$HOME/.rvm/gems/ruby-2.0.0-p247/bin:$HOME/.rvm/gems/ruby-2.0.0-p247@global/bin:$HOME/.rvm/rubies/ruby-2.0.0-p247/bin
+
+# Personal scripts found in .dotfiles/bin
 PATH=$PATH:$HOME/.dotfiles/bin
+
+# Python
 PATH=$PATH:/Library/Frameworks/Python.framework/Versions/2.7/bin
+
+# Android SDK
 PATH=$PATH:$HOME/Libs/android-sdk/tools:$HOME/Libs/android-sdk/platform-tools
+
+# MySQL
+PATH=$PATH:/usr/local/mysql/bin
 
 export PATH
