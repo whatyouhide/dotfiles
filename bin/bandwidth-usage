@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# get the current number of bytes in and bytes out
+myvar1=`netstat -ib | grep -e "en1" -m 1 | awk '{print $7}'` #  bytes in
+myvar3=`netstat -ib | grep -e "en1" -m 1 | awk '{print $10}'` # bytes out
+
+SLEEPTIME=0.2
+
+# wait
+sleep $SLEEPTIME
+
+# get the number of bytes in and out one second later
+myvar2=`netstat -ib | grep -e "en1" -m 1 | awk '{print $7}'` # bytes in again
+myvar4=`netstat -ib | grep -e "en1" -m 1 | awk '{print $10}'` # bytes out again
+
+# find the difference between bytes in and out during that one second
+subin=$(($myvar2 - $myvar1))
+subout=$(($myvar4 - $myvar3))
+
+# convert bytes to kilobytes
+kbin=`echo "scale=2; $subin/1024;" | bc`
+kbout=`echo "scale=2; $subout/1024;" | bc`
+
+# convert to kb/sec
+rate=`echo 1/$SLEEPTIME | bc`
+kbins=`echo $kbin*$rate | bc`
+kbouts=`echo $kbout*$rate | bc`
+
+# print the results
+echo "$kbins Kb/sec (in)"
+echo "$kbouts Kb/sec (out)"
