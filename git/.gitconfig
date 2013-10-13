@@ -49,3 +49,7 @@
 [user]
 	name = Andrea Leopardi
 	email = an.leopardi@gmail.com
+[credential]
+	helper = osxkeychain
+[push]
+	default = matching
