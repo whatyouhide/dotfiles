@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # classic dotfiles
-for link in $HOME/.dotfiles/.{bash_profile,bashrc,inputrc,vim,vimrc}; do
+for link in $HOME/.dotfiles/.{bash_profile,bashrc,inputrc,vim,vimrc,remediarc}; do
 	ln -sv $link $HOME
 done
 

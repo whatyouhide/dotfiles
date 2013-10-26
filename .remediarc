@@ -1,0 +1,7 @@
+---
+from_dir: ~/Downloads
+to_dir: /Volumes/Media (Drive 1)/TV Shows
+to_dir_eng: /Volumes/Media (Drive 1)/TV Shows (English)
+substitutions:
+  Grey S Anatomy: Grey's Anatomy
+  Greys Anatomy: Grey's Anatomy
