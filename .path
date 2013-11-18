@@ -1,4 +1,4 @@
-PATH=/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/git/bin
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/git/bin
 
 # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/.rvm/bin
