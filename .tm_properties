@@ -1,0 +1,62 @@
+# Settings
+
+encoding         = UTF-8
+fontName         = "Menlo"
+fontSize         = 12
+lineEndings      = '\n'
+showInvisibles   = false
+softWrap         = true
+tabSize          = 2
+
+# Hide log, vendor and tmp directories from search popups.
+
+myExtraExcludes = "log,vendor,tmp"
+excludeInFileChooser  = "{$excludeInFileChooser,$myExtraExcludes}" 
+excludeInFolderSearch = "{$excludeInFolderSearch,$myExtraExcludes}" 
+fileBrowserGlob  = "{*,.tm_properties,.htaccess}"
+
+# Variables
+
+PATH   = "$PATH:$HOME/Scripts"
+TM_GIT = "/usr/bin/git"
+TM_RUBY = "/Users/Hiltmon/.rvm/bin/rvm-auto-ruby"
+
+[ text ]
+spellChecking    = true
+softWrap         = false
+wrapColumn       = "Use Window Frame"
+softTabs         = true
+tabSize          = 2
+
+[ text.plain ]
+spellChecking    = true
+softWrap         = true
+wrapColumn       = "Use Window Frame"
+softTabs         = false
+tabSize          = 4
+
+[ text.html.markdown ]
+spellChecking    = true
+softWrap         = true
+wrapColumn       = "Use Window Frame"
+softTabs         = false
+tabSize          = 4
+
+[ source ]
+softWrap         = true
+wrapColumn       = "Use Window Frame"
+softTabs         = true
+tabSize          = 2
+
+[ source.plist ]
+softTabs       = false
+tabSize        = 4
+
+[ source.tm-properties ]
+spellChecking  = false
+
+[ "{Capfile,Gemfile,Gemfile.lock,Guardfile}" ]
+fileType         = source.ruby
+
+[ Procfile ]
+fileType         = source.yaml
