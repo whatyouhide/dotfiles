@@ -25,3 +25,4 @@ shopt -s nocaseglob
 # Add tab completion for `defaults read|write NSGlobalDomain`
 # You could just use `-g` instead, but I like being explicit
 complete -W "NSGlobalDomain" defaults
+export PATH=/Users/ironmac/.rvm/gems/ruby-2.0.0-p247/bin:/Users/ironmac/.rvm/gems/ruby-2.0.0-p247@global/bin:/Users/ironmac/.rvm/rubies/ruby-2.0.0-p247/bin:/Users/ironmac/.rvm/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/git/bin:/Users/ironmac/.dotfiles/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/ironmac/Libs/android-sdk/tools:/Users/ironmac/Libs/android-sdk/platform-tools:/usr/local/mysql/bin:/usr/local/mysql/bin
