@@ -1,0 +1,22 @@
+PATH=/usr/local/sbin
+PATH=$PATH:/usr/local/bin
+PATH=$PATH:/usr/bin
+PATH=$PATH:/usr/sbin
+PATH=$PATH:/bin
+PATH=$PATH:/sbin
+PATH=$PATH:/usr/local/git/bin
+
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin
+
+# Ruby gems
+PATH=$PATH:$HOME/.rvm/gems/ruby-2.0.0-p247/bin:$HOME/.rvm/gems/ruby-2.0.0-p247@global/bin:$HOME/.rvm/rubies/ruby-2.0.0-p247/bin
+
+# Personal scripts found in .dotfiles/bin
+PATH=$PATH:$HOME/.dotfiles/bin
+
+# Android SDK
+PATH=$PATH:$HOME/Libs/android-sdk/tools:$HOME/Libs/android-sdk/platform-tools
+
+
+export PATH
