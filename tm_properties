@@ -17,9 +17,7 @@ fileBrowserGlob  = "{*,.tm_properties,.htaccess}"
 
 # Variables
 
-PATH   = "$PATH:$HOME/Scripts"
 TM_GIT = "/usr/bin/git"
-TM_RUBY = "/Users/Hiltmon/.rvm/bin/rvm-auto-ruby"
 
 [ text ]
 spellChecking    = true
