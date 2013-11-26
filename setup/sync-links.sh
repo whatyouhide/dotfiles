@@ -1,14 +1,25 @@
 #!/bin/bash
 
-dotfiles=(bash_profile bashrc inputrc vim vimrc remediarc tm_properties)
+dotfiles=(bash_profile bashrc inputrc vim vimrc remediarc tm_properties git/.gitconfig)
 
 for dotfile in "${dotfiles[@]}"; do
-    if [ -h "$HOME/.$dotfile" ]; then
-        echo -e "\033[1;31m$HOME/.$dotfile\033[0m already exists."
+
+    orig_df="$HOME/.dotfiles/$dotfile"
+    home_df="null"
+    
+
+    # Add a dot before the name of the file if it hasn't one already
+    if [[ `basename "$orig_df"` == .* ]]; then
+        home_df="$HOME/`basename $dotfile`"
     else
-        ln -sv "$HOME/.dotfiles/${dotfile}" "$HOME/.$dotfile"
+        home_df="$HOME/.`basename $dotfile`"
+    fi
+
+        
+    if [ -h "$home_df" ]; then
+        echo -e "$home_df \033[1;31malready exists\033[0m (couldn't link $orig_df)"
+    else
+        ln -s "$orig_df" "$home_df"
+        echo -e "\033[1;32mLinked\033[0m $orig_df to $home_df"
     fi
 done
-
-# stuff hidden inside folders
-ln -sv $HOME/.dotfiles/git/.gitconfig $HOME
