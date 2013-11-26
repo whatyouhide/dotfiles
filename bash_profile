@@ -1,7 +1,7 @@
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases, ~/.path and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
-for file in ~/.dotfiles/{extra,bash_prompt,exports,aliases,functions,path}; do
-	[ -r "$file" ] && source "$file"
+for file in ~/.dotfiles/bash/*; do
+	[ -r "$file" ] && source "$file"  # (note: -r is true is the file is readable by you)
 done
 unset file
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dotfiles=(bash_profile bashrc extra inputrc vim vimrc remediarc tm_properties)
+dotfiles=(bash_profile bashrc inputrc vim vimrc remediarc tm_properties)
 
 for dotfile in "${dotfiles[@]}"; do
     if [ -h "$HOME/.$dotfile" ]; then
