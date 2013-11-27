@@ -1,6 +1,16 @@
 #!/bin/bash
 
-dotfiles=(bash_profile bashrc inputrc vim vimrc remediarc tm_properties git/.gitconfig)
+dotfiles=(
+    bash_profile
+    bashrc
+    inputrc
+    vim
+    vimrc
+    remediarc
+    tm_properties
+    git/.gitconfig
+    irbrc
+)
 
 for dotfile in "${dotfiles[@]}"; do
 
