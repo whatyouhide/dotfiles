@@ -1,5 +1,4 @@
-# Settings
-
+# General settings
 encoding         = UTF-8
 fontName         = "Menlo"
 fontSize         = 12
@@ -8,17 +7,25 @@ showInvisibles   = false
 softWrap         = true
 tabSize          = 2
 
-# Hide log, vendor and tmp directories from search popups.
 
+# Hide log, vendor and tmp directories from search popups.
 myExtraExcludes = "log,vendor,tmp"
 excludeInFileChooser  = "{$excludeInFileChooser,$myExtraExcludes}" 
 excludeInFolderSearch = "{$excludeInFolderSearch,$myExtraExcludes}" 
 fileBrowserGlob  = "{*,.tm_properties,.htaccess}"
 
-# Variables
 
+# Show dotfiles...
+include = "{$include,.*}"
+# ...and hide specific stuff
+exclude = "{$exclude,.git}"
+
+
+# Variables
 TM_GIT = "/usr/bin/git"
 
+
+# Per type settings
 [ text ]
 spellChecking    = true
 softWrap         = false
