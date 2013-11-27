@@ -1,15 +1,27 @@
 #!/bin/bash
 
+# Links all the specified dotfiles inside ~.
+# extra/ is for the files you think are useless
+# for other people (should they fork/clone your repo), like
+# configuration files for tools only you use and stuff like that.
+# You can keep it empty if you want.
+
+
+# NOTE: if the cmdline argument "--after-cleaning" is passed
+# to this script, it will remove all the previously linked dotfiles
+# before re-linking them.
+
+
 dotfiles=(
     bash_profile
     bashrc
     inputrc
     vim
     vimrc
-    remediarc
     tm_properties
     git/.gitconfig
     irbrc
+    extra/*
 )
 
 for dotfile in "${dotfiles[@]}"; do
@@ -24,7 +36,13 @@ for dotfile in "${dotfiles[@]}"; do
     else
         home_df="$HOME/.`basename $dotfile`"
     fi
-
+    
+    # Clean 
+    if [[ $1 == "--after-cleaning" ]]; then
+        rm -r "$home_df"
+        echo -e "\033[1;34mRemoved\033[0m $home_df"
+        
+    fi
         
     if [ -h "$home_df" ]; then
         echo -e "$home_df \033[1;31malready exists\033[0m (couldn't link $orig_df)"
