@@ -12,7 +12,7 @@
 # before re-linking them.
 
 
-dotfiles=(
+declare -a dotfiles=(
     bash_profile
     bashrc
     inputrc
@@ -26,8 +26,10 @@ dotfiles=(
 
 for dotfile in "${dotfiles[@]}"; do
 
-    orig_df="$HOME/.dotfiles/$dotfile"
+    orig_df=$HOME/.dotfiles/$dotfile
     home_df="null"
+    
+    echo $orig_df
     
 
     # Add a dot before the name of the file if it hasn't one already
@@ -39,11 +41,10 @@ for dotfile in "${dotfiles[@]}"; do
     
     # Clean 
     if [[ $1 == "--after-cleaning" ]]; then
-        rm -r "$home_df"
-        echo -e "\033[1;34mRemoved\033[0m $home_df"
-        
+        rm -r "$home_df" && echo -e "\033[1;34mRemoved\033[0m $home_df"
     fi
-        
+
+    # Link  
     if [ -h "$home_df" ]; then
         echo -e "$home_df \033[1;31malready exists\033[0m (couldn't link $orig_df)"
     else
