@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+
+$dotfiles = %w{
+  bash_profile
+  bashrc
+  inputrc
+  vim
+  vimrc
+  tm_properties
+  git/.gitconfig
+  irbrc
+  extra/*
+}
+
+GREEN = "\033[1;32m"
+VIOLET = "\033[1;34m"
+RED = "\033[1;31m"
+E = "\033[0m"
+
+# Prepends a "." to a filename if it hasn't already
+def dot(file)
+  file =~ /^\./ ? file : ".#{file}"
+end
+
+# Links a file (given its path) to ~, prepending a "." to it if necessary
+def link(source_path, force=false)  
+  dest_path = File.join Dir.home, dot(File.basename source_path)
+
+  if File.exists? dest_path and force
+    File.delete dest_path
+    puts "#{VIOLET}Removed#{E} #{dest_path}"
+  elsif File.exists? dest_path
+    puts "#{dest_path} #{RED}already exists#{E} (couldn't link #{source_path})"
+    return
+  end
+
+  # Effective link
+  File.symlink(source_path, dest_path)  
+  puts "#{GREEN}Linked#{E} #{source_path} to #{dest_path}"
+end
+
+# Expands a given dotfile name (taken from $dotfile)
+def expand(dotfile)
+  Dir.glob(File.join(Dir.home, ".dotfiles", dotfile))
+end
+
+# Expand every $dotfile, flatten the resulting array and link each element)
+$dotfiles.map { |df| expand df }.flatten.each do |df_path|
+  link(df_path, ARGV[0] == "--after-cleaning")
+end
+
