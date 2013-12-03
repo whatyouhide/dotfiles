@@ -13,5 +13,8 @@ PATH=$PATH:$HOME/.dotfiles/bin
 PATH=$PATH:$HOME/Libs/android-sdk/tools
 PATH=$PATH:$HOME/Libs/android-sdk/platform-tools
 
+# Pear (PHP package manager)
+PATH=$PATH:/usr/local/pear/bin
+
 
 export PATH
