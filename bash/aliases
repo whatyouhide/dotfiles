@@ -8,6 +8,9 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 alias back="cd -"
 
+alias tmp="cd ~/tmp"
+alias dump="cd ~/Dropbox/Dump"
+alias dotfilez="cd ~/.dotfiles"
 
 # Be nice
 alias please=sudo
