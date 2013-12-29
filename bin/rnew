@@ -1,0 +1,9 @@
+#/urs/bin/env ruby -w
+
+path = ARGV[0]
+fail "Specify the path of the file to create" unless path
+
+File.open(path, 'w') { |f| f.puts "#/urs/bin/env ruby -w\n" }
+File.chmod(0755, path)
+
+system "open", path
