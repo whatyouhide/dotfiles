@@ -48,4 +48,4 @@ brew doctor
 
 
 # Install cask applications
-~/.dotfiles/setup/cask-apps.sh
+~/.dotfiles/setup/helpers/cask-apps.sh
