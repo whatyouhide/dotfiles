@@ -8,6 +8,7 @@ brew update
 echo 'Upgrading existing formulae...'
 brew upgrade
 
+
 # Install GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
 echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
@@ -28,12 +29,15 @@ brew install ack
 brew install git
 brew install rename
 brew install tree
+brew install imagesnap
 
 # Install wget with IRI support
 brew install wget --enable-iri
 
-# Cmd-line picture snapper (used to snap a picture after every commit)
-brew install imagesnap
+# Install Cask (OS X app installer - brew-like)
+brew tap phinze/homebrew-cask
+brew install brew-cask
+
 
 # Remove outdated versions from the cellar
 'Running brew cleanup...'
@@ -41,3 +45,7 @@ brew cleanup -s
 
 echo 'Running brew doctor...'
 brew doctor
+
+
+# Install cask applications
+~/.dotfiles/setup/cask-apps.sh
