@@ -46,8 +46,11 @@ function git_info() {
 
 	# check if it's dirty (via github.com/sindresorhus/pure)
 	dirty=$(git diff --quiet --ignore-submodules HEAD &>/dev/null; [ $? -eq 1 ]&& echo -e "*")
+  
+  # check if there are new files (added, but never committeed)
+  addedfiles=$([[ -n $(git ls-files --others --exclude-standard) ]] && echo "+")
 
-	echo $WHITE" on "$PURPLE$branch$dirty
+	echo $WHITE" on "$PURPLE$branch$dirty$addedfiles
 }
 
 # Only show username/host if not default
