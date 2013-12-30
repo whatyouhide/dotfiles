@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Make sure we’re using the latest Homebrew
 echo 'Updating brew...'
@@ -37,6 +37,9 @@ brew install wget --enable-iri
 # Install Cask (OS X app installer - brew-like)
 brew tap phinze/homebrew-cask
 brew install brew-cask
+
+# Git bash-completion
+brew install bash-completion
 
 
 # Remove outdated versions from the cellar
