@@ -13,6 +13,7 @@ brew upgrade
 brew install coreutils
 echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
 
+
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew install findutils
 
@@ -24,22 +25,36 @@ brew tap homebrew/dupes
 brew install homebrew/dupes/grep
 brew tap josegonzalez/homebrew-php
 
+
 # Install everything else
 brew install ack
 brew install git
 brew install rename
 brew install tree
 brew install imagesnap
-
-# Install wget with IRI support
 brew install wget --enable-iri
+brew install bash-completion
+brew install v8
+brew install git-ftp
 
+
+# Cask applications
 # Install Cask (OS X app installer - brew-like)
 brew tap phinze/homebrew-cask
 brew install brew-cask
 
-# Git bash-completion
-brew install bash-completion
+# Apps
+brew cask install alfred
+brew cask install google-chrome
+brew cask install google-chrome-canary
+brew cask install caffeine
+brew cask install ynab
+brew cask install appcleaner
+brew cask install evernote
+brew cask install plex-home-theater
+brew cask install textmate
+brew cask install vlc
+
 
 
 # Remove outdated versions from the cellar
@@ -48,7 +63,3 @@ brew cleanup -s
 
 echo 'Running brew doctor...'
 brew doctor
-
-
-# Install cask applications
-~/.dotfiles/setup/helpers/cask-apps.sh
