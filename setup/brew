@@ -44,6 +44,7 @@ brew tap phinze/homebrew-cask
 brew install brew-cask
 
 # Apps
+brew cask install iterm2
 brew cask install alfred
 brew cask install google-chrome
 brew cask install google-chrome-canary
@@ -54,7 +55,15 @@ brew cask install evernote
 brew cask install plex-home-theater
 brew cask install textmate
 brew cask install vlc
-
+brew cask install hipchat
+brew cask install flux
+brew cask install geektool
+brew cask install the-unarchiver
+brew cask install spectacle
+brew cask install copy
+brew cask install dropbox
+brew cask install droplr
+brew cask install mamp
 
 
 # Remove outdated versions from the cellar
