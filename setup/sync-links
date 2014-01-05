@@ -9,6 +9,7 @@ $dotfiles = %w{
   tm_properties
   git/.gitconfig
   irbrc
+  gemrc
   extra/*
 }
 
