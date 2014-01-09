@@ -9,9 +9,4 @@ PATH=$PATH:/usr/local/git/bin
 # Personal scripts found in .dotfiles/bin
 PATH=$PATH:$HOME/.dotfiles/bin
 
-# Android SDK
-PATH=$PATH:$HOME/Libs/android-sdk/tools
-PATH=$PATH:$HOME/Libs/android-sdk/platform-tools
-
-
 export PATH
