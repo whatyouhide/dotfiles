@@ -5,6 +5,13 @@ This repository is actually almost a copy of [Paul Irish's](https://github.com/p
 These are my (and Paul's and Mathias') dotfiles, but you're free (and encouraged) to steal them and do whatever you want to them.
 This whole repository makes the smallest possible number of assumptions, so it should work pretty well on any OS X machine (and on Linux paying some more attention).
 
+
+### Bash
+
+#### Sourcing
+For files you want to `source` in bash/zsh (like `git-completion.sh` maybe), just put them inside `bash/sources`.
+
+
 #### A note on git
 
 This is another tip I stole from Paul (he showed this at a talk sometimes ago): taking a picture of yourself every time you commit on a repo.

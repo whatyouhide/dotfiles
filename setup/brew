@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Make sure we’re using the latest Homebrew
 echo 'Updating brew...'
@@ -8,9 +8,11 @@ brew update
 echo 'Upgrading existing formulae...'
 brew upgrade
 
+
 # Install GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
 echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
+
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew install findutils
@@ -23,17 +25,46 @@ brew tap homebrew/dupes
 brew install homebrew/dupes/grep
 brew tap josegonzalez/homebrew-php
 
+
 # Install everything else
 brew install ack
 brew install git
 brew install rename
 brew install tree
-
-# Install wget with IRI support
-brew install wget --enable-iri
-
-# Cmd-line picture snapper (used to snap a picture after every commit)
 brew install imagesnap
+brew install wget --enable-iri
+brew install bash-completion
+brew install v8
+brew install git-ftp
+
+
+# Cask applications
+# Install Cask (OS X app installer - brew-like)
+brew tap phinze/homebrew-cask
+brew install brew-cask
+
+# Apps
+brew cask install iterm2
+brew cask install alfred
+brew cask install google-chrome
+brew cask install google-chrome-canary
+brew cask install caffeine
+brew cask install ynab
+brew cask install appcleaner
+brew cask install evernote
+brew cask install plex-home-theater
+brew cask install textmate
+brew cask install vlc
+brew cask install hipchat
+brew cask install flux
+brew cask install geektool
+brew cask install the-unarchiver
+brew cask install spectacle
+brew cask install copy
+brew cask install dropbox
+brew cask install droplr
+brew cask install mamp
+
 
 # Remove outdated versions from the cellar
 'Running brew cleanup...'
