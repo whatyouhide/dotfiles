@@ -18,7 +18,7 @@ fileBrowserGlob  = "{*,.tm_properties,.htaccess}"
 # Show dotfiles...
 include = "{$include,.*}"
 # ...and hide specific stuff
-exclude = "{$exclude,.git,node_modules,.sass-cache}"
+exclude = "{$exclude,.git,node_modules,.sass-cache,.DS_Store}"
 
 
 # Variables
