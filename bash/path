@@ -6,7 +6,10 @@ PATH=$PATH:/bin
 PATH=$PATH:/sbin
 PATH=$PATH:/usr/local/git/bin
 
-# Personal scripts found in .dotfiles/bin
+# Personal scripts found in .dotfiles/bin and .dotfiles/bin/local
+# (for personal use only - you can delete the entire directory content
+# without affecting anything else)
 PATH=$PATH:$HOME/.dotfiles/bin
+PATH=$PATH:$HOME/.dotfiles/bin/local
 
 export PATH
