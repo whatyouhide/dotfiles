@@ -23,6 +23,9 @@ export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 # Template directory which git uses when you 'git init'
 export GIT_TEMPLATE_DIR=$HOME/.dotfiles/git/git-template-dir
 
+# Android SDK location - for Maven
+export ANDROID_HOME=/usr/local/Cellar/android-sdk
+
 
 # CUSTOM EXPORTS
 # this exports are not variables that the shell understands - they're just for user's stuff conveniency
