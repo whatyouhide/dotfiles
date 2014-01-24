@@ -10,6 +10,8 @@
 	df = diff --color --color-words --abbrev
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 	arch = archive --format zip -v -9
+  rank = shortlog -s -n
+  mrg = merge --no-ff
 [color]
 	ui = always
 [core]
