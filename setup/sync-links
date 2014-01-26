@@ -1,17 +1,9 @@
 #!/usr/bin/env ruby
 
-$dotfiles = %w{
-  bash_profile
-  bashrc
-  inputrc
-  vim
-  vimrc
-  tm_properties
-  git/.gitconfig
-  irbrc
-  gemrc
-  extra/*
-}
+$dotfiles = []
+File.open(File.join(Dir.home, '.dotfiles', 'links'), 'r').each_line do |line|
+  $dotfiles << line.strip unless line =~ /^#/ or line =~ /^\s+$/
+end
 
 GREEN = "\033[1;32m"
 VIOLET = "\033[1;34m"
@@ -21,6 +13,11 @@ E = "\033[0m"
 # Prepends a "." to a filename if it hasn't already
 def dot(file)
   file =~ /^\./ ? file : ".#{file}"
+end
+
+# Expands a given dotfile name (taken from $dotfile)
+def expand(dotfile)
+  Dir.glob(File.join(Dir.home, ".dotfiles", dotfile))
 end
 
 # Links a file (given its path) to ~, prepending a "." to it if necessary
@@ -38,11 +35,6 @@ def link(source_path, force=false)
   # Effective link
   File.symlink(source_path, dest_path)  
   puts "#{GREEN}Linked#{E} #{source_path} to #{dest_path}"
-end
-
-# Expands a given dotfile name (taken from $dotfile)
-def expand(dotfile)
-  Dir.glob(File.join(Dir.home, ".dotfiles", dotfile))
 end
 
 # Expand every $dotfile, flatten the resulting array and link each element)

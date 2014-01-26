@@ -1,0 +1,12 @@
+# These are the files (globbable) that will be symlinked to ~.
+# Lines that start with a '#' are comments.
+
+bash_profile
+bashrc
+inputrc
+vim
+vimrc
+tm_properties
+git/.gitconfig
+extra/*
+ruby-config/*
