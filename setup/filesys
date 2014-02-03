@@ -1,6 +1,0 @@
-#/bin/sh
-
-mkdir ~/tmp
-mkdir ~/Transmission
-mkdir ~/Development
-mkdir ~/Sites

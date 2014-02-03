@@ -1,3 +1,17 @@
+namespace :setup do
+    
+  desc "Structures the filesystem adding some directories to ~"
+  task :filesystem do
+    %w{tmp Development Sites Transmission}.map do |el|
+      File.join(Dir.home, el)
+    end.each do |el|
+      makedirs el
+    end
+  end
+end
+
+
+
 desc "Symlink the config files listed in .dotfiles/links to ~ after prepending them with a '.'"
 task :symlink, :force do |t, args|
   
@@ -40,4 +54,3 @@ task :symlink, :force do |t, args|
   end
 
 end
-  
