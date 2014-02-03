@@ -24,6 +24,10 @@ alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.c
 alias cl=clear
 
 
+# A better `tree` output
+alias tr="tree -a -C -I \".git\""
+
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -115,10 +119,6 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-
-# PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
-# alias plistbuddy="/usr/libexec/PlistBuddy"
 
 
 # One of @janmoesen’s ProTip™s
