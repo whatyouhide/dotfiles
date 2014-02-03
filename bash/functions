@@ -93,30 +93,6 @@ function tmpdir() {
 	return 0
 }
 
-
-# prints source code to PDF using the specified language highlighting
-function print-souce-code() {
-	# check if variables are null
-	if [[ -z "$1" || -z "$2" || -z "$3" ]]; then
-		echo "Please specify source/target file(s) AND highlighting language"
-		return 1
-	fi
-
-	sourcefiles="$1"
-	targetfile="$2"
-	language=$3
-	color=""
-
-	if [[ "$4" == "-c" ]]; then
-		color="--color"
-	fi
-
-	enscript "$sourcefiles" --line-numbers --highlight=$language $color -o - | ps2pdf - "$targetfile"
-
-	echo "Output file in $targetfile"
-}
-
-
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
 	local port="${1:-8000}"
