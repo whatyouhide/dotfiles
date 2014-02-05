@@ -12,6 +12,7 @@
 	arch = archive --format zip -v -9
   rank = shortlog -s -n
   mrg = merge --no-ff
+  f = flow
 [color]
 	ui = always
 [core]
