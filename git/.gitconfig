@@ -13,6 +13,7 @@
   rank = shortlog -s -n
   mrg = merge --no-ff
   f = flow
+  b = branch -v --all
 [color]
 	ui = always
 [core]
