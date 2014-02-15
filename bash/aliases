@@ -114,7 +114,8 @@ alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
 
 # Empty the Trash on all mounted volumes and the main HDD
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
+alias emptytrash="rm -rfv ~/.Trash/*"
+alias emptytrashes="sudo rm -rfv /Volumes/*/.Trashes/*; rm -rfv ~/.Trash/*"
 
 
 # Hide/show all desktop icons (useful when presenting)
