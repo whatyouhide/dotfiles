@@ -63,6 +63,24 @@ function wrappadir() {
 }
 
 
+# Use the zeus gem if available when calling rspec or rails
+# (stolen from https://github.com/thoughtbot/dotfiles)
+function rake() {
+  if [ -S .zeus.sock ]; then
+    zeus rake "$@"
+  else
+    rake "$@"
+  fi
+}
+function rspec() {
+  if [ -S .zeus.sock ]; then
+    zeus rspec "$@"
+  else
+    rspec "$@"
+  fi
+}
+
+
 # creates a temporary dir inside $USRTMPDIR (defined in .exports)
 # passing "clean" to this function removes all the previously generated dirs
 # in $USTTMPDIR; passing nothing creates a dir with a 5 digits name (part of a timestamp)
@@ -117,7 +135,7 @@ AWK
 
 
 # Copy w/ progress
-cp_p () {
+function cp_p () {
   rsync -WavP --human-readable --progress $1 $2
 }
 

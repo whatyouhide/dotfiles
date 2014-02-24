@@ -38,3 +38,4 @@ Thumbs.db
 *.sublime-workspace
 .sass-cache
 node_modules
+.zeus.sock
