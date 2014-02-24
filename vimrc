@@ -15,3 +15,6 @@ let mapleader=","
 set backupdir=/tmp
 set directory=/tmp
 set undodir=/tmp
+
+" Options for git commits
+autocmd Filetype gitcommit spell textwidth=72

@@ -36,6 +36,7 @@ Thumbs.db
 # Custom stuff #
 ################
 *.sublime-workspace
+*.sublime-project
 .sass-cache
 node_modules
 .zeus.sock
