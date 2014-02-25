@@ -67,16 +67,16 @@ function wrappadir() {
 # (stolen from https://github.com/thoughtbot/dotfiles)
 function rake() {
   if [ -S .zeus.sock ]; then
-    zeus rake "$@"
+    command zeus rake "$@"
   else
-    rake "$@"
+    command rake "$@"
   fi
 }
 function rspec() {
   if [ -S .zeus.sock ]; then
-    zeus rspec "$@"
+    command zeus rspec "$@"
   else
-    rspec "$@"
+    command rspec "$@"
   fi
 }
 
