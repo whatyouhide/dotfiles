@@ -72,13 +72,6 @@ function rake() {
     command rake "$@"
   fi
 }
-function rspec() {
-  if [ -S .zeus.sock ]; then
-    command zeus rspec "$@"
-  else
-    command rspec "$@"
-  fi
-}
 
 
 # creates a temporary dir inside $USRTMPDIR (defined in .exports)
