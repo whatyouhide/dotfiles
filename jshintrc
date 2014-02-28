@@ -1,7 +1,7 @@
 {
   // Enforcing options
   "bitwise": true,
-  "camelCase": true,
+  "camelcase": true,
   "curly": true,
   "eqeqeq": true,
   "forin": true,
@@ -11,7 +11,6 @@
   "latedef": true,
   "newcap": true,
   "noarg": true,
-  "nonbsp": true,
   "nonew": true,
   "plusplus": true,
   "quotmark": true,
