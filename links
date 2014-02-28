@@ -4,6 +4,7 @@
 bash_profile
 bashrc
 inputrc
+jshintrc
 vim
 vimrc
 tm_properties
