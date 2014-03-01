@@ -5,6 +5,7 @@ bash_profile
 bashrc
 inputrc
 jshintrc
+jscs.json
 vim
 vimrc
 tm_properties
