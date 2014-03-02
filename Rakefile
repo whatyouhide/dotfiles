@@ -13,8 +13,8 @@ end
 
 
 desc "Symlink the config files listed in .dotfiles/links to ~ after prepending them with a '.'"
-task :symlink, :force do |t, args|
-  
+task :symlink, :force, :clean do |t, args|
+
   dotfiles = []
   File.open(File.join(Dir.home, '.dotfiles', 'links'), 'r').each_line do |line|
     dotfiles << line.strip unless line =~ /^#/ or line =~ /^\s+$/
@@ -38,9 +38,13 @@ task :symlink, :force do |t, args|
   # Expand every $dotfile, flatten the resulting array and link each element)
   dotfiles.map { |df| expand_path(df) }.flatten.each do |df_path|
     dest_path = File.join(Dir.home, prepend_dot(File.basename df_path))
-    
+
     if File.exists?(dest_path)
       if args[:force]
+        File.delete dest_path
+        puts "#{VIOLET}Removed#{E} #{dest_path}"
+        next
+      elsif args[:clean]
         File.delete dest_path
         puts "#{VIOLET}Removed#{E} #{dest_path}"
       else
@@ -48,8 +52,8 @@ task :symlink, :force do |t, args|
         next
       end
     end
-    
-    File.symlink(df_path, dest_path)  
+
+    File.symlink(df_path, dest_path)
     puts "#{GREEN}Linked#{E} #{df_path} to #{dest_path}"
   end
 
