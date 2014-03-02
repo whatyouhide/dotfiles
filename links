@@ -6,6 +6,7 @@ bashrc
 inputrc
 jshintrc
 jscs.json
+rubocop.yml
 vim
 vimrc
 tm_properties

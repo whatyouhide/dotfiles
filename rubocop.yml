@@ -1,0 +1,125 @@
+# https://github.com/bbatsov/rubocop
+
+AllCops:
+  Excludes:
+    - vendor
+
+# If writing numeric literals longer than `MinDigits`, use undescores
+# to separate every 3 digits (only in the integer portion).
+NumericLiterals:
+  MinDigits: 5
+
+# Don't use parentheses for methods with no arguments.
+MethodCallParentheses:
+  Enabled: true
+
+# Use `fail` instead of `raise` to die when raising an exception.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+SignalException:
+  Enabled: true
+
+# Enforce spaces around curly braces (eg. `{ 'spaces around me' }`).
+# Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces
+SpaceAroundBlockBraces:
+  SpaceBeforeBlockParameters: true
+  Enabled: true
+
+# Don't use spaces inside array brackets (eg. `['good', 'array']`).
+SpaceInsideBrackets:
+  Enabled: true
+
+# Don't put a trailing comma after the last element in a multiline hash
+# Configuration parameters: EnforcedStyleForMultiline, SupportedStyles.
+TrailingComma:
+  Enabled: true
+
+# Use %r (for Regexps) only for Regexp literals with more than MaxSlashes.
+# With MaxSlashes to 0, use %r whenever you like.
+RegexpLiteral:
+  MaxSlashes: 0
+
+# Prefix method calls with `self` whenever you like.
+RedundantSelf:
+  Enabled: false
+
+# Insert empty lines before a block start and before its `end`.
+EmptyLinesAroundBody:
+  Enabled: false
+
+# When calling a method with a negative number literal as the first argument,
+# parenthesize the method (eg `longitude(-4.33)`).
+AmbiguousOperator:
+  Enabled: true
+
+# Leave empty lines wherever you want.
+EmptyLines:
+  Enabled: false
+
+# Don't use braces around hash parameters.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+BracesAroundHashParameters:
+  Enabled: true
+
+# Avoid using {...} for multiline blocks.
+Blocks:
+  Enabled: true
+
+# When chaining method calls, place the dots at the end of the lines.
+# Configuration parameters: Style, SupportedStyles.
+DotPosition:
+  Style: trailing
+  Enabled: true
+
+# Use the new "sexy" hash syntax ({ this: 'is an hash' }).
+HashSyntax:
+  Enabled: true
+
+# Align the parameters of a function indenting them only one level.
+AlignParameters:
+  Enabled: false
+
+# Disable this in a single file if needed (look at some migrations).
+# Configuration parameters: CountComments.
+MethodLength:
+  CountComments: false
+  Max: 12
+  Enabled: true
+
+# You can avoid leaving an empty line around access modifiers (private etc.).
+EmptyLinesAroundAccessModifier:
+  Enabled: false
+
+# Assign a variable and never use it.
+UselessAssignment:
+  Enabled: true
+
+# Use ' or " at your judgement.
+StringLiterals:
+  Enabled: false
+
+# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SupportedStyles.
+SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+  Enabled: true
+
+# Indentation consistency.
+# You can indent however you want. With great powers...
+IndentationConsistency:
+  Enabled: false
+
+# Max line length. 80 is really too short.
+LineLength:
+  Max: 100
+
+# Don't document anything. For now...
+Documentation:
+  Enabled: false
+
+# If enabled, don't use `unless` unless you're on a single line body.
+IfUnlessModifier:
+  Enabled: false
+
+# Don't leave trailing blank lines.
+TrailingBlankLines:
+  Enabled: true
