@@ -1,19 +1,16 @@
 [alias]
 	c = commit
-	cm = commit -m
-	cam = commit -am
-	up = pull
-	p = push
 	st = status
 	s = status -s
-	aa = add .
 	df = diff --color --color-words --abbrev
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 	arch = archive --format zip -v -9
   rank = shortlog -s -n
   mrg = merge --no-ff
-  f = flow
   b = branch -v --all
+  f = flow
+  fnew = flow feature start
+  fend = flow feature finish
 [color]
 	ui = always
 [core]
