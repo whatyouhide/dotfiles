@@ -3,7 +3,7 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 
 # Make vim the default editor
-export EDITOR="vim"
+export EDITOR=vim
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
