@@ -37,6 +37,9 @@ brew install bash-completion
 brew install v8
 brew install git-ftp
 
+brew install macvim --override-system-vim
+brew install tmux
+
 
 # Cask applications
 # Install Cask (OS X app installer - brew-like)
