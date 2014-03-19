@@ -57,14 +57,6 @@ fi
 alias c='pygmentize -O style=monokai -f console256 -g'
 
 
-# GIT STUFF
-# Undo a `git push`
-alias undopush="git push -f origin HEAD^:master"
-
-# git root
-alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
-
-
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
@@ -73,23 +65,6 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
-
-
-# Flush Directory Service cache
-alias flush="dscacheutil -flushcache"
-
-
-# View HTTP traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-
-
-# Canonical hex dump; some systems have this symlinked
-type -t hd > /dev/null || alias hd="hexdump -C"
-
-
-# OS X has no `md5sum`, so use `md5` as a fallback
-type -t md5sum > /dev/null || alias md5sum="md5"
 
 
 # Trim new lines and copy to clipboard
@@ -103,10 +78,6 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # Shortcuts
 alias g="git"
 alias v="vim"
-
-
-# File size
-alias fs="stat -f \"%z bytes\""
 
 
 # ROT13-encode text. Works for decoding, too! ;)
