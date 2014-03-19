@@ -29,7 +29,6 @@ set noswapfile
 let mapleader=","
 
 " Themeland, finally!
-colorscheme mustang
 
 " Voodoo code for removing trailing whitespace on write.
 autocmd BufWritePre * :%s/\s\+$//e
@@ -63,6 +62,7 @@ nnoremap <Leader>m :Goyo<CR>
 " https://github.com/junegunn/vim-plug)
 call plug#begin()
 Plug 'junegunn/goyo.vim'
+Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'kien/ctrlp.vim'
