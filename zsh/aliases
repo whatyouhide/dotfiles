@@ -1,17 +1,14 @@
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
-alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 alias tmp="cd ~/tmp"
 alias dotfilez="cd ~/.dotfiles"
 alias sublime-settings='cd "$HOME/Library/Application Support/Sublime Text 3/Packages/User"'
 
-alias mamp_mysql="/Applications/MAMP/Library/bin/mysql"
 
-
-# `cat` with beautiful colors. requires Pygments installed.
+# `cat` with beautiful colors. Requires Pygments installed.
 alias c='pygmentize -O style=monokai -f console256 -g'
 
 
@@ -23,8 +20,6 @@ else # OS X `ls`
 fi
 
 
-# List all files colorized in long format
-alias l="ls -lAFGh ${colorflag}"
 # List all files colorized in long format, including dot files
 alias la="ls -lAFGh ${colorflag}"
 
@@ -43,10 +38,6 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
 
 
-# Enhanced WHOIS lookups
-alias whois="whois -h whois-servers.net"
-
-
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
@@ -62,11 +53,10 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 
 
 # One of @janmoesen’s ProTip™s
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+for method in GET HEAD POST PUT DELETE; do
 	alias "$method"="lwp-request -m '$method'"
 done
 
 
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
-alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
