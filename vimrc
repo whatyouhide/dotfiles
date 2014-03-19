@@ -54,11 +54,6 @@ set noswapfile
 let mapleader=","
 
 
-" Themeland, finally!
-set background=dark
-colorscheme base16-ocean
-
-
 " Voodoo code for removing trailing whitespace on write.
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -83,12 +78,24 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
+" Exit from insert mode by typing 'jj'.
+inoremap jj <esc>
 " One less keystroke *every time*.
 nnoremap ; :
 " Ctrl+e in order to Command+T.
 nnoremap <C-e> :CtrlP<CR>
 " Distraction free mode (using Goyo).
 nnoremap <Leader>m :Goyo<CR>
+" Toggle NERDTree (two possibilities).
+nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <F2> :NERDTreeToggle<CR>
+
+
+" Aesthetics stuff.
+set background=dark
+colorscheme base16-ocean
+" GUI options should stay inside gvimrc
+
 
 
 " Plugins configurations.
