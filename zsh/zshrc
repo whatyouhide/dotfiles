@@ -19,6 +19,9 @@ source $ZSH/oh-my-zsh.sh
 # (remove all the default oh-my-zsh aliases)
 unalias -m "*"
 
+# Source z, oh god z.
+. ~/.z-code/z.sh
+
 # Source other configuration files.
 source ~/.dotfiles/zsh/aliases
 source ~/.dotfiles/zsh/zsh-options
