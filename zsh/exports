@@ -1,0 +1,21 @@
+# Prefer US English and use UTF-8
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US"
+
+# Make vim the default editor.
+export EDITOR=vim
+# Don’t clear the screen after quitting a manual page.
+export MANPAGER="less -X"
+
+# Template directory which git uses when you 'git init'.
+export GIT_TEMPLATE_DIR=$HOME/.dotfiles/git/git-template-dir
+
+# CUSTOM EXPORTS
+# this exports are not variables that the shell understands,
+# they're just for user's stuff conveniency.
+
+# Where to store gitshots.
+export GITSHOTS="$HOME/Copy/Images/gitshots"
+
+# My user tmp folder is located at ~/tmp.
+export USRTMPDIR="$HOME/tmp"
