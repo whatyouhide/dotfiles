@@ -15,6 +15,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'endel/vim-github-colorscheme'
 Bundle 'chriskempson/base16-vim'
 
