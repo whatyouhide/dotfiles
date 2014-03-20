@@ -4,8 +4,9 @@ export LANG="en_US"
 
 # Make vim the default editor.
 export EDITOR=vim
-# Don’t clear the screen after quitting a manual page.
+# Don’t clear the screen after quitting less.
 export MANPAGER="less -X"
+export PAGER="less -X"
 
 # Template directory which git uses when you 'git init'.
 export GIT_TEMPLATE_DIR=$HOME/.dotfiles/git/git-template-dir
