@@ -114,7 +114,7 @@ LineLength:
 
 # Don't document anything. For now...
 Documentation:
-  Enabled: false
+  Enabled: true
 
 # If enabled, don't use `unless` unless you're on a single line body.
 IfUnlessModifier:
