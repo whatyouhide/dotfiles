@@ -97,10 +97,15 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 
 
+" Splits handling.
+" Splits 'naturally' by opening new splits below/right to the current one.
+set splitbelow
+set splitright
+
+
 " Aesthetics stuff.
 set background=dark
 colorscheme base16-ocean
-" GUI options should stay inside gvimrc
 
 
 
