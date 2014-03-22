@@ -82,6 +82,11 @@ nnoremap k gk
 inoremap jj <esc>
 " One less keystroke *every time*.
 nnoremap ; :
+" Move through splits easily.
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
 " Ctrl+e in order to Command+T.
 nnoremap <C-e> :CtrlP<CR>
 " Distraction free mode (using Goyo).
