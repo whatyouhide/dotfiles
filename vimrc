@@ -12,6 +12,7 @@ Bundle 'gmarik/vundle'
 " Bundles finally!
 Bundle 'junegunn/goyo.vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
@@ -115,4 +116,6 @@ let g:goyo_margin_top = 1
 let g:goyo_margin_bottom = 1
 let g:goyo_width = 120
 " Airline
-set laststatus=2 " (always show 'airline')
+set laststatus=2              " (always show 'airline')
+" NERDCommenter
+let NERDSpaceDelims = 1       " (add a space after comment starts)
