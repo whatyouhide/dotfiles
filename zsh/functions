@@ -1,0 +1,6 @@
+# Add an alias to zsh/extra, so that it's not version controlled and can
+# be used in a workstation-specific way.
+add-alias() {
+  echo "alias $1=\"$2\"" >> $HOME/.dotfiles/zsh/extra
+  source ~/.zshrc
+}
