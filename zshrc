@@ -1,19 +1,11 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="suvash"
-
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-
 # Set other oh-my-zsh options (obviously keep this before the oh-my-zsh
 # sourcing in order for oh-my-zsh to see these options). Also set the $PATH
 # before oh-my-zsh in order to solve some issues with RVM.
 source ~/.dotfiles/zsh/zsh-options
+source ~/.dotfiles/zsh/functions
 source ~/.dotfiles/zsh/path
 
 # Source oh-my-zsh.
@@ -26,6 +18,11 @@ unalias -m "*" && source ~/.dotfiles/zsh/aliases
 # Redefine some exports since oh-my-zsh takes a whole bunch of liberties
 # in doing that (see PAGER="less" and not "less -X").
 source ~/.dotfiles/zsh/exports
+
+# Last but not least, source some 'extra' configurations.
+# These are not version controlled and may be used for workstation-specific
+# stuff.
+source ~/.dotfiles/zsh/extra
 
 # Source RVM.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
