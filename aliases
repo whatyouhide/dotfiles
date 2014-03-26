@@ -35,7 +35,7 @@ fi
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias localip="ipconfig getifaddr en0"
 
 
 # Recursively delete `.DS_Store` files
