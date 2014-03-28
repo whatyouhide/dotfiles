@@ -1,14 +1,11 @@
+#!/bin/sh
+
 # Oh My Zsh
 curl -L http://install.ohmyz.sh | sh
 
 # rvm for the rubiess
-curl -L https://get.rvm.io | bash -s stable --ruby
+curl -L https://get.rvm.io | bash -s stable
 
-# homebrew!
-# you need the code CLI tools YOU FOOL.
-ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
-
-# https://github.com/rupa/z
 # z, oh how I love you
 git clone https://github.com/rupa/z.git $HOME/.z-code
 chmod +x $HOME/.z/z.sh
@@ -16,3 +13,8 @@ chmod +x $HOME/.z/z.sh
 
 # for the c alias (syntax highlighted cat)
 sudo easy_install Pygments
+
+# Homebrew
+if [[ "$(~/.dotfiles/bin/which-os)" == "mac" ]]; then
+  ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
+fi
