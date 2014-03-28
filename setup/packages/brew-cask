@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Cask applications
+# Install Cask (OS X app installer - brew-like)
+brew tap phinze/homebrew-cask
+brew install brew-cask
+
+# Utils
+brew cask install spectacle
+brew cask install flux
+brew cask install the-unarchiver
+brew cask install caffeine
+brew cask install appcleaner
+
+# Services
+brew cask install copy
+brew cask install dropbox
+brew cask install evernote
+
+# Developing
+brew cask install mamp
+brew cask install iterm2
+
+# Misc
+brew cask install alfred
+brew cask install google-chrome
+brew cask install google-chrome-canary
+brew cask install ynab
+brew cask install plex-home-theater
+brew cask install vlc

@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# If brew isn't installed, exit with a clean error message.
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Homebrew not installed! Run ~/.dotfiles/setup/base-installs"
+  exit 1
+fi
+
 # Make sure we’re using the latest Homebrew
 echo 'Updating brew...'
 brew update
@@ -33,40 +39,11 @@ brew install rename
 brew install tree
 brew install imagesnap
 brew install wget --enable-iri
-brew install bash-completion
 brew install v8
 brew install git-ftp
 
 brew install macvim --override-system-vim
 brew install tmux
-
-
-# Cask applications
-# Install Cask (OS X app installer - brew-like)
-brew tap phinze/homebrew-cask
-brew install brew-cask
-
-# Apps
-brew cask install iterm2
-brew cask install alfred
-brew cask install google-chrome
-brew cask install google-chrome-canary
-brew cask install caffeine
-brew cask install ynab
-brew cask install appcleaner
-brew cask install evernote
-brew cask install plex-home-theater
-brew cask install textmate
-brew cask install vlc
-brew cask install hipchat
-brew cask install flux
-brew cask install geektool
-brew cask install the-unarchiver
-brew cask install spectacle
-brew cask install copy
-brew cask install dropbox
-brew cask install droplr
-brew cask install mamp
 
 
 # Remove outdated versions from the cellar
