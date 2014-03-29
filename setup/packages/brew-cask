@@ -20,6 +20,7 @@ brew cask install evernote
 # Developing
 brew cask install mamp
 brew cask install iterm2
+brew cask install virtualbox
 
 # Misc
 brew cask install alfred
