@@ -99,4 +99,9 @@ namespace :setup do
       makedirs el
     end
   end
+
+  desc "Add the zsh-syntax-highlighting plugin to oh-my-zsh"
+  task :zsh_syntax_highlighting do
+    system 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
+  end
 end

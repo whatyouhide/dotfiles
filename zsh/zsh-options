@@ -3,9 +3,8 @@
 # time that oh-my-zsh is loaded.
 ZSH_THEME="whatyouhide"
 
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+
+plugins=(git zsh-syntax-highlighting)
 
 
 # Set this to use case-sensitive completion
