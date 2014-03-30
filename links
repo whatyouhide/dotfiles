@@ -3,8 +3,6 @@
 
 zsh/zshrc
 inputrc
-jshintrc
-jscs.json
 vim
 vimrc
 gvimrc
@@ -13,3 +11,4 @@ tm_properties
 git/gitconfig
 extra/*
 ruby-config/*
+js-config/*
