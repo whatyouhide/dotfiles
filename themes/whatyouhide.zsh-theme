@@ -20,13 +20,8 @@ function last_commit_sha() {
 
 # Git prompt infos used by `git_prompt_info`.
 # Suffix and prefix.
-ZSH_THEME_GIT_PROMPT_PREFIX="[%{$fg[yellow]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="[git: %{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}]"
-
-# Ahead: your local branch is ahead of your remote.
-ZSH_THEME_GIT_PROMPT_AHEAD="↑"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}+%{$reset_color%}"
-
 
 
 PROMPT='$(username) ($(host)) ⌘ $(path) $(git_prompt_info)
