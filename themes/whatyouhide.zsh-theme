@@ -13,38 +13,72 @@ function path() {
   echo %{$fg[magenta]%}%~%{$reset_color%}
 }
 
-# Return the short SHA of the last commit if we're in a git repo.
-function last_commit_sha() {
-  echo %{$fg_bold[yellow]%}$(git_prompt_short_sha)%{$reset_color%}
-}
 
-
-# Return true if your local branch is ahead of remote.
-function git_is_ahead() {
-  _INDEX=$(command git status --porcelain -b 2> /dev/null)
-  if $(echo "$_INDEX" | grep '^## .*ahead' &> /dev/null); then
-    return 1
-  else
-    return 0
-  fi
-}
-
-
-ZSH_THEME_GIT_PROMPT_PREFIX="git: "
+# Set some variables to print the git prompt.
+# Ones used by oh-my-zsh:
+ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
+# Custom ones:
 ZSH_THEME_GIT_PROMPT_AHEAD="↑"
+ZSH_THEME_GIT_PROMPT_BEHIND="↓"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="+"
 
-# Git prompt infos used by `git_prompt_info`.
+# Git prompt infos used by `custom_git_prompt`.
 # Suffix and prefix.
-function git_prompt() {
+function git_prompt_addons() {
+  _INDEX=$(command git status --porcelain -b 2> /dev/null)
   _SUFFIX=""
-  if [[ $(git_is_ahead) == 1 ]]; then
-    _SUFFIX="$_SUFFIX$ZSH_THEME_GIT_PROMPT_AHEAD"
+
+  # Check if there are untracked files.
+  if $(echo "$_INDEX" | grep '^??' &> /dev/null); then
+    _SUFFIX="$_SUFFIX$ZSH_THEME_GIT_PROMPT_UNTRACKED"
   fi
-  echo %{$fg[yellow]%}$(git_prompt_info)$_SUFFIX%{$reset_color%}
+
+  # Check if ahead/behind of remote.
+  if $(echo "$_INDEX" | grep '^## .*ahead' &> /dev/null); then
+    _SUFFIX="$_SUFFIX$ZSH_THEME_GIT_PROMPT_AHEAD"
+  elif $(echo "$_INDEX" | grep '^## .*behind' &> /dev/null); then
+    _SUFFIX="$_SUFFIX$ZSH_THEME_GIT_PROMPT_BEHIND"
+  fi
+
+  echo $_SUFFIX
 }
+
+# Print a customized git prompt. This is only a wrapper around oh-my-zsh
+# `git_prompt_info`, with a few addons and colors.
+function custom_git_prompt() {
+  if [[ -z $(git_prompt_info) ]]; then
+    echo ""
+    return
+  fi
+
+  echo "(git: %{$fg[yellow]%}$(git_prompt_info)$(git_prompt_addons)%{$reset_color%})"
+}
+
+
+function available_tools() {
+  _TOOLS=""
+
+  # How to display each tool.
+  _RAKE="%{$fg_bold[red]%}rake%{$reset_color%}"
+  _GRUNT="%{$fg[blue]%}grunt%{$reset_color%}"
+  _VAGRANT="%{$fg_bold[yellow]%}vagrant%{$reset_color%}"
+
+  if [[ -f "Rakefile" ]]; then
+    _TOOLS="$_TOOLS $_RAKE"
+  fi
+  if [[ -f "Gruntfile.coffee" || -f "Gruntfile.js" ]]; then
+    _TOOLS="$_TOOLS $_GRUNT"
+  fi
+  if [[ -f "Vagrantfile" ]]; then
+    _TOOLS="$_TOOLS $_VAGRANT"
+  fi
+
+  echo $_TOOLS
+}
+
 
 # Actual prompts (note that newlines matter).
-PROMPT='$(username) [$(host)] څ $(path) ($(git_prompt))
+PROMPT='$(username) [$(host)] څ $(path) $(custom_git_prompt)
 → '
-RPROMPT='$(last_commit_sha)'
+RPROMPT='$(available_tools)'
