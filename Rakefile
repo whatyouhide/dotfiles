@@ -76,6 +76,17 @@ namespace :symlink do
     Rake::Task['symlink:default'].invoke
   end
 
+  desc "Link zsh themes in zsh/*.zsh-theme to ~/.oh-my-zsh/themes"
+  task :zsh_themes do
+    themes = Dir["zsh/themes/*.zsh-theme"]
+    themes.each do |theme|
+      src = File.join(Dir.home, ".dotfiles", theme)
+      dest = File.join(Dir.home, ".oh-my-zsh", "themes", File.basename(theme))
+      File.symlink(src, dest)
+      puts "Linked #{COLORS[:green]}#{src}#{COLORS[:end]} to #{COLORS[:violet]}#{dest}#{COLORS[:end]}"
+    end
+  end
+
 end
 
 # Generic setup
