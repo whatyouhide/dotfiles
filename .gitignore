@@ -1,5 +1,7 @@
-# Local gitignore - concerning this repository (.dotfiles)
-# Folder view configuration files
+# Vim stuff.
 vim/.netrwhist
+vim/bundle
+
+# Machine-specific config files.
 bash/extra
 zsh/extra
