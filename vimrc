@@ -15,10 +15,11 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp.vim'
 Bundle 'editorconfig/editorconfig-vim'
+Bundle 'matze/vim-move'
+" Language specific.
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'endel/vim-github-colorscheme'
+" Themes.
 Bundle 'chriskempson/base16-vim'
 
 
@@ -71,8 +72,8 @@ autocmd BufRead,BufNewFile *.md setlocal spell  " Markdown
 
 " Remappings.
 " Use hjkl. You don't really have a choice.
-nnoremap <up> <nop>
-nnoremap <down> <nop>
+" nnoremap <up> <nop>
+" nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 inoremap <up> <nop>
@@ -90,13 +91,25 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-" Ctrl+e in order to Command+T.
-nnoremap <C-e> :CtrlP<CR>
 " Distraction free mode (using Goyo).
 nnoremap <Leader>m :Goyo<CR>
-" Toggle NERDTree (two possibilities).
+" Toggle NERDTree.
 nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <F2> :NERDTreeToggle<CR>
+" Insert a blank like below the current one using <Enter>.
+nmap <CR> :set paste<CR>o<Esc>:set nopaste<CR>
+" Move plugin: move lines or blocks of text up/down using Alt+j/k.
+" Note that on a Mac these map to Unicode charactes, so use these:
+" ∆: Alt+j
+" ˚: Alt+k
+nmap ∆ <Plug>MoveLineDown
+nmap <A-j> <Plug>MoveLineDown
+nmap ˚ <Plug>MoveLineUp
+nmap <A-k> <Plug>MoveLineUp
+vmap ∆ <Plug>MoveBlockDown
+vmap <A-j> <Plug>MoveBlockDown
+vmap ˚ <Plug>MoveBlockUp
+vmap <A-k> <Plug>MoveBlockUp
+
 
 
 " Splits handling.
@@ -120,3 +133,5 @@ let g:goyo_width = 120
 set laststatus=2              " (always show 'airline')
 " NERDCommenter
 let NERDSpaceDelims = 1       " (add a space after comment starts)
+" Move
+let g:move_map_keys = 0
