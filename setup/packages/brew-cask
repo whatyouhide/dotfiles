@@ -3,6 +3,7 @@
 # Cask applications
 # Install Cask (OS X app installer - brew-like)
 brew tap phinze/homebrew-cask
+brew tap caskroom/versions
 brew install brew-cask
 
 # Utils
