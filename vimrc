@@ -12,7 +12,7 @@ Bundle 'gmarik/vundle'
 " Bundles finally!
 Bundle 'junegunn/goyo.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
+Bundle 'tomtom/tcomment_vim'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'editorconfig/editorconfig-vim'
@@ -95,6 +95,9 @@ noremap <C-l> <C-w>l
 nnoremap <Leader>m :Goyo<CR>
 " Toggle NERDTree.
 nnoremap <Leader>n :NERDTreeToggle<CR>
+" Comment with \, uncomment with | (using NERDCommenter).
+nnoremap <Leader>r <Plug>NERDComAlignedComment
+nnoremap <bar> <Plug>NERDComUncommentLine
 " Insert a blank like below the current one using <Enter>.
 nmap <CR> :set paste<CR>o<Esc>:set nopaste<CR>
 " Move plugin: move lines or blocks of text up/down using Alt+j/k.
@@ -135,3 +138,5 @@ set laststatus=2              " (always show 'airline')
 let NERDSpaceDelims = 1       " (add a space after comment starts)
 " Move
 let g:move_map_keys = 0
+" TComment
+let g:tcomment#blank_lines = 0
