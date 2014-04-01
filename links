@@ -7,7 +7,6 @@ vim
 vimrc
 gvimrc
 tmux.conf
-tm_properties
 git/gitconfig
 extra/*
 ruby-config/*
