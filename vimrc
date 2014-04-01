@@ -10,13 +10,11 @@ call vundle#rc()
 " Let Vundle manage Vundle, required.
 Bundle 'gmarik/vundle'
 " Bundles finally!
-Bundle 'junegunn/goyo.vim'
-Bundle 'scrooloose/nerdtree'
+Bundle 'matze/vim-move'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'matze/vim-move'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'junegunn/goyo.vim'
 " Language specific.
 Bundle 'kchmck/vim-coffee-script'
 " Themes.
@@ -93,11 +91,6 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 " Distraction free mode (using Goyo).
 nnoremap <Leader>m :Goyo<CR>
-" Toggle NERDTree.
-nnoremap <Leader>n :NERDTreeToggle<CR>
-" Comment with \, uncomment with | (using NERDCommenter).
-nnoremap <Leader>r <Plug>NERDComAlignedComment
-nnoremap <bar> <Plug>NERDComUncommentLine
 " Insert a blank like below the current one using <Enter>.
 nmap <CR> :set paste<CR>o<Esc>:set nopaste<CR>
 " Move plugin: move lines or blocks of text up/down using Alt+j/k.
