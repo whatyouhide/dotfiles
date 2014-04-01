@@ -36,7 +36,7 @@ syntax on
 " Tabs and backspace should behave cool, shouldn't they?
 set tabstop=2                   " tabs are 2 spaces width
 set expandtab                   " expand tabs to spaces
-" set shiftwidth=2                " indent with two spaces
+set shiftwidth=2                " indent with two spaces
 set softtabstop=2               " just make this equal to shiftwidth
 set backspace=indent,eol,start  " WTF backspace?
 
@@ -73,8 +73,8 @@ autocmd BufRead,BufNewFile *.md setlocal spell  " Markdown
 
 " Remappings.
 " Use hjkl. You don't really have a choice.
-" nnoremap <up> <nop>
-" nnoremap <down> <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 inoremap <up> <nop>
