@@ -14,6 +14,8 @@ Bundle 'matze/vim-move'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'bling/vim-airline'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
 Bundle 'junegunn/goyo.vim'
 " Language specific.
 Bundle 'kchmck/vim-coffee-script'
@@ -33,7 +35,7 @@ syntax on
 " Tabs and backspace should behave cool, shouldn't they?
 set tabstop=2                   " tabs are 2 spaces width
 set expandtab                   " expand tabs to spaces
-set shiftwidth=2                " indent with two spaces
+" set shiftwidth=2                " indent with two spaces
 set softtabstop=2               " just make this equal to shiftwidth
 set backspace=indent,eol,start  " WTF backspace?
 
@@ -126,10 +128,14 @@ let g:goyo_margin_top = 1
 let g:goyo_margin_bottom = 1
 let g:goyo_width = 120
 " Airline
-set laststatus=2              " (always show 'airline')
-" NERDCommenter
-let NERDSpaceDelims = 1       " (add a space after comment starts)
+set laststatus=2                                    " always show 'airline'
 " Move
-let g:move_map_keys = 0
+let g:move_map_keys = 0                             " remove default mappings
 " TComment
-let g:tcomment#blank_lines = 0
+let g:tcomment#blank_lines = 0                      " don't comment blank lines
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" YouCompleteMe
+let g:ycm_key_list_select_completion = ['<Down>']
