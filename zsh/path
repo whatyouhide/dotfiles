@@ -11,8 +11,6 @@ PATH=$PATH:/usr/local/git/bin
 
 PATH=$PATH:$HOME/.rvm/bin
 
-PATH=$PATH:/Applications/MAMP/Library/bin
-
 # Personal scripts found in .dotfiles/bin and .dotfiles/bin/local
 # (for personal use only - you can delete the entire directory content
 # without affecting anything else)
