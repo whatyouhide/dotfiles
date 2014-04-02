@@ -82,6 +82,8 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
+" Disable Ex mode. Please.
+map Q <nop>
 " Exit from insert mode by typing 'jj'.
 inoremap jj <esc>
 " One less keystroke *every time*.
