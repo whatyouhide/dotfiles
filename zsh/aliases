@@ -1,7 +1,6 @@
 # Easier navigation: .., ..., ~ and -
-alias ..="cd .."
-alias ...="cd ../.."
 alias -- -="cd -"
+
 
 alias tmp="cd ~/tmp"
 alias dotfilez="cd ~/.dotfiles"
@@ -10,6 +9,11 @@ alias sublime-settings='cd "$HOME/Library/Application Support/Sublime Text 3/Pac
 
 # `cat` with beautiful colors. Requires Pygments installed.
 alias c='pygmentize -O style=monokai -f console256 -g'
+
+# The next few aliases come from inspecting zsh_history and command frequencies.
+alias v='vim'
+alias gr='grunt'
+
 
 
 # Detect which `ls` flavor is in use
@@ -21,7 +25,7 @@ fi
 
 
 # List all files colorized in long format, including dot files
-alias la="ls -lAFGh ${colorflag}"
+alias l="ls -lAFGh ${colorflag}"
 
 
 # Always use color output for `ls`
@@ -49,13 +53,3 @@ alias emptytrashes="sudo rm -rfv /Volumes/*/.Trashes/*; rm -rfv ~/.Trash/*"
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-
-# One of @janmoesen’s ProTip™s
-for method in GET HEAD POST PUT DELETE; do
-	alias "$method"="lwp-request -m '$method'"
-done
-
-
-# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
-alias stfu="osascript -e 'set volume output muted true'"
