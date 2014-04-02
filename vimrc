@@ -84,6 +84,8 @@ nnoremap j gj
 nnoremap k gk
 " Disable Ex mode. Please.
 map Q <nop>
+" Ben Orenstein confessed this, who am I not to follow its lead.
+inoremap <C-s> <esc>:w<CR>
 " Exit from insert mode by typing 'jj'.
 inoremap jj <esc>
 " One less keystroke *every time*.

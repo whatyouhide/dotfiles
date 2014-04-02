@@ -29,3 +29,6 @@ source ~/.dotfiles/zsh/extra
 
 # Source z, oh god z.
 . ~/.z-code/z.sh
+
+# Use Ctrl-s everywhere. In vim for example.
+stty -ixon
