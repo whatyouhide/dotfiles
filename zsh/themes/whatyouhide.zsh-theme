@@ -22,12 +22,34 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_AHEAD="↑"
 ZSH_THEME_GIT_PROMPT_BEHIND="↓"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="+"
+ZSH_THEME_GIT_PROMPT_DIRTY="*"
+
+
+# Tell if we're in a git repository.
+function git_is_repo() {
+  if [[ -d '.git' ]] || git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+    return 0;
+  else
+    return 1;
+  fi
+}
+
+# Find the git branch we're on.
+function git_prompt_current_branch() {
+  echo $(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
+}
 
 # Git prompt infos used by `custom_git_prompt`.
 # Suffix and prefix.
 function git_prompt_addons() {
   _INDEX=$(command git status --porcelain -b 2> /dev/null)
   _SUFFIX=""
+
+  # Check if the repository is dirty.
+  # This command has an exit status of 0 if the repository is clean.
+  if ! git diff --quiet --ignore-submodules HEAD &>/dev/null; then
+    _SUFFIX="$_SUFFIX$ZSH_THEME_GIT_PROMPT_DIRTY"
+  fi
 
   # Check if there are untracked files.
   if $(echo "$_INDEX" | grep '^??' &> /dev/null); then
@@ -47,12 +69,12 @@ function git_prompt_addons() {
 # Print a customized git prompt. This is only a wrapper around oh-my-zsh
 # `git_prompt_info`, with a few addons and colors.
 function custom_git_prompt() {
-  if [[ -z $(git_prompt_info) ]]; then
+  if ! git_is_repo; then
     echo ""
     return
   fi
 
-  echo "(git: %{$fg[yellow]%}$(git_prompt_info)$(git_prompt_addons)%{$reset_color%})"
+  echo "(git: %{$fg[yellow]%}$(git_prompt_current_branch) $(git_prompt_addons)%{$reset_color%})"
 }
 
 
