@@ -122,7 +122,7 @@ set splitright
 
 " Aesthetics stuff.
 set background=dark
-colorscheme base16-twilight
+colorscheme base16-ocean
 
 
 
