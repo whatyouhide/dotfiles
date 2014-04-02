@@ -14,7 +14,6 @@ Bundle 'matze/vim-move'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'junegunn/goyo.vim'
@@ -136,7 +135,5 @@ let g:move_map_keys = 0                             " remove default mappings
 let g:tcomment#blank_lines = 0                      " don't comment blank lines
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
-" YouCompleteMe
-let g:ycm_key_list_select_completion = ['<Down>']
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](\.DS_Store|\.git|node_modules)$'
