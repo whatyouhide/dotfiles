@@ -63,6 +63,12 @@ function git_prompt_addons() {
     _SUFFIX="$_SUFFIX$ZSH_THEME_GIT_PROMPT_BEHIND"
   fi
 
+  # If there are addons (length of string is non-zero), prefix them with
+  # a space character.
+  if [[ -n $_SUFFIX ]]; then
+    _SUFFIX=" $_SUFFIX"
+  fi
+
   echo $_SUFFIX
 }
 
@@ -74,7 +80,7 @@ function custom_git_prompt() {
     return
   fi
 
-  echo "(git: %{$fg[yellow]%}$(git_prompt_current_branch) $(git_prompt_addons)%{$reset_color%})"
+  echo "(git: %{$fg[yellow]%}$(git_prompt_current_branch)$(git_prompt_addons)%{$reset_color%})"
 }
 
 
