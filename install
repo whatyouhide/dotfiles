@@ -9,7 +9,7 @@ END="\033[0m"
 # If you're on a Mac and you haven't installed Xcode, exit.
 if [[ "$(uname)" == "Darwin" && ! -d '/Applications/Xcode.app' ]]; then
   echo -e "${COL}You don't have Xcode installed in /Applications/Xcode.app. Install it and try again.${END}"
-  return 1
+  exit 1
 fi
 
 
