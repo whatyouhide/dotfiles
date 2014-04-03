@@ -104,4 +104,12 @@ namespace :setup do
   task :zsh_syntax_highlighting do
     system 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
   end
+
+  desc "Autocompletion for Homebrew"
+  task :brew_autocompletion do
+    puts 'About to install brew autocompletion. I need root permissions to do this.'
+    brew_prefix = `brew --prefix`
+    system "sudo ln -sv '#{brew_prefix}/Library/Contributions/brew_zsh_completion.zsh' /usr/local/share/zsh/site-functions"
+  end
+
 end
