@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Oh My Zsh
+curl -L http://install.ohmyz.sh | sh
+
+# RVM for the rubiess
+curl -L https://get.rvm.io | sh -s stable
+
+# z, oh how I love you
+git clone https://github.com/rupa/z.git $HOME/.z-code
+chmod +x $HOME/.z/z.sh
+
+# For the c alias (syntax highlighted cat)
+sudo easy_install Pygments
+
+# Homebrew
+if [[ "$(~/.dotfiles/bin/which-os)" == "mac" ]]; then
+  echo 'Installing Homebrew'
+  ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
+
+  echo 'Installing git in order to clone dotfiles'
+  brew install git
+
+  echo 'Temporarely adding /usr/local/bin to the $PATH'
+  PATH="/usr/local/bin:$PATH"
+
+  echo 'Cloning dotfiles'
+  git clone https://github.com/whatyouhide/dotfiles.git ~/.dotfiles
+
+  echo 'Be sure to reload your shell in order to see changes'
+fi
