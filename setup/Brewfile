@@ -12,7 +12,7 @@ upgrade
 # Install more recent versions of some OS X tools
 tap homebrew/dupes
 # gitsh
-tap thoughtbots/formulae
+tap thoughtbot/formulae
 # Cask
 tap phinze/homebrew-cask
 tap caskroom/versions
