@@ -1,0 +1,106 @@
+# Make sure we’re using the latest Homebrew
+update
+
+# Upgrade any already-installed formulae
+upgrade
+
+
+
+# Taps
+# ====
+
+# Install more recent versions of some OS X tools
+tap homebrew/dupes
+# gitsh
+tap thoughtbots/formulae
+# Cask
+tap phinze/homebrew-cask
+tap caskroom/versions
+tap caskroom/unofficial
+
+
+
+# Formulae
+# ========
+
+# GNU core utilities (those that come with OS X are outdated)
+install coreutils
+
+# GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
+install findutils
+
+# Bash 4
+install bash
+
+# More recent versions of some OSX tools
+install homebrew/dupes/grep
+
+# Python (install this before vim so that it has Python support)
+install python
+
+# Git
+install git
+install git-ftp
+install git-flow
+install gitsh
+
+# Tools
+install wget --enable-iri
+install htop
+install rsync
+
+# Gitshots!
+install imagesnap
+
+# Google's JS engine and NodeJS
+install v8
+install node
+
+# Terminal stuff
+install macvim --override-system-vim
+install tmux
+
+
+# Casks
+# =====
+
+# The brew cask command
+install brew-cask
+
+# Utils
+cask install spectacle
+cask install flux
+cask install the-unarchiver
+cask install caffeine
+cask install appcleaner
+
+# Services
+cask install copy
+cask install dropbox
+cask install evernote
+
+# Developing
+cask install mamp
+cask install iterm2-borderless
+cask install virtualbox
+cask install vagrant
+
+# Misc
+cask install alfred
+cask install google-chrome
+cask install google-chrome-canary
+cask install ynab
+cask install plex-home-theater
+cask install vlc
+
+# Cleanup
+# =======
+
+# Link .app applications to ~/Applications
+linkapps
+
+# Remove outdated versions from the cellar
+cleanup -s
+
+# Check if everything is ok
+doctor
