@@ -7,9 +7,15 @@ END="\033[0m"
 
 
 # If you're on a Mac and you haven't installed Xcode, exit.
-if [[ "$(uname)" == "Darwin" && ! -d '/Applications/Xcode.app' ]]; then
-  echo -e "${COL}You don't have Xcode installed in /Applications/Xcode.app. Install it and try again.${END}"
-  exit 1
+if [[ "$(uname)" == "Darwin" ]]; then
+  if [[ ! -d '/Applications/Xcode.app' ]]; then
+    echo -e "${COL}You don't have Xcode installed in /Applications/Xcode.app. Install it and try again.${END}"
+    exit 1
+  elif ! pkgutil --pkg-info=com.apple.pkg.CLTools_Executables &>/dev/null; then
+    echo -e "${COL}I don't think you have command line tools installed.${END}"
+    echo 'Agree to the Xcode license:           sudo xcodebuild -license'
+    echo 'Install the command line tools:       xcode-select --install'
+  fi
 fi
 
 
