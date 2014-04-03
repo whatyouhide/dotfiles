@@ -16,6 +16,7 @@ Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
+Bundle 'airblade/vim-gitgutter'
 Bundle 'junegunn/goyo.vim'
 " Language specific.
 Bundle 'kchmck/vim-coffee-script'
