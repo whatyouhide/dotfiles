@@ -71,6 +71,8 @@ autocmd FocusLost * :wa
 autocmd FileType gitcommit setlocal spell       " git commits :)
 autocmd BufRead,BufNewFile *.md setlocal spell  " Markdown
 
+" PHP files are HTML files too.
+au BufRead,BufNewFile *.php set filetype=php.html
 
 " Remappings.
 " Use hjkl. You don't really have a choice.
