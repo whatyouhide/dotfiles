@@ -1,7 +1,17 @@
 #!/bin/sh
 
+# Define some colors.
 COL="\033[1;31m"
 END="\033[0m"
+
+
+
+# If you're on a Mac and you haven't installed Xcode, exit.
+if [[ "$(uname)" == "Darwin" && ! -d '/Applications/Xcode.app' ]]; then
+  echo -e "${COL}You don't have Xcode installed in /Applications/Xcode.app. Install it and try again.${END}"
+fi
+
+
 
 # Oh My Zsh
 echo -e "${COL}Installing oh-my-zsh${END}"
@@ -20,6 +30,9 @@ echo ''
 
 if [[ "$(uname)" == "Darwin" ]]; then
   # Mac setup
+  echo -e "${COL}Installing Apple's developer tools${END}"
+  xcode-select --install
+  echo ''
 
   echo -e "${COL}Installing Homebrew${END}"
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
