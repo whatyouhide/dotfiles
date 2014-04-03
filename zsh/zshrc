@@ -22,7 +22,7 @@ source ~/.dotfiles/zsh/exports
 # Last but not least, source some 'extra' configurations.
 # These are not version controlled and may be used for workstation-specific
 # stuff.
-source ~/.dotfiles/zsh/extra
+[[ -f ~/.dotfiles/zsh/extra ]] && source ~/.dotfiles/zsh/extra
 
 # Source RVM.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
