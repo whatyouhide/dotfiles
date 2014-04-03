@@ -10,6 +10,9 @@ alias sublime-settings='cd "$HOME/Library/Application Support/Sublime Text 3/Pac
 # `cat` with beautiful colors. Requires Pygments installed.
 alias c='pygmentize -O style=monokai -f console256 -g'
 
+# z
+alias z=_z
+
 # The next few aliases come from inspecting zsh_history and command frequencies.
 alias v='vim'
 alias gr='grunt'
