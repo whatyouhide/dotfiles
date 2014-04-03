@@ -1,7 +1,0 @@
-# Vim stuff.
-vim/.netrwhist
-vim/bundle
-
-# Machine-specific config files.
-bash/extra
-zsh/extra
