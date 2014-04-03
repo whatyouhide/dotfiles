@@ -37,14 +37,6 @@ echo ''
 
 if [[ "$(uname)" == "Darwin" ]]; then
   # Mac setup
-  echo -e "${COL}Installing Apple's developer tools${END}"
-  xcode-select --install
-  echo ''
-
-  echo 'Wait for the xcode-select installation to finish. Continue? [yn] '
-  read DONE
-  [[ "$DONE" == 'n' ]] && return 1
-
 
   echo -e "${COL}Installing Homebrew${END}"
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
