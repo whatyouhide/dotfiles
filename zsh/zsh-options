@@ -4,7 +4,7 @@
 ZSH_THEME="whatyouhide"
 
 
-plugins=(git zsh-syntax-highlighting)
+plugins=(zsh-syntax-highlighting)
 
 
 # Set this to use case-sensitive completion
