@@ -76,10 +76,6 @@ au BufRead,BufNewFile *.php set filetype=php.html
 
 " Remappings.
 " Use hjkl. You don't really have a choice.
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
 inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
@@ -94,11 +90,14 @@ inoremap <C-s> <esc>:w<CR>
 inoremap jj <esc>
 " One less keystroke *every time*.
 nnoremap ; :
-" Move through splits easily.
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
+" Move through splits easily using arrows (nope, you have to move with hjkl).
+nnoremap <left> <C-w>h
+nnoremap <down> <C-w>j
+nnoremap <up> <C-w>k
+nnoremap <right> <C-w>l
+" Cycle tabs using Ctrl-h/l.
+nnoremap <C-h> gt
+nnoremap <C-l> gT
 " Distraction free mode (using Goyo).
 nnoremap <Leader>m :Goyo<CR>
 " Insert a blank like below the current one using <Enter>.
