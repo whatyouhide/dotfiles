@@ -1,38 +1,49 @@
 #!/bin/sh
 
+COL="\033[1;31m"
+END="\033[0m"
+
 # Oh My Zsh
+echo -e "${COL}Installing oh-my-zsh${END}"
 curl -L http://install.ohmyz.sh | sh
 echo ''
 
 # RVM for the rubiess
+echo -e "${COL}Installing RVM${END}"
 curl -L https://get.rvm.io | sh -s stable
 echo ''
 
-# z, oh how I love you
-git clone https://github.com/rupa/z.git $HOME/.z-code
-chmod +x $HOME/.z/z.sh
+# For the c alias (syntax highlighted cat)
+echo -e "${COL}Installing Pygments (for the 'c' alias) - this needs sudo${END}"
+sudo easy_install Pygments
 echo ''
 
-# For the c alias (syntax highlighted cat)
-sudo easy_install Pygments
+if [[ "$(uname)" == "Darwin" ]]; then
+  # Mac setup
 
-# Homebrew
-if [[ "$(~/.dotfiles/bin/which-os)" == "mac" ]]; then
-  echo 'Installing Homebrew'
+  echo -e "${COL}Installing Homebrew${END}"
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
   echo ''
 
-  echo 'Installing git in order to clone dotfiles'
+  echo -e "${COL}Installing git in order to clone dotfiles${END}"
   brew install git
   echo ''
 
-  echo 'Temporarely adding /usr/local/bin to the $PATH'
+  echo -e "${COL}Temporarely adding /usr/local/bin to the \$PATH${END}"
   PATH="/usr/local/bin:$PATH"
   echo ''
 
-  echo 'Cloning dotfiles'
+  echo -e "${COL}Cloning dotfiles from GitHub${END}"
   git clone https://github.com/whatyouhide/dotfiles.git ~/.dotfiles
   echo ''
 
-  echo 'Be sure to reload your shell in order to see changes'
+  echo -e "${COL}Be sure to reload your shell in order to see changes${END}"
+  echo 'Also be sure to execute rake symlink and the rake setup:* tasks from ~/.dotfiles'
+
+else
+  # We're on Linux
+
+  echo -e "${COL}I believe you're on Linux. If that is true, first install git and then:"
+  echo '  git clone https://github.com/whatyouhide/dotfiles.git ~/.dotfiles'
+  echo 'Also be sure to execute rake symlink and the rake setup:* tasks from ~/.dotfiles'
 fi
