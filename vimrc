@@ -20,6 +20,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'junegunn/goyo.vim'
 " Language specific.
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'othree/html5.vim'
 " Themes.
 Bundle 'chriskempson/base16-vim'
 
