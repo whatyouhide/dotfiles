@@ -9,5 +9,5 @@ gvimrc
 tmux.conf
 git/gitconfig
 extra/*
-ruby-config/*
-js-config/*
+config-ruby/*
+config-js/*
