@@ -15,6 +15,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     echo -e "${COL}I don't think you have command line tools installed.${END}"
     echo 'Agree to the Xcode license:           sudo xcodebuild -license'
     echo 'Install the command line tools:       xcode-select --install'
+    exit 1
   fi
 fi
 
