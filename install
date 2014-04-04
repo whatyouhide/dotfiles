@@ -28,7 +28,7 @@ echo ''
 
 # RVM for the rubiess
 echo -e "${COL}Installing RVM${END}"
-curl -L https://get.rvm.io | bash -s -- --ignore-dotfiles --version latest
+curl -L https://get.rvm.io | bash -s -- --ruby --ignore-dotfiles --version latest
 echo ''
 
 # For the c alias (syntax highlighted cat)
