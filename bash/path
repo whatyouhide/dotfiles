@@ -13,10 +13,10 @@ PATH=$PATH:$HOME/.rvm/bin
 
 PATH=$PATH:/Applications/MAMP/Library/bin
 
-# Personal scripts found in .dotfiles/bin and .dotfiles/bin/local
+# Personal scripts found in dotfiles/bin and dotfiles/bin/local
 # (for personal use only - you can delete the entire directory content
 # without affecting anything else)
-PATH=$PATH:$HOME/.dotfiles/bin
-PATH=$PATH:$HOME/.dotfiles/bin/local
+PATH=$PATH:$DOTFILES/bin
+PATH=$PATH:$DOTFILES/bin/local
 
 export PATH

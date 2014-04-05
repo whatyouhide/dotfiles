@@ -14,7 +14,7 @@
 [color]
 	ui = always
 [core]
-	excludesfile = ~/.dotfiles/git/gitignore_global
+	excludesfile = $DOTFILES/git/gitignore_global
 	attributesfile = ~/.gitattributes
 [color "branch"]
 	current = yellow reverse

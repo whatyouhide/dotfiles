@@ -42,7 +42,7 @@ function slt-project() {
 	fi
 	mkdir -pv "$projectpath" && cd "$projectpath"
 	projectname="`basename "$PWD"`"
-	cat "$HOME/.dotfiles/sublime/sublime-project-template" > "$projectname.sublime-project"
+	cat "$DOTFILES/sublime/sublime-project-template" > "$projectname.sublime-project"
 	open -a "Sublime Text 2" .
 	return 0
 }
