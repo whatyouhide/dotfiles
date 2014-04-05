@@ -85,9 +85,11 @@ nnoremap k gk
 " Disable Ex mode. Please.
 map Q <nop>
 " Ben Orenstein confessed this, who am I not to follow its lead.
-inoremap <C-s> <esc>:w<CR>
+" (Ctrl-s to save and return to normal mode if previously in insert mode)
+nnoremap <C-s> <Esc>:w<CR>
+inoremap <C-s> <Esc>:w<CR>
 " Exit from insert mode by typing 'jj'.
-inoremap jj <esc>
+inoremap jj <Esc>
 " One less keystroke *every time*.
 nnoremap ; :
 " Move through splits easily using arrows (nope, you have to move with hjkl).
@@ -98,10 +100,10 @@ nnoremap <right> <C-w>l
 " Cycle tabs using Ctrl-h/l.
 nnoremap <C-h> gt
 nnoremap <C-l> gT
-" Distraction free mode (using Goyo).
-nnoremap <Leader>m :Goyo<CR>
 " Insert a blank like below the current one using <Enter>.
 nmap <CR> :set paste<CR>o<Esc>:set nopaste<CR>
+" Distraction free mode (using Goyo).
+nnoremap <Leader>m :Goyo<CR>
 " Move plugin: move lines or blocks of text up/down using Alt+j/k.
 " Note that on a Mac these map to Unicode charactes, so use these:
 " ∆: Alt+j
@@ -114,6 +116,11 @@ vmap ∆ <Plug>MoveBlockDown
 vmap <A-j> <Plug>MoveBlockDown
 vmap ˚ <Plug>MoveBlockUp
 vmap <A-k> <Plug>MoveBlockUp
+" <Leader>v shortcuts: they are dedicated to vim stuff.
+" Reload vimrc.
+nmap <Leader>vr :source ~/.vimrc<CR>
+" Open vimrc in a new tab.
+nmap <Leader>vt :tabedit ~/.vimrc<CR>
 
 
 
