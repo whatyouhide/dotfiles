@@ -24,7 +24,6 @@ Bundle 'othree/html5.vim'
 " Themes.
 Bundle 'chriskempson/base16-vim'
 
-
 " Enable file type detection and do language-dependent indenting (this
 " also 'closes' vundle, and it's *required*).
 filetype plugin indent on
@@ -32,6 +31,10 @@ filetype plugin indent on
 
 " Turn on syntax highlighting.
 syntax on
+
+" Color scheme.
+set background=dark
+colorscheme base16-ocean
 
 
 " Tabs and backspace should behave cool, shouldn't they?
@@ -84,7 +87,7 @@ nnoremap j gj
 nnoremap k gk
 " Disable Ex mode. Please.
 map Q <nop>
-" Ben Orenstein confessed this, who am I not to follow its lead.
+" Ben Orenstein confessed this.
 " (Ctrl-s to save and return to normal mode if previously in insert mode)
 nnoremap <C-s> <Esc>:w<CR>
 inoremap <C-s> <Esc>:w<CR>
@@ -129,10 +132,6 @@ nmap <Leader>vt :tabedit ~/.vimrc<CR>
 set splitbelow
 set splitright
 
-
-" Aesthetics stuff.
-set background=dark
-colorscheme base16-ocean
 
 
 
