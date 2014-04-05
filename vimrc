@@ -127,10 +127,10 @@ vmap <A-j> <Plug>MoveBlockDown
 vmap ˚ <Plug>MoveBlockUp
 vmap <A-k> <Plug>MoveBlockUp
 " <Leader>v shortcuts: they are dedicated to vim stuff.
-" Reload vimrc.
+" [v]im [r]eload: reload vimrc.
 nmap <Leader>vr :source ~/.vimrc<CR>
-" Open vimrc in a new tab.
-nmap <Leader>vt :tabedit ~/.vimrc<CR>
+" [v]imrc [e]dit: open vimrc in a new tab.
+nmap <Leader>ve :tabedit ~/.vimrc<CR>
 
 
 
@@ -157,3 +157,4 @@ let g:tcomment#blank_lines = 0                      " don't comment blank lines
 let g:UltiSnipsExpandTrigger="<tab>"
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](\.DS_Store|\.git|node_modules)$'
+let g:ctrlp_dont_split = 'nerdtree'
