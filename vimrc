@@ -14,6 +14,7 @@ Bundle 'matze/vim-move'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'airblade/vim-gitgutter'
@@ -107,6 +108,11 @@ nnoremap <C-l> gT
 nmap <CR> :set paste<CR>o<Esc>:set nopaste<CR>
 " Distraction free mode (using Goyo).
 nnoremap <Leader>m :Goyo<CR>
+" <Leader>n shortcuts: they're for NERDTree.
+" [n]erdtree [t]oggle: toggle NERDTree.
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+" [n]erdtree [c]urrent: find current file in NERDTree.
+nnoremap <Leader>nc :NERDTreeFind<CR>
 " Move plugin: move lines or blocks of text up/down using Alt+j/k.
 " Note that on a Mac these map to Unicode charactes, so use these:
 " ∆: Alt+j
