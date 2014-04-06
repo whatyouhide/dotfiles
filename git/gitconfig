@@ -6,15 +6,12 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 	arch = archive --format zip -v -9
   rank = shortlog -s -n
-  mrg = merge --no-ff
-  b = branch -v --all
+  br = branch -v --all
   f = flow
-  fnew = flow feature start
-  fend = flow feature finish
 [color]
 	ui = always
 [core]
-	excludesfile = $DOTFILES/git/gitignore_global
+	excludesfile = ~/dotfiles/git/gitignore_global
 	attributesfile = ~/.gitattributes
 [color "branch"]
 	current = yellow reverse
