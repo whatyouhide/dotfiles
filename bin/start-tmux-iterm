@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# There are no sessions active: create a new default session.
+if ! tmux ls; then
+  tmux new-session -s background-session -n shell
+else
+  # Retrieve the name of the first session.
+  _first_session=$(tmux ls | cut -d : -f 1 | head -1)
+  tmux attach -t "$_first_session" \; choose-session
+fi
+
