@@ -48,7 +48,11 @@ set backspace=indent,eol,start  " WTF backspace?
 
 
 " Turn line numbers on using relative numbers. Cool. Cool cool cool.
-set relativenumber
+set number
+
+
+" Make the command history bigger.
+set history=1000
 
 
 " Hide the status line by default.
@@ -131,6 +135,10 @@ vmap <A-k> <Plug>MoveBlockUp
 nmap <Leader>vr :source ~/.vimrc<CR>
 " [v]imrc [e]dit: open vimrc in a new tab.
 nmap <Leader>ve :tabedit ~/.vimrc<CR>
+" [v]im [b]undle [i]install: install bundles after reloading.
+nmap <Leader>vbi :source ~/.vimrc<CR>:BundleInstall<CR>
+" [v]im [b]undle [c]lean: clean unused bundles.
+nmap <Leader>vbc :source ~/.vimrc<CR>:BundleClean<CR>
 
 
 
