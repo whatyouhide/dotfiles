@@ -1,7 +1,7 @@
 # Easier navigation: .., ..., ~ and -
 alias -- -="cd -"
 
-
+# Navigation aliases
 alias tmp="cd ~/tmp"
 alias dotfilez="cd $DOTFILES"
 alias sublime-settings='cd "$HOME/Library/Application Support/Sublime Text 3/Packages/User"'
@@ -18,7 +18,7 @@ alias v='vim'
 alias gr='grunt'
 alias cl='clear'
 alias x='exit'
-
+alias tls='tmux ls'
 
 
 # Detect which `ls` flavor is in use
