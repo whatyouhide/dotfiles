@@ -16,6 +16,8 @@ alias z=_z
 # The next few aliases come from inspecting zsh_history and command frequencies.
 alias v='vim'
 alias gr='grunt'
+alias cl='clear'
+alias x='exit'
 
 
 
