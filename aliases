@@ -18,7 +18,12 @@ alias v='vim'
 alias gr='grunt'
 alias cl='clear'
 alias x='exit'
+
+# tmux
+# List all sessions.
 alias tls='tmux ls'
+# Kill all sessions.
+alias tmux-genocide="tmux ls | awk '{print $1}' | sed 's/://g' | xargs -I{} tmux kill-session -t {}"
 
 
 # Detect which `ls` flavor is in use
