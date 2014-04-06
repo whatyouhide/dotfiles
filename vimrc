@@ -34,9 +34,18 @@ filetype plugin indent on
 " Turn on syntax highlighting.
 syntax on
 
-" Color scheme.
-set background=dark
-colorscheme base16-ocean
+" Color scheme based on the current time.
+" If we are between 7am and 6pm, use a light colorscheme.
+if 8 < strftime("%H") && strftime("%H") < 18
+  set background=light
+  colorscheme base16-solarized
+else
+  set background=dark
+  colorscheme base16-railscasts
+endif
+" Also, try to set a background color for the line numbers column which is
+" as similar to the main background color as possible.
+highlight LineNr ctermbg=0
 
 
 " Tabs and backspace should behave cool, shouldn't they?
@@ -166,3 +175,11 @@ let g:UltiSnipsExpandTrigger="<tab>"
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](\.DS_Store|\.git|node_modules)$'
 let g:ctrlp_dont_split = 'nerdtree'
+" GitGutter
+let g:gitgutter_sign_column_always = 1
+" GitGutter + railscasts?
+highlight clear SignColumn
+highlight GitGutterAdd ctermbg=0
+highlight GitGutterChange ctermbg=0
+highlight GitGutterDelete ctermbg=0
+highlight GitGutterChangeDelete ctermbg=0
