@@ -1,7 +1,7 @@
 ---
 from_dir: ~/Desktop/
 to_dir: /Volumes/Media - Drive 1/TV Shows
-to_dir_eng: /Volumes/Media - Drive 1/TV Shows (English)
+to_dir_eng: /Volumes/Media - Drive 1/TV Shows
 substitutions:
   Grey S Anatomy: Grey's Anatomy
   Greys Anatomy: Grey's Anatomy
