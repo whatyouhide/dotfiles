@@ -116,8 +116,8 @@ nnoremap <down> <C-w>j
 nnoremap <up> <C-w>k
 nnoremap <right> <C-w>l
 " Cycle tabs using Ctrl-h/l.
-nnoremap <C-h> gt
-nnoremap <C-l> gT
+nnoremap <C-h> gT
+nnoremap <C-l> gt
 " Insert a blank like below the current one using <Enter>.
 nmap <CR> :set paste<CR>o<Esc>:set nopaste<CR>
 " Distraction free mode (using Goyo).
