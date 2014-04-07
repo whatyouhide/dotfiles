@@ -127,6 +127,8 @@ nnoremap <Leader>m :Goyo<CR>
 nnoremap <Leader>nt :NERDTreeToggle<CR>
 " [n]erdtree [c]urrent: find current file in NERDTree.
 nnoremap <Leader>nc :NERDTreeFind<CR>
+" [n]erdtree [f]ullscreen: make NERDTree the only split in the current tab.
+nnoremap <silent> <Leader>nf :NERDTreeFocus<CR>:only<CR>
 " Move plugin: move lines or blocks of text up/down using Alt+j/k.
 " Note that on a Mac these map to Unicode charactes, so use these:
 " ∆: Alt+j
