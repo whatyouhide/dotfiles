@@ -40,3 +40,4 @@ Thumbs.db
 .sass-cache
 node_modules
 .zeus.sock
+.vagrant
