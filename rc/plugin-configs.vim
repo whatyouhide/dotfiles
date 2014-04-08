@@ -6,18 +6,49 @@
 let g:goyo_margin_top = 1
 let g:goyo_margin_bottom = 1
 let g:goyo_width = 120
+
+" Empty function (g:goyo_callbacks needs a 'before' and an 'after' hook).
+function! g:goyo_before()
+endfunction
+
+" Restore the theme (in case some colors went bad), and refresh Airline.
+function! g:goyo_after()
+  source ~/.vim/rc/theme-setups/railscasts.vim
+  AirlineRefresh
+endfunction
+
+let g:goyo_callbacks = [function('g:goyo_before'), function('g:goyo_after')]
+
+
 " Airline
-set laststatus=2                                    " always show 'airline'
+" Always show Airline.
+set laststatus=2
+
+
 " Move
-let g:move_map_keys = 0                             " remove default mappings
+" Remove default mappings.
+let g:move_map_keys = 0
+
+
 " TComment
-let g:tcomment#blank_lines = 0                      " don't comment blank lines
+" Don't comment blank lines.
+let g:tcomment#blank_lines = 0
+
+
 " Ultisnips
+" Expand snippets using <tab>.
 let g:UltiSnipsExpandTrigger="<tab>"
+
+
 " NERDTree
+" Close the NERDTree pane when opening a file with 'o' (or Enter).
 let NERDTreeQuitOnOpen = 1
+
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](\.DS_Store|\.git|node_modules)$'
 let g:ctrlp_dont_split = 'nerdtree'
+
+
 " GitGutter
+" Make the sign column always visible.
 let g:gitgutter_sign_column_always = 1

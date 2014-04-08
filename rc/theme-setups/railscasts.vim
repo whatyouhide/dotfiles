@@ -1,7 +1,9 @@
 " Stuff specific to the **railscasts** theme.
 " (https://github.com/chrishunt/color-schemes)
 set background=dark
+
 colorscheme base16-railscasts
+
 highlight clear SignColumn
 highlight VertSplit    ctermbg=236
 highlight LineNr       ctermbg=236 ctermfg=240
