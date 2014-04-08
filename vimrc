@@ -120,15 +120,6 @@ nnoremap <C-h> gT
 nnoremap <C-l> gt
 " Insert a blank like below the current one using <Enter>.
 nmap <CR> :set paste<CR>o<Esc>:set nopaste<CR>
-" Distraction free mode (using Goyo).
-nnoremap <Leader>m :Goyo<CR>
-" <Leader>n shortcuts: they're for NERDTree.
-" [n]erdtree [t]oggle: toggle NERDTree.
-nnoremap <Leader>nt :NERDTreeToggle<CR>
-" [n]erdtree [c]urrent: find current file in NERDTree.
-nnoremap <Leader>nc :NERDTreeFind<CR>
-" [n]erdtree [f]ullscreen: make NERDTree the only split in the current tab.
-nnoremap <silent> <Leader>nf :NERDTreeFocus<CR>:only<CR>
 " Move plugin: move lines or blocks of text up/down using Alt+j/k.
 " Note that on a Mac these map to Unicode charactes, so use these:
 " ∆: Alt+j
@@ -150,6 +141,18 @@ nmap <Leader>ve :tabedit ~/.vimrc<CR>
 nmap <Leader>vbi :source ~/.vimrc<CR>:BundleInstall<CR>
 " [v]im [b]undle [c]lean: clean unused bundles.
 nmap <Leader>vbc :source ~/.vimrc<CR>:BundleClean<CR>
+" <Leader>n shortcuts: they're for NERDTree.
+" [n]erdtree [t]oggle: toggle NERDTree.
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+" [n]erdtree [c]urrent: find current file in NERDTree.
+nnoremap <Leader>nc :NERDTreeFind<CR>
+" [n]erdtree [f]ullscreen: make NERDTree the only split in the current tab.
+nnoremap <silent> <Leader>nf :NERDTreeFocus<CR>:only<CR>
+" Miscellaneous <Leader> shortcuts.
+" sh: set the syntax highlighting for shell scripts.
+nmap <Leader>sh :set syntax=sh<CR>
+" m: distraction free mode (using Goyo).
+nnoremap <Leader>m :Goyo<CR>
 
 
 
