@@ -9,3 +9,6 @@ gem install zeus
 
 # An irb alternative.
 gem install pry
+
+# Sass.
+gem install sass
