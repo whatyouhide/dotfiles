@@ -37,6 +37,7 @@ syntax on
 source ~/.vim/rc/theme-setups/railscasts.vim
 
 
+
 " Tabs and backspace should behave cool, shouldn't they?
 set tabstop=2                   " tabs are 2 spaces width
 set expandtab                   " expand tabs to spaces
