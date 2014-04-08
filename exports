@@ -4,12 +4,14 @@ export LANG="en_US"
 
 # Make vim the default editor.
 export EDITOR=vim
-# Don’t clear the screen after quitting less.
-export MANPAGER="less -X"
-export PAGER="less -X"
+# Don’t clear the screen after quitting less and make less quit itself
+# when the content fits one screen.
+_LESS="less --no-init --quit-if-one-screen"
+export MANPAGER="$_LESS"
+export PAGER="$_LESS"
 
 # Template directory which git uses when you 'git init'.
-export GIT_TEMPLATE_DIR=$DOTFILES/git/git-template-dir
+export GIT_TEMPLATE_DIR="$DOTFILES/git/git-template-dir"
 
 # CUSTOM EXPORTS
 # this exports are not variables that the shell understands,
