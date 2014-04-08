@@ -1,6 +1,7 @@
 " Get rid of the vi stuff and fully embrace vim.
 set nocompatible
 
+
 " Vundle plugin management.
 " Required by vundle, actually I don't know what this does.
 filetype off
@@ -74,17 +75,19 @@ set noswapfile
 let mapleader=","
 
 
-" Remove trailing whitespace on write.
-autocmd BufWritePre * :%s/\s\+$//e
+augroup vimrc_autocmds
+  autocmd!
 
+  " Remove trailing whitespace on write.
+  autocmd BufWritePre * :%s/\s\+$//e
 
-" Turn spell-checking on for specific filetypes.
-autocmd FileType gitcommit setlocal spell       " git commits :)
-autocmd BufRead,BufNewFile *.md setlocal spell  " Markdown
+  " Turn spell-checking on for specific filetypes.
+  autocmd FileType gitcommit setlocal spell       " git commits :)
+  autocmd BufRead,BufNewFile *.md setlocal spell  " Markdown
 
-
-" PHP files are HTML files too.
-au BufRead,BufNewFile *.php set filetype=php.html
+  " PHP files are HTML files too.
+  autocmd BufRead,BufNewFile *.php set filetype=php.html
+augroup END
 
 
 " Mappings.
