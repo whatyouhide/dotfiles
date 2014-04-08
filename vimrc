@@ -174,6 +174,8 @@ let g:move_map_keys = 0                             " remove default mappings
 let g:tcomment#blank_lines = 0                      " don't comment blank lines
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
+" NERDTree
+let NERDTreeQuitOnOpen = 1
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](\.DS_Store|\.git|node_modules)$'
 let g:ctrlp_dont_split = 'nerdtree'
