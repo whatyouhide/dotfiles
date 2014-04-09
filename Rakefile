@@ -1,4 +1,3 @@
-
 COLORS = {
   green: "\033[1;32m",
   violet: "\033[1;34m",
@@ -9,7 +8,7 @@ COLORS = {
 DOTFILES = ENV['DOTFILES']
 
 
-desc "Symlink the config files listed in $DOTFILES/links to ~ after prepending them with a '.'"
+desc "Symlink files listed in $DOTFILES/links to ~, prepending them with a '.'"
 task symlink: 'symlink:default'
 
 namespace :symlink do
@@ -54,7 +53,8 @@ namespace :symlink do
       dest_path = dest_path_from_dotfile(df_path)
 
       if File.exists?(dest_path)
-        puts "#{dest_path} #{COLORS[:red]}already exists#{COLORS[:end]} (couldn't link #{df_path})"
+        puts "#{dest_path} #{COLORS[:red]}already exists#{COLORS[:end]} \
+             (couldn't link #{df_path})"
       else
         File.symlink(df_path, dest_path)
         puts "#{COLORS[:green]}Linked#{COLORS[:end]} #{df_path} to #{dest_path}"
@@ -87,7 +87,8 @@ namespace :symlink do
       dest = File.join(Dir.home, ".oh-my-zsh", "themes", File.basename(theme))
       File.delete(dest) if File.exists?(dest)
       File.symlink(src, dest)
-      puts "Linked #{COLORS[:green]}#{src}#{COLORS[:end]} to #{COLORS[:violet]}#{dest}#{COLORS[:end]}"
+      puts "Linked #{COLORS[:green]}#{src}#{COLORS[:end]} to #{COLORS[:violet]} \
+            #{dest}#{COLORS[:end]}"
     end
   end
 
@@ -115,14 +116,17 @@ namespace :setup do
 
   desc "Add the zsh-syntax-highlighting plugin to oh-my-zsh"
   task :zsh_syntax_highlighting do
-    system 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
+    system 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+            ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
   end
 
   desc "Autocompletion for Homebrew"
   task :brew_autocompletion do
-    puts 'About to install brew autocompletion. I need root permissions to do this.'
+    puts 'About to install brew autocompletion. I need root permissions.'
     brew_prefix = `brew --prefix`
-    system "sudo ln -sv '#{brew_prefix}/Library/Contributions/brew_zsh_completion.zsh' /usr/local/share/zsh/site-functions"
+    system "sudo ln -sv \
+            '#{brew_prefix}/Library/Contributions/brew_zsh_completion.zsh' \
+            /usr/local/share/zsh/site-functions"
   end
 
 end
