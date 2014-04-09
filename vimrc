@@ -21,6 +21,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'bling/vim-airline'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'junegunn/goyo.vim'
 " Language specific.
 Bundle 'kchmck/vim-coffee-script'
