@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 
 " Generic bundles.
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tomtom/tcomment_vim'
@@ -21,9 +22,13 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'bling/vim-airline'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'junegunn/goyo.vim'
+" Text objects.
+Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-textobj-entire'
+Bundle 'nelstrom/vim-textobj-rubyblock'
 " Language specific.
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'othree/html5.vim'
 " Themes.
