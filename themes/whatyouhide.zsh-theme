@@ -14,6 +14,17 @@ function path() {
 }
 
 
+# Returns the rvm-prompt output, but it's safe to use when rvm-prompt isn't
+# available.
+function rvm_prompt() {
+  if type rvm-prompt > /dev/null 2>&1; then
+    echo %{$fg[blue]%}$(rvm-prompt)%{$reset_color%}
+  else
+    echo ''
+  fi
+}
+
+
 # Set some variables to print the git prompt.
 # Ones used by oh-my-zsh:
 ZSH_THEME_GIT_PROMPT_PREFIX=""
@@ -107,6 +118,6 @@ function available_tools() {
 
 
 # Actual prompts (note that newlines matter).
-PROMPT='$(username) [$(host)] څ $(path) $(custom_git_prompt)
+PROMPT='$(username) [$(host)] څ $(path) $(custom_git_prompt) <$(rvm_prompt)>
 → '
 RPROMPT='$(available_tools)'
