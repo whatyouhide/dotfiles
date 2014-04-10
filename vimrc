@@ -14,6 +14,7 @@ Bundle 'gmarik/vundle'
 " Generic bundles.
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-endwise'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tomtom/tcomment_vim'
@@ -31,12 +32,17 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'othree/html5.vim'
+Bundle 'elixir-lang/vim-elixir'
 " Themes.
 Bundle 'chriskempson/base16-vim'
 
 " Enable file type detection and do language-dependent indenting (this
 " also 'closes' vundle, and it's *required*).
 filetype plugin indent on
+
+
+" Enable the matchit plugin (require by textobj-rubyblock).
+runtime macros/matchit.vim
 
 
 " Turn on syntax highlighting.
