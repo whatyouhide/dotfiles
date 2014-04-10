@@ -85,6 +85,7 @@ cask install mamp
 cask install iterm2-borderless
 cask install virtualbox
 cask install vagrant
+cask install dash
 
 # Misc
 cask install alfred
