@@ -1,0 +1,9 @@
+#!/bin/sh
+
+osascript -e '
+tell application "Google Chrome Canary"
+    tell the active tab of its first window
+        reload
+    end tell
+end tell
+'
