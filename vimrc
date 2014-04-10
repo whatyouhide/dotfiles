@@ -67,6 +67,10 @@ set relativenumber
 set cursorline
 
 
+" Always show the tab bar (0 for never, 1 for auto).
+set showtabline=2
+
+
 " Highlight the part of the line that goes over 80 characters.
 highlight OverLength ctermbg=red ctermfg=white
 match OverLength /\%81v.\+/
@@ -85,6 +89,10 @@ set noswapfile
 
 " Change the leader from '\' to ','.
 let mapleader=","
+
+
+" Some custom functions.
+source ~/.vim/rc/functions.vim
 
 
 augroup vimrc_autocmds

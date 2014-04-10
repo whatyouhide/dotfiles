@@ -69,7 +69,13 @@ nnoremap <Leader>nc :NERDTreeFind<CR>
 " nf: make NERDTree the only split in the current tab.
 nnoremap <silent> <Leader>nf :NERDTreeFocus<CR>:only<CR>
 
+" <Leader>f shortcuts: custom functions calls.
+" fr: rename current file.
+nnoremap <Leader>fr :call RenameCurrentFile()<CR>
+
 
 " Miscellaneous <Leader> shortcuts.
 " m: distraction free mode (using Goyo).
 nnoremap <Leader>m :Goyo<CR>
+" r: reload Chrome Canary (on a Mac). Relies on a script inside $DOTFILES/bin.
+nnoremap <Leader>r :!chrome-canary-reload
