@@ -48,6 +48,7 @@ install gitsh
 install wget --enable-iri
 install htop
 install rsync
+install mmv
 
 # Gitshots!
 install imagesnap
