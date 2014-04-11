@@ -79,5 +79,7 @@ nnoremap <Leader>fr :call RenameCurrentFile()<CR>
 nnoremap <Leader>m :Goyo<CR>
 " r: reload Chrome Canary (on a Mac). Relies on a script inside $DOTFILES/bin.
 nnoremap <Leader>r :!chrome-canary-refresh<CR>
-" e: execute the current file.
-nnoremap <Leader>e :call ExecuteCurrentFileInSplit()<CR>
+" en: execute the current file in the next tmux pane.
+nnoremap <Leader>en :call ExecuteCurrentFileInNextTmuxPane()<CR>
+" ep: execute the current file in the previous tmux pane.
+nnoremap <Leader>ep :call ExecuteCurrentFileInPreviousTmuxPane()<CR>
