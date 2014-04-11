@@ -16,3 +16,13 @@ function! RenameCurrentFile()
     redraw!
   endif
 endfunction
+
+" Run the current file in a split. The program used to run the file is
+" determined in an autogroup inside vimrc.
+function! ExecuteCurrentFileInSplit()
+  let result = system(g:execute_with . " " . expand("%"))
+  split __execution_result__
+  normal ! ggdG
+  setlocal buftype=nofile
+  call append(0, split(result, '\v\n'))
+endfunction
