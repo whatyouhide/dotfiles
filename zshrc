@@ -33,9 +33,9 @@ source "$DOTFILES/zsh/exports"
 # Use Ctrl-s everywhere. In vim for example.
 stty -ixon
 
-# Always inside tmux.
+# Always inside tmux when starting.
 if type tmux >/dev/null 2>&1; then
   if [[ -z $TMUX ]]; then
-    tmux attach -t hack || tmux new-session -s hack -n shell; exit
+    tmux attach -t hack || tmux new-session -s hack -n shell
   fi
 fi
