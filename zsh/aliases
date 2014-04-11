@@ -1,23 +1,26 @@
-# Easier navigation: .., ..., ~ and -
+# Navigation.
 alias -- -="cd -"
-
-# Navigation aliases
 alias tmp="cd ~/tmp"
 alias dotfilez="cd $DOTFILES"
 alias sublime-settings='cd "$HOME/Library/Application Support/Sublime Text 3/Packages/User"'
+alias desk='cd ~/Desktop'
+alias dbox='cd ~/Dropbox'
 
 
 # `cat` with beautiful colors. Requires Pygments installed.
 alias c='pygmentize -O style=monokai -f console256 -g'
 
+
 # z
 alias z=_z
+
 
 # The next few aliases come from inspecting zsh_history and command frequencies.
 alias v='vim'
 alias gr='grunt'
 alias cl='clear'
 alias x='exit'
+
 
 # tmux
 # List all sessions.
