@@ -78,4 +78,6 @@ nnoremap <Leader>fr :call RenameCurrentFile()<CR>
 " m: distraction free mode (using Goyo).
 nnoremap <Leader>m :Goyo<CR>
 " r: reload Chrome Canary (on a Mac). Relies on a script inside $DOTFILES/bin.
-nnoremap <Leader>r :!chrome-canary-reload
+nnoremap <Leader>r :!chrome-canary-refresh<CR>
+" e: execute the current file.
+nnoremap <Leader>e :call ExecuteCurrentFileInSplit()<CR>
