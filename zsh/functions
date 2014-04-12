@@ -28,3 +28,18 @@ vp() {
   tmux send-keys "cd $_pwd" C-m
   tmux send-keys "vim $1" C-m
 }
+
+
+# Use git in a cooler way: 'git' without arguments is 'git 'status'.
+git() {
+  if ! type git >/dev/null 2>&1; then
+    echo "Ooops, seems like you don't have git installed."
+    return 1
+  fi
+
+  if [[ $# > 0 ]]; then
+    command git $@
+  else
+    command git status
+  fi
+}
