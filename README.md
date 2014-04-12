@@ -65,7 +65,7 @@ know or make a pull request.
 
 Before running `:BundleInstall`, be sure to install Vundle!
 
-    git clone https://github.com/gmarik/Vundle.vim
+    git clone https://github.com/gmarik/Vundle.vim ~/.vim/bundle/vundle
 
 ### Tmux
 
