@@ -26,15 +26,25 @@ echo -e "${COL}Installing oh-my-zsh${END}"
 curl -L http://install.ohmyz.sh | sh
 echo ''
 
+
 # RVM for the rubiess
 echo -e "${COL}Installing RVM${END}"
-curl -L https://get.rvm.io | bash -s -- --ruby --ignore-dotfiles --version latest
+curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
+source "$HOME/.rvm/scripts/rvm"
+command rvm install --default 2.1
 echo ''
 
-# For the c alias (syntax highlighted cat)
-echo -e "${COL}Installing Pygments (for the 'c' alias) - this needs sudo${END}"
-sudo easy_install Pygments
+
+# For the c alias (syntax highlighted cat) install Pygments.
+if type easy_install >/dev/null 2>&1; then
+  echo -e "${COL}Installing Pygments (for the 'c' alias) - this needs sudo${END}"
+  sudo easy_install Pygments
+else
+  echo -e "${COL}For the syntax highlighted 'cat' (aliased to 'c'), you ${END}"
+  echo -e "${COL}need to 'sudo easy_install Pygments'.${END}"
 echo ''
+
+
 
 if [[ "$(uname)" == "Darwin" ]]; then
   # Mac setup
@@ -53,7 +63,16 @@ if [[ "$(uname)" == "Darwin" ]]; then
 else
   # We're on Linux
 
-  echo -e "${COL}I believe you're on Linux. If that is true, first install git and then:"
-  echo '  git clone https://github.com/whatyouhide/dotfiles.git ~/dotfiles'
-  echo 'Also be sure to execute rake symlink and the rake setup:* tasks from ~/dotfiles'
+  # If we have git installed...
+  if type git >/dev/null 2>&1; then
+    git clone https://github.com/whatyouhide/dotfiles.git ~/dotfiles
+    echo ''
+
+    echo -e "${COL}Be sure to reload your shell in order to see changes${END}"
+    echo 'Also be sure to execute rake symlink and the rake setup:* tasks from ~/dotfiles'
+  else
+    echo -e "${COL}I believe you're on Linux. If that is true, first install git and then:"
+    echo '  git clone https://github.com/whatyouhide/dotfiles.git ~/dotfiles'
+    echo 'Also be sure to execute rake symlink and the rake setup:* tasks from ~/dotfiles'
+  fi
 fi
