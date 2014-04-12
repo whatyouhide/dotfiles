@@ -29,7 +29,7 @@ echo ''
 
 # RVM for the rubiess
 echo -e "${COL}Installing RVM${END}"
-curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
+curl -sSL https://get.rvm.io | bash -s stable
 source "$HOME/.rvm/scripts/rvm"
 command rvm install --default 2.1
 echo ''
@@ -45,7 +45,7 @@ else
 echo ''
 
 
-
+# Platform-specific setups
 if [[ "$(uname)" == "Darwin" ]]; then
   # Mac setup
 
@@ -57,8 +57,9 @@ if [[ "$(uname)" == "Darwin" ]]; then
   git clone https://github.com/whatyouhide/dotfiles.git ~/dotfiles
   echo ''
 
-  echo -e "${COL}Be sure to reload your shell in order to see changes${END}"
-  echo 'Also be sure to execute rake symlink and the rake setup:* tasks from ~/dotfiles'
+  echo -e "${COL}Just to be sure, remove ~/.profile and ~/.zprofile${END}"
+  rm -v ~/.profile ~/.zprofile
+  echo ''
 
 else
   # We're on Linux
@@ -66,13 +67,15 @@ else
   # If we have git installed...
   if type git >/dev/null 2>&1; then
     git clone https://github.com/whatyouhide/dotfiles.git ~/dotfiles
-    echo ''
-
-    echo -e "${COL}Be sure to reload your shell in order to see changes${END}"
-    echo 'Also be sure to execute rake symlink and the rake setup:* tasks from ~/dotfiles'
   else
-    echo -e "${COL}I believe you're on Linux. If that is true, first install git and then:"
-    echo '  git clone https://github.com/whatyouhide/dotfiles.git ~/dotfiles'
-    echo 'Also be sure to execute rake symlink and the rake setup:* tasks from ~/dotfiles'
+    echo -e "${COL}I believe you're on Linux and you don't have git installed.${END}"
+    echo 'Install it and then:'
+    echo '$ git clone https://github.com/whatyouhide/dotfiles.git ~/dotfiles'
   fi
+
+  echo ''
 fi
+
+
+echo -e "${COL}Be sure to reload your shell in order to see changes${END}"
+echo 'Also be sure to execute rake symlink and the rake setup:* tasks from ~/dotfiles'
