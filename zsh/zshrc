@@ -28,6 +28,9 @@ source "$DOTFILES/zsh/exports"
 
 # Source RVM.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# Ensure that RVM is reloaded when manually doing `source ~/.zshrc`. If this
+# is not set, then RVM doesn't reload itself.
+rvm_reload_flag=1
 
 # Use Ctrl-s everywhere. In vim for example.
 stty -ixon
