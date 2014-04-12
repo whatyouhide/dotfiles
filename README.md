@@ -30,6 +30,11 @@ There are a couple of Rake tasks you can use to symlink configuration files to
 * `rake setup:filesystem`: create a bunch of useful directories
 * `rake setup:zsh_syntax_highlighting`: install zsh syntax highlighting
 
+**Important**: if you're setting up a new machine and you get a "no implicit
+conversion of nil into String" error when running rake, just do:
+
+    export DOTFILES=$HOME/dotfiles
+
 
 ## Contents
 
@@ -57,6 +62,10 @@ organized and clean. To do that, I split it into a bunch of files inside
 `vimrc` is actually a work in progress, since I'm adding stuff to it on a daily
 basis. If you fork this repo and need stuff like additional filetypes let me
 know or make a pull request.
+
+Before running `:BundleInstall`, be sure to install Vundle!
+
+    git clone https://github.com/gmarik/Vundle.vim
 
 ### Tmux
 
