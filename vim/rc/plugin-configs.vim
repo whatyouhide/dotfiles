@@ -52,3 +52,10 @@ let g:ctrlp_dont_split = 'nerdtree'
 " GitGutter
 " Make the sign column always visible.
 let g:gitgutter_sign_column_always = 1
+
+
+" vim-markdown
+" Disable folding and default key mappings.
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_no_default_key_mappings = 1
+

@@ -34,8 +34,9 @@ nnoremap <right> <C-w>l
 nnoremap <C-h> gT
 nnoremap <C-l> gt
 
-" Insert a blank line below the current one using <Enter>.
-nmap <CR> :set paste<CR>o<Esc>:set nopaste<CR>
+" Insert a blank line below the current one using Alt-o.
+nmap ø :set paste<CR>o<Esc>:set nopaste<CR>
+nmap <A-o> :set paste<CR>o<Esc>:set nopaste<CR>
 
 " Move plugin: move lines or blocks of text up/down using Alt+j/k.
 " Note that on a Mac these map to Unicode charactes, so use these:
