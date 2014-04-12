@@ -42,7 +42,8 @@ if type easy_install >/dev/null 2>&1; then
 else
   echo -e "${COL}For the syntax highlighted 'cat' (aliased to 'c'), you ${END}"
   echo -e "${COL}need to 'sudo easy_install Pygments'.${END}"
-echo ''
+  echo ''
+fi
 
 
 # Platform-specific setups
