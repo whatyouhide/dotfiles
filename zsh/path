@@ -1,20 +1,18 @@
 # Make sure that the PHP install in MAMP is the first one
-PATH=/Applications/MAMP/bin/php/php5.4.10/bin
+export PATH=/Applications/MAMP/bin/php/php5.4.10/bin
 
-PATH=$PATH:/usr/local/sbin
-PATH=$PATH:/usr/local/bin
-PATH=$PATH:/usr/bin
-PATH=$PATH:/usr/sbin
-PATH=$PATH:/bin
-PATH=$PATH:/sbin
-PATH=$PATH:/usr/local/git/bin
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/bin
+export PATH=$PATH:/usr/sbin
+export PATH=$PATH:/bin
+export PATH=$PATH:/sbin
 
 PATH=$PATH:$HOME/.rvm/bin
 
-# Personal scripts found in $DOTFILES/bin and $DOTFILES/bin/local
+# Personal scripts found in $DOTFILES/bin and $DOTFILES/bin/local.
 # (for personal use only - you can delete the entire directory content
 # without affecting anything else)
-PATH=$PATH:$DOTFILES/bin
-PATH=$PATH:$DOTFILES/bin/local
+export PATH=$PATH:$DOTFILES/bin
 
 export PATH
