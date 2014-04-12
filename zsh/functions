@@ -4,3 +4,27 @@ add-alias() {
   echo "alias $1=\"$2\"" >> "$DOTFILES/zsh/extra"
   source ~/.zshrc
 }
+
+
+# Open a file with $EDITOR in a vertical tmux pane.
+# Usage:
+# $ vt file.rb
+vp() {
+  # Exit if tmux is not installed.
+  if ! type tmux >/dev/null 2>&1; then
+    echo "Sorry, I couldn't find tmux."
+    return 1
+  fi
+
+  # If we aren't in a tmux session, exit.
+  if [[ -z $TMUX ]]; then
+    echo "Sorry, you don't appear to be in a tmux session."
+    return 1
+  fi
+
+  _pwd=$(pwd)
+
+  tmux split-window -h
+  tmux send-keys "cd $_pwd" C-m
+  tmux send-keys "vim $1" C-m
+}
