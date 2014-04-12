@@ -33,6 +33,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'othree/html5.vim'
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'plasticboy/vim-markdown'
 " Themes.
 Bundle 'chriskempson/base16-vim'
 
