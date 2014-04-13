@@ -20,7 +20,8 @@ map Q <nop>
 
 
 " Ctrl-s to save and return to normal mode if previously in insert mode.
-noremap <C-s> <Esc>:w<CR>
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>
 
 
 " Exit from insert mode by typing 'jj'.
@@ -92,4 +93,4 @@ nnoremap <Leader>rp :call ExecuteCurrentFileInPreviousTmuxPane()<CR>
 " m: distraction free mode (using Goyo).
 nnoremap <Leader>m :Goyo<CR>
 " cr: reload Chrome Canary (on a Mac). Relies on a script inside $DOTFILES/bin.
-nnoremap <Leader>cr :!chrome-canary-refresh<CR>
+nnoremap <Leader>cr :echomsg system('chrome-canary-refresh')<CR>
