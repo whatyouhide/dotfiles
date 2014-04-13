@@ -82,11 +82,6 @@ nnoremap <silent> <Leader>nf :NERDTreeFocus<CR>:only<CR>
 nnoremap <Leader>fr :call RenameCurrentFile()<CR>
 
 
-" <Leader>r shortcuts: running stuff.
-" rn: execute the current file in the next tmux pane.
-nnoremap <Leader>rn :call ExecuteCurrentFileInNextTmuxPane()<CR>
-" rp: execute the current file in the previous tmux pane.
-nnoremap <Leader>rp :call ExecuteCurrentFileInPreviousTmuxPane()<CR>
 
 
 " Miscellaneous <Leader> shortcuts.
@@ -94,3 +89,5 @@ nnoremap <Leader>rp :call ExecuteCurrentFileInPreviousTmuxPane()<CR>
 nnoremap <Leader>m :Goyo<CR>
 " cr: reload Chrome Canary (on a Mac). Relies on a script inside $DOTFILES/bin.
 nnoremap <Leader>cr :echomsg system('chrome-canary-refresh')<CR>
+" r: execute the current file in the previous tmux pane.
+nnoremap <Leader>r :call ExecuteCurrentFileInTmuxPane()<CR>
