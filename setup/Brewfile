@@ -43,6 +43,7 @@ install git
 install git-ftp
 install git-flow
 install gitsh
+install hub
 
 # Tools
 install wget --enable-iri
