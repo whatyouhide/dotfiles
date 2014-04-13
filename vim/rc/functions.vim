@@ -18,27 +18,28 @@ function! RenameCurrentFile()
 endfunction
 
 
-" Run the current file in the tmux pane identified by `pane`.
-" Note that there are no existence checks, it assumes everything is in its
-" place.
-function! ExecuteCurrentFileInTmuxPane(pane)
-  let command = g:execute_with . " " . expand("%")
-  let tmux_command = 'tmux send-keys -t ' . a:pane . ' "' . command . '" C-m'
-  exec ":echomsg system('" . tmux_command . "')"
+function! ChangeTmuxPaneForFileExecution()
+  let pane = input('Index of the pane where files will be executed: ')
+  let g:tmux_pane_for_running_files = pane
 endfunction
 
-" Run the current file inside the pane with the index next to the current one.
-" See ExecuteCurrentFileInTmuxPane() for further details.
-function! ExecuteCurrentFileInPreviousTmuxPane()
-  " Find current tmux pane.
-  let current_pane = system('tmux list-panes | grep active | cut -d : -f 1')
-  call ExecuteCurrentFileInTmuxPane(current_pane - 1)
-endfunction
 
-" Run the current file in the pane with the index previous to the current one.
-" See ExecuteCurrentFileInTmuxPane() for further details.
-function! ExecuteCurrentFileInNextTmuxPane()
-  " Find current tmux pane.
-  let current_pane = system('tmux list-panes | grep active | cut -d : -f 1')
-  call ExecuteCurrentFileInTmuxPane(current_pane + 1)
+function! ExecuteCurrentFileInTmuxPane()
+  " If there isn't a program to run the current file, exit gracefully.
+  if !exists('g:execute_with')
+    let g:execute_with = input('Program to execute the current file: ')
+  endif
+
+  " Define command (as in command line) that runs the current file.
+  let command = g:execute_with . " " . expand('%')
+
+  " Prompt for the pane to use if it wasn't already set.
+  if !exists('g:tmux_pane_for_running_files')
+    call ChangeTmuxPaneForFileExecution()
+  endif
+
+  let prefix = 'tmux send-keys -t ' . g:tmux_pane_for_running_files
+  let tmux_cmd = prefix . ' "' . command . '" C-m'
+
+  exec ":echomsg system('" . tmux_cmd . "')"
 endfunction
