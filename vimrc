@@ -10,7 +10,6 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " Let Vundle manage Vundle, required.
 Bundle 'gmarik/vundle'
-
 " Generic bundles.
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
@@ -57,7 +56,6 @@ syntax on
 source ~/.vim/rc/theme-setups/railscasts.vim
 
 
-
 " Tabs and backspace should behave cool, shouldn't they?
 set tabstop=2                   " tabs are 2 spaces width
 set expandtab                   " expand tabs to spaces
@@ -79,7 +77,8 @@ set showtabline=2
 
 
 " Highlight the part of the line that goes over 80 characters.
-highlight OverLength ctermbg=red ctermfg=white
+" (actually the highlight colors are in the theme setups, this is just
+" the match definition)
 match OverLength /\%81v.\+/
 
 

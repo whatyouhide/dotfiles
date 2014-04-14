@@ -9,7 +9,6 @@ let g:airline_theme = 'base16'
 " Terminal vim (used with iTerm 2)
 " --------------------------------
 
-highlight clear SignColumn
 highlight VertSplit    ctermbg=236
 highlight LineNr       ctermbg=236 ctermfg=240
 highlight CursorLine   ctermbg=236
@@ -25,7 +24,11 @@ highlight Pmenu        ctermbg=240 ctermfg=12
 highlight PmenuSel     ctermbg=0   ctermfg=3
 highlight SpellBad     ctermbg=0   ctermfg=1
 
+" Lines that go over 80 chars.
+highlight OverLength ctermbg=red ctermfg=white
+
 " GitGutter.
+highlight SignColumn               ctermbg=236
 highlight GitGutterAdd             ctermbg=236
 highlight GitGutterChange          ctermbg=236
 highlight GitGutterDelete          ctermbg=236
