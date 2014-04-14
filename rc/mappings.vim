@@ -13,6 +13,7 @@ nnoremap k gk
 
 " One less keystroke *every time*.
 nnoremap ; :
+vnoremap ; :
 
 
 " Disable Ex mode. Please.
@@ -69,9 +70,13 @@ vmap ˚ <Plug>MoveBlockUp
 vmap <A-k> <Plug>MoveBlockUp
 
 
+" <F7> toggles paste mode.
+nnoremap <F7> :set paste!<CR>
+
+
 " <Leader>v shortcuts: they are dedicated to vim stuff.
-" vr: reload vimrc.
-nmap <Leader>vr :source ~/.vimrc<CR>
+" vr: reload vimrc (and reload fucking Airline for right colors).
+nmap <Leader>vr :source ~/.vimrc<CR>:AirlineRefresh<CR>
 " ve: open vimrc in a new tab.
 nmap <Leader>ve :tabedit ~/.vimrc<CR>
 " vbi and vbc: install/clean bundles after reloading.
