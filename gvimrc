@@ -7,5 +7,5 @@ set showtabline=2
 set lines=999 columns=999
 
 " Aesthetic stuff.
-set guifont=Monaco:h14    " set the font for MacVim
+set guifont=Inconsolata-g\ Medium\ 11
 set guicursor=a:blinkon0  " no blinking cursor plz
