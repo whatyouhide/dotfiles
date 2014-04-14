@@ -33,12 +33,6 @@ nnoremap n nzz
 nnoremap N Nzz
 
 
-" Folding.
-" <space> to toggle folds.
-nnoremap <Space> za
-vnoremap <Space> za
-
-
 " Exit from insert mode by typing 'jj'.
 inoremap jj <Esc>
 
