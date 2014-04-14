@@ -6,6 +6,13 @@ set showtabline=2
 " Open in 'fullscreen' (what a mere hack this is).
 set lines=999 columns=999
 
-" Aesthetic stuff.
-set guifont=Inconsolata-g\ Medium\ 11
+" Cursor.
 set guicursor=a:blinkon0  " no blinking cursor plz
+
+" Set GUI font based on being on a Mac (with MacVim) or on Linux
+" (with vim-gnome or vim-gtk).
+if has("gui_macvim")
+  set guifont=Inconsolata-g:h14
+elseif has("gui_gtk")
+  set guifont=Inconsolata-g\ Medium\ 11
+end
