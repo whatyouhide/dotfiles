@@ -47,6 +47,7 @@ let NERDTreeQuitOnOpen = 1
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](\.DS_Store|\.git|node_modules)$'
 let g:ctrlp_dont_split = 'nerdtree'
+let g:ctrlp_max_height = 25
 
 
 " GitGutter
@@ -59,3 +60,7 @@ let g:gitgutter_sign_column_always = 1
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_no_default_key_mappings = 1
 
+
+" Gist.vim
+let g:gist_open_browser_after_post = 1
+let g:gist_detect_filetype = 1
