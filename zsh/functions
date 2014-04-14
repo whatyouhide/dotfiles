@@ -6,6 +6,12 @@ add-alias() {
 }
 
 
+# Create a directory and cd into it.
+md() {
+  mkdir -p "$1" && cd "$1"
+}
+
+
 # Open a file with $EDITOR in a vertical tmux pane.
 # Usage:
 # $ vt file.rb

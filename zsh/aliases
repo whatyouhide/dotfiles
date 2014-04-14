@@ -15,6 +15,10 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 alias z=_z
 
 
+# szrc to [s]ource ~/.[z]sh[rc]
+alias szrc='source ~/.zshrc'
+
+
 # The next few aliases come from inspecting zsh_history and command frequencies.
 alias v='vim'
 alias gr='grunt'
