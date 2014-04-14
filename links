@@ -3,9 +3,9 @@
 
 zsh/zshrc
 vim
-vimrc
-gvimrc
-tmux.conf
+vim/vimrc
+vim/gvimrc
+tmux/tmux.conf
 git/gitconfig
 extra/*
 config-ruby/*
