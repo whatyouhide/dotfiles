@@ -24,20 +24,37 @@ nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>
 
 
+" 'D' to delete to the end of the line (by default, 'D' just does a 'dd').
+nnoremap D d$
+
+
+" Keep search matches in the middle of the screen.
+nnoremap n nzz
+nnoremap N Nzz
+
+
+" Folding.
+" <space> to toggle folds.
+nnoremap <Space> za
+vnoremap <Space> za
+
+
 " Exit from insert mode by typing 'jj'.
 inoremap jj <Esc>
 
 
-" Move through splits easily using arrows.
-nnoremap <left> <C-w>h
-nnoremap <down> <C-w>j
-nnoremap <up> <C-w>k
-nnoremap <right> <C-w>l
+" Move through splits easily using C-h/j/k/l.
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 
-" Cycle tabs using Ctrl-h/l.
-nnoremap <C-h> gT
-nnoremap <C-l> gt
+" Cycle tabs using Alt-h/l.
+nnoremap ˙ gT
+nnoremap <A-h> gT
+nnoremap ¬ gt
+nnoremap <A-l> gt
 
 
 " Insert a blank line below the current one using Alt-o.

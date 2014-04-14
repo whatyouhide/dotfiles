@@ -8,6 +8,10 @@ augroup vimrc_autocmds
   " Remove trailing whitespace on write.
   autocmd BufWritePre * :%s/\s\+$//e
 
+  " Only show cursorline in the current window.
+  autocmd WinLeave * set nocursorline
+  autocmd WinEnter * set cursorline
+
   " Set some file types.
   autocmd BufRead,BufNewFile *.md set filetype=mkd
   autocmd BufRead,BufNewFile *.mmd set filetype=mkd
