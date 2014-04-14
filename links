@@ -2,7 +2,6 @@
 # Lines that start with a '#' are comments.
 
 zsh/zshrc
-inputrc
 vim
 vimrc
 gvimrc
