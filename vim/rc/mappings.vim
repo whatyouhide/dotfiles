@@ -98,6 +98,10 @@ nnoremap <silent> <Leader>nf :NERDTreeFocus<CR>:only<CR>
 nnoremap <Leader>fr :call RenameCurrentFile()<CR>
 
 
+" <Leader>csl: change colorscheme to a light theme.
+" <Leader>csd: change colorscheme to a dark theme.
+nnoremap <Leader>csl :so ~/.vim/rc/theme-setups/solarized.vim<CR>:AirlineRefresh<CR>
+nnoremap <Leader>csd :so ~/.vim/rc/theme-setups/railscasts.vim<CR>:AirlineRefresh<CR>
 
 
 " Miscellaneous <Leader> shortcuts.
