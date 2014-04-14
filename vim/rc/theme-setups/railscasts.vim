@@ -4,11 +4,15 @@ set background=dark
 
 colorscheme base16-railscasts
 
+let g:airline_theme = 'base16'
+
+" Terminal vim (used with iTerm 2)
+" --------------------------------
+
 highlight clear SignColumn
 highlight VertSplit    ctermbg=236
 highlight LineNr       ctermbg=236 ctermfg=240
 highlight CursorLine   ctermbg=236
-highlight CursorLineNr ctermbg=236 ctermfg=240
 highlight CursorLineNr ctermbg=236 ctermfg=240
 highlight CursorLine   ctermbg=236
 highlight ColorColumn  ctermbg=236
@@ -31,3 +35,18 @@ highlight GitGutterChangeDelete    ctermbg=236
 highlight TabLine      ctermfg=240 ctermbg=236
 highlight TabLineSel               ctermbg=237
 highlight TabLineFill              ctermbg=236
+
+
+" GUI vim overrides
+" -----------------
+
+highlight LineNr                   guibg=#313131 guifg=#6a6b6b
+highlight CursorLine               guibg=#313131
+highlight CursorLineNr             guibg=#313131 guifg=#6a6b6b
+highlight CursorLine               guibg=#313131
+highlight SignColumn               guibg=#313131
+
+highlight GitGutterAdd             guibg=#313133
+highlight GitGutterChange          guibg=#313131
+highlight GitGutterDelete          guibg=#313131
+highlight GitGutterChangeDelete    guibg=#313131
