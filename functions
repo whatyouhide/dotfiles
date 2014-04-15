@@ -12,6 +12,20 @@ md() {
 }
 
 
+# Bring a branch to the current branch.
+# This functions checkouts to $1 and does a rebase against the current branch.
+# Then it checkouts back to the current branch.
+bring-branch-here() {
+  # Save the current branch.
+  _current_branch=$(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
+
+  command git checkout $1
+
+  # Rebase $1 against the current branch and checkout back.
+  command git rebase $_current_branch
+  command git checkout $_current_branch
+}
+
 # Open a file with $EDITOR in a vertical tmux pane.
 # Usage:
 # $ vt file.rb
