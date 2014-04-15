@@ -26,11 +26,4 @@ augroup vimrc_autocmds
 
   " PHP files are HTML files too.
   autocmd BufRead,BufNewFile *.php set filetype=php.html
-
-  " Set the program which will be used to execute the current file based on
-  " the current file type.
-  autocmd BufRead,BufNewFile *.ex let b:execute_with = 'elixir'
-  autocmd BufRead,BufNewFile *.exs let b:execute_with = 'elixir'
-  autocmd BufRead,BufNewFile *.rb let b:execute_with = 'ruby'
-  autocmd BufRead,BufNewFile *_spec.rb let b:execute_with = 'rspec'
 augroup END
