@@ -28,6 +28,7 @@ Bundle 'junegunn/goyo.vim'
 Bundle 'tommcdo/vim-exchange'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+Bundle 'whatyouhide/vim-rant'
 " Text objects.
 Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-textobj-entire'
@@ -41,6 +42,11 @@ Bundle 'elixir-lang/vim-elixir'
 Bundle 'plasticboy/vim-markdown'
 " Themes.
 Bundle 'chriskempson/base16-vim'
+
+
+" Temporary mapping for the development of the Rant plugin.
+nnoremap <Leader>rant :set rtp+=~/Code/vim-rant<CR>
+
 
 " Enable file type detection and do language-dependent indenting (this
 " also 'closes' vundle, and it's *required*).
@@ -113,11 +119,6 @@ source ~/.vim/rc/autogroups.vim
 
 " Mappings.
 source ~/.vim/rc/mappings.vim
-
-
-" Commands.
-command! ChangeTmuxPaneForFileExecution call ChangeTmuxPaneForFileExecution()
-command! Run call ExecuteCurrentFileInTmuxPane()
 
 
 " Plugins configurations.
