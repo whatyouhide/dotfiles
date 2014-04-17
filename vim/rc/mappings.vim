@@ -17,16 +17,22 @@ vnoremap ; :
 
 
 " Disable Ex mode. Please.
-map Q <nop>
+" Use Q to quit current file.
+map Q :q<CR>
+
+
+" 'D' to delete to the end of the line (by default, 'D' just does a 'dd').
+nnoremap D d$
+
+
+" H and L in order to move to the beginning/ending of the current line.
+nnoremap H ^
+nnoremap L $
 
 
 " Ctrl-s to save and return to normal mode if previously in insert mode.
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>
-
-
-" 'D' to delete to the end of the line (by default, 'D' just does a 'dd').
-nnoremap D d$
 
 
 " Keep search matches in the middle of the screen.
