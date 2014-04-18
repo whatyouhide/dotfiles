@@ -115,5 +115,5 @@ nnoremap <Leader>csd :so ~/.vim/rc/theme-setups/railscasts.vim<CR>:AirlineRefres
 nnoremap <Leader>m :Goyo<CR>
 " cr: reload Chrome Canary (on a Mac). Relies on a script inside $DOTFILES/bin.
 nnoremap <Leader>cr :echomsg system('chrome-canary-refresh')<CR>
-" r: execute the current file in the previous tmux pane.
-nnoremap <Leader>r :Rant<CR>
+" g: execute the current file in the previous tmux pane.
+nnoremap <Leader>g :Rant<CR>
