@@ -79,10 +79,5 @@ share the same layouts.
 
 I use git a lot and I aliased some git specific stuff inside `git/gitconfig`.
 I also use a custom git template directory (through an environment variable set
-in `zsh/exports`) in order to shoot gitshots when committing.
-
-
-## A note about bash
-
-The repository still contains some bash configurations. I'll probably delete
-that stuff, or leave it on a side branch.
+in `zsh/exports`) in order to shoot [gitshots](https://coderwall.com/p/xlatfq)
+when committing.
