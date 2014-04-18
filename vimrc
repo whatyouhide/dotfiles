@@ -29,6 +29,8 @@ Bundle 'tommcdo/vim-exchange'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'whatyouhide/vim-rant'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'Raimondi/delimitMate'
 " Text objects.
 Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-textobj-entire'
@@ -68,6 +70,10 @@ set expandtab                   " expand tabs to spaces
 set shiftwidth=2                " indent with two spaces
 set softtabstop=2               " just make this equal to shiftwidth
 set backspace=indent,eol,start  " WTF backspace?
+
+
+" Without this, vim doesn't use RVM ruby. Wtf I don' know.
+set shell=sh
 
 
 " Turn line numbers on using relative numbers. Cool. Cool cool cool.
