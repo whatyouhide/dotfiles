@@ -1,131 +1,24 @@
 " Get rid of the vi stuff and fully embrace vim.
 set nocompatible
 
+" Source bundles.
+source ~/.vim/rc/bundles.vim
 
-" Vundle plugin management.
-" Required by vundle, actually I don't know what this does.
-filetype off
-" Set the runtime path to include Vundle and initialize.
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" Let Vundle manage Vundle, required.
-Bundle 'gmarik/vundle'
-" Generic bundles.
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-repeat'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'matze/vim-move'
-Bundle 'scrooloose/nerdtree'
-Bundle 'bling/vim-airline'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'junegunn/goyo.vim'
-Bundle 'tommcdo/vim-exchange'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'whatyouhide/vim-rant'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'Raimondi/delimitMate'
-" Text objects.
-Bundle 'kana/vim-textobj-user'
-Bundle 'kana/vim-textobj-entire'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'b4winckler/vim-angry'
-" Language specific.
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'othree/html5.vim'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'plasticboy/vim-markdown'
-" Themes.
-Bundle 'chriskempson/base16-vim'
-
-
-" Temporary mapping for the development of the Rant plugin.
-nnoremap <Leader>rant :set rtp+=~/Code/vim-rant<CR>
-
-
-" Enable file type detection and do language-dependent indenting (this
-" also 'closes' vundle, and it's *required*).
-filetype plugin indent on
-
-
-" Enable the matchit plugin (require by textobj-rubyblock).
+" Enable the matchit plugin (required by textobj-rubyblock).
 runtime macros/matchit.vim
 
-
-" Turn on syntax highlighting.
+" Turn on syntax highlighting and choose a theme.
 syntax on
 source ~/.vim/rc/theme-setups/railscasts.vim
-
-
-" Tabs and backspace should behave cool, shouldn't they?
-set tabstop=2                   " tabs are 2 spaces width
-set expandtab                   " expand tabs to spaces
-set shiftwidth=2                " indent with two spaces
-set softtabstop=2               " just make this equal to shiftwidth
-set backspace=indent,eol,start  " WTF backspace?
-
-
-" Without this, vim doesn't use RVM ruby. Wtf I don' know.
-set shell=sh
-
-
-" Turn line numbers on using relative numbers. Cool. Cool cool cool.
-set relativenumber
-
-
-" Highlight current line.
-set cursorline
-
-
-" Always show the tab bar (0 for never, 1 for auto).
-set showtabline=2
-
 
 " Highlight the part of the line that goes over 80 characters.
 " (actually the highlight colors are in the theme setups, this is just
 " the match definition)
 match OverLength /\%81v.\+/
 
-
-" Start scrolling when there are n lines between the cursor and the
-" top/bottom of the screen.
-set scrolloff=5
-
-
-" Don't keep nasty swap/tmp/backup files. No more ~.
-set nobackup
-set nowritebackup
-set noswapfile
-
-
-" Splits handling.
-" Splits 'naturally' by opening new splits below/right to the current one.
-set splitbelow
-set splitright
-
-
-" Change the leader from '\' to ','.
-let mapleader=","
-
-
-" Some custom functions.
+" Source external files.
+source ~/.vim/rc/options.vim
 source ~/.vim/rc/functions.vim
-
-
-" Autogroups.
-source ~/.vim/rc/autogroups.vim
-
-
-" Mappings.
+source ~/.vim/rc/autocmds.vim
 source ~/.vim/rc/mappings.vim
-
-
-" Plugins configurations.
 source ~/.vim/rc/plugin-configs.vim
