@@ -32,6 +32,10 @@ source "$DOTFILES/zsh/exports"
 # is not set, then RVM doesn't reload itself.
 export rvm_reload_flag=1
 
+# Cd'ing everywhere. Yesss.
+setopt auto_cd
+cdpath=($HOME/Sites $HOME/Code $HOME/Dropbox)
+
 # Use Ctrl-s everywhere. In vim for example.
 stty -ixon
 
