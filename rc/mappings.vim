@@ -18,10 +18,11 @@ vnoremap ; :
 
 " Disable Ex mode. Please.
 " Use Q to quit current file.
-map Q :q<CR>
+map Q <nop>
 
 
 " 'D' to delete to the end of the line (by default, 'D' just does a 'dd').
+" This also catches up with 'C', which changes to the end of the line.
 nnoremap D d$
 
 
