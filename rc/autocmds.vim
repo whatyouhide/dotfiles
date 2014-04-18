@@ -17,7 +17,6 @@ augroup vimrc_autocmds
   autocmd BufRead,BufNewFile *.mmd set filetype=mkd
   autocmd BufRead,BufNewFile *.markdown set filetype=mkd
 
-
   " Turn spell-checking on for specific filetypes.
   autocmd FileType gitcommit setlocal spell
   autocmd FileType mkd setlocal spell
