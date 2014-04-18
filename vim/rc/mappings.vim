@@ -80,6 +80,10 @@ vmap <A-k> <Plug>MoveBlockUp
 nnoremap <F7> :set paste!<CR>
 
 
+" Toggle CtrlP in MRU mode using Ctrl-n.
+nnoremap <C-n> :CtrlPMRU<CR>
+
+
 " <Leader>v shortcuts: they are dedicated to vim stuff.
 " vr: reload vimrc (and reload fucking Airline for right colors).
 nmap <Leader>vr :source ~/.vimrc<CR>:AirlineRefresh<CR>
@@ -88,15 +92,6 @@ nmap <Leader>ve :tabedit ~/.vimrc<CR>
 " vbi and vbc: install/clean bundles after reloading.
 nmap <Leader>vbi :source ~/.vimrc<CR>:BundleInstall<CR>
 nmap <Leader>vbc :source ~/.vimrc<CR>:BundleClean<CR>
-
-
-" <Leader>n shortcuts: they're for NERDTree.
-" nt: toggle NERDTree.
-nnoremap <Leader>nt :NERDTreeToggle<CR>
-" nc: find current file in NERDTree.
-nnoremap <Leader>nc :NERDTreeFind<CR>
-" nf: make NERDTree the only split in the current tab.
-nnoremap <silent> <Leader>nf :NERDTreeFocus<CR>:only<CR>
 
 
 " <Leader>f shortcuts: custom functions calls.
@@ -108,6 +103,20 @@ nnoremap <Leader>fr :call RenameCurrentFile()<CR>
 " <Leader>csd: change colorscheme to a dark theme.
 nnoremap <Leader>csl :so ~/.vim/rc/theme-setups/solarized.vim<CR>:AirlineRefresh<CR>
 nnoremap <Leader>csd :so ~/.vim/rc/theme-setups/railscasts.vim<CR>:AirlineRefresh<CR>
+
+
+" <Leader>s: specs.
+" sc: run the current spec.
+nnoremap <Leader>sc :call RunCurrentSpecFile()<CR>
+" sa: run all the specs.
+nnoremap <Leader>sa :call RunAllSpecs()<CR>
+
+
+" Exploring directories (NERDTree/netrw agnostic).
+" .: explore the cwd inside the current split.
+" e: explore the cwd in a vertical split.
+nnoremap <Leader>. :edit .<CR>
+nnoremap <Leader>e :vsplit .<CR>
 
 
 " Miscellaneous <Leader> shortcuts.
