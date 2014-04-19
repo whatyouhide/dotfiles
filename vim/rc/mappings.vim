@@ -95,6 +95,14 @@ inoremap <C-r><C-r> <C-r>"
 nnoremap <C-n> :CtrlPMRU<CR>
 
 
+" Searching with sane regexps.
+" nnoremap / /\v
+" Clearing the highlight of the search results with Ctrl-l (which by default
+" redraws the screen).
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+
+
 " <Leader>v shortcuts: they are dedicated to vim stuff.
 " vr: reload vimrc (and reload fucking Airline for right colors).
 nmap <Leader>vr :source ~/.vimrc<CR>:AirlineRefresh<CR>

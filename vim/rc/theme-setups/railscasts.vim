@@ -17,8 +17,8 @@ highlight CursorLine   ctermbg=236
 highlight ColorColumn  ctermbg=236
 highlight StatusLineNC ctermbg=238 ctermfg=0
 highlight StatusLine   ctermbg=238 ctermfg=12
-highlight IncSearch    ctermbg=0   ctermfg=3
-highlight Search       ctermbg=0   ctermfg=9
+highlight IncSearch    ctermbg=4   ctermfg=8
+highlight Search       ctermbg=2   ctermfg=8
 highlight Visual       ctermbg=3   ctermfg=0
 highlight Pmenu        ctermbg=240 ctermfg=12
 highlight PmenuSel     ctermbg=0   ctermfg=3

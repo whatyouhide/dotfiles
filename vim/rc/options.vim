@@ -12,7 +12,6 @@ set backspace=indent,eol,start  " WTF backspace?
 " Autowrap is enabled by default if I set the textwidth option.
 set textwidth=80
 
-
 " Without this, vim doesn't use RVM ruby. Wtf I don't know.
 set shell=sh
 
@@ -33,6 +32,15 @@ set scrolloff=8
 set nobackup
 set nowritebackup
 set noswapfile
+
+" Searching.
+" Be case-insensitive except when using Capital characters in the pattern.
+set ignorecase
+set smartcase
+" Highlight search results.
+set hlsearch
+" Highlight matches while still writing the search pattern.
+set incsearch
 
 " Splits 'naturally' by opening new splits below/right to the current one.
 set splitbelow
