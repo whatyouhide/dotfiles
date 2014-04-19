@@ -4,6 +4,13 @@ ZSH=$HOME/.oh-my-zsh
 # Path to the dotfiles.
 export DOTFILES="$HOME/dotfiles"
 
+# Ensure that 'compdef' is available everywhere.
+# oh-my-zsh sets this up too, but then I have to place stuff in a weird order in
+# order to load some options and then source oh-my-zsh and then source other
+# stuff.
+autoload -U compinit compdef
+compinit
+
 # Set other oh-my-zsh options (obviously keep this before the oh-my-zsh
 # sourcing in order for oh-my-zsh to see these options). Also set the $PATH
 # before oh-my-zsh in order to solve some issues with RVM.
@@ -27,9 +34,9 @@ source "$DOTFILES/zsh/exports"
 [[ -f "$DOTFILES/zsh/extra" ]] && source "$DOTFILES/zsh/extra"
 
 # Source RVM.
+# Also ensure that RVM is reloaded when manually doing `source ~/.zshrc`. If
+# rvm_reload_flag is not set, then RVM doesn't reload itself.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-# Ensure that RVM is reloaded when manually doing `source ~/.zshrc`. If this
-# is not set, then RVM doesn't reload itself.
 export rvm_reload_flag=1
 
 # Cd'ing everywhere. Yesss.
