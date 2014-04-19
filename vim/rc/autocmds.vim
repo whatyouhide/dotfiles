@@ -3,14 +3,22 @@
 
 
 augroup vimrc_autocmds
-  autocmd!
-
   " Remove trailing whitespace on write.
   autocmd BufWritePre * :%s/\s\+$//e
+
+  " Highlight the part of the line that goes over 80 characters.
+  " (actually the highlight colors are in the theme setups, this is just
+  " the match definition)
+  autocmd BufRead,BufNewFile * match OverLength /\%81v.\+/
 
   " Only show cursorline in the current window.
   autocmd WinLeave * set nocursorline
   autocmd WinEnter * set cursorline
+augroup END
+
+
+augroup vimrc_filetypes
+  autocmd!
 
   " Set some file types.
   autocmd BufRead,BufNewFile *.md set filetype=mkd
