@@ -19,6 +19,10 @@ alias z=_z
 alias szrc='source ~/.zshrc'
 
 
+# Exit like in vim.
+alias :q='exit'
+
+
 # The next few aliases come from inspecting zsh_history and command frequencies.
 alias v='vim'
 alias cl='clear'
