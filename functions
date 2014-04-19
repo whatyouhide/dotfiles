@@ -59,12 +59,8 @@ vp() {
 
 
 # Use git in a cooler way: 'git' without arguments is 'git 'status'.
-git() {
-  if ! type git >/dev/null 2>&1; then
-    echo "Ooops, seems like you don't have git installed."
-    return 1
-  fi
-
+compdef g=git
+g() {
   if [[ $# > 0 ]]; then
     command git $@
   else

@@ -21,9 +21,14 @@ alias szrc='source ~/.zshrc'
 
 # The next few aliases come from inspecting zsh_history and command frequencies.
 alias v='vim'
-alias gr='grunt'
 alias cl='clear'
 alias x='exit'
+
+alias gr='grunt'
+compdef gr='grunt'
+
+alias t='tmux'
+compdef t=tmux
 
 
 # tmux

@@ -34,7 +34,7 @@ export rvm_reload_flag=1
 
 # Cd'ing everywhere. Yesss.
 setopt auto_cd
-cdpath=($HOME/Sites $HOME/Code $HOME/Dropbox)
+cdpath=($HOME $HOME/Sites $HOME/Code $HOME/Dropbox)
 
 # Use Ctrl-s everywhere. In vim for example.
 stty -ixon
