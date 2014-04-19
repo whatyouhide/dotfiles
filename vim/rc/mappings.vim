@@ -15,9 +15,9 @@ nnoremap j gj
 nnoremap k gk
 
 
-" One less keystroke *every time*.
-nnoremap ; :
-vnoremap ; :
+" Let's remap , since it's the leader key, but we still want to use it when
+" searching for characters.
+nnoremap \ ,
 
 
 " Disable Ex mode. Please.
