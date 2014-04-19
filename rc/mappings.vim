@@ -86,6 +86,10 @@ vmap <A-k> <Plug>MoveBlockUp
 nnoremap <F2> :NERDTreeToggle<CR>
 
 
+" Ctrl-r Ctrl-r to paste the last register inside Insert mode (mnemonic:
+" C-r{number} pastes the {number} register).
+inoremap <C-r><C-r> <C-r>0
+
 
 " Toggle CtrlP in MRU mode using Ctrl-n.
 nnoremap <C-n> :CtrlPMRU<CR>
