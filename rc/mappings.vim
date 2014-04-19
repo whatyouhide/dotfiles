@@ -81,8 +81,10 @@ vmap ˚ <Plug>MoveBlockUp
 vmap <A-k> <Plug>MoveBlockUp
 
 
-" <F7> toggles paste mode.
-nnoremap <F7> :set paste!<CR>
+" Function keys mappings.
+" Toggle NERDTree.
+nnoremap <F2> :NERDTreeToggle<CR>
+
 
 
 " Toggle CtrlP in MRU mode using Ctrl-n.
