@@ -11,6 +11,7 @@ runtime macros/matchit.vim
 syntax on
 source ~/.vim/rc/theme-setups/railscasts.vim
 
+
 " Source external files.
 source ~/.vim/rc/options.vim
 source ~/.vim/rc/functions.vim
