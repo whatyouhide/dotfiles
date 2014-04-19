@@ -54,11 +54,12 @@ vp() {
 
   tmux split-window -h
   tmux send-keys "cd $_pwd" C-m
-  tmux send-keys "vim $1" C-m
+  tmux send-keys "$EDITOR $1" C-m
 }
 
 
-# Use git in a cooler way: 'git' without arguments is 'git 'status'.
+# Use git in a cooler way: 'g' for status, g {args} for normal git.
+# 'compdef' ensures the same git completion works when using 'g' too.
 compdef g=git
 g() {
   if [[ $# > 0 ]]; then
