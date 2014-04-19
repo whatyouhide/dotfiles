@@ -23,9 +23,7 @@ alias szrc='source ~/.zshrc'
 alias v='vim'
 alias cl='clear'
 alias x='exit'
-
 alias gr='grunt'
-compdef gr='grunt'
 
 alias t='tmux'
 compdef t=tmux
