@@ -4,7 +4,7 @@ export LANG="en_US"
 
 # Make vim the default editor and MacVim the default visual editor.
 export EDITOR=vim
-export VISUAL=mvim
+export VISUAL=vim
 
 # Don’t clear the screen after quitting less and make less quit itself
 # when the content fits one screen.
