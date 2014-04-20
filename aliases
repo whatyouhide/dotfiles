@@ -16,7 +16,7 @@ alias z=_z
 
 
 # szrc to [s]ource ~/.[z]sh[rc]
-alias szrc='source ~/.zshrc'
+alias szrc='rm -v ~/.zcompdump*; source ~/.zshrc'
 
 
 # Exit like in vim.
