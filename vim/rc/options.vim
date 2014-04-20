@@ -42,6 +42,9 @@ set hlsearch
 " Highlight matches while still writing the search pattern.
 set incsearch
 
+" Assume the /g flags on :s subsitutions. (thanks Ben Orenstein)
+set gdefault
+
 " Splits 'naturally' by opening new splits below/right to the current one.
 set splitbelow
 set splitright
