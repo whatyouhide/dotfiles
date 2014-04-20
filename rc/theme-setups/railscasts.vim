@@ -24,6 +24,9 @@ highlight Pmenu        ctermbg=240 ctermfg=12
 highlight PmenuSel     ctermbg=0   ctermfg=3
 highlight SpellBad     ctermbg=0   ctermfg=1
 
+" TODO, FIXME etc.
+highlight Todo         ctermbg=0   ctermfg=5
+
 " Folding.
 highlight Folded       ctermbg=238 ctermfg=2
 
