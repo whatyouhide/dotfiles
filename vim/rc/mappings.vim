@@ -34,6 +34,10 @@ nnoremap D d$
 nnoremap H ^
 nnoremap L $
 
+" Ctrl-a and Ctrl-e in order to move to the bol/eol in insert mode (shell like).
+inoremap <C-a> <C-o>I
+inoremap <C-e> <C-o>A
+
 
 " Ctrl-s to save and return to normal mode if previously in insert mode.
 nnoremap <C-s> :w<CR>
@@ -95,14 +99,6 @@ inoremap <C-r><C-r> <C-r>"
 nnoremap <C-n> :CtrlPMRU<CR>
 
 
-" Searching with sane regexps.
-" nnoremap / /\v
-" Clearing the highlight of the search results with Ctrl-l (which by default
-" redraws the screen).
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
-
-
 " <Leader>v shortcuts: they are dedicated to vim stuff.
 " vr: reload vimrc (and reload fucking Airline for right colors).
 nmap <Leader>vr :source ~/.vimrc<CR>:AirlineRefresh<CR>
@@ -145,3 +141,5 @@ nnoremap <Leader>m :Goyo<CR>
 nnoremap <Leader>cr :echomsg system('chrome-canary-refresh')<CR>
 " g: execute the current file in the previous tmux pane.
 nnoremap <Leader>g :Rant<CR>
+" h: clear the search highlighting.
+nnoremap <silent> <Leader>h :<C-u>nohlsearch<CR><C-l>
