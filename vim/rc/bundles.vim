@@ -55,13 +55,14 @@ Bundle 'Raimondi/delimitMate'
 " Text objects.
 " Keep it all working.
 Bundle 'kana/vim-textobj-user'
-
 " e: entire file.
 Bundle 'kana/vim-textobj-entire'
 " r: Ruby block.
 Bundle 'nelstrom/vim-textobj-rubyblock'
 " a: function argument.
 Bundle 'b4winckler/vim-angry'
+" c: comment.
+Bundle 'glts/vim-textobj-comment'
 
 " Language specific.
 Bundle 'vim-ruby/vim-ruby'
