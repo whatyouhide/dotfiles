@@ -24,13 +24,15 @@ augroup vimrc_filetypes
   autocmd BufRead,BufNewFile *.md set filetype=mkd
   autocmd BufRead,BufNewFile *.mmd set filetype=mkd
   autocmd BufRead,BufNewFile *.markdown set filetype=mkd
+  " The sshconfig filetype is just for ~/.ssh/config, but I have that file in my
+  " dotfiles.
+  autocmd BufRead,BufEnter ~/dotfiles/ssh/config set filetype=sshconfig
 
   " Turn spell-checking on for specific filetypes.
   autocmd FileType gitcommit setlocal spell
   autocmd FileType mkd setlocal spell
 
   " Markdown specific options.
-  " Wrap text at the when using markdown.
   autocmd FileType mkd setlocal textwidth=80
   autocmd FileType mkd setlocal shiftwidth=4
   autocmd FileType mkd setlocal tabstop=4
