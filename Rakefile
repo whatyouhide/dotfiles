@@ -38,7 +38,16 @@ end
 desc "Create the necessary symlinks, overriding existing files in ~"
 task :install do
   default_sources.each do |src|
-    ln_sf src, dot_destination_path(src)
+    dest = dot_destination_path(src)
+
+    # But why? Why removing the destination if it's a directory? Well I don't
+    # know. Ask FileUtils maybe. Really wanna know why? Read the notes at the
+    # end of this file :).
+    if File.directory?(dest)
+      rm dest, verbose: false
+    end
+
+    ln_sf src, dest
   end
 
   custom_sources.each do |src, dest|
@@ -58,7 +67,6 @@ end
 desc "Symlink custom oh-my-zsh themes"
 task :zsh_themes do
   Dir['zsh/themes/*'].each do |theme|
-    p theme
     ln_sf File.join(DOTFILES, theme),
       File.join(Dir.home, '.oh-my-zsh/themes', File.basename(theme))
   end
@@ -72,3 +80,21 @@ namespace :setup do
             ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
   end
 end
+
+
+# Wtf?
+# an essay by Andrea Leopardi
+#
+# When there's no ~/.vim directory, everything goes fine. ln_s links
+# dotfiles/vim to ~/.vim with no hassle.
+#
+# When ~/.vim is already there though, ln_s sees it as a directory.
+# As stated in the docs for FileUtils, if the target of ln_s is a dir then the
+# link will be dest/src.
+# So, ~/.vim being a directory, the link will be ~/.vim/vim.
+# Since every modification to the interiors of ~/.vim (the symlink) will bubble
+# up to the actual dotfiles/vim (that's how symlinks work, isn't it?), we would
+# have a dotfiles/vim/vim link on every 'rake install'. That link would point to
+# dotfiles/vim, being effectively a link to its parent directory.
+#
+# So, just remove every src directory before linking should be fine.
