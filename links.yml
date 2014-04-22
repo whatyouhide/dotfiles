@@ -1,0 +1,16 @@
+# These are the files (globbable) that will be symlinked to ~.
+# Lines that start with a '#' are comments.
+
+home:
+  - zsh/zshrc
+  - vim
+  - vim/vimrc
+  - vim/gvimrc
+  - tmux/tmux.conf
+  - git/gitconfig
+  - extra/*
+  - ruby/*
+  - javascript/*
+
+elsewhere:
+  ssh/config: '~/.ssh/config'

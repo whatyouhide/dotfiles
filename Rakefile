@@ -1,3 +1,6 @@
+require 'yaml'
+
+# Some colors for better prints.
 COLORS = {
   green: "\033[1;32m",
   violet: "\033[1;34m",
@@ -5,7 +8,9 @@ COLORS = {
   end: "\033[0m"
 }
 
+# The location of these dotfiles.
 DOTFILES = ENV['DOTFILES']
+fail "The $DOTFILES environment variable is not set" if not DOTFILES
 
 
 desc "Symlink files listed in $DOTFILES/links to ~, prepending them with a '.'"
@@ -24,11 +29,8 @@ namespace :symlink do
 
   # Read links to make from ~/dotfiles/links
   def read_links
-    dotfiles = []
-    File.open(File.join(DOTFILES, 'links'), 'r').each_line do |line|
-      dotfiles << line.strip unless line.start_with?('#') or line =~ /\A\s+\z/
-    end
-    dotfiles
+    links = YAML.load_file(File.join(DOTFILES, 'links.yml'))
+    links['home']
   end
 
   # Get an array of full dotfiles paths
@@ -60,6 +62,9 @@ namespace :symlink do
         puts "#{COLORS[:green]}Linked#{COLORS[:end]} #{df_path} to #{dest_path}"
       end
 
+      puts "#{COLORS[:green]}Linked#{COLORS[:end]} ssh/config to ~/.ssh/config"
+      File.symlink(File.join(DOTFILES, 'ssh/config'),
+        File.join(Dir.home, '.ssh', 'config'))
     end
   end
 
