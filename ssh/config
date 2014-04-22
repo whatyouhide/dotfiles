@@ -3,6 +3,11 @@ Host dehlic-production
   Port 22
   User whatyouhide
 
+Host dehlic-dev
+  HostName dev.dehlic.com
+  Port 22
+  User whatyouhide
+
 Host imac
   HostName whatyouhide.noip.me
   Port 22

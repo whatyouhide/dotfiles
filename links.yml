@@ -1,7 +1,7 @@
 # These are the files (globbable) that will be symlinked to ~.
 # Lines that start with a '#' are comments.
 
-home:
+default:
   - zsh/zshrc
   - vim
   - vim/vimrc
@@ -12,5 +12,5 @@ home:
   - ruby/*
   - javascript/*
 
-elsewhere:
+custom:
   ssh/config: '~/.ssh/config'
