@@ -32,6 +32,10 @@ alias gr='grunt'
 alias t='tmux'
 compdef t=tmux
 
+alias b='brew'
+alias bc='brew cask'
+compdef b=brew
+
 
 # tmux
 # List all sessions.
