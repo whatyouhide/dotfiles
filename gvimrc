@@ -9,6 +9,12 @@ set lines=999 columns=999
 " Cursor.
 set guicursor=a:blinkon0  " no blinking cursor plz
 
+" Hide the menu bar, the toolbar and the scrollbar in gvim/MacVim.
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+
+
 " Set GUI font based on being on a Mac (with MacVim) or on Linux
 " (with vim-gnome or vim-gtk).
 if has("gui_macvim")
