@@ -95,6 +95,11 @@ nnoremap <F2> :NERDTreeToggle<CR>
 inoremap <C-r><C-r> <C-r>"
 
 
+" Ctrl-u in insert mode to uppercase the word before the cursor.
+" (thanks to Steve Losh)
+inoremap <C-u> <Esc>mzgUiw`za
+
+
 " Toggle CtrlP in MRU mode using Ctrl-n.
 nnoremap <C-n> :CtrlPMRU<CR>
 
