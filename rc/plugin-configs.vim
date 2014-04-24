@@ -50,6 +50,7 @@ let NERDTreeHijackNetrw = 1
 let g:ctrlp_custom_ignore = '\v[\/](\.DS_Store|\.git|node_modules)$'
 let g:ctrlp_dont_split = 'nerdtree'
 let g:ctrlp_max_height = 25
+let g:ctrlp_show_hidden = 1
 
 
 " GitGutter
@@ -64,3 +65,7 @@ let g:gist_detect_filetype = 1
 
 " vim-rspec
 let g:rspec_runner = "os_x_iterm"
+
+
+" Emmet
+let g:user_emmet_leader_key = '<C-z>'
