@@ -4,10 +4,10 @@
 	s = status -s
 	df = diff --color --color-words --abbrev
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-	arch = archive --format zip -v -9
   rank = shortlog -s -n
   br = branch -v --all
   f = flow
+  recommit = commit -C ORIG_HEAD
 [color]
 	ui = always
 [core]
