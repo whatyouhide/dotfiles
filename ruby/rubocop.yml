@@ -1,7 +1,7 @@
 # https://github.com/bbatsov/rubocop
 
 AllCops:
-  Excludes:
+  Exclude:
     - vendor
 
 # If writing numeric literals longer than `MinDigits`, use undescores
@@ -20,7 +20,7 @@ SignalException:
 
 # Enforce spaces around curly braces (eg. `{ 'spaces around me' }`).
 # Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces
-SpaceAroundBlockBraces:
+SpaceInsideBlockBraces:
   SpaceBeforeBlockParameters: true
   Enabled: true
 
@@ -67,7 +67,7 @@ Blocks:
 # When chaining method calls, place the dots at the end of the lines.
 # Configuration parameters: Style, SupportedStyles.
 DotPosition:
-  Style: trailing
+  EnforcedStyle: trailing
   Enabled: true
 
 # Use the new "sexy" hash syntax ({ this: 'is an hash' }).
@@ -123,3 +123,6 @@ IfUnlessModifier:
 # Don't leave trailing blank lines.
 TrailingBlankLines:
   Enabled: true
+
+ClassAndModuleChildren:
+  Enabled: false
