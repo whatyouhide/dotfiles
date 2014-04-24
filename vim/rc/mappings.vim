@@ -148,3 +148,5 @@ nnoremap <Leader>cr :echomsg system('chrome-canary-refresh')<CR>
 nnoremap <Leader>g :Rant<CR>
 " h: clear the search highlighting.
 nnoremap <silent> <Leader>h :<C-u>nohlsearch<CR><C-l>
+" a: use the rails.vim ':A' command.
+nnoremap <silent> <Leader>a :A<CR>
