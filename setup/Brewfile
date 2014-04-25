@@ -1,6 +1,8 @@
+# Bootstrapping
+# =============
+
 # Make sure we’re using the latest Homebrew
 update
-
 # Upgrade any already-installed formulae
 upgrade
 
@@ -63,6 +65,7 @@ install macvim --override-system-vim
 install tmux
 
 
+
 # Casks
 # =====
 
@@ -75,6 +78,8 @@ cask install flux
 cask install the-unarchiver
 cask install caffeine
 cask install appcleaner
+cask install keyremap4macbook
+cask install alfred
 
 # Services
 cask install copy
@@ -89,12 +94,14 @@ cask install vagrant
 cask install dash
 
 # Misc
-cask install alfred
 cask install google-chrome
 cask install google-chrome-canary
 cask install ynab
 cask install plex-home-theater
 cask install vlc
+cask install onepassword
+
+
 
 # Cleanup
 # =======
