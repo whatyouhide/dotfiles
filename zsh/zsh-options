@@ -4,7 +4,7 @@
 ZSH_THEME="whatyouhide"
 
 # oh-my-zsh plugins.
-plugins=(z zsh-syntax-highlighting)
+plugins=(z brew zsh-syntax-highlighting)
 
 # Mmmm. Cd into this stuff everytime.o
 # http://robots.thoughtbot.com/cding-to-frequently-used-directories-in-zsh
