@@ -3,7 +3,7 @@
 	st = status
 	s = status -s
 	df = diff --color --color-words --abbrev
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	lg = log --graph --pretty=format:'%C(yellow)%h %C(reset)%s%C(red)%d %C(blue)%an%C(reset), %C(cyan)%ar'
   rank = shortlog -s -n
   br = branch -v --all
   f = flow
