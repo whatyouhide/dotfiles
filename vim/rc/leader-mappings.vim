@@ -23,9 +23,9 @@ nnoremap <Leader>csd :so ~/.vim/rc/theme-setups/railscasts.vim<CR>:AirlineRefres
 
 
 " sc: run the current spec.
-nnoremap <Leader>sp :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>s :call RunCurrentSpecFile()<CR>
 " sa: run all the specs.
-nnoremap <Leader>sa :call RunAllSpecs()<CR>
+nnoremap <Leader>rsp :call RunAllSpecs()<CR>
 
 
 " Exploring directories (NERDTree/netrw agnostic).
