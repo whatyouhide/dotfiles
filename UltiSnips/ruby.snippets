@@ -3,7 +3,30 @@ def ${1:function}
 end
 endsnippet
 
+
 snippet defa "Basic ruby function with args"
 def ${1:name}(${2:args})
 end
+endsnippet
+
+
+
+# Rspec
+
+snippet desc "Describe block"
+describe '${1:description}' do
+	${2}
+end
+endsnippet
+
+
+snippet it "it() block"
+it '${1}' do
+	${2}
+end
+endsnippet
+
+
+snippet ee "Expect to be equal"
+expect(${1:something}).to eq(${2:value})
 endsnippet
