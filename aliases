@@ -37,12 +37,6 @@ alias bc='brew cask'
 compdef b=brew
 
 
-# There's never been anything longer to type than the KeyRemap4MacBook cli tool,
-# that's why it's a script inside bin/. These are useful aliases.
-alias keyremap4macbook-dump='keyremap4macbook export > $DOTFILES/keyremap4macbook/remap.sh'
-alias keyremap4macbook-dump='$DOTFILES/keyremap4macbook/remap.sh'
-
-
 # tmux
 # List all sessions.
 alias tls='tmux ls'
