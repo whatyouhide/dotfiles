@@ -49,8 +49,6 @@ Bundle 'mattn/gist-vim'
 Bundle 'whatyouhide/vim-rant'
 " Run specs inside vim.
 Bundle 'thoughtbot/vim-rspec'
-" Autocomplete parens, brackets, quotes and everything.
-Bundle 'Raimondi/delimitMate'
 
 " Text objects.
 " Keep it all working.
