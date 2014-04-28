@@ -3,7 +3,7 @@ require 'yaml'
 
 # The location of these dotfiles.
 DOTFILES = ENV['DOTFILES']
-fail "The $DOTFILES environment variable is not set" if not DOTFILES
+fail "The $DOTFILES environment variable is not set" unless DOTFILES
 
 
 # Parse the YAML file which contains the links, it will be needed everywhere.

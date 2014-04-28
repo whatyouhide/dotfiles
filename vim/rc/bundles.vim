@@ -20,8 +20,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 " Add 'end's here and there in Ruby, Vimscript.
 Bundle 'tpope/vim-endwise'
-" Rmodel and stuff. Super useful.
-Bundle 'tpope/vim-rails'
 " Repeat custom commands.
 Bundle 'tpope/vim-repeat'
 " GitGutter, no presentation needed.
@@ -34,6 +32,8 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'matze/vim-move'
 " Kind of a project drawer.
 Bundle 'scrooloose/nerdtree'
+" Syntax checker.
+Bundle 'scrooloose/syntastic'
 " Better (maybe?) status line.
 Bundle 'bling/vim-airline'
 " <Tab> to snip. Snippets are in ~/.vim/UltiSnips.
@@ -68,6 +68,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'othree/html5.vim'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'plasticboy/vim-markdown'
+Bundle 'tpope/vim-rails'
 Bundle 'mattn/emmet-vim'
 
 " Themes.
