@@ -68,3 +68,16 @@ g() {
     command git status
   fi
 }
+
+# Refuse to ssh into a remote machine if running inside tmux. This is to avoid
+# having a remote tmux session inside a local tmux session (two status bars?
+# wtf?).
+ssh() {
+  # We're inside a tmux session.
+  if [[ -n $TMUX ]]; then
+    echo "First exit from the current tmux session. No one likes two status bars."
+    echo "Just 'command ssh ...' if you want to f**k this."
+  else
+    command ssh $@
+  fi
+}
