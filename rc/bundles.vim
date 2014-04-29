@@ -67,9 +67,11 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'othree/html5.vim'
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'derekwyatt/vim-scala'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-rails'
 Bundle 'mattn/emmet-vim'
+
 
 " Themes.
 Bundle 'chriskempson/base16-vim'
