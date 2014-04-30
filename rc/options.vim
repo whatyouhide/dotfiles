@@ -8,6 +8,7 @@ set expandtab                   " expand tabs to spaces
 set shiftwidth=2                " indent with two spaces
 set softtabstop=2               " just make this equal to shiftwidth
 set backspace=indent,eol,start  " WTF backspace?
+set smartindent                 " don't indent 2 spaces everytime, be smart
 
 " Autowrap is enabled by default if I set the textwidth option.
 set textwidth=80
