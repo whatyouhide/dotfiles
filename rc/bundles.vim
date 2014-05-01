@@ -71,6 +71,7 @@ Bundle 'derekwyatt/vim-scala'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-rails'
 Bundle 'mattn/emmet-vim'
+Bundle 'pangloss/vim-javascript'
 
 
 " Themes.

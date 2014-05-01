@@ -40,4 +40,8 @@ augroup vimrc_filetypes
 
   " PHP files are HTML files too.
   autocmd BufRead,BufNewFile *.php set filetype=php.html
+  " eruby should get the benefits of being HTML too sometimes.
+  " Setting the syntax to eruby is a little hack that allows rails.vim to
+  " highlight Rails stuff.
+  autocmd BufRead,BufNewFile *.html.erb set filetype=eruby.html | set syn=eruby
 augroup END
