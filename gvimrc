@@ -14,6 +14,8 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 
+" God please don't beeeeeeeeeeeeeeep all the time.
+set visualbell t_vb=
 
 " Set GUI font based on being on a Mac (with MacVim) or on Linux
 " (with vim-gnome or vim-gtk).
