@@ -13,12 +13,12 @@ endsnippet
 
 # Rspec
 
+# Contexts
 snippet desc "Describe block"
 describe '${1:description}' do
 	${2}
 end
 endsnippet
-
 
 snippet it "it() block"
 it '${1}' do
@@ -26,7 +26,29 @@ it '${1}' do
 end
 endsnippet
 
+snippet cont "A context"
+context '${1}' do
+	${2}
+end
+endsnippet
 
+# Expectations
 snippet ee "Expect to be equal"
 expect(${1:something}).to eq(${2:value})
+endsnippet
+
+
+
+# Capybara
+
+# Contexts
+snippet scen "A Capybara DSL scenario"
+scenario '${1}' do
+	${2}
+end
+endsnippet
+
+# Expectations
+snippet ehc "Expect a page to have some content"
+expect(page).to have_content(${1})
 endsnippet
