@@ -55,8 +55,8 @@ nnoremap <Leader>m :Goyo<CR>
 nnoremap <Leader>chr :echomsg system('chrome-canary-refresh')<CR>
 
 
-" g: execute the current file in the previous tmux pane.
-nnoremap <Leader>g :Rant<CR>
+" gs: git status (via fugitive).
+nnoremap <Leader>gs :Gstatus<CR>:resize 25<CR>
 
 
 " h: clear the search highlighting.

@@ -72,6 +72,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-rails'
 Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
+Plugin '2072/PHP-Indenting-for-VIm'
 
 
 " Themes.
