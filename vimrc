@@ -2,7 +2,7 @@
 set nocompatible
 
 " Source bundles.
-source ~/.vim/rc/bundles.vim
+source ~/.vim/rc/plugins.vim
 
 " Enable the matchit plugin (required by textobj-rubyblock).
 runtime macros/matchit.vim

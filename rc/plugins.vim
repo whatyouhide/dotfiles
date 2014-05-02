@@ -6,77 +6,79 @@
 filetype off
 
 " Set the runtime path to include Vundle and initialize.
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Let Vundle manage Vundle, required.
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 " Generic bundles.
 
 " Surround text and change it and everything. Awesome.
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 " Git wrapper.
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 " Add 'end's here and there in Ruby, Vimscript.
-Bundle 'tpope/vim-endwise'
+Plugin 'tpope/vim-endwise'
 " Repeat custom commands.
-Bundle 'tpope/vim-repeat'
+Plugin 'tpope/vim-repeat'
 " GitGutter, no presentation needed.
-Bundle 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 " Fuzzy file finder (with MRU too).
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 " Comment stuff with 'gc'.
-Bundle 'tomtom/tcomment_vim'
+Plugin 'tomtom/tcomment_vim'
 " Move lines/visually selected blocks up and down with some custom mappings.
-Bundle 'matze/vim-move'
+Plugin 'matze/vim-move'
 " Kind of a project drawer.
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 " Syntax checker.
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 " Better (maybe?) status line.
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 " <Tab> to snip. Snippets are in ~/.vim/UltiSnips.
-Bundle 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
 " Distraction Free mode.
-Bundle 'junegunn/goyo.vim'
+Plugin 'junegunn/goyo.vim'
 " Exchange the position of text objects.
-Bundle 'tommcdo/vim-exchange'
+Plugin 'tommcdo/vim-exchange'
 " :Gist stuff.
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
 " Run the current buffer in a tmux pane.
-Bundle 'whatyouhide/vim-rant'
+Plugin 'whatyouhide/vim-rant'
 " Run specs inside vim.
-Bundle 'thoughtbot/vim-rspec'
+Plugin 'thoughtbot/vim-rspec'
 
 " Text objects.
 " Keep it all working.
-Bundle 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-user'
 " e: entire file.
-Bundle 'kana/vim-textobj-entire'
+Plugin 'kana/vim-textobj-entire'
 " r: Ruby block.
-Bundle 'nelstrom/vim-textobj-rubyblock'
+Plugin 'nelstrom/vim-textobj-rubyblock'
 " a: function argument.
-Bundle 'b4winckler/vim-angry'
+Plugin 'b4winckler/vim-angry'
 " c: comment.
-Bundle 'glts/vim-textobj-comment'
+Plugin 'glts/vim-textobj-comment'
 
 " Language specific.
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'othree/html5.vim'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'tpope/vim-rails'
-Bundle 'mattn/emmet-vim'
-Bundle 'pangloss/vim-javascript'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'othree/html5.vim'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-rails'
+Plugin 'mattn/emmet-vim'
+Plugin 'pangloss/vim-javascript'
 
 
 " Themes.
-Bundle 'chriskempson/base16-vim'
+Plugin 'chriskempson/base16-vim'
 
+
+call vundle#end()
 
 " Enable file type detection and do language-dependent indenting (this
 " also 'closes' vundle, and it's *required*).

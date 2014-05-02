@@ -9,8 +9,8 @@ nmap <Leader>vr :source ~/.vimrc<CR>:AirlineRefresh<CR>
 " ve: open vimrc in a new tab.
 nmap <Leader>ve :tabedit ~/.vimrc<CR>
 " vi and vc: install/clean bundles after reloading.
-nmap <Leader>vi :source ~/.vimrc<CR>:BundleInstall<CR>
-nmap <Leader>vc :source ~/.vimrc<CR>:BundleClean<CR>
+nmap <Leader>vi :source ~/.vimrc<CR>:PluginInstall<CR>
+nmap <Leader>vc :source ~/.vimrc<CR>:PluginClean<CR>
 
 
 " fr: rename current file (function rename-file).
