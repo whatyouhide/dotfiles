@@ -38,8 +38,6 @@ augroup vimrc_filetypes
   autocmd FileType mkd setlocal tabstop=4
   autocmd FileType mkd setlocal softtabstop=4
 
-  " PHP files are HTML files too.
-  autocmd BufRead,BufNewFile *.php set filetype=php.html
   " eruby should get the benefits of being HTML too sometimes.
   " Setting the syntax to eruby is a little hack that allows rails.vim to
   " highlight Rails stuff.
