@@ -3,16 +3,17 @@ snippet php "Basic PHP tag" i
 endsnippet
 
 
-snippet echo "Basic echo command" i
-<?php echo ${0:$variable}; ?>
-endsnippet
-
-
 snippet phpm "Multiline PHP tag"
 <?php
 ${0}
 ?>
 endsnippet
+
+
+snippet echo "Basic echo command" i
+<?php echo ${0:$variable}; ?>
+endsnippet
+
 
 snippet pr "Call print_r on an element"
 <?php echo '<pre>'; print_r(${0:$var}); echo '</pre>'; ?>
