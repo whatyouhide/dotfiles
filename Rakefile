@@ -73,14 +73,17 @@ task :zsh_themes do
 end
 
 
-namespace :setup do
-  desc "Add the zsh-syntax-highlighting plugin to oh-my-zsh"
-  task :zsh_syntax_highlighting do
-    system 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-            ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
-  end
+desc "Add the zsh-syntax-highlighting plugin to oh-my-zsh"
+task :zsh_syntax_highlighting do
+  system 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+          ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
 end
 
+desc "Install the Vundle plugin manager"
+task :install_vundle do
+  fail unless File.exist?(File.join(Dir.home, '.vim'))
+  system 'git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
+end
 
 # Wtf?
 # an essay by Andrea Leopardi
