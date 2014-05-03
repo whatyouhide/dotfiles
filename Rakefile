@@ -85,6 +85,21 @@ task :install_vundle do
   system 'git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
 end
 
+desc "Symlink the tmuxinator projects directory to ~/.tmuxinator"
+task :tmuxinator_projects do
+  # Search for tmuxinator/ inside ~/Code and ~/code.
+  upcase, downcase = ['Code', 'code'].map { |el| File.join(Dir.home, el, 'tmuxinator') }
+  if File.exists?(upcase)
+    path = upcase
+  elsif File.exists?(downcase)
+    path = downcase
+  else
+    fail "tmuxinator projects not found in #{paths}"
+  end
+
+  ln_sf path, File.join(Dir.home, '.tmuxinator')
+end
+
 # Wtf?
 # an essay by Andrea Leopardi
 #
