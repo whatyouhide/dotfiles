@@ -38,6 +38,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 " <Tab> to snip. Snippets are in ~/.vim/UltiSnips.
 Plugin 'SirVer/ultisnips'
+" <Tab> for completion.
+Plugin 'ervandew/supertab'
 " Distraction Free mode.
 Plugin 'junegunn/goyo.vim'
 " Exchange the position of text objects.
@@ -47,8 +49,6 @@ Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 " Run the current buffer in a tmux pane.
 Plugin 'whatyouhide/vim-rant'
-" Run specs inside vim.
-Plugin 'thoughtbot/vim-rspec'
 
 " Text objects.
 " Keep it all working.
@@ -73,6 +73,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin '2072/PHP-Indenting-for-VIm'
+Plugin 'thoughtbot/vim-rspec'
 
 
 " Themes.
