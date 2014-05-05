@@ -94,7 +94,7 @@ task :tmuxinator_projects do
   elsif File.exists?(downcase)
     path = downcase
   else
-    fail "tmuxinator projects not found in #{paths}"
+    fail "tmuxinator projects not found in #{[upcase, downcase]}"
   end
 
   ln_sf path, File.join(Dir.home, '.tmuxinator')
