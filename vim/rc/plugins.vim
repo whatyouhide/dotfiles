@@ -26,6 +26,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'airblade/vim-gitgutter'
 " Dispatch, to run stuff asynchronously.
 Plugin 'tpope/vim-dispatch'
+" Take advantage of [ and ].
+Plugin 'tpope/vim-unimpaired'
 " Fuzzy file finder (with MRU too).
 Plugin 'kien/ctrlp.vim'
 " Comment stuff with 'gc'.
@@ -49,8 +51,6 @@ Plugin 'tommcdo/vim-exchange'
 " :Gist stuff.
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
-" Run the current buffer in a tmux pane.
-Plugin 'whatyouhide/vim-rant'
 
 " Text objects.
 " Keep it all working.

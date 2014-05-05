@@ -20,9 +20,6 @@ nnoremap <Leader>fr :call RenameCurrentFile()<CR>
 " csl and csd: change colorscheme to a light/dark theme.
 nnoremap <Leader>csl :so ~/.vim/rc/theme-setups/solarized.vim<CR>:AirlineRefresh<CR>
 nnoremap <Leader>csd :so ~/.vim/rc/theme-setups/railscasts.vim<CR>:AirlineRefresh<CR>
-" bl and bd: set background to light/dark.
-nnoremap <Leader>bl :set bg=light<CR>
-nnoremap <Leader>bd :set bg=dark<CR>
 
 
 " sc: run the current spec.
