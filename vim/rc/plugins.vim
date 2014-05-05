@@ -24,6 +24,8 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-repeat'
 " GitGutter, no presentation needed.
 Plugin 'airblade/vim-gitgutter'
+" Dispatch, to run stuff asynchronously.
+Plugin 'tpope/vim-dispatch'
 " Fuzzy file finder (with MRU too).
 Plugin 'kien/ctrlp.vim'
 " Comment stuff with 'gc'.
