@@ -60,9 +60,12 @@ install imagesnap
 install v8
 install node
 
-# Terminal stuff
+# Dev tools
 install macvim --override-system-vim
 install tmux
+install reattach-to-user-namespace
+install ctags
+install ack
 
 
 
