@@ -16,6 +16,7 @@ source ~/.vim/rc/theme-setups/railscasts.vim
 source ~/.vim/rc/options.vim
 source ~/.vim/rc/functions.vim
 source ~/.vim/rc/autocmds.vim
+source ~/.vim/rc/commands.vim
 source ~/.vim/rc/mappings.vim
 source ~/.vim/rc/leader-mappings.vim
 source ~/.vim/rc/plugin-configs.vim
