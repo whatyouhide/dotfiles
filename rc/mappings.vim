@@ -2,10 +2,6 @@
 " ==========
 
 
-" Change the leader from '\' to ','.
-let mapleader=","
-
-
 " Use hjkl.
 inoremap <up> <nop>
 inoremap <down> <nop>
