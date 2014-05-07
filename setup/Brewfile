@@ -104,6 +104,12 @@ cask install plex-home-theater
 cask install vlc
 cask install onepassword
 
+# QuickLook plugins
+cask install qlcolorcode
+cask install qlstephen
+cask install qlmarkdown
+cask install betterzipql
+
 
 
 # Cleanup
