@@ -7,6 +7,8 @@
 gem install tmuxinator
 # Easily handle launchtl stuff.
 gem install launchy
+# git-up for giving some sense to git pull.
+gem install git-up
 
 
 # Web development
