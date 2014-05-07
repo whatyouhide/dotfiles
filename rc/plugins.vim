@@ -16,53 +16,35 @@ Plugin 'gmarik/Vundle.vim'
 
 " Surround text and change it and everything. Awesome.
 Plugin 'tpope/vim-surround'
-" Git wrapper.
 Plugin 'tpope/vim-fugitive'
-" Add 'end's here and there in Ruby, Vimscript.
 Plugin 'tpope/vim-endwise'
-" Repeat custom commands.
 Plugin 'tpope/vim-repeat'
-" GitGutter, no presentation needed.
-Plugin 'airblade/vim-gitgutter'
-" Dispatch, to run stuff asynchronously.
-Plugin 'tpope/vim-dispatch'
-" Take advantage of [ and ].
-Plugin 'tpope/vim-unimpaired'
-" Fuzzy file finder (with MRU too).
-Plugin 'kien/ctrlp.vim'
-" Comment stuff with 'gc'.
-Plugin 'tomtom/tcomment_vim'
-" Move lines/visually selected blocks up and down with some custom mappings.
-Plugin 'matze/vim-move'
-" Kind of a project drawer.
-Plugin 'scrooloose/nerdtree'
-" Syntax checker.
+Plugin 'tpope/vim-dispatch'       " Wow! Run stuff ansynchronously
+Plugin 'tpope/vim-unimpaired'     " Use [ and ], often
+Plugin 'tpope/vim-vinegar'        " Some enhancements over netrw
+
 Plugin 'scrooloose/syntastic'
-" Better (maybe?) status line.
-Plugin 'bling/vim-airline'
-" <Tab> to snip. Snippets are in ~/.vim/UltiSnips.
+Plugin 'kien/ctrlp.vim'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tommcdo/vim-exchange'     " Exchange the position of text objects
+Plugin 'matze/vim-move'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'SirVer/ultisnips'
-" <Tab> for completion.
-Plugin 'ervandew/supertab'
-" Distraction Free mode.
-Plugin 'junegunn/goyo.vim'
-" Exchange the position of text objects.
-Plugin 'tommcdo/vim-exchange'
-" :Gist stuff.
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
+
+Plugin 'bling/vim-airline'
+Plugin 'junegunn/goyo.vim'        " Distraction-free mode
+Plugin 'mattn/webapi-vim'         " Required by gist-vim
+Plugin 'mattn/gist-vim'           " :Gist portions of texth
 
 " Text objects.
-" Keep it all working.
-Plugin 'kana/vim-textobj-user'
-" e: entire file.
-Plugin 'kana/vim-textobj-entire'
-" r: Ruby block.
+Plugin 'kana/vim-textobj-user'    " Required by many
+Plugin 'kana/vim-textobj-entire'  " Entire file
 Plugin 'nelstrom/vim-textobj-rubyblock'
-" a: function argument.
 Plugin 'b4winckler/vim-angry'
-" c: comment.
 Plugin 'glts/vim-textobj-comment'
+
+" OSX only.
+Plugin 'henrik/vim-reveal-in-finder'
 
 " Language specific.
 Plugin 'vim-ruby/vim-ruby'
@@ -76,7 +58,6 @@ Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin '2072/PHP-Indenting-for-VIm'
 Plugin 'thoughtbot/vim-rspec'
-
 
 " Themes.
 Plugin 'chriskempson/base16-vim'

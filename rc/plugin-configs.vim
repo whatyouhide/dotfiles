@@ -37,22 +37,12 @@ let g:tcomment#blank_lines = 0
 
 " Ultisnips
 " Expand snippets using <tab>.
-let g:UltiSnipsExpandTrigger="<C-n>"
-
-
-" Supertab
-let g:SuperTabDefaultCompletionType = "<C-n>"
-
-
-" NERDTree
-" Close the NERDTree pane when opening a file with 'o' (or Enter).
-let NERDTreeQuitOnOpen = 1
-let NERDTreeHijackNetrw = 1
+let g:UltiSnipsExpandTrigger="<tab>"
 
 
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](\.DS_Store|\.git|node_modules)$'
-let g:ctrlp_dont_split = 'nerdtree'
+let g:ctrlp_dont_split = 'netrw'
 let g:ctrlp_max_height = 25
 let g:ctrlp_show_hidden = 1
 
