@@ -1,14 +1,19 @@
 #!/bin/sh
 
+# Utilities
+
 # Handle tmux windows/panes configurations on a per-project basis using
 # YAML config files.
 gem install tmuxinator
+# Easily handle launchtl stuff.
+gem install launchy
+
+
+# Web development
 
 # Keep an open Rails server in order to speed up rake/rails/rspec commands.
 gem install zeus
-
 # An irb alternative.
 gem install pry
-
 # Sass.
 gem install sass
