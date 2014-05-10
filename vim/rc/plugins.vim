@@ -37,6 +37,8 @@ Plugin 'junegunn/goyo.vim'        " Distraction-free mode
 Plugin 'mattn/webapi-vim'         " Required by gist-vim
 Plugin 'mattn/gist-vim'           " :Gist portions of texth
 
+Plugin 'kien/rainbow_parentheses.vim'
+
 " Text objects.
 Plugin 'kana/vim-textobj-user'    " Required by many
 Plugin 'kana/vim-textobj-entire'  " Entire file
