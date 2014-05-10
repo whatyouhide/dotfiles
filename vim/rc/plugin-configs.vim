@@ -41,8 +41,8 @@ let g:UltiSnipsExpandTrigger="<tab>"
 
 
 " CtrlP
-let g:ctrlp_custom_ignore = '\v[\/](\.DS_Store|\.git|node_modules)$'
-let g:ctrlp_dont_split = 'netrw'
+let g:ctrlp_custom_ignore = '\v[\/](\.DS_Store|\.git|node_modules|\.sass-cache)$'
+let g:ctrlp_dont_split = 'nerdtree'
 let g:ctrlp_max_height = 25
 let g:ctrlp_show_hidden = 1
 
