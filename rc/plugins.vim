@@ -21,7 +21,6 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-dispatch'       " Wow! Run stuff ansynchronously
 Plugin 'tpope/vim-unimpaired'     " Use [ and ], often
-Plugin 'tpope/vim-vinegar'        " Some enhancements over netrw
 
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
@@ -30,6 +29,8 @@ Plugin 'tommcdo/vim-exchange'     " Exchange the position of text objects
 Plugin 'matze/vim-move'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'SirVer/ultisnips'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 Plugin 'bling/vim-airline'
 Plugin 'junegunn/goyo.vim'        " Distraction-free mode
