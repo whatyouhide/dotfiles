@@ -37,7 +37,8 @@ let g:tcomment#blank_lines = 0
 
 " Ultisnips
 " Expand snippets using <tab>.
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsEditSplit = "vertical"
 
 
 " CtrlP
