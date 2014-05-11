@@ -13,6 +13,7 @@ set guicursor=a:blinkon0  " no blinking cursor plz
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
+set guioptions-=L
 
 " God please don't beeeeeeeeeeeeeeep all the time.
 set visualbell t_vb=
