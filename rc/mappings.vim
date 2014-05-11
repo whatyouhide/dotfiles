@@ -83,7 +83,7 @@ vmap <A-k> <Plug>MoveBlockUp
 
 " Function keys mappings.
 " Toggle NERDTree.
-nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F2> :NERDTreeTabsToggle<CR>
 
 
 " Ctrl-r Ctrl-r to paste the last register inside Insert mode (mnemonic:
