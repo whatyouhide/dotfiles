@@ -52,6 +52,7 @@ install wget --enable-iri
 install htop
 install rsync
 install mmv
+install direnv
 
 # Gitshots!
 install imagesnap

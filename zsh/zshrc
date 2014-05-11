@@ -46,6 +46,9 @@ cdpath=($HOME $HOME/Sites $HOME/Code $HOME/Dropbox)
 # Use Ctrl-s everywhere. In vim for example.
 stty -ixon
 
+# Load direnv.
+eval "$(direnv hook zsh)"
+
 # Always inside tmux when starting.
 if type tmux >/dev/null 2>&1; then
   if [[ -z $TMUX ]]; then
