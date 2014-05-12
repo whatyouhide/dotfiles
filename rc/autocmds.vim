@@ -4,7 +4,7 @@
 
 augroup vimrc_autocmds
   " Remove trailing whitespace on write.
-  autocmd BufWritePre * :%s/\s\+$//e
+  autocmd BufWritePre * call StripTrailingWhitespace()
 
   " Highlight the part of the line that goes over 80 characters.
   " (actually the highlight colors are in the theme setups, this is just
@@ -14,6 +14,13 @@ augroup vimrc_autocmds
   " Only show cursorline in the current window.
   autocmd WinLeave * set nocursorline
   autocmd WinEnter * set cursorline
+augroup END
+
+
+augroup trailing
+  autocmd!
+  autocmd InsertEnter * :set nolist
+  autocmd InsertLeave * :set list
 augroup END
 
 

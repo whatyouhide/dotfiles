@@ -2,6 +2,10 @@
 " =======
 
 
+" Use utf-8.
+scriptencoding utf-8
+set encoding=utf-8
+
 " Tabs and backspace should behave cool, shouldn't they?
 set tabstop=2                   " tabs are 2 spaces width
 set expandtab                   " expand tabs to spaces
@@ -52,4 +56,9 @@ set splitright
 
 " Toggle paste mode with <F7> (useful when pasting from the system command
 " line.
-set pastetoggle=<F2>
+set pastetoggle=<F7>
+
+" Highlight stuff with special characters.
+" There's an autocmd which disables 'list' when in insert mode because come on.
+set list
+set listchars=trail:·
