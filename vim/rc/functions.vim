@@ -15,3 +15,13 @@ function! RenameCurrentFile()
     redraw!
   endif
 endfunction
+
+" Strip trailing whitespace except for a bunch of filetypes.
+function! StripTrailingWhitespace()
+  " Not on these filetypes.
+  if &ft =~ 'mkd'
+    return
+  endif
+
+  %s/\s\+$//e
+endfunction
