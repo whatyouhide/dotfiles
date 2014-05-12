@@ -12,4 +12,6 @@ $cli set repeat.consumer_wait 15
 /bin/echo -n .
 $cli set remap.controlL2controlL_escape 1
 /bin/echo -n .
+$cli set remap.escape2eject 1
+/bin/echo -n .
 /bin/echo
