@@ -30,6 +30,10 @@ nnoremap D d$
 nnoremap H ^
 nnoremap L $
 
+" K (which by default looks up a word in the man pages) now will join line by
+" inserting a newline.
+nnoremap K i<CR><esc>
+
 " Ctrl-a and Ctrl-e in order to move to the bol/eol in insert mode (shell like).
 inoremap <C-a> <C-o>I
 inoremap <C-e> <C-o>A
