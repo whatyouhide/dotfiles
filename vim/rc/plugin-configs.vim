@@ -35,6 +35,10 @@ let g:move_map_keys = 0
 let g:tcomment#blank_lines = 0
 
 
+" NERDTree
+let NERDTreeIgnore = ['\.DS_Store$']
+
+
 " Ultisnips
 " Expand snippets using <tab>.
 let g:UltiSnipsExpandTrigger = "<tab>"
