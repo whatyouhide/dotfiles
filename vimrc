@@ -9,7 +9,7 @@ runtime macros/matchit.vim
 
 " Turn on syntax highlighting and choose a theme.
 syntax on
-source ~/.vim/rc/theme-setups/railscasts.vim
+source ~/.vim/rc/theme-setups/ocean.vim
 
 
 " Source external files.
