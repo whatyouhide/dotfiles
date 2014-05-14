@@ -3,3 +3,5 @@
 set background=dark
 
 colorscheme base16-ocean
+
+highlight OverLength ctermbg=5
