@@ -39,6 +39,8 @@ Plugin 'mattn/gist-vim'           " :Gist portions of texth
 
 Plugin 'kien/rainbow_parentheses.vim'
 
+Plugin 'takac/vim-hardtime'
+
 " Text objects.
 Plugin 'kana/vim-textobj-user'    " Required by many
 Plugin 'kana/vim-textobj-entire'  " Entire file
