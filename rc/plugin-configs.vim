@@ -72,6 +72,6 @@ let g:user_emmet_leader_key = '<C-z>'
 
 " Hardtime
 let g:hardtime_default_on = 1
-let g:hardtime_timeout = 500
+let g:hardtime_timeout = 700
 let g:hardtime_ignore_buffer_patterns = ["NERD.*"]
-let g:hardtime_maxcount = 4
+let g:hardtime_maxcount = 2
