@@ -37,3 +37,7 @@ nnoremap <Leader>gs :Gstatus<CR>:resize 25<CR>
 
 " /: clear the search highlighting.
 nnoremap <silent> <Leader>/ :<C-u>nohlsearch<CR><C-l>
+
+" d and D: Dispatch.vim stuff.
+nnoremap <Leader>d :Dispatch
+nnoremap <Leader>D :Dispatch!

@@ -53,6 +53,10 @@ nnoremap N Nzz
 inoremap jj <Esc>
 
 
+" Dispatch is so useful! (other mappings in leader-mappings.vim)
+nnoremap d<CR> :Dispatch<CR>
+
+
 " Move through splits easily using C-h/j/k/l.
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
