@@ -1,7 +1,6 @@
 " Plugins (with Vundle)
 " ====================
 
-
 " Required by vundle.
 filetype off
 
@@ -13,40 +12,41 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Generic bundles.
-
-" Surround text and change it and everything. Awesome.
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'       " No need to explain :)
+Plugin 'tpope/vim-fugitive'       " Git wrapper
+Plugin 'tpope/vim-endwise'        " Add 'end', 'endfunction' and so on
+Plugin 'tpope/vim-repeat'         " Repeat custom commands
 Plugin 'tpope/vim-dispatch'       " Wow! Run stuff ansynchronously
 Plugin 'tpope/vim-unimpaired'     " Use [ and ], often
 
-Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'tommcdo/vim-exchange'     " Exchange the position of text objects
-Plugin 'matze/vim-move'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'SirVer/ultisnips'
+
+" Text manipularion.
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'tommcdo/vim-exchange'
+Plugin 'PeterRincker/vim-argumentative'
+Plugin 'matze/vim-move'
+
+" Visual.
+Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-
 Plugin 'bling/vim-airline'
 Plugin 'junegunn/goyo.vim'        " Distraction-free mode
+
 Plugin 'mattn/webapi-vim'         " Required by gist-vim
-Plugin 'mattn/gist-vim'           " :Gist portions of texth
+Plugin 'mattn/gist-vim'           " :Gist portions of text
 
 Plugin 'kien/rainbow_parentheses.vim'
-
 Plugin 'takac/vim-hardtime'
 
 " Text objects.
 Plugin 'kana/vim-textobj-user'    " Required by many
 Plugin 'kana/vim-textobj-entire'  " Entire file
 Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'b4winckler/vim-angry'
-Plugin 'glts/vim-textobj-comment'
 
 " OSX only.
 Plugin 'henrik/vim-reveal-in-finder'
