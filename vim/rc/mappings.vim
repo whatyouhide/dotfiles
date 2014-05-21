@@ -30,9 +30,6 @@ nnoremap D d$
 nnoremap H ^
 nnoremap L $
 
-" K (which by default looks up a word in the man pages) now will join line by
-" inserting a newline.
-nnoremap K i<CR><esc>
 
 " Ctrl-a and Ctrl-e in order to move to the bol/eol in insert mode (shell like).
 inoremap <C-a> <C-o>I
@@ -57,6 +54,12 @@ inoremap jj <Esc>
 nnoremap d<CR> :Dispatch<CR>
 
 
+" Splitjoin mappings: gj to split a line and gk to join it (mnemonics: j goes
+" down, k goes up).
+nnoremap gj :SplitjoinSplit<CR>
+nnoremap gk :SplitjoinJoin<CR>
+
+
 " Move through splits easily using C-h/j/k/l.
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -69,11 +72,6 @@ nnoremap ˙ gT
 nnoremap <A-h> gT
 nnoremap ¬ gt
 nnoremap <A-l> gt
-
-
-" Insert a blank line below the current one using Alt-o.
-nmap ø :set paste<CR>o<Esc>:set nopaste<CR>
-nmap <A-o> :set paste<CR>o<Esc>:set nopaste<CR>
 
 
 " Move plugin: move lines or blocks of text up/down using Alt+j/k.
@@ -92,11 +90,6 @@ vmap <A-k> <Plug>MoveBlockUp
 " Function keys mappings.
 " Toggle NERDTree.
 nnoremap <F2> :NERDTreeTabsToggle<CR>
-
-
-" Ctrl-r Ctrl-r to paste the last register inside Insert mode (mnemonic:
-" C-r{number} pastes the {number} register).
-inoremap <C-r><C-r> <C-r>"
 
 
 " Ctrl-u in insert mode to uppercase the word before the cursor.

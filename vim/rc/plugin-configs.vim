@@ -75,3 +75,8 @@ let g:hardtime_default_on = 1
 let g:hardtime_timeout = 700
 let g:hardtime_ignore_buffer_patterns = ["NERD.*"]
 let g:hardtime_maxcount = 2
+
+
+" Splitjoin
+let g:splitjoin_join_mapping = ''
+let g:splitjoin_split_mapping = ''
