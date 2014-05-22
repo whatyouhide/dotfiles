@@ -52,6 +52,7 @@ eval "$(direnv hook zsh)"
 # Always inside tmux when starting.
 if type tmux >/dev/null 2>&1; then
   if [[ -z $TMUX ]]; then
-    tmux attach -t hack || tmux new-session -s hack -n shell
+    # Attach to `hack` if it's there, otherwise create it.
+    tmux new-session -As hack
   fi
 fi
