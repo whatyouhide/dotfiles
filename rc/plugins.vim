@@ -39,8 +39,8 @@ Plugin 'junegunn/goyo.vim'        " Distraction-free mode
 
 Plugin 'mattn/webapi-vim'         " Required by gist-vim
 Plugin 'mattn/gist-vim'           " :Gist portions of text
-
 Plugin 'kien/rainbow_parentheses.vim'
+
 Plugin 'takac/vim-hardtime'
 
 " Text objects.
@@ -62,7 +62,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin '2072/PHP-Indenting-for-VIm'
-Plugin 'thoughtbot/vim-rspec'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " Themes.
 Plugin 'chriskempson/base16-vim'
