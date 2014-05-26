@@ -12,52 +12,6 @@ md() {
 }
 
 
-# Bring a branch to the current branch.
-# This functions checkouts to $1 and does a rebase against the current branch.
-# Then it checkouts back to the current branch.
-# If no arguments are passed, it rebases master.
-bring-branch-here() {
-  # Save the current branch.
-  local _current_branch=$(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
-  local _target_branch=''
-
-  if [[ -z $1 ]]; then
-    _target_branch='master'
-  else
-    _target_branch=$1
-  fi
-
-  command git checkout $_target_branch
-
-  # Rebase $1 against the current branch and checkout back.
-  command git rebase $_current_branch
-  command git checkout $_current_branch
-}
-
-# Open a file with $EDITOR in a vertical tmux pane.
-# Usage:
-# $ vt file.rb
-vp() {
-  # Exit if tmux is not installed.
-  if ! type tmux >/dev/null 2>&1; then
-    echo "Sorry, I couldn't find tmux."
-    return 1
-  fi
-
-  # If we aren't in a tmux session, exit.
-  if [[ -z $TMUX ]]; then
-    echo "Sorry, you don't appear to be in a tmux session."
-    return 1
-  fi
-
-  _pwd=$(pwd)
-
-  tmux split-window -h
-  tmux send-keys "cd $_pwd" C-m
-  tmux send-keys "$EDITOR $1" C-m
-}
-
-
 # Use git in a cooler way: 'g' for status, g {args} for normal git.
 # 'compdef' ensures the same git completion works when using 'g' too.
 compdef g=git
