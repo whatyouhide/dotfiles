@@ -6,6 +6,18 @@ add-alias() {
 }
 
 
+# Use Ctrl-z to switch back to vim.
+fancy-ctrl-z() {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+
+
 # Create a directory and cd into it.
 md() {
   mkdir -p "$1" && cd "$1"

@@ -16,6 +16,7 @@ compinit
 # before oh-my-zsh in order to solve some issues with RVM.
 source "$DOTFILES/zsh/zsh-options"
 source "$DOTFILES/zsh/functions"
+source "$DOTFILES/zsh/keybindings"
 source "$DOTFILES/zsh/path"
 
 # Source oh-my-zsh.

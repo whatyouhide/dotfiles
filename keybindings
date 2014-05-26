@@ -1,0 +1,4 @@
+# Ctrl-z to switch back to vim (instead of fg).
+# `fancy-ctrl-z` is defined in zsh/functions.
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
