@@ -1,8 +1,5 @@
 # Navigation.
-alias tmp="cd ~/tmp"
-alias dotfilez="cd $DOTFILES"
 alias sublime-settings='cd "$HOME/Library/Application Support/Sublime Text 3/Packages/User"'
-alias dbox='cd ~/Dropbox'
 
 
 # `cat` with beautiful colors. Requires Pygments installed.
@@ -13,7 +10,6 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 alias z=_z
 alias v='vim'
 alias cl='clear'
-alias re-source='source ~/.zshrc'
 alias x='exit'
 
 
@@ -30,7 +26,7 @@ alias bc='brew cask'
 # tmux.
 compdef t=tmux
 alias t='tmux'
-alias thack='tmux attach -t hack'
+alias thack='tmux new-session -As hack'
 
 
 # `ls`.
