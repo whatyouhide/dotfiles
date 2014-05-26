@@ -4,7 +4,10 @@
 " These are mappings involving the <Leader> key.
 
 " Change the leader key.
-let mapleader=","
+" This is a workaround (instead of using `let mapleader = ' '`), which does not
+" shoe 'showcmd' on the command line.
+let leadermap = "\\"
+map <Space> <Leader>
 
 " vi: install bundles after reloading.
 nmap <Leader>vi :source ~/.vimrc<CR>:PluginInstall<CR>
