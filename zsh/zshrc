@@ -16,7 +16,6 @@ compinit
 # before oh-my-zsh in order to solve some issues with RVM.
 source "$DOTFILES/zsh/zsh-options"
 source "$DOTFILES/zsh/functions"
-source "$DOTFILES/zsh/keybindings"
 source "$DOTFILES/zsh/path"
 
 # Source oh-my-zsh.
@@ -43,6 +42,9 @@ export rvm_reload_flag=1
 # Cd'ing everywhere. Yesss.
 setopt auto_cd
 cdpath=($HOME $HOME/Sites $HOME/Code $HOME/Dropbox)
+
+# Source all the keybindings here because they don't work otherwise. Computers.
+source "$DOTFILES/zsh/keybindings"
 
 # Use Ctrl-s everywhere. In vim for example.
 stty -ixon
