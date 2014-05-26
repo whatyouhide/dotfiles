@@ -35,3 +35,6 @@ nnoremap <Leader>gs :Gstatus<CR>:resize 25<CR>
 " d and D: Dispatch.vim stuff.
 nnoremap <Leader>d :Dispatch
 nnoremap <Leader>D :Dispatch!
+
+" RainbowParentheses.
+nnoremap <Leader>rp :RainbowParenthesesToggleAll<CR>
