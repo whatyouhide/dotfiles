@@ -42,6 +42,7 @@ Plugin 'mattn/gist-vim'           " :Gist portions of text
 Plugin 'kien/rainbow_parentheses.vim'
 
 Plugin 'takac/vim-hardtime'
+Plugin 'terryma/vim-multiple-cursors'
 
 " Text objects.
 Plugin 'kana/vim-textobj-user'    " Required by many
