@@ -1,14 +1,6 @@
 snippet func "An anonymous function" i
 function ($1) {
-	$2
-}$3
-endsnippet
-
-
-snippet funcus "A multiline anonymous function with 'use strict'." i
-function ($1) {
-	'use strict';
-	$2
+  $2
 }$3
 endsnippet
 
@@ -16,3 +8,11 @@ endsnippet
 snippet cl "Regular console.log() call."
 console.log($1);
 endsnippet
+
+
+snippet us "A 'use strict' statement."
+'use strict';
+
+$1
+endsnippet
+
