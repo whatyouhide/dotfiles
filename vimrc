@@ -13,8 +13,10 @@ runtime macros/matchit.vim
 
 " Turn on syntax highlighting and choose a theme.
 syntax on
-source ~/.vim/rc/theme-setups/ocean.vim
+let g:light_colorscheme = 'hemisu'
+let g:dark_colorscheme = 'ocean'
 
+execute ':source ~/.vim/rc/theme-setups/' . g:dark_colorscheme . '.vim'
 
 " Source external files.
 source ~/.vim/rc/options.vim

@@ -62,9 +62,11 @@ Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin '2072/PHP-Indenting-for-VIm'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'elzr/vim-json'
 
 " Themes.
 Plugin 'chriskempson/base16-vim'
 Plugin 'ricardovaleriano/vim-github-theme'
+Plugin 'noahfrederick/vim-hemisu'
 
 call vundle#end()
