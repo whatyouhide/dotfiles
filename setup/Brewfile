@@ -31,9 +31,6 @@ install coreutils
 # GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 install findutils
 
-# Bash 4
-install bash
-
 # More recent versions of some OSX tools
 install homebrew/dupes/grep
 
@@ -42,7 +39,6 @@ install python
 
 # Git
 install git
-install git-ftp
 install git-flow
 install gitsh
 install hub
@@ -57,8 +53,7 @@ install direnv
 # Gitshots!
 install imagesnap
 
-# Google's JS engine and NodeJS
-install v8
+# Node
 install node
 
 # Dev tools
@@ -67,6 +62,7 @@ install tmux
 install reattach-to-user-namespace
 install ctags
 install ack
+install ngrok
 
 
 
@@ -92,18 +88,22 @@ cask install evernote
 
 # Developing
 cask install mamp
-cask install iterm2-borderless
+cask install iterm2-beta
 cask install virtualbox
-cask install vagrant
-cask install dash
-
-# Misc
 cask install google-chrome
 cask install google-chrome-canary
+cask install firefox-aurora
+cask install opera-next
+
+# Misc
 cask install ynab
 cask install plex-home-theater
 cask install vlc
 cask install onepassword
+
+# Communicating
+cask install skype
+cask install messenger-for-telegram
 
 # QuickLook plugins
 cask install qlcolorcode
