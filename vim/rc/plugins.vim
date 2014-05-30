@@ -65,5 +65,6 @@ Plugin 'mustache/vim-mustache-handlebars'
 
 " Themes.
 Plugin 'chriskempson/base16-vim'
+Plugin 'ricardovaleriano/vim-github-theme'
 
 call vundle#end()
