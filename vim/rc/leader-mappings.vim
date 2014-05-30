@@ -35,3 +35,7 @@ nnoremap <Leader>r :RV<CR>
 
 " it: set spelllang to italian.
 nnoremap <Leader>it :set spelllang=it<CR>
+
+" csl and csd: change colorscheme (light/dark).
+nnoremap <Leader>csl :exec ":source ~/dotfiles/vim/rc/theme-setups/" . g:light_colorscheme . ".vim"<cr>
+nnoremap <Leader>csd :exec ":source ~/dotfiles/vim/rc/theme-setups/" . g:dark_colorscheme . ".vim"<cr>
