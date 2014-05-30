@@ -4,6 +4,10 @@ set nocompatible
 " Source bundles.
 source ~/.vim/rc/plugins.vim
 
+" Enable file type detection and do language-dependent indenting (this
+" also 'closes' vundle, and it's *required*).
+filetype plugin indent on
+
 " Enable the matchit plugin (required by textobj-rubyblock).
 runtime macros/matchit.vim
 

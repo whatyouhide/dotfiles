@@ -4,7 +4,7 @@
 " These are mappings involving the <Leader> key.
 
 " This is a workaround (instead of using `let mapleader = ' '`), which does not
-" shoe 'showcmd' on the command line.
+" show 'showcmd' on the command line.
 map <Space> <Leader>
 
 
@@ -15,13 +15,6 @@ nmap <Leader>ve :tabedit ~/.vimrc<CR>
 
 " Toggle search highlighting.
 nnoremap <Leader>/ :set hlsearch!<CR>
-
-" s: run the current spec.
-nnoremap <Leader>s :call RunCurrentSpecFile()<CR>
-
-" ra, rr: use the rails.vim ':AV'/':RV' commands.
-nnoremap <Leader>ra :AV<CR>
-nnoremap <Leader>rr :RV<CR>
 
 " p: go to the previously open file.
 nnoremap <Leader>p <C-^>
@@ -36,5 +29,9 @@ nnoremap <Leader>gs :Gstatus<CR>:resize 25<CR>
 nnoremap <Leader>d :Dispatch
 nnoremap <Leader>D :Dispatch!
 
-" RainbowParentheses.
-nnoremap <Leader>rp :RainbowParenthesesToggleAll<CR>
+" a, r: use the rails.vim ':AV'/':RV' commands.
+nnoremap <Leader>a :AV<CR>
+nnoremap <Leader>r :RV<CR>
+
+" it: set spelllang to italian.
+nnoremap <Leader>it :set spelllang=it<CR>

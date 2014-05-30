@@ -40,7 +40,6 @@ let NERDTreeIgnore = ['\.DS_Store$']
 
 
 " Ultisnips
-" Expand snippets using <tab>.
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsEditSplit = "vertical"
 
@@ -62,21 +61,10 @@ let g:gist_open_browser_after_post = 1
 let g:gist_detect_filetype = 1
 
 
-" vim-rspec
-let g:rspec_runner = "os_x_iterm"
-
-
-" Emmet
-let g:user_emmet_leader_key = '<C-x>'
-
-
 " Hardtime
 let g:hardtime_default_on = 1
 let g:hardtime_timeout = 700
 let g:hardtime_ignore_buffer_patterns = ["NERD.*"]
 let g:hardtime_maxcount = 2
-
-
-" Splitjoin
-let g:splitjoin_join_mapping = ''
-let g:splitjoin_split_mapping = ''
+let g:list_of_normal_keys = ["h", "l", "<up>", "<down>", "<left>", "<right>"]
+let g:list_of_visual_keys = ["h", "l", "<up>", "<down>", "<left>", "<right>"]

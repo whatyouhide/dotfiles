@@ -62,3 +62,9 @@ set pastetoggle=<F7>
 " There's an autocmd which disables 'list' when in insert mode because come on.
 set list
 set listchars=trail:·
+
+" Wild menu.
+set wildmenu
+set wildignore+=.git
+set wildignore+=*._DS_Store
+set wildignore+=*.jpg,*.jpeg,*.gif,*.png
