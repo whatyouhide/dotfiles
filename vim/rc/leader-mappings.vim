@@ -26,8 +26,8 @@ nnoremap <Leader>m :Goyo<CR>
 nnoremap <Leader>gs :Gstatus<CR>:resize 25<CR>
 
 " d and D: Dispatch.vim stuff.
-nnoremap <Leader>d :Dispatch
-nnoremap <Leader>D :Dispatch!
+nnoremap <Leader>d :Dispatch<Space>
+nnoremap <Leader>D :Dispatch!<Space>
 
 " a, r: use the rails.vim ':AV'/':RV' commands.
 nnoremap <Leader>a :AV<CR>
