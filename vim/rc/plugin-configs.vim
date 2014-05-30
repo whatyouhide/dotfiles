@@ -68,3 +68,7 @@ let g:hardtime_ignore_buffer_patterns = ["NERD.*"]
 let g:hardtime_maxcount = 2
 let g:list_of_normal_keys = ["h", "l", "<up>", "<down>", "<left>", "<right>"]
 let g:list_of_visual_keys = ["h", "l", "<up>", "<down>", "<left>", "<right>"]
+
+
+" vim-mustache-handlebars
+let g:mustache_operators = 0
