@@ -12,21 +12,21 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Generic bundles.
+Plugin 'tpope/vim-dispatch'       " Wow! Run stuff ansynchronously
 Plugin 'tpope/vim-surround'       " No need to explain :)
 Plugin 'tpope/vim-fugitive'       " Git wrapper
 Plugin 'tpope/vim-endwise'        " Add 'end', 'endfunction' and so on
 Plugin 'tpope/vim-repeat'         " Repeat custom commands
-Plugin 'tpope/vim-dispatch'       " Wow! Run stuff ansynchronously
 Plugin 'tpope/vim-unimpaired'     " Use [ and ], often
 
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'SirVer/ultisnips'
+Plugin 'terryma/vim-multiple-cursors'
 
-" Text manipularion.
+" Text manipulation.
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'tommcdo/vim-exchange'
-Plugin 'PeterRincker/vim-argumentative'
 Plugin 'matze/vim-move'
 
 " Visual.
@@ -39,14 +39,12 @@ Plugin 'junegunn/goyo.vim'        " Distraction-free mode
 
 Plugin 'mattn/webapi-vim'         " Required by gist-vim
 Plugin 'mattn/gist-vim'           " :Gist portions of text
-Plugin 'kien/rainbow_parentheses.vim'
-
-Plugin 'takac/vim-hardtime'
-Plugin 'terryma/vim-multiple-cursors'
 
 " Text objects.
 Plugin 'kana/vim-textobj-user'    " Required by many
 Plugin 'kana/vim-textobj-entire'  " Entire file
+Plugin 'kana/vim-textobj-line'
+Plugin 'PeterRincker/vim-argumentative'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 
 " OSX only.
@@ -68,9 +66,4 @@ Plugin 'mustache/vim-mustache-handlebars'
 " Themes.
 Plugin 'chriskempson/base16-vim'
 
-
 call vundle#end()
-
-" Enable file type detection and do language-dependent indenting (this
-" also 'closes' vundle, and it's *required*).
-filetype plugin indent on

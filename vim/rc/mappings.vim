@@ -2,8 +2,10 @@
 " ==========
 
 " Mappings which compensate the fact that I can't type.
-" Disable Ex mode. Please.
+" Disable ex mode.
 map Q <nop>
+" Disable looking stuff up in the man pages.
+map K <nop>
 
 
 " Keys
@@ -24,16 +26,8 @@ nnoremap L $
 nnoremap n nzz
 nnoremap N Nzz
 
-" Exit from insert mode by typing 'jj'.
-inoremap jj <Esc>
-
 " Dispatch is so useful! (other mappings in leader-mappings.vim)
 nnoremap d<CR> :Dispatch<CR>
-
-" Splitjoin mappings: gj to split a line and gk to join it (mnemonics: j goes
-" down, k goes up).
-nnoremap gj :SplitjoinSplit<CR>
-nnoremap gk :SplitjoinJoin<CR>
 
 
 " Ctrl-keys
@@ -55,9 +49,6 @@ nnoremap <C-l> <C-w>l
 " Ctrl-u in insert mode to uppercase the word before the cursor.
 " (thanks to Steve Losh)
 inoremap <C-u> <Esc>gUiwea
-
-" Toggle CtrlP in MRU mode using Ctrl-n.
-nnoremap <C-n> :CtrlPMRU<CR>
 
 
 " Alt-keys
