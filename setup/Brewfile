@@ -88,7 +88,7 @@ cask install evernote
 
 # Developing
 cask install mamp
-cask install iterm2-beta
+cask install iterm2-nightly
 cask install virtualbox
 cask install google-chrome
 cask install google-chrome-canary
