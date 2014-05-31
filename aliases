@@ -6,6 +6,10 @@ alias sublime-settings='cd "$HOME/Library/Application Support/Sublime Text 3/Pac
 alias c='pygmentize -O style=monokai -f console256 -g'
 
 
+# Pull the dotfiles without having to go there.
+alias dotpull="git -C $DOTFILES pull; vim +PluginInstall + PluginClean +qall"
+
+
 # Common aliases.
 alias z=_z
 alias v='vim'
