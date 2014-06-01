@@ -37,5 +37,5 @@ nnoremap <Leader>r :RV<CR>
 nnoremap <Leader>it :set spelllang=it<CR>
 
 " csl and csd: change colorscheme (light/dark).
-nnoremap <Leader>csl :exec ":source ~/dotfiles/vim/rc/theme-setups/" . g:light_colorscheme . ".vim"<cr>
-nnoremap <Leader>csd :exec ":source ~/dotfiles/vim/rc/theme-setups/" . g:dark_colorscheme . ".vim"<cr>
+nnoremap <Leader>csl call SourceThemeSetup(g:light_colorscheme)
+nnoremap <Leader>csd call SourceThemeSetup(g:dark_colorscheme)
