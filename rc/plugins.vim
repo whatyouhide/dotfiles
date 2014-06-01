@@ -46,6 +46,7 @@ Plugin 'kana/vim-textobj-entire'  " Entire file
 Plugin 'kana/vim-textobj-line'
 Plugin 'PeterRincker/vim-argumentative'
 Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'whatyouhide/vim-textobj-erblock'
 
 " OSX only.
 Plugin 'henrik/vim-reveal-in-finder'
