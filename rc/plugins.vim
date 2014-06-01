@@ -70,4 +70,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'ricardovaleriano/vim-github-theme'
 Plugin 'noahfrederick/vim-hemisu'
 
+" Local plugins.
+Plugin 'file:///Users/ironmac/Code/vim-textobj-xmlattr/'
+
 call vundle#end()
