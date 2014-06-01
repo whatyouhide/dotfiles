@@ -25,3 +25,8 @@ function! StripTrailingWhitespace()
 
   %s/\s\+$//e
 endfunction
+
+" Source a theme setup.
+function! SourceThemeSetup(theme)
+  exec ':source ~/dotfiles/vim/rc/theme-setups/' . a:theme . '.vim'
+endfunction

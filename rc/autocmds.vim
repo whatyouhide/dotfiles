@@ -10,6 +10,7 @@ augroup vimrc_autocmds
   " (actually the highlight colors are in the theme setups, this is just
   " the match definition)
   autocmd BufRead,BufNewFile * match OverLength /\%81v.\+/
+  highlight OverLength ctermbg=5
 
   " Only show cursorline in the current window.
   autocmd WinLeave * set nocursorline
