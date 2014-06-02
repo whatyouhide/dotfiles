@@ -24,8 +24,8 @@ source ~/.vim/rc/leader-mappings.vim
 source ~/.vim/rc/plugin-configs.vim
 
 " Choose a dark and a light themes.
-let g:light_colorscheme = 'hemisu'
-let g:dark_colorscheme = 'ocean'
+let g:light_colorscheme = 'bright'
+let g:dark_colorscheme = 'railscasts'
 
 " Light theme between 10am and 8pm, dark otherwise.
 if strftime("%H") > 10 && strftime("%H") < 20
