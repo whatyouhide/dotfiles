@@ -47,6 +47,7 @@ Plugin 'kana/vim-textobj-line'
 Plugin 'PeterRincker/vim-argumentative'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'whatyouhide/vim-textobj-erblock'
+Plugin 'whatyouhide/vim-textobj-xmlattr'
 
 " OSX only.
 Plugin 'henrik/vim-reveal-in-finder'
@@ -69,8 +70,5 @@ Plugin 'elzr/vim-json'
 Plugin 'chriskempson/base16-vim'
 Plugin 'ricardovaleriano/vim-github-theme'
 Plugin 'noahfrederick/vim-hemisu'
-
-" Local plugins.
-Plugin 'file:///Users/ironmac/Code/vim-textobj-xmlattr/'
 
 call vundle#end()
