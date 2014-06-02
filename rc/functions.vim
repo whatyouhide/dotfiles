@@ -29,4 +29,9 @@ endfunction
 " Source a theme setup.
 function! SourceThemeSetup(theme)
   exec ':source ~/dotfiles/vim/rc/theme-setups/' . a:theme . '.vim'
+
+  " Refresh Airline if in a script.
+  if exists(':AirlineRefresh')
+    exec ':AirlineRefresh'
+  endif
 endfunction
