@@ -88,7 +88,10 @@ end
 desc "Symlink the tmuxinator projects directory to ~/.tmuxinator"
 task :tmuxinator_projects do
   # Search for tmuxinator/ inside ~/Code and ~/code.
-  upcase, downcase = ['Code', 'code'].map { |el| File.join(Dir.home, el, 'tmuxinator') }
+  upcase, downcase = ['Code', 'code'].map do |el|
+    File.join(Dir.home, el, 'tmuxinator-projects')
+  end
+
   if File.exists?(upcase)
     path = upcase
   elsif File.exists?(downcase)
