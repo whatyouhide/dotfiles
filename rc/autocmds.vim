@@ -45,9 +45,4 @@ augroup vimrc_filetypes
   autocmd FileType mkd setlocal shiftwidth=4
   autocmd FileType mkd setlocal tabstop=4
   autocmd FileType mkd setlocal softtabstop=4
-
-  " eruby should get the benefits of being HTML too sometimes.
-  " Setting the syntax to eruby is a little hack that allows rails.vim to
-  " highlight Rails stuff.
-  autocmd BufRead,BufNewFile *.html.erb set filetype=eruby.html | set syn=eruby
 augroup END
