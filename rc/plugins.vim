@@ -53,22 +53,19 @@ Plugin 'whatyouhide/vim-textobj-xmlattr'
 Plugin 'henrik/vim-reveal-in-finder'
 
 " Language specific.
+Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'othree/html5.vim'
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'tpope/vim-rails'
 Plugin 'mattn/emmet-vim'
-Plugin 'pangloss/vim-javascript'
 Plugin '2072/PHP-Indenting-for-VIm'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'elzr/vim-json'
+Plugin 'pangloss/vim-javascript'
 
 " Themes.
 Plugin 'chriskempson/base16-vim'
-Plugin 'ricardovaleriano/vim-github-theme'
 Plugin 'noahfrederick/vim-hemisu'
 
 call vundle#end()
