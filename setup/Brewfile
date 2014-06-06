@@ -18,7 +18,6 @@ tap thoughtbot/formulae
 # Cask
 tap phinze/homebrew-cask
 tap caskroom/versions
-tap caskroom/unofficial
 
 
 
@@ -90,7 +89,6 @@ cask install evernote
 cask install mamp
 cask install iterm2-nightly
 cask install virtualbox
-cask install google-chrome
 cask install google-chrome-canary
 cask install firefox-aurora
 cask install opera-next
