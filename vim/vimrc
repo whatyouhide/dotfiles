@@ -27,8 +27,8 @@ source ~/.vim/rc/plugin-configs.vim
 let g:light_colorscheme = 'hemisu'
 let g:dark_colorscheme = 'railscasts'
 
-" Light theme between 10am and 8pm, dark otherwise.
-if strftime("%H") > 10 && strftime("%H") < 20
+" Light theme during day hours, dark otherwise.
+if strftime("%H") > 9 && strftime("%H") < 19
   call SourceThemeSetup(g:light_colorscheme)
 else
   call SourceThemeSetup(g:dark_colorscheme)
