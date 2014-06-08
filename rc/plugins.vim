@@ -40,6 +40,8 @@ Plugin 'junegunn/goyo.vim'        " Distraction-free mode
 Plugin 'mattn/webapi-vim'         " Required by gist-vim
 Plugin 'mattn/gist-vim'           " :Gist portions of text
 
+Plugin 'mileszs/ack.vim'
+
 " Text objects.
 Plugin 'kana/vim-textobj-user'    " Required by many
 Plugin 'kana/vim-textobj-entire'  " Entire file
