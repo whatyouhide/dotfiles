@@ -39,3 +39,6 @@ nnoremap <Leader>it :set spelllang=it<CR>
 " csl and csd: change colorscheme (light/dark).
 nnoremap <Leader>csl :call SourceThemeSetup(g:light_colorscheme)<CR>
 nnoremap <Leader>csd :call SourceThemeSetup(g:dark_colorscheme)<CR>
+
+" wai: where am I? Tell me the path of the current file.
+nnoremap <Leader>wai :echo @%<CR>
