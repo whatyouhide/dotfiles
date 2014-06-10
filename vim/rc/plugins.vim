@@ -41,6 +41,7 @@ Plugin 'mattn/webapi-vim'         " Required by gist-vim
 Plugin 'mattn/gist-vim'           " :Gist portions of text
 
 Plugin 'mileszs/ack.vim'
+Plugin 'kana/vim-vspec'
 
 " Text objects.
 Plugin 'kana/vim-textobj-user'    " Required by many
@@ -48,7 +49,7 @@ Plugin 'kana/vim-textobj-entire'  " Entire file
 Plugin 'kana/vim-textobj-line'
 Plugin 'PeterRincker/vim-argumentative'
 Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'whatyouhide/vim-textobj-erblock'
+Plugin 'whatyouhide/vim-textobj-erb'
 Plugin 'whatyouhide/vim-textobj-xmlattr'
 
 " OSX only.
