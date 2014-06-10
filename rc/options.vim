@@ -58,6 +58,9 @@ set splitright
 " line.
 set pastetoggle=<F7>
 
+" Remove ugly splits separators.
+set fillchars=""
+
 " Highlight stuff with special characters.
 " There's an autocmd which disables 'list' when in insert mode because come on.
 set list
