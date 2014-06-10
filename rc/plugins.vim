@@ -70,5 +70,6 @@ Plugin 'pangloss/vim-javascript'
 " Themes.
 Plugin 'chriskempson/base16-vim'
 Plugin 'noahfrederick/vim-hemisu'
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
