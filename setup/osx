@@ -13,7 +13,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Disable sound effects on boot.
-sudo nvram SystemAudioVolume=" "
+sudo nvram SystemAudioVolume=%80
 
 # Hide User, Bluetooth, TimeMachine and stuff in the menu bar.
 for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
@@ -54,9 +54,6 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
 # Disable the “Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
-
-# Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
-/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
 # Display ASCII control characters using caret notation in standard text views
 # Try e.g. `cd /tmp; unidecode "\x{0000}" > cc.txt; open -e cc.txt`
@@ -201,18 +198,10 @@ defaults write com.apple.frameworks.diskimages skip-verify -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
-# Automatically open a new Finder window when a volume is mounted
-defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
-defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
-defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
-
 # Show item info below icons on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
-
-# Show item info to the right of the icons on the desktop
-/usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom false" ~/Library/Preferences/com.apple.finder.plist
 
 # Enable snap-to-grid for icons on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
@@ -273,14 +262,13 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 # (i.e. use the old Exposé behavior instead)
 defaults write com.apple.dock expose-group-by-app -bool false
 
-# Disable Dashboard
+# Disable Dashboard and don't show it as a space.
 defaults write com.apple.dashboard mcx-disabled -bool true
-
-# Don’t show Dashboard as a Space
 defaults write com.apple.dock dashboard-in-overlay -bool true
 
 # Remove the auto-hiding Dock delay
 defaults write com.apple.Dock autohide-delay -float 0
+
 # Remove the animation when hiding/showing the Dock
 defaults write com.apple.dock autohide-time-modifier -float 0
 
@@ -305,7 +293,7 @@ sudo ln -sf "/Applications/Xcode.app/Contents/Applications/iPhone Simulator.app 
 # Set Safari’s home page to `about:blank` for faster loading
 defaults write com.apple.Safari HomePage -string "about:blank"
 
-# Prevent Safari from opening ‘safe’ files automatically after downloading
+# Prevent Safari from opening 'safe' files automatically after downloading
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
 # Hide Safari’s bookmarks bar by default
@@ -367,18 +355,6 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 sudo hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 
-###############################################################################
-# Address Book, Dashboard, iCal, TextEdit, and Disk Utility                   #
-###############################################################################
-
-# Use plain text mode for new TextEdit documents
-defaults write com.apple.TextEdit RichText -int 0
-
-# Open and save files as UTF-8 in TextEdit
-defaults write com.apple.TextEdit PlainTextEncoding -int 4
-defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
-
-
 
 ###############################################################################
 # Mac App Store                                                               #
@@ -393,7 +369,7 @@ defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 # Transmission.app                                                            #
 ###############################################################################
 
-# Use `~/Documents/Torrents` to store incomplete downloads
+# Use `~/Transmission` to store incomplete downloads
 defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
 defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Transmission"
 
