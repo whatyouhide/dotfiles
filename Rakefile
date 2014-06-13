@@ -3,7 +3,14 @@ require 'yaml'
 
 # The location of these dotfiles.
 DOTFILES = ENV['DOTFILES']
-fail "The $DOTFILES environment variable is not set" unless DOTFILES
+
+# Exit gracefully if the $DOTFILES env variable is not set.
+unless DOTFILES
+  puts "The $DOTFILES environment variable is not set"
+  puts "Re-run the task with:"
+  puts "  DOTFILES={{dotfiles}} rake {{task}}"
+  exit 1
+end
 
 
 # Parse the YAML file which contains the links, it will be needed everywhere.
@@ -32,6 +39,16 @@ end
 # Replace an initial ~ with the home path.
 def homify(path)
   path.sub(/^~/, Dir.home)
+end
+
+desc "Runs everything, suitable for new machines"
+task :new_machine do
+  Rake::Task['install'].invoke
+  Rake::Task['filesystem'].invoke
+  Rake::Task['zsh_themes'].invoke
+  Rake::Task['zsh_syntax_highlighting'].invoke
+  Rake::Task['install_vundle'].invoke
+  Rake::Task['tmuxinator_projects'].invoke
 end
 
 
@@ -64,6 +81,14 @@ task :clean do
 end
 
 
+desc "Create some useful directories"
+task :filesystem do
+  %w(Code Transmission tmp).each do |dir|
+    mkdir File.join(Dir.home, dir)
+  end
+end
+
+
 desc "Symlink custom oh-my-zsh themes"
 task :zsh_themes do
   Dir['zsh/themes/*'].each do |theme|
@@ -87,17 +112,9 @@ end
 
 desc "Symlink the tmuxinator projects directory to ~/.tmuxinator"
 task :tmuxinator_projects do
-  # Search for tmuxinator/ inside ~/Code and ~/code.
-  upcase, downcase = ['Code', 'code'].map do |el|
-    File.join(Dir.home, el, 'tmuxinator-projects')
-  end
-
-  if File.exists?(upcase)
-    path = upcase
-  elsif File.exists?(downcase)
-    path = downcase
-  else
-    fail "tmuxinator projects not found in #{[upcase, downcase]}"
+  if !File.exists?(File.join(Dir.home, 'Code', 'tmuxinator-projects'))
+    system 'git clone git@github.com:whatyouhide/tmuxinator-projects.git \
+            ~/Code/tmuxinator-projects'
   end
 
   ln_sf path, File.join(Dir.home, '.tmuxinator')
