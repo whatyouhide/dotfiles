@@ -41,6 +41,7 @@ def homify(path)
   path.sub(/^~/, Dir.home)
 end
 
+
 desc "Runs everything, suitable for new machines"
 task :new_machine do
   Rake::Task['install'].invoke
@@ -104,11 +105,13 @@ task :zsh_syntax_highlighting do
           ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
 end
 
+
 desc "Install the Vundle plugin manager"
 task :install_vundle do
   fail unless File.exist?(File.join(Dir.home, '.vim'))
   system 'git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
 end
+
 
 desc "Symlink the tmuxinator projects directory to ~/.tmuxinator"
 task :tmuxinator_projects do
@@ -120,6 +123,9 @@ task :tmuxinator_projects do
   ln_sf path, File.join(Dir.home, '.tmuxinator')
 end
 
+
+
+# ------------------------------------------------------------------------------
 # Wtf?
 # an essay by Andrea Leopardi
 #
