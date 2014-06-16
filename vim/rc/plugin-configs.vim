@@ -61,14 +61,12 @@ let g:gist_open_browser_after_post = 1
 let g:gist_detect_filetype = 1
 
 
-" Hardtime
-let g:hardtime_default_on = 1
-let g:hardtime_timeout = 700
-let g:hardtime_ignore_buffer_patterns = ["NERD.*"]
-let g:hardtime_maxcount = 2
-let g:list_of_normal_keys = ["h", "l", "<up>", "<down>", "<left>", "<right>"]
-let g:list_of_visual_keys = ["h", "l", "<up>", "<down>", "<left>", "<right>"]
-
-
 " vim-mustache-handlebars
 let g:mustache_operators = 0
+
+
+" Syntastic
+let g:syntastic_mode_map = { 'mode': 'passive',
+                           \ 'active_filetypes': [],
+                           \ 'passive_filetypes': [] }
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
