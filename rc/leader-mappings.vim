@@ -42,3 +42,6 @@ nnoremap <Leader>csd :call SourceThemeSetup(g:dark_colorscheme)<CR>
 
 " wai: where am I? Tell me the path of the current file.
 nnoremap <Leader>wai :echo @%<CR>
+
+" s: check with syntastic.
+nnoremap <Leader>s :SyntasticCheck<CR>
