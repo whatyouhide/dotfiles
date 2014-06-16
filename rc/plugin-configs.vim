@@ -69,4 +69,9 @@ let g:mustache_operators = 0
 let g:syntastic_mode_map = { 'mode': 'passive',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': [] }
+let g:syntastic_error_symbol = '☢'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_warning_symbol = '☛'
+let g:syntastic_style_warning_symbol = '⚑'
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+
