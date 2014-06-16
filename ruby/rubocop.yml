@@ -40,7 +40,7 @@ RegexpLiteral:
 
 # Prefix method calls with `self` whenever you like.
 RedundantSelf:
-  Enabled: false
+  Enabled: true
 
 # Insert empty lines before a block start and before its `end`.
 EmptyLinesAroundBody:
@@ -64,10 +64,10 @@ BracesAroundHashParameters:
 Blocks:
   Enabled: true
 
-# When chaining method calls, place the dots at the end of the lines.
+# When chaining method calls, place the dots at the beginning of the lines.
 # Configuration parameters: Style, SupportedStyles.
 DotPosition:
-  EnforcedStyle: trailing
+  EnforcedStyle: leading
   Enabled: true
 
 # Use the new "sexy" hash syntax ({ this: 'is an hash' }).
@@ -76,7 +76,7 @@ HashSyntax:
 
 # Align the parameters of a function indenting them only one level.
 AlignParameters:
-  Enabled: false
+  Enabled: true
 
 # Disable this in a single file if needed (look at some migrations).
 # Configuration parameters: CountComments.
@@ -106,13 +106,13 @@ SpaceInsideHashLiteralBraces:
 # Indentation consistency.
 # You can indent however you want. With great powers...
 IndentationConsistency:
-  Enabled: false
+  Enabled: true
 
 # Max line length. 80 is really too short.
 LineLength:
-  Max: 100
+  Max: 80
 
-# Don't document anything. For now...
+# Document.
 Documentation:
   Enabled: true
 
