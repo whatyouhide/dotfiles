@@ -23,6 +23,7 @@ let g:goyo_callbacks = [function('g:goyo_before'), function('g:goyo_after')]
 " Airline
 " Always show Airline.
 set laststatus=2
+let g:airline_powerline_fonts = 1
 
 
 " Move
