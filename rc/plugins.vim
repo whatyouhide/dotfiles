@@ -42,6 +42,7 @@ Plugin 'mattn/gist-vim'           " :Gist portions of text
 
 Plugin 'mileszs/ack.vim'
 Plugin 'kana/vim-vspec'
+Plugin 'edkolev/tmuxline.vim'
 
 " Text objects.
 Plugin 'kana/vim-textobj-user'    " Required by many
