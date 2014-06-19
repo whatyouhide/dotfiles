@@ -1,80 +1,70 @@
-#!/bin/sh
+#!/bin/bash
 
 # Define some colors.
-COL="\033[1;31m"
+COL="\033[1;35m"
 END="\033[0m"
 
+function echo_info() {
+  echo "${COL}$1${END}"
+}
+
+function newline() {
+  echo
+}
 
 
-# If you're on a Mac and you haven't installed Xcode, exit.
-if [[ "$(uname)" == "Darwin" ]]; then
-  if [[ ! -d '/Applications/Xcode.app' ]]; then
-    echo -e "${COL}You don't have Xcode installed in /Applications/Xcode.app. Install it and try again.${END}"
-    exit 1
-  elif ! pkgutil --pkg-info=com.apple.pkg.CLTools_Executables &>/dev/null; then
-    echo -e "${COL}I don't think you have command line tools installed.${END}"
-    echo 'Agree to the Xcode license:           sudo xcodebuild -license'
-    echo 'Install the command line tools:       xcode-select --install'
-    exit 1
-  fi
+# Stop execution if the $DOTFILES environment variable is not set.
+if [ -z "$DOTFILES" ]; then
+  echo_info 'Set the $DOTFILES env variable before running this.'
+  exit 1
+fi
+
+
+# Proceed only if the user is sure she installed the command-line tools and
+# agreed to the Xcode license. No need to install Xcode anymore!
+echo_info 'Before going on, I need to be sure you installed the command-line'
+echo_info 'tools and agreed to the Xcode license:'
+echo '  xcode-select --install'
+echo '  sudo xcodebuild -license'
+
+read -p "Did you? [yn] " -n 1 -r
+newline
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+  exit 0
 fi
 
 
 
 # Oh My Zsh
-echo -e "${COL}Installing oh-my-zsh${END}"
+echo_info "Installing oh-my-zsh"
 curl -L http://install.ohmyz.sh | sh
-echo ''
+newline
 
 
 # RVM for the rubiess
-echo -e "${COL}Installing RVM${END}"
+echo_info "Installing RVM"
 curl -sSL https://get.rvm.io | bash -s stable --ruby
-echo ''
+newline
 
 
 # For the c alias (syntax highlighted cat) install Pygments.
-if type easy_install >/dev/null 2>&1; then
-  echo -e "${COL}Installing Pygments (for the 'c' alias) - this needs sudo${END}"
-  sudo easy_install Pygments
-else
-  echo -e "${COL}For the syntax highlighted 'cat' (aliased to 'c'), you ${END}"
-  echo -e "${COL}need to 'sudo easy_install Pygments'.${END}"
-  echo ''
-fi
+echo_info "Installing Pygments (for the 'c' alias) - this needs sudo"
+sudo easy_install Pygments
+newline
 
 
-# Platform-specific setups
-if [[ "$(uname)" == "Darwin" ]]; then
-  # Mac setup
+echo_info "Installing Homebrew"
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+newline
 
-  echo -e "${COL}Installing Homebrew${END}"
-  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-  echo ''
+echo_info "Cloning dotfiles from GitHub"
+git clone https://github.com/whatyouhide/dotfiles.git "$DOTFILES"
+newline
 
-  echo -e "${COL}Cloning dotfiles from GitHub${END}"
-  git clone https://github.com/whatyouhide/dotfiles.git ~/dotfiles
-  echo ''
-
-  echo -e "${COL}Just to be sure, remove ~/.profile and ~/.zprofile${END}"
-  rm -v ~/.profile ~/.zprofile
-  echo ''
-
-else
-  # We're on Linux
-
-  # If we have git installed...
-  if type git >/dev/null 2>&1; then
-    git clone https://github.com/whatyouhide/dotfiles.git ~/dotfiles
-  else
-    echo -e "${COL}I believe you're on Linux and you don't have git installed.${END}"
-    echo 'Install it and then:'
-    echo '$ git clone https://github.com/whatyouhide/dotfiles.git ~/dotfiles'
-  fi
-
-  echo ''
-fi
+echo_info "Just to be sure, remove ~/.profile and ~/.zprofile"
+rm -v ~/.profile ~/.zprofile
+newline
 
 
-echo -e "${COL}Be sure to reload your shell in order to see changes${END}"
-echo 'Also be sure to execute rake symlink and the rake setup:* tasks from ~/dotfiles'
+echo_info "Be sure to reload your shell in order to see changes"
+echo 'Also hop up into $DOTFILES and list rake tasks with `rake -T`'

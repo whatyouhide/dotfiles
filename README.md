@@ -20,7 +20,7 @@ You will be prompted with the admin password in order to install Pygments and
 ## New machine setup
 
 Symlinks are stored inside `links.yml`. This file contains the files in this repo
-that will be linked to `~`. You can use globbing.
+that will be linked to `~`. Have a look at it before proceeding.
 
 Rake tasks are the main interface for setting up a new machine. List them with
 `rake -T` or just issue:
@@ -33,7 +33,6 @@ Once this is done, go with (*in this order, cowboy*):
 ```
 $ brew bundle ./setup/Brewfile
 $ ./setup/osx
-$ ./setup/gems
-$ ./setup/npms
+$ ./setup/gems-and-npms
 $ ./setup/keyremap4macbook-remap.sh
 ```
