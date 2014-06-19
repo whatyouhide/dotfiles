@@ -7,13 +7,3 @@ Host dehlic-dev
   HostName dev.dehlic.com
   Port 22
   User whatyouhide
-
-Host imac
-  HostName whatyouhide.noip.me
-  Port 22
-  User ironmac
-
-Host imac-local
-  HostName 192.168.159.199
-  Port 22
-  User ironmac

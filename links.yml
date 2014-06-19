@@ -6,7 +6,6 @@ default:
   - vim/vimrc
   - vim/gvimrc
   - tmux/tmux.conf
-  - tmux/tmux.light-theme.conf
   - git/gitconfig
   - extra/*
   - ruby/*
