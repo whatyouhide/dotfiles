@@ -33,3 +33,15 @@ if strftime("%H") > 9 && strftime("%H") < 19
 else
   call SourceThemeSetup(g:dark_colorscheme)
 endif
+
+
+" Tmuxline
+" let g:tmuxline_preset = {
+"   \ 'a'    : 'Session: #S',
+"   \ 'b'    : '#W',
+"   \ 'c'    : '',
+"   \ 'win'  : '#I #W',
+"   \ 'cwin' : '#W',
+"   \ 'x'    : '%l:%M %p',
+"   \ 'y'    : '#(whoami)',
+"   \ 'z'    : '#h' }

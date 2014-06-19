@@ -11,6 +11,9 @@ call vundle#begin()
 " Let Vundle manage Vundle, required.
 Plugin 'gmarik/Vundle.vim'
 
+" Temporary? This is surely quite the plugin.
+" Plugin 'edkolev/tmuxline.vim'
+
 " Generic bundles.
 Plugin 'tpope/vim-dispatch'       " Wow! Run stuff ansynchronously
 Plugin 'tpope/vim-surround'       " No need to explain :)
@@ -42,7 +45,6 @@ Plugin 'mattn/gist-vim'           " :Gist portions of text
 
 Plugin 'mileszs/ack.vim'
 Plugin 'kana/vim-vspec'
-Plugin 'edkolev/tmuxline.vim'
 
 " Text objects.
 Plugin 'kana/vim-textobj-user'    " Required by many
