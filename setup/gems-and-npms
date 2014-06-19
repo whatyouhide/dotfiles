@@ -3,11 +3,16 @@
 # Handle tmux windows/panes configurations on a per-project basis using
 # YAML config files.
 gem install tmuxinator
+
 # Easily handle launchtl stuff.
 gem install launchy
+
 # git-up for giving some sense to git pull.
 gem install git-up
 
 # Web development
 gem install pry
 gem install sass
+npm install -g grunt
+npm install -g grunt-cli
+npm install -g bower
