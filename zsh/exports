@@ -1,6 +1,6 @@
 # Prefer US English and use UTF-8
 export LC_ALL="en_US.UTF-8"
-export LANG="en_US"
+export LANG="en_US.UTF-8"
 
 # Make vim the default editor and MacVim the default visual editor.
 export EDITOR=vim
@@ -25,5 +25,4 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Where to store gitshots.
 export GITSHOTS="$HOME/Copy/Images/gitshots"
 
-# My user tmp folder is located at ~/tmp.
 export USRTMPDIR="$HOME/tmp"
