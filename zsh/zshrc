@@ -52,10 +52,8 @@ stty -ixon
 # Load direnv if present.
 type direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
 
-# Always inside tmux when starting.
-if type tmux >/dev/null 2>&1; then
-  if [[ -z $TMUX ]]; then
-    # Attach to `hack` if it's there, otherwise create it.
-    tmux new-session -As hack
-  fi
+# Always inside tmux when starting: check if tmux is installed and we're not in
+# a tmux session.
+if type tmux >/dev/null 2>&1 && [[ -z $TMUX ]]; then
+  tmux new-session -As hack
 fi
