@@ -7,6 +7,7 @@ add-alias() {
 
 
 # Use Ctrl-z to switch back to vim.
+# Look in `zsh/keybindings` for the place where this is used.
 fancy-ctrl-z() {
   if [[ $#BUFFER -eq 0 ]]; then
     BUFFER="fg"
@@ -28,23 +29,13 @@ md() {
 # 'compdef' ensures the same git completion works when using 'g' too.
 compdef g=git
 g() {
-  if [[ $# > 0 ]]; then
-    command git $@
-  else
-    command git status
-  fi
-}
+  local git_or_hub='git'
+  type hub >/dev/null 2>&1 && git_or_hub='hub'
 
-# Refuse to ssh into a remote machine if running inside tmux. This is to avoid
-# having a remote tmux session inside a local tmux session (two status bars?
-# wtf?).
-ssh() {
-  # We're inside a tmux session.
-  if [[ -n $TMUX ]]; then
-    echo "First exit from the current tmux session. No one likes two status bars."
-    echo "Just 'command ssh ...' if you want to f**k this."
+  if [[ $# > 0 ]]; then
+    command "$git_or_hub" $@
   else
-    command ssh $@
+    command "$git_or_hub" status
   fi
 }
 
