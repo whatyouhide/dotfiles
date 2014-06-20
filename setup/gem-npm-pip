@@ -10,6 +10,10 @@ gem install launchy
 # git-up for giving some sense to git pull.
 gem install git-up
 
+# For the colorized `cat` version (`c`)
+pip3 install Pygments
+
+
 # Web development
 gem install pry
 gem install sass
@@ -18,3 +22,5 @@ gem install rails
 npm install -g grunt
 npm install -g grunt-cli
 npm install -g bower
+
+pip3 install httpie
