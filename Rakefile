@@ -109,15 +109,18 @@ end
 desc "Install the Vundle plugin manager"
 task :install_vundle do
   fail unless File.exist?(File.join(Dir.home, '.vim'))
-  system 'git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
+  system 'git clone https://github.com/gmarik/Vundle.vim.git \
+          ~/.vim/bundle/Vundle.vim'
 end
 
 
 desc "Symlink the tmuxinator projects directory to ~/.tmuxinator"
 task :tmuxinator_projects do
-  if !File.exists?(File.join(Dir.home, 'Code', 'tmuxinator-projects'))
-    system 'git clone git@github.com:whatyouhide/tmuxinator-projects.git \
-            ~/Code/tmuxinator-projects'
+  path = File.join(Dir.home, 'Code', 'tmuxinator')
+
+  unless File.exist?(path)
+    system "git clone git@github.com:whatyouhide/tmuxinator-projects.git \
+           #{path}"
   end
 
   ln_sf path, File.join(Dir.home, '.tmuxinator')
