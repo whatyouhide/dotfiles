@@ -34,24 +34,13 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 fi
 
 
-
-# Oh My Zsh
 echo_info "Installing oh-my-zsh"
 curl -L http://install.ohmyz.sh | sh
 newline
 
-
-# RVM for the rubiess
 echo_info "Installing RVM"
 curl -sSL https://get.rvm.io | bash -s stable --ruby
 newline
-
-
-# For the c alias (syntax highlighted cat) install Pygments.
-echo_info "Installing Pygments (for the 'c' alias) - this needs sudo"
-sudo easy_install Pygments
-newline
-
 
 echo_info "Installing Homebrew"
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
@@ -61,7 +50,7 @@ echo_info "Cloning dotfiles from GitHub"
 git clone https://github.com/whatyouhide/dotfiles.git "$DOTFILES"
 newline
 
-echo_info "Just to be sure, remove ~/.profile and ~/.zprofile"
+echo_info "Just to be sure, removing ~/.profile and ~/.zprofile"
 rm -v ~/.profile ~/.zprofile
 newline
 

@@ -1,10 +1,8 @@
 # OSX (and some Linux) dotfiles
 
 These dotfiles contain crafted configurations for the tools I use.  
-I mainly develop on OSX <strike>but most of this stuff should work on Linux
-too</strike> fuck it, I don't have the time to support an OS I rearely work with
-and which I don't see myself using in the future. I doubt this will be a problem
-for anyone anyway :).
+Most of these dotfiles are OSX specific. With some manual tweaking, they should
+work on Linux too (manually clone, install zsh, vim etc.).
 
 
 ## Install
@@ -13,26 +11,30 @@ To install these dotfiles, feed this to a shell:
 
     curl -sL https://raw.github.com/whatyouhide/dotfiles/go/install | sh
 
-You will be prompted with the admin password in order to install Pygments and
-(maybe) oh-my-zsh.
-
 
 ## New machine setup
 
 Symlinks are stored inside `links.yml`. This file contains the files in this repo
-that will be linked to `~`. Have a look at it before proceeding.
+that will be linked to `~`. Have a look at it before proceeding, comments should
+explain how things work.
 
 Rake tasks are the main interface for setting up a new machine. List them with
 `rake -T` or just issue:
 
     rake new_machine
 
-
 Once this is done, go with (*in this order, cowboy*):
 
 ```
 $ brew bundle ./setup/Brewfile
 $ ./setup/osx
-$ ./setup/gems-and-npms
+$ ./setup/gem-npm-pip
 $ ./setup/keyremap4macbook-remap.sh
 ```
+
+This order ensures that `brew` installs all the fundamental stuff (tools and GUI
+apps which will be tweaked in `setup/osx`) as well as Python and NodeJS (which
+will be needed in order to install stuff in `setup/gem-npm-pip`).
+
+`setup/keyremap4macbook-remap.sh` sets the OSX keyboard in order to use
+`CAPSLOCK` as `Esc` if pressed with no other key, otherwise as `Ctrl`.
