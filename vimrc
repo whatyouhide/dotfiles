@@ -28,11 +28,7 @@ let g:light_colorscheme = 'solarized-light'
 let g:dark_colorscheme = 'base16-default-dark'
 
 " Light theme during day hours, dark otherwise.
-if strftime("%H") > 9 && strftime("%H") < 19
-  call SourceThemeSetup(g:light_colorscheme)
-else
-  call SourceThemeSetup(g:dark_colorscheme)
-endif
+call ColorschemeBasedOnTime()
 
 
 " Tmuxline
