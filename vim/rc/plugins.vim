@@ -21,7 +21,6 @@ Plugin 'tpope/vim-fugitive'       " Git wrapper
 Plugin 'tpope/vim-endwise'        " Add 'end', 'endfunction' and so on
 Plugin 'tpope/vim-repeat'         " Repeat custom commands
 Plugin 'tpope/vim-unimpaired'     " Use [ and ], often
-
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'SirVer/ultisnips'
@@ -32,7 +31,7 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'tommcdo/vim-exchange'
 Plugin 'matze/vim-move'
 
-" Visual.
+" Aesthetic.
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
@@ -43,17 +42,17 @@ Plugin 'junegunn/goyo.vim'        " Distraction-free mode
 Plugin 'mattn/webapi-vim'         " Required by gist-vim
 Plugin 'mattn/gist-vim'           " :Gist portions of text
 
-Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 Plugin 'kana/vim-vspec'
 
 " Text objects.
 Plugin 'kana/vim-textobj-user'    " Required by many
 Plugin 'kana/vim-textobj-entire'  " Entire file
 Plugin 'kana/vim-textobj-line'
-Plugin 'PeterRincker/vim-argumentative'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'whatyouhide/vim-textobj-erb'
 Plugin 'whatyouhide/vim-textobj-xmlattr'
+Plugin 'PeterRincker/vim-argumentative'
 
 " OSX only.
 Plugin 'henrik/vim-reveal-in-finder'
@@ -63,7 +62,6 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'othree/html5.vim'
-Plugin 'derekwyatt/vim-scala'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'mattn/emmet-vim'
 Plugin '2072/PHP-Indenting-for-VIm'
