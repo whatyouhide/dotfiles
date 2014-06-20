@@ -35,3 +35,24 @@ function! SourceThemeSetup(theme)
     exec ':AirlineRefresh'
   endif
 endfunction
+
+
+" Source the dark/light colorscheme based on the time of the day.
+" It takes two optional parameters: the start and end hours for the light
+" colorscheme to be used.
+function! ColorschemeBasedOnTime(...)
+  let l:start = 9
+  let l:end = 19
+
+  if a:0 > 0
+    let l:start = a:1
+    let l:end = a:2
+  endif
+
+  let l:current_hour = strftime("%H")
+  if l:current_hour > l:start && l:current_hour < l:end
+    call SourceThemeSetup(g:light_colorscheme)
+  else
+    call SourceThemeSetup(g:dark_colorscheme)
+  endif
+endfunction
