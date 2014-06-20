@@ -3,8 +3,8 @@
 
 " These are mappings involving the <Leader> key.
 
-" This is a workaround (instead of using `let mapleader = ' '`), which does not
-" show 'showcmd' on the command line.
+" This is a workaround (instead of using `let mapleader = ' '`); the latter
+" doesn't show 'showcmd' on the command line.
 map <Space> <Leader>
 
 

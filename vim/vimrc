@@ -25,7 +25,7 @@ source ~/.vim/rc/plugin-configs.vim
 
 " Choose a dark and a light themes.
 let g:light_colorscheme = 'solarized-light'
-let g:dark_colorscheme = 'solarized-dark'
+let g:dark_colorscheme = 'base16-default-dark'
 
 " Light theme during day hours, dark otherwise.
 if strftime("%H") > 9 && strftime("%H") < 19
@@ -36,12 +36,13 @@ endif
 
 
 " Tmuxline
-" let g:tmuxline_preset = {
-"   \ 'a'    : 'Session: #S',
-"   \ 'b'    : '#W',
-"   \ 'c'    : '',
-"   \ 'win'  : '#I #W',
-"   \ 'cwin' : '#W',
-"   \ 'x'    : '%l:%M %p',
-"   \ 'y'    : '#(whoami)',
-"   \ 'z'    : '#h' }
+let g:airline#extensions#tmuxline#enabled = 0
+let g:tmuxline_preset = {
+  \ 'a'    : '#S',
+  \ 'b'    : '#(localip)',
+  \ 'c'    : '',
+  \ 'win'  : '#I #W',
+  \ 'cwin' : '#I #W',
+  \ 'x'    : '%l:%M %p',
+  \ 'y'    : '#(whoami)',
+  \ 'z'    : '#h' }

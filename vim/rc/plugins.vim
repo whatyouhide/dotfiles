@@ -12,7 +12,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Temporary? This is surely quite the plugin.
-" Plugin 'edkolev/tmuxline.vim'
+Plugin 'edkolev/tmuxline.vim'
 
 " Generic bundles.
 Plugin 'tpope/vim-dispatch'       " Wow! Run stuff ansynchronously
