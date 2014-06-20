@@ -35,6 +35,7 @@ install homebrew/dupes/grep
 
 # Python (install this before vim so that it has Python support)
 install python
+install python3
 
 # Git
 install git
@@ -60,8 +61,11 @@ install macvim --override-system-vim
 install tmux
 install reattach-to-user-namespace
 install ctags
-install ack
+install the_silver_searcher
+
+# Web dev
 install ngrok
+install qt
 
 
 
@@ -117,8 +121,12 @@ cask install betterzipql
 # Link .app applications to ~/Applications
 linkapps
 
+# Link brew cask to Alfred.app
+cask alfred link
+
 # Remove outdated versions from the cellar
 cleanup -s
+cask cleanup
 
 # Check if everything is ok
 doctor

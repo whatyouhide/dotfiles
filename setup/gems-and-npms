@@ -13,6 +13,8 @@ gem install git-up
 # Web development
 gem install pry
 gem install sass
+gem install rails
+
 npm install -g grunt
 npm install -g grunt-cli
 npm install -g bower
