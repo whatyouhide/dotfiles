@@ -11,17 +11,11 @@ let g:goyo_width = 85
 function! g:goyo_before()
 endfunction
 
-" Restore the theme (in case some colors went bad), and refresh Airline.
-function! g:goyo_after()
-  source ~/.vim/rc/theme-setups/railscasts.vim
-  AirlineRefresh
-endfunction
-
-let g:goyo_callbacks = [function('g:goyo_before'), function('g:goyo_after')]
+let g:goyo_callbacks = [function('g:goyo_before'), function('ColorschemeBasedOnTime')]
 
 
 " Airline
-" Always show Airline.
+" Always show Airline and use powerline fonts.
 set laststatus=2
 let g:airline_powerline_fonts = 1
 
@@ -38,6 +32,7 @@ let g:tcomment#blank_lines = 0
 
 " NERDTree
 let NERDTreeIgnore = ['\.DS_Store$']
+let NERDTreeShowHidden = 1
 
 
 " Ultisnips
