@@ -39,7 +39,7 @@ curl -L http://install.ohmyz.sh | sh
 newline
 
 echo_info "Installing RVM"
-curl -sSL https://get.rvm.io | bash -s stable --ruby
+curl -sSL https://get.rvm.io | bash -s stable --ruby --ignore-dotfiles
 newline
 
 echo_info "Installing Homebrew"
