@@ -31,7 +31,7 @@ let g:tcomment#blank_lines = 0
 
 
 " NERDTree
-let NERDTreeIgnore = ['\.DS_Store$', '\.git$']
+let NERDTreeIgnore = ['\.DS_Store$', '\.git$', '\.sass-cache$']
 let NERDTreeShowHidden = 1
 
 
