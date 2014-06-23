@@ -16,6 +16,11 @@ function path() {
   echo %{$fg[magenta]%}$p%{$reset_color%}
 }
 
+function noconflict-rvm-prompt() {
+  echo %{$fg[blue]%}$(rvm-prompt v)%{$reset_color%}
+}
+
+
 
 # Set some variables to print the git prompt.
 # Ones used by oh-my-zsh:
@@ -81,5 +86,5 @@ function custom_git_prompt() {
 }
 
 # Actual prompts (note that newlines matter).
-PROMPT='$(sliced-username)ට$(sliced-host) $(path) $(custom_git_prompt)λ '
+PROMPT='$(sliced-username)@$(sliced-host) $(path) $(noconflict-rvm-prompt) $(custom_git_prompt)λ '
 RPROMPT=''
