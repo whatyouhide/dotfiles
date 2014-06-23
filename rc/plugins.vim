@@ -60,6 +60,7 @@ Plugin 'henrik/vim-reveal-in-finder'
 " Language specific.
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-haml'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'othree/html5.vim'
 Plugin 'plasticboy/vim-markdown'
