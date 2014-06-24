@@ -2,91 +2,99 @@ require 'yaml'
 
 
 # The location of these dotfiles.
-DOTFILES = ENV['DOTFILES']
-
 # Exit gracefully if the $DOTFILES env variable is not set.
+DOTFILES = ENV['DOTFILES']
 unless DOTFILES
   puts "The $DOTFILES environment variable is not set"
-  puts "Re-run the task with:"
-  puts "  DOTFILES={{dotfiles}} rake {{task}}"
-  exit 1
+  puts "Re-run the task: DOTFILES=... rake {{task}}"
+  exit false
 end
 
 
-# Parse the YAML file which contains the links, it will be needed everywhere.
-CONFIG = YAML.load_file File.join(DOTFILES, 'links.yml')
+# Helper module.
+module H
+  # Parse the YAML file which contains the links, it will be needed everywhere.
+  @config = YAML.load_file(File.join(DOTFILES, 'config.yml'))
+  class << self; attr_reader :config; end
 
+  # Clone from options[:url] to options[:to]
+  def self.git_clone(options)
+    system "git clone #{options[:url]} #{options[:to]}"
+  end
 
-# Return an array of paths to the files that will be linked to ~.
-def default_sources
-  relatives = CONFIG['default'].map { |el| Dir[el] }.flatten
-  relatives.map { |el| File.join(DOTFILES, el) }
+  module Symlinks
+    @symlinks = H.config['symlinks']
+
+    # Given a relative path (relative to DOTFILES), return the full path and prepend
+    # a dot to the basename (if it hasn't got one already).
+    def self.full_path_with_dot(dotfile)
+      dotted = File.basename(dotfile)
+      dotted = '.' + dotted unless dotted =~ /^\./
+      File.join(Dir.home, dotted)
+    end
+
+    # Return an array of paths to the files that will be linked to ~.
+    def self.default
+      @symlinks['default']
+        .flat_map { |el| Dir[el] }
+        .map { |el| File.join(DOTFILES, el) }
+    end
+
+    # Return an hash of [src, dest] paths.
+    def self.custom
+      @symlinks['custom']
+    end
+
+    # Return an array of all the final symlinks that should appear in ~.
+    def self.all
+      res = default.map { |el| full_path_with_dot(el) }
+      res += custom.map { |_, dest| File.expand_path(dest) }
+    end
+  end
 end
 
-# Return an hash of [src, dest] paths.
-def custom_sources
-  CONFIG['custom']
-end
-
-# Given a relative path (relative to DOTFILES), return the full path and prepend
-# a dot to the basename (if it hasn't got one already).
-def dot_destination_path(dotfile)
-  dotted = File.basename(dotfile)
-  dotted = '.' + dotted unless dotted =~ /^\./
-  File.join(Dir.home, dotted)
-end
-
-# Replace an initial ~ with the home path.
-def homify(path)
-  path.sub(/^~/, Dir.home)
-end
 
 
 desc "Runs everything, suitable for new machines"
 task :new_machine do
-  Rake::Task['install'].invoke
-  Rake::Task['filesystem'].invoke
-  Rake::Task['zsh:themes'].invoke
-  Rake::Task['zsh:syntax_highlighting'].invoke
-  Rake::Task['install_vundle'].invoke
-  Rake::Task['tmuxinator_projects'].invoke
+  %i(
+    install
+    create_directories
+    zsh:themes
+    zsh:syntax_highlighting
+    vim:vundle
+    tmuxinator_projects
+  ).each { |task| Rake::Task[task].invoke }
 end
 
 
 desc "Create the necessary symlinks, overriding existing files in ~"
 task :install do
-  default_sources.each do |src|
-    dest = dot_destination_path(src)
+  H::Symlinks.default.each do |src|
+    dest = H::Symlinks.full_path_with_dot(src)
 
-    # But why? Why removing the destination if it's a directory? Well I don't
-    # know. Ask FileUtils maybe. Really wanna know why? Read the notes at the
-    # end of this file :).
-    if File.directory?(dest)
-      rm dest, verbose: false
-    end
+    # But why? Why removing the destination if it's a directory? Read more at
+    # the end of this file.
+    rm dest, verbose: false if File.directory?(dest)
 
     ln_sf src, dest
   end
 
-  custom_sources.each do |src, dest|
-    ln_sf File.join(DOTFILES, src), homify(dest)
+  H::Symlinks.custom.each do |src, dest|
+    ln_sf File.join(DOTFILES, src), File.expand_path(dest)
   end
 end
 
 
 desc "Clean the symlinks inside ~"
 task :clean do
-  targets = default_sources.map { |el| dot_destination_path(el) }
-  targets += custom_sources.map { |_, dest| homify(dest) }
-  targets.each { |el| rm_f el }
+  H::Symlinks.all.each { |el| rm_f el }
 end
 
 
 desc "Create some useful directories"
-task :filesystem do
-  %w(Code Transmission tmp .ssh).each do |dir|
-    mkdir File.join(Dir.home, dir)
-  end
+task :create_directories do
+  H.config['directories_to_create'].each { |dir| mkpath File.expand_path(dir) }
 end
 
 
@@ -101,33 +109,35 @@ namespace :zsh do
     end
   end
 
-
   desc "Add the zsh-syntax-highlighting plugin to oh-my-zsh"
   task :syntax_highlighting do
-    system 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-            ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
+    H.git_clone url: 'https://github.com/zsh-users/zsh-syntax-highlighting.git',
+      to: '~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
   end
 end
 
 
 desc "Install the Vundle plugin manager"
-task :install_vundle do
-  fail unless File.exist?(File.join(Dir.home, '.vim'))
-  system 'git clone https://github.com/gmarik/Vundle.vim.git \
-          ~/.vim/bundle/Vundle.vim'
+namespace :vim do
+  task :vundle do
+    fail '~/.vim not found' unless File.exist? File.expand_path('~/.vim')
+
+    H.git_clone url: 'https://github.com/gmarik/Vundle.vim.git',
+      to: '~/.vim/bundle/Vundle.vim'
+  end
 end
 
 
 desc "Symlink the tmuxinator projects directory to ~/.tmuxinator"
 task :tmuxinator_projects do
-  path = File.join(Dir.home, 'Code', 'tmuxinator')
+  path = File.expand_path '~/Code/tmuxinator'
 
   unless File.exist?(path)
-    system "git clone git@github.com:whatyouhide/tmuxinator-projects.git \
-           #{path}"
+    H.git_clone url: 'git@github.com:whatyouhide/tmuxinator-projects.git',
+      to: path
   end
 
-  ln_sf path, File.join(Dir.home, '.tmuxinator')
+  ln_sf path, File.expand_path('~/.tmuxinator')
 end
 
 

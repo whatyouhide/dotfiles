@@ -1,0 +1,26 @@
+# You can use globbing.
+symlinks:
+  # These files will be linked directly to ~.
+  default:
+    - zsh/zshrc
+    - vim
+    - vim/vimrc
+    - vim/gvimrc
+    - tmux/tmux.conf
+    - git/gitconfig
+    - extra/*
+    - ruby/*
+    - javascript/*
+
+  # In these hash, the keys are the source links and the values are the
+  # destination links. You cannot use globbing nor environment variables, but you
+  # can use ~ at the beginning of a string.
+  custom:
+    ssh/config: '~/.ssh/config'
+
+# Directories to create when running the corresponding rake task.
+directories_to_create:
+  - ~/Code
+  - ~/Transmission
+  - ~/tmp
+  - ~/.ssh
