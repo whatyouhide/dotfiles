@@ -14,7 +14,7 @@ end
 
 
 # Parse the YAML file which contains the links, it will be needed everywhere.
-CONFIG = YAML.load_file('links.yml')
+CONFIG = YAML.load_file File.join(DOTFILES, 'links.yml')
 
 
 # Return an array of paths to the files that will be linked to ~.
@@ -46,8 +46,8 @@ desc "Runs everything, suitable for new machines"
 task :new_machine do
   Rake::Task['install'].invoke
   Rake::Task['filesystem'].invoke
-  Rake::Task['zsh_themes'].invoke
-  Rake::Task['zsh_syntax_highlighting'].invoke
+  Rake::Task['zsh:themes'].invoke
+  Rake::Task['zsh:syntax_highlighting'].invoke
   Rake::Task['install_vundle'].invoke
   Rake::Task['tmuxinator_projects'].invoke
 end
@@ -84,25 +84,29 @@ end
 
 desc "Create some useful directories"
 task :filesystem do
-  %w(Code Transmission tmp).each do |dir|
+  %w(Code Transmission tmp .ssh).each do |dir|
     mkdir File.join(Dir.home, dir)
   end
 end
 
 
-desc "Symlink custom oh-my-zsh themes"
-task :zsh_themes do
-  Dir['zsh/themes/*'].each do |theme|
-    ln_sf File.join(DOTFILES, theme),
-      File.join(Dir.home, '.oh-my-zsh/themes', File.basename(theme))
+namespace :zsh do
+  desc "Symlink custom oh-my-zsh themes"
+  task :themes do
+    Dir['zsh/themes/*'].each do |theme|
+      ln_sf(
+        File.join(DOTFILES, theme),
+        File.join(Dir.home, '.oh-my-zsh/themes', File.basename(theme))
+      )
+    end
   end
-end
 
 
-desc "Add the zsh-syntax-highlighting plugin to oh-my-zsh"
-task :zsh_syntax_highlighting do
-  system 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-          ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
+  desc "Add the zsh-syntax-highlighting plugin to oh-my-zsh"
+  task :syntax_highlighting do
+    system 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+            ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
+  end
 end
 
 
