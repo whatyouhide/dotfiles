@@ -69,6 +69,7 @@ Plugin '2072/PHP-Indenting-for-VIm'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
 
 " Themes.
 Plugin 'chriskempson/base16-vim'
