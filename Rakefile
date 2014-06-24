@@ -78,7 +78,7 @@ desc "Clean the symlinks inside ~"
 task :clean do
   targets = default_sources.map { |el| dot_destination_path(el) }
   targets += custom_sources.map { |_, dest| homify(dest) }
-  targets.each { |el| rm el }
+  targets.each { |el| rm_f el }
 end
 
 
