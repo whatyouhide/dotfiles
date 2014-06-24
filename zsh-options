@@ -4,7 +4,7 @@
 ZSH_THEME="lambda-minimal"
 
 # oh-my-zsh plugins.
-plugins=(z brew zsh-syntax-highlighting)
+plugins=(z brew osx zsh-syntax-highlighting)
 
 # Mmmm. Cd into this stuff everytime.
 # http://robots.thoughtbot.com/cding-to-frequently-used-directories-in-zsh
@@ -29,7 +29,7 @@ cdpath=($HOME $HOME/Sites $HOME/Code $HOME/Dropbox)
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
 # much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment following line if you want to the command execution time stamp shown
 # in the history command output.
