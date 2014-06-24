@@ -18,13 +18,13 @@ alias be="bundle exec"
 
 
 # Homebrew.
-compdef b=brew
+type brew && compdef b=brew
 alias b='brew'
 alias bc='brew cask'
 
 
 # tmux.
-compdef t=tmux
+type tmux && compdef t=tmux
 alias t='tmux'
 alias thack='tmux new-session -As hack'
 
