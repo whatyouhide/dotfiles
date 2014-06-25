@@ -1,5 +1,5 @@
 # This tmux statusbar config was created by tmuxline.vim
-# on Thu, 19 Jun 2014
+# on Wed, 25 Jun 2014
 
 set -g status-justify "centre"
 set -g status "on"
@@ -19,4 +19,4 @@ setw -g window-status-style "fg=colour12,bg=colour0,none"
 set -g status-left "#[fg=colour0,bg=colour4,bold] #S #[fg=colour4,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour8,bg=colour10] #{pane_current_path} #[fg=colour10,bg=colour0,nobold,nounderscore,noitalics]#[fg=colour0,bg=colour0,nobold,nounderscore,noitalics]"
 set -g status-right "#[fg=colour0,bg=colour0,nobold,nounderscore,noitalics]#[fg=colour12,bg=colour0] %l:%M %p #[fg=colour10,bg=colour0,nobold,nounderscore,noitalics]#[fg=colour8,bg=colour10] #(whoami) #[fg=colour4,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour0,bg=colour4] #h "
 setw -g window-status-format "#[fg=colour0,bg=colour0,nobold,nounderscore,noitalics]#[default] #I #W #[fg=colour0,bg=colour0,nobold,nounderscore,noitalics]"
-setw -g window-status-current-format "#[fg=colour0,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour8,bg=colour10] #W #[fg=colour10,bg=colour0,nobold,nounderscore,noitalics]"
+setw -g window-status-current-format "#[fg=colour0,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour8,bg=colour10] #I #W #[fg=colour10,bg=colour0,nobold,nounderscore,noitalics]"

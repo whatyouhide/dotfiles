@@ -35,7 +35,7 @@ call ColorschemeBasedOnTime()
 let g:airline#extensions#tmuxline#enabled = 0
 let g:tmuxline_preset = {
   \ 'a'    : '#S',
-  \ 'b'    : '#(localip)',
+  \ 'b'    : '#{pane_current_path}',
   \ 'c'    : '',
   \ 'win'  : '#I #W',
   \ 'cwin' : '#I #W',
