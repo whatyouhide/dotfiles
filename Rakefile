@@ -109,7 +109,6 @@ task :rvm do
 end
 
 
-
 namespace :zsh do
   desc "Install oh-my-zsh"
   task :oh_my_zsh do
@@ -148,15 +147,9 @@ namespace :vim do
 end
 
 
-desc "Symlink the tmuxinator projects directory to ~/.tmuxinator"
+desc "Clone the tmuxinator projects to ~/.tmuxinator"
 task :tmuxinator_projects do
-  path = File.expand_path '~/Code/tmuxinator'
-
-  unless File.exist?(path)
-    H.my_github_clone 'tmuxinator-projects', path
-  end
-
-  ln_sf path, File.expand_path('~/.tmuxinator')
+  H.my_github_clone 'tmuxinator-projects', '~/.tmuxinator'
 end
 
 
