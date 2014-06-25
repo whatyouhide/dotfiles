@@ -25,3 +25,12 @@ directories_to_create:
   - ~/Transmission
   - ~/tmp
   - ~/.ssh
+
+# Tasks to run when using the :new_machine rake task. Order matters.
+new_machine_tasks:
+  - install
+  - create_directories
+  - zsh:themes
+  - zsh:syntax_highlighting
+  - vim:vundle
+  - tmuxinator_projects

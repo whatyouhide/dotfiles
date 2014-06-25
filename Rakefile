@@ -13,20 +13,31 @@ end
 
 # Helper module.
 module H
-  # Parse the YAML file which contains the links, it will be needed everywhere.
-  @config = YAML.load_file(File.join(DOTFILES, 'config.yml'))
-  class << self; attr_reader :config; end
-
-  # Clone from options[:url] to options[:to]
-  def self.git_clone(options)
-    system "git clone #{options[:url]} #{options[:to]}"
+  # Parse the YAML config file only if it hasn't been already parsed.
+  # ||= returns the value of @config either way.
+  def self.config
+    @config ||= YAML.load_file(File.join(DOTFILES, 'config.yml'))
   end
 
+  def self.github_clone(relative_url, to)
+    system "git clone https://github.com/#{relative_url}.git #{to}"
+  end
+
+  def self.my_github_clone(repo_name, to)
+    system "git clone git@github.com:whatyouhide/#{repo_name}.git #{to}"
+  end
+
+  # Check if a file exists after expanding its path.
+  def self.file_exists?(path)
+    File.exist? File.expand_path(path)
+  end
+
+  # Module to handle symlinks.
   module Symlinks
     @symlinks = H.config['symlinks']
 
-    # Given a relative path (relative to DOTFILES), return the full path and prepend
-    # a dot to the basename (if it hasn't got one already).
+    # Given a relative path (relative to DOTFILES), return the full path and
+    # prepend a dot to the basename (if it hasn't got one already).
     def self.full_path_with_dot(dotfile)
       dotted = File.basename(dotfile)
       dotted = '.' + dotted unless dotted =~ /^\./
@@ -49,6 +60,7 @@ module H
     def self.all
       res = default.map { |el| full_path_with_dot(el) }
       res += custom.map { |_, dest| File.expand_path(dest) }
+      res
     end
   end
 end
@@ -57,14 +69,7 @@ end
 
 desc "Runs everything, suitable for new machines"
 task :new_machine do
-  %i(
-    install
-    create_directories
-    zsh:themes
-    zsh:syntax_highlighting
-    vim:vundle
-    tmuxinator_projects
-  ).each { |task| Rake::Task[task].invoke }
+  H.config['new_machine_tasks'].each { |task| Rake::Task[task].invoke }
 end
 
 
@@ -98,7 +103,24 @@ task :create_directories do
 end
 
 
+desc "Install RVM with the latest ruby version (ignoring dotfiles)"
+task :rvm do
+  system 'curl -sSL https://get.rvm.io | bash -s stable --ruby --ignore-dotfiles'
+end
+
+
+
 namespace :zsh do
+  desc "Install oh-my-zsh"
+  task :oh_my_zsh do
+    if H.file_exists? '~/.oh-my-zsh'
+      puts 'oh-my-zsh already installed at ~/.oh-my-zsh. Doing nothing.'
+    else
+      H.github_clone 'robbyrussell/oh-my-zsh', '~/.oh-my-zsh'
+      system 'chsh -s `which zsh`'
+    end
+  end
+
   desc "Symlink custom oh-my-zsh themes"
   task :themes do
     Dir['zsh/themes/*'].each do |theme|
@@ -111,8 +133,8 @@ namespace :zsh do
 
   desc "Add the zsh-syntax-highlighting plugin to oh-my-zsh"
   task :syntax_highlighting do
-    H.git_clone url: 'https://github.com/zsh-users/zsh-syntax-highlighting.git',
-      to: '~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
+    H.github_clone 'zsh-users/zsh-syntax-highlighting',
+      '~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
   end
 end
 
@@ -120,10 +142,8 @@ end
 desc "Install the Vundle plugin manager"
 namespace :vim do
   task :vundle do
-    fail '~/.vim not found' unless File.exist? File.expand_path('~/.vim')
-
-    H.git_clone url: 'https://github.com/gmarik/Vundle.vim.git',
-      to: '~/.vim/bundle/Vundle.vim'
+    fail '~/.vim not found' unless H.file_exists?('~/.vim')
+    H.github_clone 'gmarik/Vundle.vim', '~/.vim/bundle/Vundle.vim'
   end
 end
 
@@ -133,8 +153,7 @@ task :tmuxinator_projects do
   path = File.expand_path '~/Code/tmuxinator'
 
   unless File.exist?(path)
-    H.git_clone url: 'git@github.com:whatyouhide/tmuxinator-projects.git',
-      to: path
+    H.my_github_clone 'tmuxinator-projects', path
   end
 
   ln_sf path, File.expand_path('~/.tmuxinator')

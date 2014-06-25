@@ -5,7 +5,7 @@ COL="\033[1;35m"
 END="\033[0m"
 
 function echo_info() {
-  echo "${COL}$1${END}"
+  echo -e "${COL}$1${END}"
 }
 
 function newline() {
@@ -24,18 +24,22 @@ fi
 # agreed to the Xcode license. No need to install Xcode anymore!
 echo_info 'Before going on, I need to be sure you installed the command-line'
 echo_info 'tools and agreed to the Xcode license:'
-echo '  xcode-select --install'
-echo '  sudo xcodebuild -license'
+echo      '  xcode-select --install'
+echo      '  sudo xcodebuild -license'
 
 read -p "Did you? [yn] " -n 1 -r
 newline
-if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-  exit 0
-fi
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit 0; fi
 
+
+echo_info "Cloning dotfiles from GitHub"
+git clone https://github.com/whatyouhide/dotfiles.git "$DOTFILES"
+newline
 
 echo_info "Installing oh-my-zsh"
-curl -L http://install.ohmyz.sh | sh
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+chsh -s `which zsh`
+/urs/bin/env zsh
 newline
 
 echo_info "Installing RVM"
@@ -46,14 +50,10 @@ echo_info "Installing Homebrew"
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 newline
 
-echo_info "Cloning dotfiles from GitHub"
-git clone https://github.com/whatyouhide/dotfiles.git "$DOTFILES"
-newline
-
 echo_info "Just to be sure, removing ~/.profile and ~/.zprofile"
 rm -v ~/.profile ~/.zprofile
 newline
 
 
 echo_info "Be sure to reload your shell in order to see changes"
-echo 'Also hop up into $DOTFILES and list rake tasks with `rake -T`'
+echo_info 'Also hop up into $DOTFILES and list rake tasks with `rake -T`'
