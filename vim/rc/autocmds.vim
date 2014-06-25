@@ -29,9 +29,8 @@ augroup vimrc_filetypes
   autocmd!
 
   " Set some file types.
-  autocmd BufRead,BufNewFile *.md set filetype=mkd
-  autocmd BufRead,BufNewFile *.mmd set filetype=mkd
-  autocmd BufRead,BufNewFile *.markdown set filetype=mkd
+  autocmd BufRead,BufNewFile *.md,*.mmd,*.markdown,*.md.erb set filetype=mkd
+
   " The sshconfig filetype is just for ~/.ssh/config, but I have that file in my
   " dotfiles.
   autocmd BufRead,BufEnter ~/dotfiles/ssh/config set filetype=sshconfig
