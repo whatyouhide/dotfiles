@@ -16,7 +16,8 @@ symlinks:
   # destination links. You cannot use globbing nor environment variables, but you
   # can use ~ at the beginning of a string.
   custom:
-    ssh/config: '~/.ssh/config'
+    ssh/config: ~/.ssh/config
+    keyremap4macbook/private.xml: ~/Library/Application Support/KeyRemap4MacBook/private.xml
 
 # Directories to create when running the corresponding rake task.
 # If these directories already exist, they won't be overridden.
@@ -30,7 +31,7 @@ directories_to_create:
 new_machine_tasks:
   - install
   - create_directories
-  - zsh:themes
-  - zsh:syntax_highlighting
-  - vim:vundle
+  - 'zsh:themes'
+  - 'zsh:syntax_highlighting'
+  - 'vim:vundle'
   - tmuxinator_projects

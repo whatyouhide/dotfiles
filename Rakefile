@@ -34,6 +34,7 @@ module H
 
   # Module to handle symlinks.
   module Symlinks
+    extend Rake::FileUtilsExt
     @symlinks = H.config['symlinks']
 
     # Given a relative path (relative to DOTFILES), return the full path and
@@ -62,6 +63,32 @@ module H
       res += custom.map { |_, dest| File.expand_path(dest) }
       res
     end
+
+    # Install the default dotfiles inside ~.
+    def self.install_default!
+      default.each do |src|
+        dest = full_path_with_dot(src)
+
+        # But why? Why removing the destination if it's a directory? Read more
+        # at the end of this file.
+        rm dest, verbose: false if File.directory?(dest)
+
+        ln_sf src, dest
+      end
+    end
+
+    # Install dotfiles with custom paths
+    def self.install_custom!
+      expanded = Hash[custom.map { |_, dst| [_, File.expand_path(dst)] }]
+
+      expanded.each do |src, dst|
+        if File.exist?(File.dirname(dst))
+          ln_sf File.join(DOTFILES, src), dst
+        else
+          warn "Not linking #{dst} because #{File.dirname(dst)} doesn't exist"
+        end
+      end
+    end
   end
 end
 
@@ -75,19 +102,8 @@ end
 
 desc "Create the necessary symlinks, overriding existing files in ~"
 task :install do
-  H::Symlinks.default.each do |src|
-    dest = H::Symlinks.full_path_with_dot(src)
-
-    # But why? Why removing the destination if it's a directory? Read more at
-    # the end of this file.
-    rm dest, verbose: false if File.directory?(dest)
-
-    ln_sf src, dest
-  end
-
-  H::Symlinks.custom.each do |src, dest|
-    ln_sf File.join(DOTFILES, src), File.expand_path(dest)
-  end
+  H::Symlinks.install_default!
+  H::Symlinks.install_custom!
 end
 
 
