@@ -7,7 +7,7 @@
   lg = log --branches --graph --pretty=format:'%C(yellow)%h %C(reset)%s%C(red)%d %C(blue)%an%C(reset), %C(cyan)%ar'
   rank = shortlog -s -n
   br = branch -v --all
-  f = flow
+  ff = flow feature
   recommit = commit -C ORIG_HEAD
   oops = reset --soft HEAD~1
 
