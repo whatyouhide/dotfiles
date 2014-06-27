@@ -14,4 +14,6 @@ $cli set remap.controlL2controlL_escape 1
 /bin/echo -n .
 $cli set private.swap_cmd_option_windows 1
 /bin/echo -n .
+$cli set remap.iso_swap_tilda_section 1
+/bin/echo -n .
 /bin/echo
