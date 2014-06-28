@@ -18,6 +18,7 @@ symlinks:
   custom:
     ssh/config: ~/.ssh/config
     keyremap4macbook/private.xml: ~/Library/Application Support/KeyRemap4MacBook/private.xml
+    ruby/rvm-global.gems: ~/.rvm/gemsets/global.gems
 
 # Directories to create when running the corresponding rake task.
 # If these directories already exist, they won't be overridden.
