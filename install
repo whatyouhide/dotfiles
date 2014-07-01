@@ -29,9 +29,9 @@ echo      '  sudo xcodebuild -license'
 
 # Interesting read on bash's `read`:
 # http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_08_02.html
-read -p "Did you? [yn] " -n 1
+read -p "Did you? [yn] " -n 1 YN
 newline
-if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit 0; fi
+if [[ ! $YN =~ ^[Yy]$ ]]; then exit 0; fi
 
 
 echo_colored "Cloning dotfiles from GitHub"
