@@ -25,6 +25,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'editorconfig/editorconfig-vim'
 
 " Text manipulation.
 Plugin 'AndrewRadev/splitjoin.vim'
