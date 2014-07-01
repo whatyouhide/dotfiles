@@ -14,9 +14,9 @@ To install these dotfiles, feed this to a shell:
 
 ## New machine setup
 
-Symlinks are stored inside `links.yml`. This file contains the files in this repo
-that will be linked to `~`. Have a look at it before proceeding, comments should
-explain how things work.
+Symlinks are stored inside `config.yml` along with other configuration options.
+This file contains the files in this repo that will be linked to `~`. Have a
+look at it before proceeding, comments should explain how things work.
 
 Rake tasks are the main interface for setting up a new machine. List them with
 `rake -T` or just issue:

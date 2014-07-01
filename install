@@ -1,61 +1,65 @@
 #!/bin/bash
 
-# Define some colors.
-COL="\033[1;35m"
+# Define some colors and printing functions.
+RED="\033[1;31m"
+GREEN="\033[1;33m"
+CYAN="\033[1;36m"
 END="\033[0m"
 
-function echo_colored() {
-  echo -e "${COL}$1${END}"
-}
-
-function newline() {
-  echo
-}
+function echo_colored() { echo -e "${2}$1${END}"; }
+function echo_ok() { echo_colored "$1" "$GREEN"; }
+function echo_error() { echo_colored "$1" "$RED"; }
+function echo_info() { echo_colored "$1" "$CYAN"; }
+function newline() { echo; }
 
 
 # Stop execution if the $DOTFILES environment variable is not set.
 if [ -z "$DOTFILES" ]; then
-  echo_colored 'Set the $DOTFILES env variable before running this.'
+  echo_error 'Set the $DOTFILES env variable before running this.'
   exit 1
 fi
 
 
 # Proceed only if the user is sure she installed the command-line tools and
 # agreed to the Xcode license. No need to install Xcode anymore!
-echo_colored 'Before going on, I need to be sure you installed the command-line'
-echo_colored 'tools and agreed to the Xcode license:'
+echo_info 'Before going on, I need to be sure you installed the command-line'
+echo_info 'tools and agreed to the Xcode license. Since xcodebuild is kind of'
+echo_info 'an asshole, just install Xcode and do yourself a favor. Then:'
 echo      '  xcode-select --install'
 echo      '  sudo xcodebuild -license'
 
-# Interesting read on bash's `read`:
-# http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_08_02.html
-read -p "Did you? [yn] " -n 1 YN
+# Read from the terminal please :(
+read -p 'Did you? [yn] ' -n 1 < /dev/tty
 newline
-if [[ ! $YN =~ ^[Yy]$ ]]; then exit 0; fi
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+  echo_ok 'Ok, see you later then!'
+  exit 0
+fi
 
 
-echo_colored "Cloning dotfiles from GitHub"
+
+echo_info "Cloning dotfiles from GitHub"
 git clone https://github.com/whatyouhide/dotfiles.git "$DOTFILES"
 newline
 
-echo_colored "Installing oh-my-zsh"
+echo_info "Installing oh-my-zsh"
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 chsh -s `which zsh`
-/usr/bin/env zsh
 newline
 
-echo_colored "Installing RVM"
+echo_info "Installing RVM"
 curl -sSL https://get.rvm.io | bash -s stable --ruby --ignore-dotfiles
 newline
 
-echo_colored "Installing Homebrew"
+echo_info "Installing Homebrew"
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 newline
 
-echo_colored "Just to be sure, removing ~/.profile and ~/.zprofile"
+echo_info "Just to be sure, removing ~/.profile and ~/.zprofile"
 rm -v ~/.profile ~/.zprofile
 newline
 
 
-echo_colored "Be sure to reload your shell in order to see changes"
-echo_colored 'Also hop up into $DOTFILES and list rake tasks with `rake -T`'
+echo_info 'Be sure to reload your shell in order to see changes'
+echo_info 'Also hop up into $DOTFILES and list rake tasks with `rake -T`'
+echo_ok   'Finally, `zsh` in order to use zsh'
