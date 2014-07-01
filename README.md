@@ -9,7 +9,7 @@ work on Linux too (manually clone, install zsh, vim etc.).
 
 To install these dotfiles, feed this to a shell:
 
-    curl -sL https://raw.github.com/whatyouhide/dotfiles/go/install | sh
+    curl -sL https://raw.github.com/whatyouhide/dotfiles/go/install | bash
 
 
 ## New machine setup

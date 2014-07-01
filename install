@@ -4,7 +4,7 @@
 COL="\033[1;35m"
 END="\033[0m"
 
-function echo_info() {
+function echo_colored() {
   echo -e "${COL}$1${END}"
 }
 
@@ -15,45 +15,47 @@ function newline() {
 
 # Stop execution if the $DOTFILES environment variable is not set.
 if [ -z "$DOTFILES" ]; then
-  echo_info 'Set the $DOTFILES env variable before running this.'
+  echo_colored 'Set the $DOTFILES env variable before running this.'
   exit 1
 fi
 
 
 # Proceed only if the user is sure she installed the command-line tools and
 # agreed to the Xcode license. No need to install Xcode anymore!
-echo_info 'Before going on, I need to be sure you installed the command-line'
-echo_info 'tools and agreed to the Xcode license:'
+echo_colored 'Before going on, I need to be sure you installed the command-line'
+echo_colored 'tools and agreed to the Xcode license:'
 echo      '  xcode-select --install'
 echo      '  sudo xcodebuild -license'
 
-read -p "Did you? [yn] " -n 1 -r
+# Interesting read on bash's `read`:
+# http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_08_02.html
+read -p "Did you? [yn] " -n 1
 newline
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit 0; fi
 
 
-echo_info "Cloning dotfiles from GitHub"
+echo_colored "Cloning dotfiles from GitHub"
 git clone https://github.com/whatyouhide/dotfiles.git "$DOTFILES"
 newline
 
-echo_info "Installing oh-my-zsh"
+echo_colored "Installing oh-my-zsh"
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 chsh -s `which zsh`
-/urs/bin/env zsh
+/usr/bin/env zsh
 newline
 
-echo_info "Installing RVM"
+echo_colored "Installing RVM"
 curl -sSL https://get.rvm.io | bash -s stable --ruby --ignore-dotfiles
 newline
 
-echo_info "Installing Homebrew"
+echo_colored "Installing Homebrew"
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 newline
 
-echo_info "Just to be sure, removing ~/.profile and ~/.zprofile"
+echo_colored "Just to be sure, removing ~/.profile and ~/.zprofile"
 rm -v ~/.profile ~/.zprofile
 newline
 
 
-echo_info "Be sure to reload your shell in order to see changes"
-echo_info 'Also hop up into $DOTFILES and list rake tasks with `rake -T`'
+echo_colored "Be sure to reload your shell in order to see changes"
+echo_colored 'Also hop up into $DOTFILES and list rake tasks with `rake -T`'
