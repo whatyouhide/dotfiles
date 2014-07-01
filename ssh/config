@@ -7,3 +7,8 @@ Host dehlic-dev
   HostName dev.dehlic.com
   Port 22
   User whatyouhide
+
+Host netbook-local
+  HostName 192.168.159.188
+  Port 54345
+  User andrea
