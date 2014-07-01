@@ -33,7 +33,8 @@ install findutils
 # More recent versions of some OSX tools
 install homebrew/dupes/grep
 
-# Python (install this before vim so that it has Python support)
+# Python (install this before vim so that it has Python support, but link after
+# because it causes strange problems)
 install python
 install python3
 
@@ -47,14 +48,10 @@ install hub
 install wget --enable-iri
 install htop
 install rsync
-install mmv
 install direnv
 
 # Gitshots!
 install imagesnap
-
-# Node
-install node
 
 # Dev tools
 install macvim --override-system-vim --with-lua --with-luajit
@@ -65,7 +62,12 @@ install the_silver_searcher
 
 # Web dev
 install ngrok
+install node
 install qt
+
+
+# Link stuff
+link python
 
 
 
