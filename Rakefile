@@ -154,11 +154,25 @@ namespace :zsh do
 end
 
 
-desc "Install the Vundle plugin manager"
 namespace :vim do
+  desc "Install the Vundle plugin manager"
   task :vundle do
     fail '~/.vim not found' unless H.file_exists?('~/.vim')
     H.github_clone 'gmarik/Vundle.vim', '~/.vim/bundle/Vundle.vim'
+  end
+
+  desc '"Import error"? SEGFAULT? Explosions around your house? vim:halp ftw!'
+  task :halp do
+    def brew(cmd); system "brew #{cmd}"; end
+
+    system 'rvm use system'
+    brew 'update'
+    brew 'unlink python'
+    brew 'uninstall macvim'
+    brew 'cleanup -s'
+    brew 'install macvim --override-system-vim --with-lua --with-luajit'
+    brew 'linkapps'
+    brew 'link python'
   end
 end
 

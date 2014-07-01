@@ -57,7 +57,7 @@ install imagesnap
 install node
 
 # Dev tools
-install macvim --override-system-vim
+install macvim --override-system-vim --with-lua --with-luajit
 install tmux
 install reattach-to-user-namespace
 install ctags
