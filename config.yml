@@ -9,7 +9,10 @@ symlinks:
     - tmux/tmux.conf
     - git/gitconfig
     - extra/*
-    - ruby/*
+    - ruby/gemrc
+    - ruby/irbrc
+    - ruby/rspec
+    - ruby/rubocop.yml
     - javascript/*
 
   # In these hash, the keys are the source links and the values are the
