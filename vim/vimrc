@@ -24,8 +24,8 @@ source ~/.vim/rc/leader-mappings.vim
 source ~/.vim/rc/plugin-configs.vim
 
 " Choose a dark and a light themes.
-let g:light_colorscheme = 'solarized-light'
-let g:dark_colorscheme = 'solarized-dark'
+let g:light_colorscheme = 'hemisu-light'
+let g:dark_colorscheme = 'base16-default-dark'
 
 " Light theme during day hours, dark otherwise.
 call ColorschemeBasedOnTime()
