@@ -92,7 +92,6 @@ cask install dropbox
 cask install evernote
 
 # Developing
-cask install mamp
 cask install iterm2-nightly
 cask install virtualbox
 cask install google-chrome-canary
@@ -101,7 +100,6 @@ cask install opera-next
 
 # Misc
 cask install ynab
-cask install plex-home-theater
 cask install vlc
 cask install onepassword
 
