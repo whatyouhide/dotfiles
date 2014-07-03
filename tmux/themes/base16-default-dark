@@ -1,5 +1,5 @@
 # This tmux statusbar config was created by tmuxline.vim
-# on Wed, 02 Jul 2014
+# on Thu, 03 Jul 2014
 
 set -g status-justify "centre"
 set -g status "on"
@@ -16,7 +16,7 @@ set -g status-left-length "100"
 setw -g window-status-activity-style "fg=colour0,bg=colour10,none"
 setw -g window-status-separator ""
 setw -g window-status-style "fg=colour12,bg=colour10,none"
-set -g status-left "#[fg=colour2,bg=colour0] #S #[fg=colour0,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour7,bg=colour10] #{pane_current_path} #[fg=colour10,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour10,bg=colour10,nobold,nounderscore,noitalics]"
-set -g status-right "#[fg=colour10,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour12,bg=colour10] %l:%M %p #[fg=colour10,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour7,bg=colour10] #(whoami) #[fg=colour0,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour2,bg=colour0] #h "
+set -g status-left "#[fg=colour2,bg=colour0] #S #[fg=colour0,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour7,bg=colour10] #{pane_current_path} #[fg=colour10,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour12,bg=colour10] %l:%M %p #[fg=colour10,bg=colour10,nobold,nounderscore,noitalics]"
+set -g status-right "#[fg=colour10,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour12,bg=colour10] #(osx-battery) #[fg=colour10,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour7,bg=colour10] #(whoami) #[fg=colour0,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour2,bg=colour0] #h "
 setw -g window-status-format "#[fg=colour10,bg=colour10,nobold,nounderscore,noitalics]#[default] #I #W #[fg=colour10,bg=colour10,nobold,nounderscore,noitalics]"
 setw -g window-status-current-format "#[fg=colour10,bg=colour10,nobold,nounderscore,noitalics]#[fg=colour7,bg=colour10] #I #W #[fg=colour10,bg=colour10,nobold,nounderscore,noitalics]"
