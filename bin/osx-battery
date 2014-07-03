@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+output = `ioreg -rc AppleSmartBattery`
+
+exit false unless output
+
+$lines = output.lines
+
+# Extract the value from a line that matches `regex`.
+def extract_value(regex)
+  $lines.select { |l| l =~ regex }.first.split(' = ')[1]
+end
+
+max_capacity = extract_value /MaxCapacity/
+current_capacity = extract_value /CurrentCapacity/
+is_charging = extract_value /IsCharging/
+
+percentage = ((current_capacity.to_f / max_capacity.to_f) * 100).ceil
+charging_char = is_charging == 'Yes'  ? '↑' : '↓'
+
+output = "#{percentage}% #{charging_char}"
+
+print output
