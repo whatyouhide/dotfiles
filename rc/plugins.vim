@@ -71,6 +71,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'elixir-lang/vim-elixir'
 
 " Themes.
 Plugin 'chriskempson/base16-vim'
