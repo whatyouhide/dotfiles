@@ -39,5 +39,9 @@ Thumbs.db
 *.sublime-project
 .sass-cache
 node_modules
-.zeus.sock
 .vagrant
+
+# Ruby and Rails development #
+##############################
+.zeus.sock
+.yardoc
