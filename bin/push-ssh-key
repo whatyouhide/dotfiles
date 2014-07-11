@@ -1,0 +1,20 @@
+#!/bin/bash
+
+REMOTE_HOST=$1
+KEY_PATH=~/.ssh/id_rsa.pub
+
+# Find or create the ssh key.
+if [[ -f "$KEY_PATH" ]]; then
+  echo "Using key in $KEY_PATH"
+else
+  echo "Key not found in $KEY_PATH, creating new one."
+  ssh-keygen -t rsa
+fi
+
+# Create the ~/.ssh directory on the remote host.
+echo 'Creating the ~/.ssh directory on the remote host too.'
+ssh "$REMOTE_HOST" 'mkdir -pv ~/.ssh'
+
+# Push the ssh key on the remote host.
+echo 'Pushing your key on the remote host.'
+cat "$KEY_PATH" | ssh "$REMOTE_HOST" 'cat >> ~/.ssh/authorized_keys'
