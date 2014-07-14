@@ -4,6 +4,9 @@ set nocompatible
 " Source bundles.
 source ~/.vim/rc/plugins.vim
 
+" Plugin development.
+set rtp+=~/Code/vim-sinatra
+
 " Enable file type detection and do language-dependent indenting (this
 " also 'closes' vundle, and it's *required*).
 filetype plugin indent on
