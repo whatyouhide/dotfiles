@@ -35,6 +35,9 @@ augroup vimrc_filetypes
   " dotfiles.
   autocmd BufRead,BufEnter ~/dotfiles/ssh/config set filetype=sshconfig
 
+  " Set the filetype to zsh for all the files in ~/dotfiles/zsh.
+  autocmd BufRead,BufEnter ~/dotfiles/zsh/*,~/dotfiles/zsh/**/* set filetype=zsh
+
   " Turn spell-checking on for specific filetypes.
   autocmd FileType gitcommit setlocal spell
   autocmd FileType mkd setlocal spell
