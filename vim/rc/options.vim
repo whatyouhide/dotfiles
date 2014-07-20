@@ -71,3 +71,9 @@ set wildmenu
 set wildignore+=.git
 set wildignore+=*._DS_Store
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png
+
+" Spell checking.
+" (note: `spell` is disabled by default, and it's enabled through autocommands
+" on files that need it)
+set spelllang=en,it
+set spellfile=~/.vim/spell/techspeak.utf-8.add
