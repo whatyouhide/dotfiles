@@ -9,7 +9,6 @@ alias dotpull="git -C $DOTFILES pull; vim +PluginInstall + PluginClean +qall"
 # Common aliases.
 alias z=_z
 alias v='vim'
-alias cl='clear'
 alias x='exit'
 
 
