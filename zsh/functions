@@ -25,8 +25,17 @@ md() {
 }
 
 
+# This is wonderful. Combine `mkdir -p` and `touch`:
+# $ mktouch ~/this/dir/doesnt/exist/and-neither-this-file.txt
+mktouch() {
+  mkdir -p "$(dirname "$1")"
+  touch "$1"
+}
+
+
 # Use git in a cooler way: 'g' for status, g {args} for normal git.
 # 'compdef' ensures the same git completion works when using 'g' too.
+# If 'hub' is available, use 'hub' as git.
 compdef g=git
 g() {
   local git_or_hub='git'
@@ -38,6 +47,7 @@ g() {
     command "$git_or_hub" status
   fi
 }
+
 
 # Simple python server from the current directory.
 server() {
