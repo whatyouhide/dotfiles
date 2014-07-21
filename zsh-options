@@ -1,7 +1,7 @@
 # Set name of the theme to load.
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="lambda-minimal"
+ZSH_THEME='whatyouhide'
 
 # oh-my-zsh plugins.
 plugins=(z brew osx zsh-syntax-highlighting)
@@ -29,7 +29,7 @@ cdpath=($HOME $HOME/Sites $HOME/Code $HOME/Dropbox)
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
 # much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY='true'
 
 # Uncomment following line if you want to the command execution time stamp shown
 # in the history command output.

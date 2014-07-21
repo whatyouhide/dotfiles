@@ -10,7 +10,8 @@ function host() {
 
 # Return the current path.
 function path() {
-  echo %{$fg[magenta]%}%~%{$reset_color%}
+  local p=$(pwd | sed -e "s,^$HOME,~,")
+  echo %{$fg[magenta]%}$p%{$reset_color%}
 }
 
 
@@ -91,7 +92,7 @@ function custom_git_prompt() {
     return
   fi
 
-  echo "(git: %{$fg[yellow]%}$(git_prompt_current_branch)$(git_prompt_addons)%{$reset_color%})"
+  echo "(%{$fg[yellow]%}$(git_prompt_current_branch)$(git_prompt_addons)%{$reset_color%})"
 }
 
 
