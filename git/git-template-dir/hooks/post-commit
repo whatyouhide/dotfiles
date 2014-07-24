@@ -2,20 +2,12 @@
 
 # gitshots
 pic = "#{ENV['GITSHOTS']}/#{Time.now.to_i}.jpg"
-# project = `basename $(dirname $(dirname $PWD))`.gsub("\n", "")
-# last_commit = `git log -1 HEAD --pretty=format:'%s'`
-
 unless File.directory?(File.expand_path("../../rebase-merge", __FILE__))
-    puts "Taking capture into #{pic}!"
-
-    command = "imagesnap -q -w 3 \"#{pic}\" &"
-    # command += "convert -font Helvetica-Bold -pointsize 20 -draw \"text 35,50 ''\" \"#{file}\" \"#{file}\" && "
-    # command += "convert -font Helvetica -pointsize 20 -draw \"text 35,75 'Commit: #{last_commit}'\" \"#{file}\" \"#{file}\" && "
-    # command += "convert -font Helvetica -pointsize 16 -draw \"text 35,90 'Date: #{Time.now.strftime('%b %d %Y at %I:%M %P')}'\" \"#{file}\" \"#{file}\" &"
-    system command
+  puts "Taking capture into #{pic}!"
+  system "imagesnap -q -w 3 \"#{pic}\" &"
 end
 
 # ctags
 system ".git/hooks/ctags >/dev/null 2>&1 &"
 
-exit 0
+exit
