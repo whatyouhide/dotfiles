@@ -1,0 +1,7 @@
+export DOTFILES_VIM_LIGHT_COLORSCHEME='hemisu-light'
+export DOTFILES_VIM_DARK_COLORSCHEME='railscasts'
+
+export DOTFILES_TMUX_LIGHT_THEME='hemisu-light'
+export DOTFILES_TMUX_DARK_THEME='railscasts'
+
+export DOTFILES_ZSH_THEME='whatyouhide'
