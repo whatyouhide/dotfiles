@@ -28,8 +28,8 @@ source ~/.vim/rc/leader-mappings.vim
 source ~/.vim/rc/plugin-configs.vim
 
 " Choose a dark and a light themes.
-let g:light_colorscheme = 'hemisu-light'
-let g:dark_colorscheme = 'railscasts'
+let g:light_colorscheme = $DOTFILES_VIM_LIGHT_COLORSCHEME
+let g:dark_colorscheme = $DOTFILES_VIM_DARK_COLORSCHEME
 
 " Light theme during day hours, dark otherwise.
 call ColorschemeBasedOnTime()
