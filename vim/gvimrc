@@ -18,6 +18,12 @@ set guioptions-=L
 " God please don't beeeeeeeeeeeeeeep all the time.
 set visualbell t_vb=
 
+" GUI theme if present (in the $DOTFILES/colorschemes file).
+if !empty('$DOTFILES_GUI_VIM_COLORSCHEME')
+  colorscheme $DOTFILES_GUI_VIM_COLORSCHEME
+end
+
+
 " Set GUI font based on being on a Mac (with MacVim) or on Linux
 " (with vim-gnome or vim-gtk).
 if has("gui_macvim")
