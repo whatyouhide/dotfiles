@@ -33,6 +33,12 @@ let g:tcomment#blank_lines = 0
 " NERDTree
 let NERDTreeIgnore = ['\.DS_Store$', '\.git$', '\.sass-cache$']
 let NERDTreeShowHidden = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeQuitOnOpen = 1
+" vim-nerdtree-tabs
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:nerdtree_tabs_open_on_console_startup = 0
 
 
 " Ultisnips
