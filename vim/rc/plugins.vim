@@ -46,6 +46,9 @@ Plugin 'mattn/gist-vim'           " :Gist portions of text
 Plugin 'rking/ag.vim'
 Plugin 'kana/vim-vspec'
 
+Plugin 'xolox/vim-misc'           " Required by vim-colorscheme-switcher
+Plugin 'vim-scripts/vim-colorscheme-switcher'
+
 " Text objects.
 Plugin 'kana/vim-textobj-user'    " Required by many
 Plugin 'kana/vim-textobj-entire'  " Entire file
@@ -57,6 +60,7 @@ Plugin 'PeterRincker/vim-argumentative'
 
 " OSX only.
 Plugin 'henrik/vim-reveal-in-finder'
+Plugin 'itspriddle/vim-marked'
 
 " Language specific.
 Plugin 'tpope/vim-rails'
