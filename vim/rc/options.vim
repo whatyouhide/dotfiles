@@ -77,3 +77,8 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png
 " on files that need it)
 set spelllang=en,it
 set spellfile=~/.vim/spell/techspeak.utf-8.add
+
+" Clipboard management: when you delete/yank to the unnamed register ("*), send
+" that to the clipboard (this works in a tmux session because of
+" reattach-to-user-namespace in tmux.conf, on OSX).
+set clipboard=unnamed
