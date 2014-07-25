@@ -16,6 +16,7 @@ function! RenameCurrentFile()
   endif
 endfunction
 
+
 " Strip trailing whitespace except for a bunch of filetypes.
 function! StripTrailingWhitespace()
   " Not on these filetypes.
@@ -26,7 +27,8 @@ function! StripTrailingWhitespace()
   %s/\s\+$//e
 endfunction
 
-" Source a theme setup.
+
+" Source a theme setup from `dotfiles/vim/rc/theme-setups`.
 function! SourceThemeSetup(theme)
   exec ':source ~/dotfiles/vim/rc/theme-setups/' . a:theme . '.vim'
 
@@ -40,19 +42,33 @@ endfunction
 " Source the dark/light colorscheme based on the time of the day.
 " It takes two optional parameters: the start and end hours for the light
 " colorscheme to be used.
-function! ColorschemeBasedOnTime(...)
-  let l:start = 9
-  let l:end = 19
-
-  if a:0 > 0
-    let l:start = a:1
-    let l:end = a:2
-  endif
-
+function! ColorschemeBasedOnTime()
   let l:current_hour = strftime("%H")
-  if l:current_hour > l:start && l:current_hour < l:end
+
+  if l:current_hour > g:light_colorscheme_starts_at && l:current_hour < g:light_colorscheme_ends_at
     call SourceThemeSetup(g:light_colorscheme)
   else
     call SourceThemeSetup(g:dark_colorscheme)
+  endif
+endfunction
+
+" GUI vim behaves differenlty since all the colorschemes look fine and no
+" further setup is needed. So just source a colorscheme if present in the
+" environment and set its background based on the time of the day.
+" *Note* that this function is only called in gvimrc.
+function! GuiColorschemeBasedOnTime()
+  " Change the colorscheme only if there's a GUI specific colorscheme. Note that
+  " in `vim/vimrc`, I check for the existence of this variable again: if it
+  " doesn't exists, the colorscheme rules applied to console vim apply to GUI
+  " vim too.
+  if !empty('$DOTFILES_GUI_VIM_COLORSCHEME')
+    colorscheme $DOTFILES_GUI_VIM_COLORSCHEME
+  end
+
+  let l:current_hour = strftime("%H")
+  if l:current_hour > g:light_colorscheme_starts_at && l:current_hour < g:light_colorscheme_ends_at
+    set background=light
+  else
+    set background=dark
   endif
 endfunction
