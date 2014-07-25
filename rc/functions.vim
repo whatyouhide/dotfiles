@@ -38,6 +38,13 @@ function! SourceThemeSetup(theme)
   endif
 endfunction
 
+" Execute the first command if we're in dayhours and the second one if we're
+" not. Dayhours are defined by the g:day_starts_at and g_day_ends_at variables.
+function! DayNightCommands(day_command, night_command)
+  let l:is_day = strftime("%H") > g:day_starts_at && strftime("%H") < g:day_ends_at
+  if l:is_day | exec a:day_command | else | exec a:night_command | endif
+endfunction
+
 
 " Source the dark/light colorscheme based on the time of the day.
 " If the vim instance is a GUI vim, then source the colorscheme in
@@ -46,23 +53,13 @@ endfunction
 " This is done since GUI vim don't screw up themes like console vim (at least
 " with iTerm themes) does.
 function! ColorschemeBasedOnTime()
-  " Check if it's day or night.
-  let l:is_day = strftime("%H") > g:day_starts_at && strftime("%H") < g:day_ends_at
-
-  " Set colorscheme and background if this is a GUI vim and the
-  " g:gui_colorscheme variable isn't empty (if it is, just fall back to the
-  " console themes).
-  if has('gui_running') && !empty('g:gui_colorscheme')
-    if l:is_day | set bg=light | else | set bg=dark | endif
+  if has('gui_running')
+    call DayNightCommands('set bg=light', 'set bg=dark')
     exec 'colorscheme ' . g:gui_colorscheme
-    return
-  endif
-
-  " Setup the console vim (this function would have returned if GUI vim was
-  " active).
-  if l:is_day
-    call SourceThemeSetup(g:light_colorscheme)
-  else
-    call SourceThemeSetup(g:dark_colorscheme)
+  elseif !has('gui_running')
+    call DayNightCommands(
+      \ 'call SourceThemeSetup(g:light_colorscheme)',
+      \ 'call SourceThemeSetup(g:dark_colorscheme)'
+      \ )
   endif
 endfunction
