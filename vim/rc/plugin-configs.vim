@@ -6,11 +6,9 @@
 let g:goyo_margin_top = 1
 let g:goyo_margin_bottom = 1
 let g:goyo_width = 85
-
 " Empty function (g:goyo_callbacks needs a 'before' and an 'after' hook).
 function! g:goyo_before()
 endfunction
-
 let g:goyo_callbacks = [function('g:goyo_before'), function('ColorschemeBasedOnTime')]
 
 
@@ -36,6 +34,7 @@ let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeQuitOnOpen = 1
+
 " vim-nerdtree-tabs
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:nerdtree_tabs_open_on_console_startup = 0

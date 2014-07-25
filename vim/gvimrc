@@ -18,14 +18,10 @@ set guioptions-=L
 " God please don't beeeeeeeeeeeeeeep all the time.
 set visualbell t_vb=
 
-" GUI theme if present (in the $DOTFILES/colorschemes file).
-call GuiColorschemeBasedOnTime()
-
-
 " Set GUI font based on being on a Mac (with MacVim) or on Linux
 " (with vim-gnome or vim-gtk).
-if has("gui_macvim")
+if has('gui_macvim')
   set guifont=Inconsolata-g\ for\ Powerline:h14
-elseif has("gui_gtk")
+elseif has('gui_gtk')
   set guifont=Inconsolata-g\ Medium\ 11
 end
