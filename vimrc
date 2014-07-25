@@ -27,24 +27,19 @@ source ~/.vim/rc/mappings.vim
 source ~/.vim/rc/leader-mappings.vim
 source ~/.vim/rc/plugin-configs.vim
 
-
 " Some custom configurations.
 
 " Choose a dark and a light themes.
 let g:light_colorscheme = $DOTFILES_VIM_LIGHT_COLORSCHEME
 let g:dark_colorscheme = $DOTFILES_VIM_DARK_COLORSCHEME
+let g:gui_colorscheme = $DOTFILES_GUI_VIM_COLORSCHEME
 
-let g:light_colorscheme_starts_at = 8
-let g:light_colorscheme_ends_at = 19
+" Day/night hours (used to choose between light and dark colorschemes).
+let g:day_starts_at = 8
+let g:day_ends_at = 19
 
-
-" Colorschemes for console vim.
-" Use these colorschemes for GUI vim too if there isn't a GUI-specific theme in
-" the environment. GUI vim colorscheme is set in gvimrc.
-if !has('gui_running') || empty('$DOTFILES_GUI_VIM_COLORSCHEME')
-  " Light theme during day hours, dark otherwise.
-  call ColorschemeBasedOnTime()
-end
+" Light theme during day hours, dark otherwise.
+call ColorschemeBasedOnTime()
 
 
 " Tmuxline

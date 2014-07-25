@@ -40,35 +40,29 @@ endfunction
 
 
 " Source the dark/light colorscheme based on the time of the day.
-" It takes two optional parameters: the start and end hours for the light
-" colorscheme to be used.
+" If the vim instance is a GUI vim, then source the colorscheme in
+" g:gui_colorscheme and set the background appropriately, while if it's console
+" vim source the custom theme setup.
+" This is done since GUI vim don't screw up themes like console vim (at least
+" with iTerm themes) does.
 function! ColorschemeBasedOnTime()
-  let l:current_hour = strftime("%H")
+  " Check if it's day or night.
+  let l:is_day = strftime("%H") > g:day_starts_at && strftime("%H") < g:day_ends_at
 
-  if l:current_hour > g:light_colorscheme_starts_at && l:current_hour < g:light_colorscheme_ends_at
+  " Set colorscheme and background if this is a GUI vim and the
+  " g:gui_colorscheme variable isn't empty (if it is, just fall back to the
+  " console themes).
+  if has('gui_running') && !empty('g:gui_colorscheme')
+    if l:is_day | set bg=light | else | set bg=dark | endif
+    exec 'colorscheme ' . g:gui_colorscheme
+    return
+  endif
+
+  " Setup the console vim (this function would have returned if GUI vim was
+  " active).
+  if l:is_day
     call SourceThemeSetup(g:light_colorscheme)
   else
     call SourceThemeSetup(g:dark_colorscheme)
-  endif
-endfunction
-
-" GUI vim behaves differenlty since all the colorschemes look fine and no
-" further setup is needed. So just source a colorscheme if present in the
-" environment and set its background based on the time of the day.
-" *Note* that this function is only called in gvimrc.
-function! GuiColorschemeBasedOnTime()
-  " Change the colorscheme only if there's a GUI specific colorscheme. Note that
-  " in `vim/vimrc`, I check for the existence of this variable again: if it
-  " doesn't exists, the colorscheme rules applied to console vim apply to GUI
-  " vim too.
-  if !empty('$DOTFILES_GUI_VIM_COLORSCHEME')
-    colorscheme $DOTFILES_GUI_VIM_COLORSCHEME
-  end
-
-  let l:current_hour = strftime("%H")
-  if l:current_hour > g:light_colorscheme_starts_at && l:current_hour < g:light_colorscheme_ends_at
-    set background=light
-  else
-    set background=dark
   endif
 endfunction
