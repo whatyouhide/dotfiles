@@ -60,7 +60,6 @@ Plugin 'PeterRincker/vim-argumentative'
 
 " OSX only.
 Plugin 'henrik/vim-reveal-in-finder'
-Plugin 'itspriddle/vim-marked'
 
 " Language specific.
 Plugin 'tpope/vim-rails'
