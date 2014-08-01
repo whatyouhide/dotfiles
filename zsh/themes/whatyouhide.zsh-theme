@@ -92,7 +92,7 @@ function custom_git_prompt() {
     return
   fi
 
-  echo "(%{$fg[yellow]%}$(git_prompt_current_branch)$(git_prompt_addons)%{$reset_color%})"
+  echo "(%{$fg[yellow]%}$(git_prompt_current_branch)$(git_prompt_addons)%{$reset_color%}) "
 }
 
 
@@ -119,6 +119,6 @@ function available_tools() {
 
 
 # Actual prompts (note that newlines matter).
-PROMPT='$(username) ᚜ $(host) ᚛ $(path) $(custom_git_prompt) <$(rvm_prompt)> λ
+PROMPT='$(username)@$(host) $(path) $(custom_git_prompt)<$(rvm_prompt)>
 → '
 RPROMPT='$(available_tools)'
