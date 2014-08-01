@@ -2,6 +2,10 @@
 vim/.netrwhist
 vim/bundle
 
+# Spell files are shared through Dropbox (they're updated too frequently).
+vim/spell
+
 # Machine-specific config files.
 colorschemes
 zsh/extra
+
