@@ -50,8 +50,8 @@ Plugin 'xolox/vim-misc'           " Required by vim-colorscheme-switcher
 Plugin 'vim-scripts/vim-colorscheme-switcher'
 
 " Text objects.
-Plugin 'kana/vim-textobj-user'    " Required by many
-Plugin 'kana/vim-textobj-entire'  " Entire file
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-entire'
 Plugin 'kana/vim-textobj-line'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'whatyouhide/vim-textobj-erb'
