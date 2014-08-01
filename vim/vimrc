@@ -1,12 +1,11 @@
 " Get rid of the vi stuff and fully embrace vim.
 set nocompatible
 
-" Source bundles.
+" Plugins.
 source ~/.vim/rc/plugins.vim
 
 " Plugin development.
 set rtp+=~/Code/vim-sinatra
-set rtp+=~/Code/vim-rack
 
 " Enable file type detection and do language-dependent indenting (this
 " also 'closes' vundle, and it's *required*).
