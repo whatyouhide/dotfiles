@@ -1,6 +1,7 @@
 #!/bin/bash
 
 REMOTE_HOST=$1
+PORT=${2-22}
 KEY_PATH=~/.ssh/id_rsa.pub
 
 # Find or create the ssh key.
@@ -13,8 +14,8 @@ fi
 
 # Create the ~/.ssh directory on the remote host.
 echo 'Creating the ~/.ssh directory on the remote host too.'
-ssh "$REMOTE_HOST" 'mkdir -pv ~/.ssh'
+ssh -p $PORT "$REMOTE_HOST" 'mkdir -pv ~/.ssh'
 
 # Push the ssh key on the remote host.
 echo 'Pushing your key on the remote host.'
-cat "$KEY_PATH" | ssh "$REMOTE_HOST" 'cat >> ~/.ssh/authorized_keys'
+cat "$KEY_PATH" | ssh -p $PORT "$REMOTE_HOST" 'cat >> ~/.ssh/authorized_keys'
