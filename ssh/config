@@ -12,3 +12,8 @@ Host netbook-local
   HostName 192.168.159.188
   Port 54345
   User andrea
+
+Host home-server-local
+  HostName 192.168.159.200
+  Port 53438
+  User whatyouhide
