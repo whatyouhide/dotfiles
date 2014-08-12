@@ -15,13 +15,6 @@ alias x='exit'
 # Ruby development.
 alias be="bundle exec"
 
-
-# Homebrew.
-type brew > /dev/null 2>&1 && compdef b=brew
-alias b='brew'
-alias bc='brew cask'
-
-
 # tmux.
 type tmux > /dev/null 2>&1 && compdef t=tmux
 alias t='tmux'
@@ -44,5 +37,18 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 
 
-# Recursively delete `.DS_Store` files
-alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+# OSX specific aliases.
+if $DOTFILES/bin/is-osx; then
+  # Homebrew.
+  type brew > /dev/null 2>&1 && compdef b=brew
+  alias b='brew'
+  alias bc='brew cask'
+
+  # Recursively delete `.DS_Store` files
+  alias fucking-ds-stores="find . -name '*.DS_Store' -type f -ls -delete"
+fi
+
+# Linux specific aliases (mostly Debian/*buntu).
+if $DOTFILES/bin/is-linux; then
+  alias ss='sudo service'
+fi
