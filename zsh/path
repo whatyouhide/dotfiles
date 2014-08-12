@@ -1,5 +1,6 @@
 # Make sure that the PHP install in MAMP is the first one
-export PATH=/Applications/MAMP/bin/php/php5.4.10/bin
+
+$DOTFILES/bin/is-osx && export PATH=/Applications/MAMP/bin/php/php5.5.10/bin
 
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/local/bin
