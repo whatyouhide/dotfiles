@@ -21,6 +21,7 @@ Plugin 'tpope/vim-fugitive'       " Git wrapper
 Plugin 'tpope/vim-endwise'        " Add 'end', 'endfunction' and so on
 Plugin 'tpope/vim-repeat'         " Repeat custom commands
 Plugin 'tpope/vim-unimpaired'     " Use [ and ], often
+Plugin 'tpope/vim-eunuch'         " Unix utilities
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'SirVer/ultisnips'
