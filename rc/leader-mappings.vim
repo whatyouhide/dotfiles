@@ -29,10 +29,6 @@ nnoremap <Leader>gs :Gstatus<CR>:resize 25<CR>
 nnoremap <Leader>d :Dispatch<Space>
 nnoremap <Leader>D :Dispatch!<Space>
 
-" a, r: use the rails.vim ':AV'/':RV' commands.
-nnoremap <Leader>a :AV<CR>
-nnoremap <Leader>r :RV<CR>
-
 " it: set spelllang to italian.
 nnoremap <Leader>it :set spelllang=it<CR>
 
@@ -45,3 +41,6 @@ nnoremap <Leader>wai :echo @%<CR>
 
 " s: check with syntastic.
 nnoremap <Leader>s :SyntasticCheck<CR>
+
+" cr: reload the currently active Chrome tab.
+nnoremap <Leader>cr :call system('chrome-refresh')<CR>:echo 'Refreshing Chrome...'<CR>
