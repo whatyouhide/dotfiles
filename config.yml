@@ -8,7 +8,6 @@ symlinks:
     - vim/gvimrc
     - tmux/tmux.conf
     - git/gitconfig
-    - extra/*
     - ruby/gemrc
     - ruby/irbrc
     - ruby/rspec
