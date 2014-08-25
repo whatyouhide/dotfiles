@@ -1,11 +1,3 @@
-# Add an alias to zsh/extra, so that it's not version controlled and can
-# be used in a workstation-specific way.
-add-alias() {
-  echo "alias $1=\"$2\"" >> "$DOTFILES/zsh/extra"
-  source ~/.zshrc
-}
-
-
 # Use Ctrl-z to switch back to vim.
 # Look in `zsh/keybindings` for the place where this is used.
 fancy-ctrl-z() {
