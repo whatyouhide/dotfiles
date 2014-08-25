@@ -4,6 +4,10 @@ ZSH=$HOME/.oh-my-zsh
 # Path to the dotfiles.
 export DOTFILES="$HOME/dotfiles"
 
+# Export some machine-specific variables which define the colorschemes to be
+# used with vim, tmux, zsh and so on.
+[[ -f "$DOTFILES/colorschemes" ]] && source "$DOTFILES/colorschemes"
+
 # Ensure that 'compdef' is available everywhere.
 # oh-my-zsh sets this up too, but then I have to place stuff in a weird order in
 # order to load some options and then source oh-my-zsh and then source other
@@ -30,13 +34,11 @@ unalias -m "*" && source "$DOTFILES/zsh/aliases"
 # $DOTFILES/zsh/extra and $DOTFILES/colorschemes.
 source "$DOTFILES/zsh/exports"
 
-# Source some extra configurations.
-# These are not version controlled and may be used for workstation-specific
-# stuff. These extra configurations include also vim, zsh and tmux options.
-# Sourcing this stuff before everything else ensures that every configuration is
-# available to the next scripts.
+# Source some extra zsh configuration. These are not version controlled and may
+# be used for workstation-specific stuff.
+# Sourcing this stuff last ensures options can be overridden on a per-machine
+# basis.
 [[ -f "$DOTFILES/zsh/extra" ]] && source "$DOTFILES/zsh/extra"
-[[ -f "$DOTFILES/colorschemes" ]] && source "$DOTFILES/colorschemes"
 
 # Source RVM.
 # Also ensure that RVM is reloaded when manually doing `source ~/.zshrc`. If
