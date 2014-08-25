@@ -1,44 +1,40 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-
 # Path to the dotfiles.
 export DOTFILES="$HOME/dotfiles"
+export ZSH="$DOTFILES/zsh"
+
+# Ensure that 'compdef' is available everywhere.
+autoload -U compdef
+
+# Use zsh-completions if present.
+[[ -d /usr/local/share/zsh-completions ]] && fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Export some machine-specific variables which define the colorschemes to be
 # used with vim, tmux, zsh and so on.
 [[ -f "$DOTFILES/colorschemes" ]] && source "$DOTFILES/colorschemes"
 
-# Ensure that 'compdef' is available everywhere.
-# oh-my-zsh sets this up too, but then I have to place stuff in a weird order in
-# order to load some options and then source oh-my-zsh and then source other
-# stuff.
-autoload -U compinit compdef
+# Init completion after adding zsh-completions to the path.
+autoload -U compinit
 compinit
+
+# Colors everywhere.
+autoload -U colors
+colors
 
 # Set other oh-my-zsh options (obviously keep this before the oh-my-zsh
 # sourcing in order for oh-my-zsh to see these options). Also set the $PATH
 # before oh-my-zsh in order to solve some issues with RVM.
-source "$DOTFILES/zsh/zsh-options"
-source "$DOTFILES/zsh/functions"
-source "$DOTFILES/zsh/path"
-
-# Source oh-my-zsh.
-source "$ZSH/oh-my-zsh.sh"
-
-# Remove all the default oh-my-zsh aliases and use custom aliases.
-unalias -m "*" && source "$DOTFILES/zsh/aliases"
-
-# Redefine some exports since oh-my-zsh takes a whole bunch of liberties
-# in doing that (see PAGER="less" and not "less -X").
-# Note: variables prefixed with `$DOTFILES_` aren't exported here, but in
-# $DOTFILES/zsh/extra and $DOTFILES/colorschemes.
-source "$DOTFILES/zsh/exports"
+# Note: variables prefixed with `$DOTFILES_` aren't exported in zsh/exports, but
+# in $ZSH/extra and $DOTFILES/colorschemes.
+source "$ZSH/functions"
+source "$ZSH/path"
+source "$ZSH/aliases"
+source "$ZSH/exports"
 
 # Source some extra zsh configuration. These are not version controlled and may
 # be used for workstation-specific stuff.
 # Sourcing this stuff last ensures options can be overridden on a per-machine
 # basis.
-[[ -f "$DOTFILES/zsh/extra" ]] && source "$DOTFILES/zsh/extra"
+[[ -f "$ZSH/extra" ]] && source "$ZSH/extra"
 
 # Source RVM.
 # Also ensure that RVM is reloaded when manually doing `source ~/.zshrc`. If
@@ -51,7 +47,14 @@ setopt auto_cd
 cdpath=($HOME $HOME/Sites $HOME/Code $HOME/Dropbox)
 
 # Source all the keybindings here because they don't work otherwise. Computers.
-source "$DOTFILES/zsh/keybindings"
+source "$ZSH/keybindings"
+
+# Prompting.
+source "$ZSH/themes/$DOTFILES_ZSH_THEME.zsh-theme"
+
+# zstyle options.
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors ''
 
 # Use Ctrl-s everywhere. In vim for example.
 stty -ixon

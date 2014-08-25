@@ -119,6 +119,6 @@ function available_tools() {
 
 
 # Actual prompts (note that newlines matter).
-PROMPT='$(username)@$(host) $(path) $(custom_git_prompt)$(rvm_prompt)
-→ '
-RPROMPT='$(available_tools)'
+PROMPT="$(username)@$(host) $(path) $(custom_git_prompt)$(rvm_prompt)
+→ "
+RPROMPT="$(available_tools)"
