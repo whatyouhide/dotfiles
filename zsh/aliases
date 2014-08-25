@@ -3,7 +3,7 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 
 
 # Pull the dotfiles without having to go there.
-alias dotpull="git -C $DOTFILES pull; vim +PluginInstall + PluginClean +qall"
+alias dotpull="git -C $DOTFILES pull; vim +PluginInstall +qall; source ~/.zshrc"
 
 
 # Common aliases.
@@ -14,6 +14,7 @@ alias x='exit'
 
 # Ruby development.
 alias be="bundle exec"
+
 
 # tmux.
 type tmux > /dev/null 2>&1 && compdef t=tmux

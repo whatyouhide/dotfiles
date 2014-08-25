@@ -60,6 +60,10 @@ type direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
 # Always inside tmux when starting: check if tmux is installed and we're not in
 # a tmux session, and check that tmux is >1.9 since a lot of features (like -A
 # here, and other stuff in tmux.conf) aren't compatible with <=1.8.
-if type tmux >/dev/null 2>&1 && [[ `tmux -V` =~ 1.9 ]] && [[ -z $TMUX ]]; then
+if   $AUTOSTART_TMUX            \
+  && type tmux >/dev/null 2>&1  \
+  && [[ `tmux -V` =~ 1.9 ]]     \
+  && [[ -z $TMUX ]]
+then
   tmux new-session -As hack
 fi
