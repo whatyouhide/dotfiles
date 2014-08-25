@@ -10,28 +10,3 @@ plugins=(z brew osx zsh-syntax-highlighting)
 # http://robots.thoughtbot.com/cding-to-frequently-used-directories-in-zsh
 # (the `setop auto_cd` line is inside zshrc if you were wondering).
 cdpath=($HOME $HOME/Sites $HOME/Code $HOME/Dropbox)
-
-# Uncomment this to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often to auto-update? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-DISABLE_UNTRACKED_FILES_DIRTY='true'
-
-# Uncomment following line if you want to the command execution time stamp shown
-# in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
