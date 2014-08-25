@@ -25,4 +25,10 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Where to store gitshots.
 export GITSHOTS="$HOME/Copy/Images/gitshots"
 
+# A temporary directory.
 export USRTMPDIR="$HOME/tmp"
+
+# Whether to autostart tmux when sourcing zshrc, defaulting to true. This
+# options is meant to be overridden in zsh/extra, which is sourced after every
+# other file.
+export AUTOSTART_TMUX=true
