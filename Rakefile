@@ -125,35 +125,6 @@ task :rvm do
 end
 
 
-namespace :zsh do
-  desc "Install oh-my-zsh"
-  task :oh_my_zsh do
-    if H.file_exists? '~/.oh-my-zsh'
-      puts 'oh-my-zsh already installed at ~/.oh-my-zsh. Doing nothing.'
-    else
-      H.github_clone 'robbyrussell/oh-my-zsh', '~/.oh-my-zsh'
-      system 'chsh -s `which zsh`'
-    end
-  end
-
-  desc "Symlink custom oh-my-zsh themes"
-  task :themes do
-    Dir['zsh/themes/*'].each do |theme|
-      ln_sf(
-        File.join(DOTFILES, theme),
-        File.join(Dir.home, '.oh-my-zsh/themes', File.basename(theme))
-      )
-    end
-  end
-
-  desc "Add the zsh-syntax-highlighting plugin to oh-my-zsh"
-  task :syntax_highlighting do
-    H.github_clone 'zsh-users/zsh-syntax-highlighting',
-      '~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
-  end
-end
-
-
 namespace :vim do
   desc "Install the Vundle plugin manager"
   task :vundle do
