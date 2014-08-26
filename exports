@@ -19,14 +19,9 @@ export GIT_TEMPLATE_DIR="$DOTFILES/git/git-template-dir"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # CUSTOM EXPORTS
-# this exports are not variables that the shell understands,
-# they're just for user's stuff conveniency.
 
 # Where to store gitshots.
 export GITSHOTS="$HOME/Copy/Images/gitshots"
-
-# A temporary directory.
-export USRTMPDIR="$HOME/tmp"
 
 # Whether to autostart tmux when sourcing zshrc, defaulting to true. This
 # options is meant to be overridden in zsh/extra, which is sourced after every

@@ -1,0 +1,5 @@
+# Check if a command exists in the system.
+function command-exists() {
+  local _command=$1
+  type "$_command" >/dev/null 2>&1
+}

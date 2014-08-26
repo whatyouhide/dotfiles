@@ -1,3 +1,7 @@
+# Utilities for setting up zsh (functions to check for commands existence and
+# other stuff like that).
+source "$ZSH/config-utils"
+
 source "$ZSH/fpath"
 source "$ZSH/autoloads"
 source "$ZSH/functions"
@@ -45,6 +49,7 @@ setopt share_history
 
 hash -d dbox=~/Dropbox
 hash -d notes=~/Dropbox/Notes
+hash -d code=~/Code
 
 # Use Ctrl-s everywhere. In vim for example.
 stty -ixon

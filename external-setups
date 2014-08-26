@@ -4,5 +4,5 @@
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 export rvm_reload_flag=1
 
-# Load direnv if present.
+# Direnv.
 type direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"

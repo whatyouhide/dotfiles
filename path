@@ -9,11 +9,8 @@ export PATH=$PATH:/usr/sbin
 export PATH=$PATH:/bin
 export PATH=$PATH:/sbin
 
-PATH=$PATH:$HOME/.rvm/bin
+export PATH=$PATH:$HOME/.rvm/bin
 
-# Personal scripts found in $DOTFILES/bin and $DOTFILES/bin/local.
-# (for personal use only - you can delete the entire directory content
-# without affecting anything else)
 export PATH=$PATH:$DOTFILES/bin
 
 export PATH

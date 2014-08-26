@@ -8,11 +8,6 @@ function _freedom_host() {
   echo "%{$fg[green]%}%m%{$reset_color%}"
 }
 
-# What event the current one will be in the history.
-function _freedom_hist_event() {
-  echo "#%h"
-}
-
 # Return the current path.
 function _freedom_path() {
   local p=$(pwd | sed -e "s,^$HOME,~,")
@@ -97,7 +92,7 @@ prompt_freedom_setup() {
   PROMPT="$PROMPT"$'\n'
   PROMPT="$PROMPT"'$(_freedom_before_char) '
 
-  RPROMPT='$(_freedom_hist_event)'
+  RPROMPT=''
 }
 
 # Init.
