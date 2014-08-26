@@ -2,8 +2,8 @@
 symlinks:
   # These files will be linked directly to ~.
   default:
-    - zsh-config/zshenv
-    - zsh-config/zshrc
+    - zsh/zshenv
+    - zsh/zshrc
     - vim
     - vim/vimrc
     - vim/gvimrc
