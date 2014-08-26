@@ -1,24 +1,24 @@
 # Utilities for setting up zsh (functions to check for commands existence and
 # other stuff like that).
-source "$ZSH/config-utils"
+source "$ZSH/lib/config-utils"
 
-source "$ZSH/fpath"
-source "$ZSH/autoloads"
-source "$ZSH/functions"
-source "$ZSH/path"
-source "$ZSH/aliases"
-source "$ZSH/exports"
+source "$ZSH/lib/fpath"
+source "$ZSH/lib/autoloads"
+source "$ZSH/lib/functions"
+source "$ZSH/lib/path"
+source "$ZSH/lib/aliases"
+source "$ZSH/lib/exports"
 
 [[ -f "$DOTFILES/colorschemes" ]] && source "$DOTFILES/colorschemes"
-[[ -f "$ZSH/extra" ]] && source "$ZSH/extra"
+[[ -f "$ZSH/lib/extra" ]] && source "$ZSH/lib/extra"
 
-source "$ZSH/external-setups"
+source "$ZSH/lib/external-setups"
 
 setopt auto_cd
 cdpath=($HOME $HOME/Sites $HOME/Code $HOME/Dropbox)
 
 # Source all the keybindings here because they don't work otherwise. Computers.
-source "$ZSH/keybindings"
+source "$ZSH/lib/keybindings"
 
 setopt prompt_subst
 prompt $DOTFILES_ZSH_PROMPT
