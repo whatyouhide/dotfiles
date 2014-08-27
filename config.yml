@@ -2,11 +2,6 @@
 symlinks:
   # These files will be linked directly to ~.
   default:
-    - zsh/zshenv
-    - zsh/zshrc
-    - vim
-    - vim/vimrc
-    - vim/gvimrc
     - tmux/tmux.conf
     - git/gitconfig
     - ruby/gemrc
