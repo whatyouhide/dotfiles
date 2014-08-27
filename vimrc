@@ -1,8 +1,17 @@
 " Get rid of the vi stuff and fully embrace vim.
 set nocompatible
 
+" Where vim sourceable files are stored (and a function that sources based on
+" that value).
+let g:vim_libs = '~/.vim/lib/'
+let g:vim_theme_tweaks = '~/.vim/theme-tweaks/'
+
+function! SourceExternalFile(file)
+  exec 'source ' . g:vim_libs . a:file
+endfunction
+
 " Plugins.
-source ~/.vim/rc/plugins.vim
+call SourceExternalFile('plugins.vim')
 
 " Enable file type detection and do language-dependent indenting (this
 " also 'closes' vundle, and it's *required*).
@@ -14,14 +23,14 @@ syntax on
 " Enable the matchit plugin (required by textobj-rubyblock).
 runtime macros/matchit.vim
 
-" Source external files.
-source ~/.vim/rc/options.vim
-source ~/.vim/rc/functions.vim
-source ~/.vim/rc/autocmds.vim
-source ~/.vim/rc/commands.vim
-source ~/.vim/rc/mappings.vim
-source ~/.vim/rc/leader-mappings.vim
-source ~/.vim/rc/plugin-configs.vim
+" External sources.
+call SourceExternalFile('options.vim')
+call SourceExternalFile('functions.vim')
+call SourceExternalFile('autocmds.vim')
+call SourceExternalFile('commands.vim')
+call SourceExternalFile('mappings.vim')
+call SourceExternalFile('leader-mappings.vim')
+call SourceExternalFile('plugin-configs.vim')
 
 " Some custom configurations.
 

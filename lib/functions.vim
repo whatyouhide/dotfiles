@@ -4,19 +4,6 @@
 " (NOTE: some functions in this file are mapped. This mappings are located
 " inside vim/rc/mappings.vim.
 
-" Rename the current file.
-function! RenameCurrentFile()
-  let old_name = expand('%')
-  let new_name = input('New file name: ', expand('%'), 'file')
-
-  if new_name != '' && new_name != old_name
-    exec ':saveas ' . new_name
-    exec ':silent !rm ' . old_name
-    redraw!
-  endif
-endfunction
-
-
 " Strip trailing whitespace except for a bunch of filetypes.
 function! StripTrailingWhitespace()
   " Not on these filetypes.
@@ -27,16 +14,29 @@ function! StripTrailingWhitespace()
   %s/\s\+$//e
 endfunction
 
+" Check if a file exists.
+function! FileExists(path)
+  return !empty(glob(a:path))
+endfunction
+
 
 " Source a theme setup from `dotfiles/vim/rc/theme-setups`.
-function! SourceThemeSetup(theme)
-  exec ':source ~/dotfiles/vim/rc/theme-setups/' . a:theme . '.vim'
+function! SetThemeTo(theme, dark_or_light)
+  let l:path = g:vim_theme_tweaks . a:theme . '-' . a:dark_or_light . '.vim'
+
+  exec 'colorscheme ' . a:theme
+  exec 'set background=' . a:dark_or_light
+
+  if FileExists(l:path)
+    exec 'source ' l:path
+  endif
 
   " Refresh Airline if in a script.
   if exists(':AirlineRefresh')
     exec ':AirlineRefresh'
   endif
 endfunction
+
 
 " Execute the first command if we're in dayhours and the second one if we're
 " not. Dayhours are defined by the g:day_starts_at and g_day_ends_at variables.
@@ -58,8 +58,8 @@ function! ColorschemeBasedOnTime()
     exec 'colorscheme ' . g:gui_colorscheme
   elseif !has('gui_running')
     call DayNightCommands(
-      \ 'call SourceThemeSetup(g:light_colorscheme)',
-      \ 'call SourceThemeSetup(g:dark_colorscheme)'
+      \ 'call SetThemeTo(g:light_colorscheme, "light")',
+      \ 'call SetThemeTo(g:dark_colorscheme, "dark")'
       \ )
   endif
 endfunction

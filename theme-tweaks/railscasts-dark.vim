@@ -1,9 +1,5 @@
 " Stuff specific to the **railscasts** theme.
 " (https://github.com/chrishunt/color-schemes)
-set background=dark
-
-colorscheme base16-railscasts
-
 let g:airline_theme = 'base16'
 
 " Terminal vim (used with iTerm 2)

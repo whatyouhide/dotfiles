@@ -27,6 +27,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'rking/ag.vim'
 
 " Text manipulation.
 Plugin 'AndrewRadev/splitjoin.vim'
@@ -41,14 +42,9 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'bling/vim-airline'
 Plugin 'junegunn/goyo.vim'        " Distraction-free mode
 
+" Misc.
 Plugin 'mattn/webapi-vim'         " Required by gist-vim
 Plugin 'mattn/gist-vim'           " :Gist portions of text
-
-Plugin 'rking/ag.vim'
-Plugin 'kana/vim-vspec'
-
-Plugin 'xolox/vim-misc'           " Required by vim-colorscheme-switcher
-Plugin 'vim-scripts/vim-colorscheme-switcher'
 
 " Text objects.
 Plugin 'kana/vim-textobj-user'
@@ -61,6 +57,9 @@ Plugin 'PeterRincker/vim-argumentative'
 
 " OSX only.
 Plugin 'henrik/vim-reveal-in-finder'
+
+" Plugin development.
+Plugin 'kana/vim-vspec'
 
 " Language specific.
 Plugin 'tpope/vim-rails'
@@ -80,7 +79,6 @@ Plugin 'elixir-lang/vim-elixir'
 
 " Themes.
 Plugin 'chriskempson/base16-vim'
-Plugin 'noahfrederick/vim-hemisu'
 Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()

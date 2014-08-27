@@ -45,6 +45,7 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 " Ultisnips
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsEditSplit = "vertical"
+let g:UltiSnipsSnippetDirectories=["ulti-snippets"]
 
 
 " CtrlP

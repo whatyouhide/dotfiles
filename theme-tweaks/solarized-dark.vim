@@ -1,6 +1,3 @@
-set bg=dark
-colorscheme solarized
-
 highlight SignColumn                ctermbg=0 ctermfg=10 guibg=#003742
 highlight VertSplit                 ctermbg=0 guibg=#003742
 highlight GitGutterAdd              ctermbg=0 guibg=#003742
