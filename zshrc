@@ -51,6 +51,9 @@ hash -d dbox=~/Dropbox
 hash -d notes=~/Dropbox/Notes
 hash -d code=~/Code
 
+# Syntax highlighting for zsh.
+source "$ZSH/external/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
 # Use Ctrl-s everywhere. In vim for example.
 stty -ixon
 
