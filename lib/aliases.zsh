@@ -1,49 +1,44 @@
+# `ls`.
+# Detect which `ls` flavor is in use.
+# List all files colorized in long format, including dot files
+if ls --color > /dev/null 2>&1; then
+  colorflag="--color" # GNU `ls`
+else
+  colorflag="-G"      # OS X `ls`
+fi
+alias l="ls -lAFh ${colorflag}"
+
 # `cat` with beautiful colors. Requires Pygments installed.
 alias c='pygmentize -O style=monokai -f console256 -g'
 
-
 # Common aliases.
-alias z=_z
 alias v='vim'
 alias x='exit'
-
 
 # Ruby development.
 alias be="bundle exec"
 
-
 # tmux.
 alias thack='tmux new-session -As hack'
-
-
-# `ls`.
-# Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-  colorflag="--color"
-else # OS X `ls`
-  colorflag="-G"
-fi
-# List all files colorized in long format, including dot files
-alias l="ls -lAFh ${colorflag}"
-
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 
+# Recursively delete `.DS_Store` files
+alias clean-ds-stores="find . -name '*.DS_Store' -type f -ls -delete"
+
 
 # OSX specific aliases.
-if $DOTFILES/bin/is-osx; then
+if is-osx; then
   # Homebrew.
-  type brew > /dev/null 2>&1 && compdef b=brew
+  command-exists brew && compdef b=brew
   alias b='brew'
   alias bc='brew cask'
-
-  # Recursively delete `.DS_Store` files
-  alias fucking-ds-stores="find . -name '*.DS_Store' -type f -ls -delete"
 fi
 
 # Linux specific aliases (mostly Debian/*buntu).
-if $DOTFILES/bin/is-linux; then
+if is-linux; then
   alias ss='sudo service'
+  alias apt='sudo apt-get'
 fi

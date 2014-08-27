@@ -1,17 +1,16 @@
 # Return the username of the current user.
-function _freedom_username() {
+_freedom_username() {
   echo "%{$fg[cyan]%}%n%{$reset_color%}"
 }
 
 # Return the current machine name.
-function _freedom_host() {
+_freedom_host() {
   echo "%{$fg[green]%}%m%{$reset_color%}"
 }
 
 # Return the current path.
-function _freedom_path() {
-  local p=$(pwd | sed -e "s,^$HOME,~,")
-  echo %{$fg[magenta]%}$p%{$reset_color%}
+_freedom_path() {
+  echo "%{$fg[magenta]%}%~%{$reset_color%}"
 }
 
 # Set some variables to print the git prompt.
@@ -20,9 +19,8 @@ FREEDOM_GIT_PROMPT_BEHIND="↓"
 FREEDOM_GIT_PROMPT_UNTRACKED="+"
 FREEDOM_GIT_PROMPT_DIRTY="*"
 
-
 # Tell if we're in a git repository.
-function git_is_repo() {
+git_is_repo() {
   if [[ -d '.git' ]] || git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
     return 0;
   else
@@ -31,13 +29,13 @@ function git_is_repo() {
 }
 
 # Find the git branch we're on.
-function git_prompt_current_branch() {
+git_prompt_current_branch() {
   echo $(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
 }
 
 # Git prompt infos used by `custom_git_prompt`.
 # Suffix and prefix.
-function git_prompt_addons() {
+git_prompt_addons() {
   _INDEX=$(command git status --porcelain -b 2> /dev/null)
   _SUFFIX=""
 
@@ -70,9 +68,9 @@ function git_prompt_addons() {
 
 # Print a customized git prompt. This is only a wrapper around oh-my-zsh
 # `git_prompt_info`, with a few addons and colors.
-function _freedom_git_prompt() {
+_freedom_git_prompt() {
   if ! git_is_repo; then
-    echo ""
+    echo ''
     return
   fi
 
@@ -80,8 +78,8 @@ function _freedom_git_prompt() {
 }
 
 # Returns the character that should appear before the cursor.
-function _freedom_before_char() {
-  echo '%(?.%F{blue}.%F{red})→'"$reset_color"
+_freedom_before_char() {
+  echo "%(?.%F{blue}.%F{red})→%{$reset_color%}"
 }
 
 # Setup function.

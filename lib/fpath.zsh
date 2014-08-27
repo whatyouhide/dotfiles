@@ -7,4 +7,4 @@ if [[ -d '/usr/local/share/zsh-completions' ]]; then
 fi
 
 # zsh custom prompts.
-fpath=("$ZSH/themes" $fpath)
+fpath=("$ZSH/prompts" $fpath)

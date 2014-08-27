@@ -1,31 +1,40 @@
+# Typing is awful.
+ZSH="$ZSH_CONFIG"
+
 # Utilities for setting up zsh (functions to check for commands existence and
 # other stuff like that).
-source "$ZSH/lib/config-utils"
+source "$ZSH/lib/config-utils.zsh"
 
-source "$ZSH/lib/fpath"
-source "$ZSH/lib/autoloads"
-source "$ZSH/lib/functions"
-source "$ZSH/lib/path"
-source "$ZSH/lib/aliases"
-source "$ZSH/lib/exports"
+# Source standard stuff.
+source "$ZSH/lib/fpath.zsh"
+source "$ZSH/lib/autoloads.zsh"
+source "$ZSH/lib/functions.zsh"
+source "$ZSH/lib/path.zsh"
+source "$ZSH/lib/aliases.zsh"
+source "$ZSH/lib/exports.zsh"
+source "$ZSH/lib/external-setups.zsh"
 
+# Source non version controlled files only if they exist.
 [[ -f "$DOTFILES/colorschemes" ]] && source "$DOTFILES/colorschemes"
-[[ -f "$ZSH/lib/extra" ]] && source "$ZSH/lib/extra"
+[[ -f "$ZSH/extra"             ]] && source "$ZSH/extra"
 
-source "$ZSH/lib/external-setups"
+# Set emacs mode for zle.
+bindkey -e
 
 setopt auto_cd
 cdpath=($HOME $HOME/Sites $HOME/Code $HOME/Dropbox)
 
-# Source all the keybindings here because they don't work otherwise. Computers.
-source "$ZSH/lib/keybindings"
 
 setopt prompt_subst
 prompt $DOTFILES_ZSH_PROMPT
 
-# zstyle options.
+# Completion options.
+# Case insensitivity.
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+# Menu.
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ''
+
 
 # history
 #
@@ -46,6 +55,10 @@ setopt share_history
 # If you want to leave each zsh process with its separated history, use
 # setopt append_history
 
+
+# Random options.
+# Disable beeps.
+setopt no_beep
 
 hash -d dbox=~/Dropbox
 hash -d notes=~/Dropbox/Notes
