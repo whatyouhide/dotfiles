@@ -22,7 +22,6 @@ symlinks:
 # If these directories already exist, they won't be overridden.
 directories_to_create:
   - ~/Code
-  - ~/Transmission
   - ~/tmp
   - ~/.ssh
 
