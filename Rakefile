@@ -20,7 +20,7 @@ end
 desc 'Symlink filesto ~'
 task :install do
   # Copy zshenv.example to zshenv if needed.
-  Rake::Task['zshenv'].invoke if !File.exist?('zshenv')
+  Rake::Task['copy_zshenv'].invoke if !File.exist?('zshenv')
 
   ln_sf abs('zshrc'), home_dotted('zshrc')
   ln_sf abs('zshenv'), home_dotted('zshenv')
