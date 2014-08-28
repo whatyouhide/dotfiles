@@ -29,9 +29,6 @@ prompt $DOTFILES_ZSH_PROMPT
 # Use Ctrl-s everywhere. In vim for example.
 stty -ixon
 
-# Syntax highlighting for zsh.
-source "$ZSH/external/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
 if   $AUTOSTART_TMUX        \
   && command-exists tmux    \
   && [[ `tmux -V` =~ 1.9 ]] \

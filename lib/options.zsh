@@ -24,6 +24,8 @@ cdpath=($HOME $HOME/Sites $HOME/Code $HOME/Dropbox)
 
 # History
 
+# If HISTFILE is not set, history won't be saved :(.
+export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
 
@@ -45,11 +47,18 @@ setopt share_history
 # Don't overwrite history, append to it.
 setopt append_history
 
-# Ignore duplicates in the history.
+# Do not enter command lines into the history list if they are duplicates of the
+# previous event, and remove older duplicates of the command from the history.
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_find_no_dups
 
 # Reduce whitespace in history commands.
 setopt hist_reduce_blanks
+
+# Expire duplicates first when the history grows too much.
+setopt hist_expire_dups_first
+
+# When searching for history entries in the line editor, do not display
+# duplicates of a line previously found, even if the duplicates are not
+# contiguous.
+setopt hist_find_no_dups
