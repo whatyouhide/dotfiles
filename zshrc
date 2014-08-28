@@ -5,6 +5,9 @@ ZSH="$ZSH_CONFIG"
 # other stuff like that).
 source "$ZSH/lib/config-utils.zsh"
 
+# Source antigen.
+source "$ZSH/antigen/antigen.zsh"
+
 # Source standard stuff.
 source "$ZSH/lib/fpath.zsh"
 source "$ZSH/lib/autoloads.zsh"
@@ -15,6 +18,13 @@ source "$ZSH/lib/aliases.zsh"
 source "$ZSH/lib/exports.zsh"
 source "$ZSH/lib/hashes.zsh"
 source "$ZSH/lib/external-setups.zsh"
+
+# Source antigen bundles.
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
+
+# Tell antigen we're done.
+antigen apply
 
 # Source non version controlled files only if they exist.
 [[ -f "$DOTFILES/colorschemes" ]] && source "$DOTFILES/colorschemes"
