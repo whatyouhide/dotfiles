@@ -1,12 +1,6 @@
 # Try to autocorrect commands.
 setopt correct
 
-# Make cd push the old directory onto the directory stack.
-setopt auto_pushd
-
-# Don't push multiple copies of the same directory onto the directory stack.
-setopt pushd_ignore_dups
-
 # Use cool globbing options.
 setopt extended_glob
 
@@ -16,11 +10,35 @@ setopt prompt_subst
 # No beeps.
 setopt no_beep
 
+
+# Completion
+
+# Show completion menu on successive tab presses.
+setopt auto_menu
+
+# On an ambiguous completion, instead of listing possibilities or beeping,
+# insert the first match immediately.
+unsetopt menu_complete
+
+# The cursor is moved to the end of the word if either a single match is
+# inserted or menu completion is performed.
+setopt always_to_end
+
+
+# Changing directories
+
+# Make cd push the old directory onto the directory stack.
+setopt auto_pushd
+
+# Don't push multiple copies of the same directory onto the directory stack.
+setopt pushd_ignore_dups
+
 # dir = cd dir.
 # The cdpath allows to cd into directories contained in the ones listed in
 # cdpath.
 setopt auto_cd
 cdpath=($HOME $HOME/Sites $HOME/Code $HOME/Dropbox)
+
 
 # History
 

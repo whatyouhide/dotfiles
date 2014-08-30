@@ -1,10 +1,5 @@
 # Dotfiles and configuration utility functions.
 fpath=("$ZSH/utils" $fpath)
 
-# zsh-completions.
-if [[ -d '/usr/local/share/zsh-completions' ]]; then
-  fpath=('/usr/local/share/zsh-completions' $fpath)
-fi
-
 # zsh custom prompts.
 fpath=("$ZSH/prompts" $fpath)

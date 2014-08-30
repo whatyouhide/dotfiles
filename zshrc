@@ -10,16 +10,19 @@ source "$ZSH/antigen/antigen.zsh"
 
 # Source standard stuff.
 source "$ZSH/lib/fpath.zsh"
-source "$ZSH/lib/autoloads.zsh"
 source "$ZSH/lib/options.zsh"
+source "$ZSH/lib/zstyle.zsh"
 source "$ZSH/lib/functions.zsh"
 source "$ZSH/lib/path.zsh"
 source "$ZSH/lib/aliases.zsh"
 source "$ZSH/lib/exports.zsh"
 source "$ZSH/lib/hashes.zsh"
+source "$ZSH/lib/keybindings.zsh"
+source "$ZSH/lib/autoloads.zsh"
 source "$ZSH/lib/external-setups.zsh"
 
 # Source antigen bundles.
+antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 
@@ -30,15 +33,13 @@ antigen apply
 [[ -f "$DOTFILES/colorschemes" ]] && source "$DOTFILES/colorschemes"
 [[ -f "$ZSH/extra"             ]] && source "$ZSH/extra"
 
-# Set emacs mode for zle.
-bindkey -e
-
 # Choose the prompt.
 prompt $DOTFILES_ZSH_PROMPT
 
 # Use Ctrl-s everywhere. In vim for example.
 stty -ixon
 
+# Start tmux possibly.
 if   $AUTOSTART_TMUX        \
   && command-exists tmux    \
   && [[ `tmux -V` =~ 1.9 ]] \
