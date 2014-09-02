@@ -1,0 +1,97 @@
+# Return the username of the current user.
+_freedom_username() {
+  echo "%{$fg[cyan]%}%n%{$reset_color%}"
+}
+
+# Return the current machine name.
+_freedom_host() {
+  echo "%{$fg[green]%}%m%{$reset_color%}"
+}
+
+# Return the current path.
+_freedom_path() {
+  echo "%{$fg[magenta]%}%~%{$reset_color%}"
+}
+
+# Set some variables to print the git prompt.
+FREEDOM_GIT_PROMPT_AHEAD="↑"
+FREEDOM_GIT_PROMPT_BEHIND="↓"
+FREEDOM_GIT_PROMPT_UNTRACKED="+"
+FREEDOM_GIT_PROMPT_DIRTY="*"
+
+# Tell if we're in a git repository.
+git_is_repo() {
+  if [[ -d '.git' ]] || git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+    return 0;
+  else
+    return 1;
+  fi
+}
+
+# Find the git branch we're on.
+git_prompt_current_branch() {
+  echo $(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
+}
+
+# Git prompt infos used by `custom_git_prompt`.
+# Suffix and prefix.
+git_prompt_addons() {
+  _INDEX=$(command git status --porcelain -b 2> /dev/null)
+  _SUFFIX=""
+
+  # Check if the repository is dirty.
+  # This command has an exit status of 0 if the repository is clean.
+  if ! git diff --quiet --ignore-submodules HEAD &>/dev/null; then
+    _SUFFIX="$_SUFFIX$FREEDOM_GIT_PROMPT_DIRTY"
+  fi
+
+  # Check if there are untracked files.
+  if $(echo "$_INDEX" | grep '^??' &> /dev/null); then
+    _SUFFIX="$_SUFFIX$FREEDOM_GIT_PROMPT_UNTRACKED"
+  fi
+
+  # Check if ahead/behind of remote.
+  if $(echo "$_INDEX" | grep '^## .*ahead' &> /dev/null); then
+    _SUFFIX="$_SUFFIX$FREEDOM_GIT_PROMPT_AHEAD"
+  elif $(echo "$_INDEX" | grep '^## .*behind' &> /dev/null); then
+    _SUFFIX="$_SUFFIX$FREEDOM_GIT_PROMPT_BEHIND"
+  fi
+
+  # If there are addons (length of string is non-zero), prefix them with
+  # a space character.
+  if [[ -n $_SUFFIX ]]; then
+    _SUFFIX=" $_SUFFIX"
+  fi
+
+  echo $_SUFFIX
+}
+
+# Print a customized git prompt. This is only a wrapper around oh-my-zsh
+# `git_prompt_info`, with a few addons and colors.
+_freedom_git_prompt() {
+  if ! git_is_repo; then
+    echo ''
+    return
+  fi
+
+  echo "(%{$fg[yellow]%}$(git_prompt_current_branch)$(git_prompt_addons)%{$reset_color%}) "
+}
+
+# Returns the character that should appear before the cursor.
+_freedom_before_char() {
+  echo "%(?.%F{blue}.%F{red})→%{$reset_color%}"
+}
+
+# Setup function.
+prompt_freedom_setup() {
+  PROMPT='$(_freedom_username) at $(_freedom_host)'
+  PROMPT="$PROMPT"' in $(_freedom_path)'
+  PROMPT="$PROMPT"' $(_freedom_git_prompt)'
+  PROMPT="$PROMPT"$'\n'
+  PROMPT="$PROMPT"'$(_freedom_before_char) '
+
+  RPROMPT=''
+}
+
+# Init.
+prompt_freedom_setup "$@"
