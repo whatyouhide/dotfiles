@@ -49,16 +49,3 @@ let g:day_ends_at = 19
 
 " Light theme during day hours, dark otherwise.
 call ColorschemeBasedOnTime()
-
-
-" Tmuxline
-let g:airline#extensions#tmuxline#enabled = 0
-let g:tmuxline_preset = {
-  \ 'a'    : '#S',
-  \ 'b'    : '#{pane_current_path}',
-  \ 'c'    : '%l:%M %p',
-  \ 'win'  : '#I #W',
-  \ 'cwin' : '#I #W',
-  \ 'x'    : '#(osx-battery)',
-  \ 'y'    : '#(whoami)',
-  \ 'z'    : '#h' }

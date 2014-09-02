@@ -11,12 +11,9 @@ call vundle#begin()
 " Let Vundle manage Vundle, required.
 Plugin 'gmarik/Vundle.vim'
 
-" Temporary? This is surely quite the plugin.
-Plugin 'edkolev/tmuxline.vim'
-
 " Generic bundles.
-Plugin 'tpope/vim-dispatch'       " Wow! Run stuff ansynchronously
 Plugin 'tpope/vim-surround'       " No need to explain :)
+Plugin 'tpope/vim-dispatch'       " Wow! Run stuff ansynchronously
 Plugin 'tpope/vim-fugitive'       " Git wrapper
 Plugin 'tpope/vim-endwise'        " Add 'end', 'endfunction' and so on
 Plugin 'tpope/vim-repeat'         " Repeat custom commands
@@ -79,6 +76,7 @@ Plugin 'elixir-lang/vim-elixir'
 
 " Themes.
 Plugin 'chriskempson/base16-vim'
+Plugin 'daylerees/colour-schemes', { 'rtp': 'vim/' }
 Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()

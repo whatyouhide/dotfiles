@@ -18,6 +18,10 @@ let g:goyo_callbacks = [function('g:goyo_before'), function('ColorschemeBasedOnT
 " Always show Airline and use powerline fonts.
 set laststatus=2
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#close_symbol = '×'
 
 
 " Move
@@ -63,10 +67,6 @@ let g:gitgutter_sign_column_always = 1
 " Gist.vim
 let g:gist_open_browser_after_post = 1
 let g:gist_detect_filetype = 1
-
-
-" vim-mustache-handlebars
-let g:mustache_operators = 0
 
 
 " Syntastic
