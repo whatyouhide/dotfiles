@@ -130,7 +130,7 @@ namespace :vim do
 
   desc '"Import error"? SEGFAULT? Explosions around your house? vim:halp ftw!'
   task :halp do
-    def brew(cmd); puts "Running 'brew #{cmd}'; system "brew #{cmd}"; end
+    def brew(cmd); puts "Running 'brew #{cmd}'"; system "brew #{cmd}"; end
 
     system 'rvm use system'
     brew 'update'

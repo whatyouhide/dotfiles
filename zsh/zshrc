@@ -6,7 +6,7 @@ ZSH="$ZSH_CONFIG"
 source "$ZSH/lib/config-utils.zsh"
 
 # Source antigen.
-source "$ZSH/antigen/antigen.zsh"
+source "$ZSH/.antigen/antigen.zsh"
 
 # Source standard stuff.
 source "$ZSH/lib/fpath.zsh"

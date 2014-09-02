@@ -2,7 +2,7 @@
 export DOTFILES="$HOME/dotfiles"
 
 # Where zsh configurations are stored.
-export ZSH_CONFIG="$HOME/zsh-config"
+export ZSH_CONFIG="$DOTFILES/zsh"
 
 # Where vim configurations are stored.
-export VIM_CONFIG="$HOME/vim-config"
+export VIM_CONFIG="$DOTFILES/vim"

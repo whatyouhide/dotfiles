@@ -1,10 +1,11 @@
 # Vim stuff.
 vim/.netrwhist
 vim/bundle
-
-# Spell files are shared through Dropbox (they're updated too frequently).
 vim/spell
+
+# zsh
+zsh/zshenv
+zsh/extra
 
 # Machine-specific config files.
 colorschemes
-zsh/extra
