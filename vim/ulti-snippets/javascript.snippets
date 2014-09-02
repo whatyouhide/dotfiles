@@ -1,0 +1,33 @@
+snippet func "An anonymous function" i
+function ($1) {
+  $2
+}$3
+endsnippet
+
+
+snippet us "A 'use strict' statement"
+'use strict';
+
+$1
+endsnippet
+
+
+snippet f()() "A self invoking anonymous function"
+(function ($1) {
+  'use strict';
+
+  $3
+})($2);
+endsnippet
+
+
+snippet proto "A prototype function definition"
+$1.prototype.$2 = function ($3) {
+  $4
+};
+endsnippet
+
+
+snippet cl "Regular console.log() call"
+console.log($1);
+endsnippet
