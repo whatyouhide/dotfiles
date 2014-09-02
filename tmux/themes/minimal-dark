@@ -1,0 +1,20 @@
+set -g status-bg default
+
+set -g message-command-style "none"
+set -g message-style "none"
+set -g pane-active-border-style "fg=colour8"
+set -g pane-border-style "fg=colour8"
+
+set -g status-left-style "none"
+set -g status-left-length "100"
+set -g status-left "#[fg=colour6][#S] #[fg=colour8]#{pane_current_path} #[fg=colour9]#(osx-battery)"
+
+set -g status-right-style "none"
+set -g status-right-length "100"
+set -g status-right "#[fg=colour4] %l:%M %p #[fg=colour8]#(whoami) #[fg=colour6]#h"
+
+setw -g window-status-separator ""
+setw -g window-status-style "fg=colour12"
+setw -g window-status-format "#[fg=colour8] #I #W"
+setw -g window-status-current-format "#[fg=colour4] #I #W"
+setw -g window-status-activity-style "fg=colour12,bold"
