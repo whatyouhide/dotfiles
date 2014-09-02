@@ -38,6 +38,11 @@ install homebrew/dupes/grep
 install python
 install python3
 
+# Command line
+install zsh
+install direnv
+install watch
+
 # Git
 install git
 install git-flow
@@ -48,7 +53,6 @@ install hub
 install wget --enable-iri
 install htop
 install rsync
-install direnv
 
 # Gitshots!
 install imagesnap
@@ -105,7 +109,6 @@ cask install onepassword
 
 # Communicating
 cask install skype
-cask install messenger-for-telegram
 
 # QuickLook plugins
 cask install qlcolorcode

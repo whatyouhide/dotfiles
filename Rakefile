@@ -19,12 +19,8 @@ module H
     @config ||= YAML.load_file(File.join(DOTFILES, 'config.yml'))
   end
 
-  def self.github_clone(relative_url, to)
+  def self.github_clone(relative_url, to = '')
     system "git clone https://github.com/#{relative_url}.git #{to}"
-  end
-
-  def self.my_github_clone(repo_name, to)
-    system "git clone git@github.com:whatyouhide/#{repo_name}.git #{to}"
   end
 
   # Check if a file exists after expanding its path.
@@ -134,7 +130,7 @@ namespace :vim do
 
   desc '"Import error"? SEGFAULT? Explosions around your house? vim:halp ftw!'
   task :halp do
-    def brew(cmd); system "brew #{cmd}"; end
+    def brew(cmd); puts "Running 'brew #{cmd}'; system "brew #{cmd}"; end
 
     system 'rvm use system'
     brew 'update'
@@ -150,7 +146,7 @@ end
 
 desc "Clone the tmuxinator projects to ~/.tmuxinator"
 task :tmuxinator_projects do
-  H.my_github_clone 'tmuxinator-projects', '~/.tmuxinator'
+  H.github_clone 'whatyouhide/tmuxinator-projects', '~/.tmuxinator'
 end
 
 
