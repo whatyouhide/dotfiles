@@ -34,7 +34,7 @@ antigen apply
 [[ -f "$ZSH/extra"             ]] && source "$ZSH/extra"
 
 # Choose the prompt.
-prompt $DOTFILES_ZSH_PROMPT
+prompt ${DOTFILES_ZSH_PROMPT:-freedom}
 
 # Use Ctrl-s everywhere. In vim for example.
 stty -ixon
