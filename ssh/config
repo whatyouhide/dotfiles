@@ -8,10 +8,10 @@ Host dehlic-dev
   Port 22
   User whatyouhide
 
-Host netbook-local
-  HostName 192.168.159.188
-  Port 54345
-  User andrea
+Host do-prototype-testing
+  HostName do.whatyouhi.de
+  Port 22
+  User whatyouhide
 
 Host home-server-local
   HostName 192.168.159.200
