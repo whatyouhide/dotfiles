@@ -30,7 +30,7 @@ antigen bundle zsh-users/zsh-history-substring-search
 antigen apply
 
 # Source non version controlled files only if they exist.
-[[ -f "$DOTFILES/colorschemes" ]] && source "$DOTFILES/colorschemes"
+[[ -f "$HOME/.colorschemes" ]] && source "$HOME/.colorschemes"
 [[ -f "$ZSH/extra"             ]] && source "$ZSH/extra"
 
 # Choose the prompt.
