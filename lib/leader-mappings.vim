@@ -9,7 +9,6 @@ map <Space> <Leader>
 
 
 " vi[nstall-plugins], vr[reload], ve[dit-vimrc].
-nmap <Leader>vi :source ~/.vimrc<CR>:PluginInstall<CR>
 nmap <Leader>vr :source ~/.vimrc<CR>:AirlineRefresh<CR>
 nmap <Leader>ve :tabedit ~/.vimrc<CR>
 
@@ -33,11 +32,8 @@ nnoremap <Leader>D :Dispatch!<Space>
 nnoremap <Leader>it :set spelllang=it<CR>
 
 " csl and csd: change colorscheme (light/dark).
-nnoremap <Leader>csl :call SourceThemeSetup(g:light_colorscheme)<CR>
-nnoremap <Leader>csd :call SourceThemeSetup(g:dark_colorscheme)<CR>
-
-" wai: where am I? Tell me the path of the current file.
-nnoremap <Leader>wai :echo @%<CR>
+nnoremap <Leader>csl :call SetThemTo(g:light_colorscheme, 'light')<CR>
+nnoremap <Leader>csd :call SetThemTo(g:dark_colorscheme, 'dark')<CR>
 
 " s: check with syntastic.
 nnoremap <Leader>s :SyntasticCheck<CR>

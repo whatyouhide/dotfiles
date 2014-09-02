@@ -73,6 +73,7 @@ Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'whatyouhide/vim-tmux-syntax'
 
 " Themes.
 Plugin 'chriskempson/base16-vim'
