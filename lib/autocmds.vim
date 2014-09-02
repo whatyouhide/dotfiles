@@ -33,10 +33,7 @@ augroup vimrc_filetypes
 
   " The sshconfig filetype is just for ~/.ssh/config, but I have that file in my
   " dotfiles.
-  autocmd BufRead,BufEnter ~/dotfiles/ssh/config set filetype=sshconfig
-
-  " Set the filetype to zsh for all the files in ~/dotfiles/zsh.
-  autocmd BufRead,BufEnter ~/dotfiles/zsh/*,~/dotfiles/zsh/**/* set filetype=zsh
+  autocmd BufRead,BufEnter *ssh/config set filetype=sshconfig
 
   " Turn spell-checking on for specific filetypes.
   autocmd FileType gitcommit setlocal spell
