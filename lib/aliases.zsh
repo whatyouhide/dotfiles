@@ -9,7 +9,9 @@ fi
 alias l="ls -lAFh ${colorflag}"
 
 # `cat` with beautiful colors. Requires Pygments installed.
-alias c='pygmentize -O style=monokai -f console256 -g'
+if command-exists pygmentize; then
+  alias cat='pygmentize -O style=friendly -f console256 -g'
+fi
 
 # Common aliases.
 alias v='vim'
