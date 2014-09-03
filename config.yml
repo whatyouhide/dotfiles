@@ -9,6 +9,7 @@ symlinks:
     - zsh/zshenv
     - tmux/tmux.conf
     - git/gitconfig
+  development:
     - ruby/gemrc
     - ruby/irbrc
     - ruby/rspec

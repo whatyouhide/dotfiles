@@ -1,13 +1,26 @@
 require 'yaml'
 
-
-# The location of these dotfiles.
-# Exit gracefully if the $DOTFILES env variable is not set.
 DOTFILES = ENV['DOTFILES']
 unless DOTFILES
-  puts "The $DOTFILES environment variable is not set"
-  puts "Re-run the task: DOTFILES=... rake {{task}}"
-  exit false
+  fail "The $DOTFILES environment variable is not set"
+end
+
+class String
+  def /(rest_of_path); File.join(self, rest_of_path); end
+  def expand; File.expand_path(self); end
+  def exist?;  File.exist?(self); end
+  def home_and_dotted; (Dir.home/self.dotted); end
+
+  def dotted
+    name = File.basename(self)
+    name.start_with?('.') ? name : ('.' + name)
+  end
+end
+
+class Array
+  def to_list_of_dotfiles
+    flat_map { |e| Dir[e] }.map { |e| (DOTFILES/e) }
+  end
 end
 
 
@@ -16,16 +29,11 @@ module H
   # Parse the YAML config file only if it hasn't been already parsed.
   # ||= returns the value of @config either way.
   def self.config
-    @config ||= YAML.load_file(File.join(DOTFILES, 'config.yml'))
+    @config ||= YAML.load_file(DOTFILES/'config.yml')
   end
 
-  def self.github_clone(relative_url, to = '')
+  def self.clone(relative_url, to = '')
     system "git clone https://github.com/#{relative_url}.git #{to}"
-  end
-
-  # Check if a file exists after expanding its path.
-  def self.file_exists?(path)
-    File.exist? File.expand_path(path)
   end
 
   # Module to handle symlinks.
@@ -33,19 +41,13 @@ module H
     extend Rake::FileUtilsExt
     @symlinks = H.config['symlinks']
 
-    # Given a relative path (relative to DOTFILES), return the full path and
-    # prepend a dot to the basename (if it hasn't got one already).
-    def self.full_path_with_dot(dotfile)
-      dotted = File.basename(dotfile)
-      dotted = '.' + dotted unless dotted =~ /^\./
-      File.join(Dir.home, dotted)
-    end
-
     # Return an array of paths to the files that will be linked to ~.
     def self.default
-      @symlinks['default']
-        .flat_map { |el| Dir[el] }
-        .map { |el| File.join(DOTFILES, el) }
+      (@symlinks['default'] + @symlinks['development']).to_list_of_dotfiles
+    end
+
+    def self.development_to_clean
+      @symlinks['development'].to_list_of_dotfiles.map(&:home_and_dotted)
     end
 
     # Return an hash of [src, dest] paths.
@@ -55,44 +57,34 @@ module H
 
     # Return an array of all the final symlinks that should appear in ~.
     def self.all
-      res = default.map { |el| full_path_with_dot(el) }
-      res += custom.map { |_, dest| File.expand_path(dest) }
+      res = default.map(&:home_and_dotted)
+      res += custom.map { |_, dest| dest.expand }
       res
     end
 
     # Install the default dotfiles inside ~.
     def self.install_default!
       default.each do |src|
-        dest = full_path_with_dot(src)
-
-        # But why? Why removing the destination if it's a directory? Read more
-        # at the end of this file.
+        dest = src.home_and_dotted
+        # Read more at the end of this file on why doing this.
         rm dest, verbose: false if File.directory?(dest)
-
         ln_sf src, dest
       end
     end
 
     # Install dotfiles with custom paths
     def self.install_custom!
-      expanded = Hash[custom.map { |_, dst| [_, File.expand_path(dst)] }]
+      expanded = Hash[custom.map { |_, dst| [_, dst.expand] }]
 
       expanded.each do |src, dst|
-        if File.exist?(File.dirname(dst))
-          ln_sf File.join(DOTFILES, src), dst
+        if File.dirname(dst).exist?
+          ln_sf (DOTFILES/src), dst
         else
           warn "Not linking #{dst} because #{File.dirname(dst)} doesn't exist"
         end
       end
     end
   end
-end
-
-
-
-desc "Runs everything, suitable for new machines"
-task :new_machine do
-  H.config['new_machine_tasks'].each { |task| Rake::Task[task].invoke }
 end
 
 
@@ -108,10 +100,15 @@ task :clean do
   H::Symlinks.all.each { |el| rm_f el }
 end
 
+desc "Clean non-development dotfiles"
+task :clean_non_development do
+  H::Symlinks.development_to_clean.each { |el| rm_f el }
+end
+
 
 desc "Create some useful directories"
 task :create_directories do
-  H.config['directories_to_create'].each { |dir| mkpath File.expand_path(dir) }
+  H.config['directories_to_create'].each { |dir| mkpath dir.expand }
 end
 
 
@@ -124,14 +121,12 @@ end
 namespace :vim do
   desc "Install the Vundle plugin manager"
   task :vundle do
-    fail '~/.vim not found' unless H.file_exists?('~/.vim')
-    H.github_clone 'gmarik/Vundle.vim', '~/.vim/bundle/Vundle.vim'
+    H.clone 'gmarik/Vundle.vim', '~/.vim/bundle/Vundle.vim'
   end
 
   desc '"Import error"? SEGFAULT? Explosions around your house? vim:halp ftw!'
   task :halp do
     def brew(cmd); puts "Running 'brew #{cmd}'"; system "brew #{cmd}"; end
-
     system 'rvm use system'
     brew 'update'
     brew 'unlink python'
@@ -146,25 +141,18 @@ end
 
 desc "Clone the tmuxinator projects to ~/.tmuxinator"
 task :tmuxinator_projects do
-  H.github_clone 'whatyouhide/tmuxinator-projects', '~/.tmuxinator'
+  H.clone 'whatyouhide/tmuxinator-projects', '~/.tmuxinator'
 end
 
 
-
-# ------------------------------------------------------------------------------
-# Wtf?
-# an essay by Andrea Leopardi
-#
-# When there's no ~/.vim directory, everything goes fine. ln_s links
-# dotfiles/vim to ~/.vim with no hassle.
+# When there's no ~/.vim directory, everything goes fine,
 #
 # When ~/.vim is already there though, ln_s sees it as a directory.
 # As stated in the docs for FileUtils, if the target of ln_s is a dir then the
 # link will be dest/src.
-# So, ~/.vim being a directory, the link will be ~/.vim/vim.
-# Since every modification to the interiors of ~/.vim (the symlink) will bubble
-# up to the actual dotfiles/vim (that's how symlinks work, isn't it?), we would
-# have a dotfiles/vim/vim link on every 'rake install'. That link would point to
-# dotfiles/vim, being effectively a link to its parent directory.
+# So, ~/.vim being a directory, the link will be ~/.vim/vim.  Since every
+# modification to the interiors of ~/.vim (the symlink) will bubble up to the
+# actual dotfiles/vim (that's how symlinks work, isn't it?), we would have
+# dotfiles/vim/vim. That link would point to dotfiles/vim.
 #
 # So, just remove every src directory before linking should be fine.
