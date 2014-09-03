@@ -5,6 +5,7 @@
 filetype off
 
 " Set the runtime path to include Vundle and initialize.
+" set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -73,7 +74,6 @@ Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'whatyouhide/vim-tmux-syntax'
 
 " Themes.
 Plugin 'chriskempson/base16-vim'

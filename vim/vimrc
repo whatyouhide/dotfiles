@@ -12,6 +12,12 @@ endfunction
 
 " Plugins.
 call SourceExternalFile('plugins.vim')
+" Source plugins I'm developing (works-in-progress.vim is not version
+" controlled).
+if filereadable(expand("~/.vim/works-in-progress.vim"))
+  source ~/.vim/works-in-progress.vim
+endif
+
 
 " Enable file type detection and do language-dependent indenting (this
 " also 'closes' vundle, and it's *required*).

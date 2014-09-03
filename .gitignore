@@ -2,6 +2,7 @@
 vim/.netrwhist
 vim/bundle
 vim/spell
+vim/works-in-progress.vim
 
 # zsh
 zsh/zshenv
