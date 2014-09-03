@@ -17,8 +17,14 @@ set smartindent                 " don't indent 2 spaces everytime, be smart
 " Autowrap is enabled by default if I set the textwidth option.
 set textwidth=80
 
-" Without this, vim doesn't use RVM ruby. Wtf I don't know.
+" Without this, vim doesn't use RVM ruby.
 set shell=sh
+
+" Use per-project .vimrc files.
+set exrc
+
+" Only allow secure commands in per-project .vimrcs.
+set secure
 
 " Turn line numbers on using relative numbers. Cool. Cool cool cool.
 set relativenumber
