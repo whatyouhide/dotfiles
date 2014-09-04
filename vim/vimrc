@@ -10,13 +10,15 @@ function! SourceExternalFile(file)
   exec 'source ' . g:vim_libs . a:file
 endfunction
 
-" Plugins.
-call SourceExternalFile('plugins.vim')
 " Source plugins I'm developing (works-in-progress.vim is not version
-" controlled).
+" controlled) before regular plugins, in order to be able to have plugin
+" dopplegangers.
 if filereadable(expand("~/.vim/works-in-progress.vim"))
   source ~/.vim/works-in-progress.vim
 endif
+
+" Plugins.
+call SourceExternalFile('plugins.vim')
 
 
 " Enable file type detection and do language-dependent indenting (this
