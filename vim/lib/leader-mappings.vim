@@ -32,8 +32,8 @@ nnoremap <Leader>D :Dispatch!<Space>
 nnoremap <Leader>it :set spelllang=it<CR>
 
 " csl and csd: change colorscheme (light/dark).
-nnoremap <Leader>csl :call SetThemTo(g:light_colorscheme, 'light')<CR>
-nnoremap <Leader>csd :call SetThemTo(g:dark_colorscheme, 'dark')<CR>
+nnoremap <Leader>csl :call SetThemeTo(g:light_colorscheme, 'light')<CR>
+nnoremap <Leader>csd :call SetThemeTo(g:dark_colorscheme, 'dark')<CR>
 
 " s: check with syntastic.
 nnoremap <Leader>s :SyntasticCheck<CR>
