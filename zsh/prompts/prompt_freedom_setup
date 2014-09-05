@@ -1,6 +1,6 @@
 # Return the username of the current user.
 _freedom_username() {
-  echo "%{$fg[cyan]%}%n%{$reset_color%}"
+  echo '%F{cyan}%n%f'
 }
 
 # Return the current machine name.
@@ -10,7 +10,7 @@ _freedom_host() {
 
 # Return the current path.
 _freedom_path() {
-  echo "%{$fg[magenta]%}%~%{$reset_color%}"
+  echo '%F{blue}%~%f'
 }
 
 # Set some variables to print the git prompt.
@@ -20,28 +20,29 @@ FREEDOM_GIT_PROMPT_UNTRACKED="+"
 FREEDOM_GIT_PROMPT_DIRTY="*"
 
 # Tell if we're in a git repository.
-git_is_repo() {
-  if [[ -d '.git' ]] || git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-    return 0;
-  else
-    return 1;
-  fi
+_freedom_git_is_repo() {
+  [[ -d '.git' ]] || git rev-parse --is-inside-work-tree > /dev/null 2>&1
 }
 
 # Find the git branch we're on.
-git_prompt_current_branch() {
+_freedom_git_current_branch() {
   echo $(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
+}
+
+# Check if the current git repository is dirty.
+_freedom_git_is_dirty() {
+  ! git diff --quiet --ignore-submodules HEAD &>/dev/null
 }
 
 # Git prompt infos used by `custom_git_prompt`.
 # Suffix and prefix.
-git_prompt_addons() {
+_freedom_git_prompt_addons() {
   _INDEX=$(command git status --porcelain -b 2> /dev/null)
-  _SUFFIX=""
+  local _SUFFIX=''
 
   # Check if the repository is dirty.
   # This command has an exit status of 0 if the repository is clean.
-  if ! git diff --quiet --ignore-submodules HEAD &>/dev/null; then
+  if _freedom_git_is_dirty; then
     _SUFFIX="$_SUFFIX$FREEDOM_GIT_PROMPT_DIRTY"
   fi
 
@@ -59,9 +60,7 @@ git_prompt_addons() {
 
   # If there are addons (length of string is non-zero), prefix them with
   # a space character.
-  if [[ -n $_SUFFIX ]]; then
-    _SUFFIX=" $_SUFFIX"
-  fi
+  [[ -n "$_SUFFIX" ]] && _SUFFIX=" $_SUFFIX"
 
   echo $_SUFFIX
 }
@@ -69,28 +68,66 @@ git_prompt_addons() {
 # Print a customized git prompt. This is only a wrapper around oh-my-zsh
 # `git_prompt_info`, with a few addons and colors.
 _freedom_git_prompt() {
-  if ! git_is_repo; then
-    echo ''
-    return
-  fi
-
-  echo "(%{$fg[yellow]%}$(git_prompt_current_branch)$(git_prompt_addons)%{$reset_color%}) "
+  ! _freedom_git_is_repo && return
+  echo "%F{242}($(_freedom_git_current_branch)$(_freedom_git_prompt_addons))%{$reset_color%} "
 }
 
 # Returns the character that should appear before the cursor.
 _freedom_before_char() {
-  echo "%(?.%F{blue}.%F{red})→%{$reset_color%}"
+  echo '%(?.%F{magenta}.%F{red})→%f'
+}
+
+# Execute before a command gets executed.
+_freedom_preexec() {
+  _freedom_command_start=$SECONDS
+}
+
+# Execute when a command finishes, before re-creating the prompt.
+_freedom_precmd() {
+  local start=${_freedom_command_start:-$SECONDS}
+  _freedom_duration=$(( SECONDS - start ))
+
+  if (( _freedom_duration > 0 )); then
+    RPROMPT="%F{yellow}${_freedom_duration}s%f"
+  else
+    RPROMPT=''
+  fi
+
+  unset _freedom_command_start
+
+  # Output a new line after every command. If every new prompt started with a
+  # newline, we'd have a newline before the prompt even when just using `clear`
+  # or C-l.
+  echo ''
+}
+
+# Initialize the PROMPT variable with the username or, if in a ssh shell, the
+# username and the host.
+_freedom_setup_prompt_variable() {
+  if [[ -z $SSH_CONNECTION ]]; then
+    PROMPT='$(_freedom_username) '
+  else
+    PROMPT='%F{yellow}[ssh]%f $(_freedom_username)@$(_freedom_host) '
+  fi
+}
+
+# Append a string to the prompt.
+_freedom_append_to_prompt() {
+  PROMPT="$PROMPT""$1"
 }
 
 # Setup function.
 prompt_freedom_setup() {
-  PROMPT='$(_freedom_username) at $(_freedom_host)'
-  PROMPT="$PROMPT"' in $(_freedom_path)'
-  PROMPT="$PROMPT"' $(_freedom_git_prompt)'
-  PROMPT="$PROMPT"$'\n'
-  PROMPT="$PROMPT"'$(_freedom_before_char) '
+  autoload -U add-zsh-hook
 
-  RPROMPT=''
+  add-zsh-hook precmd _freedom_precmd
+  add-zsh-hook preexec _freedom_preexec
+
+  _freedom_setup_prompt_variable
+  _freedom_append_to_prompt '$(_freedom_path) '
+  _freedom_append_to_prompt '$(_freedom_git_prompt) '
+  _freedom_append_to_prompt $'\n'
+  _freedom_append_to_prompt '$(_freedom_before_char) '
 }
 
 # Init.
