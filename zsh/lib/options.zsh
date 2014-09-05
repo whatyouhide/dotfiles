@@ -10,6 +10,10 @@ setopt prompt_subst
 # No beeps.
 setopt no_beep
 
+# Report time statistics when commands take more than 'n' seconds to run (system
+# + user).
+export REPORTTIME=3
+
 
 # Completion
 
