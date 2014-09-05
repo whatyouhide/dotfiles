@@ -1,0 +1,13 @@
+function () {
+  local _username='%F{cyan}%n%f'
+  local _path='%F{blue}%2~%f'
+  local _prompt_char='%F{yellow}❯%f'
+
+  # Clean all the precmd+preexec hooks from all other prompts.
+  for hook in preexec precmd; do
+    add-zsh-hook -D "$hook" "prompt_*_$hook"
+  done
+
+  # Setup the prompt.
+  PROMPT="$_username $_path $_prompt_char "
+}
