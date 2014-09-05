@@ -1,7 +1,6 @@
 require 'yaml'
 
-DOTFILES = ENV['DOTFILES']
-unless DOTFILES
+unless (DOTFILES = ENV['DOTFILES'])
   fail "The $DOTFILES environment variable is not set"
 end
 
@@ -32,8 +31,9 @@ module H
     @config ||= YAML.load_file(DOTFILES/'config.yml')
   end
 
-  def self.clone(relative_url, to = '')
-    system "git clone https://github.com/#{relative_url}.git #{to}"
+  def copy_zshenv
+    return if (DOTFILES/'zsh/zshenv').exist?
+    cp (DOTFILES/'zsh/zshenv.example'), (DOTFILES/'zsh/zshenv')
   end
 
   # Module to handle symlinks.
@@ -90,6 +90,7 @@ end
 
 desc "Create the necessary symlinks, overriding existing files in ~"
 task :install do
+  H.copy_zshenv
   H::Symlinks.install_default!
   H::Symlinks.install_custom!
 end
@@ -105,23 +106,15 @@ task :clean_non_development do
   H::Symlinks.development_to_clean.each { |el| rm_f el }
 end
 
-
 desc "Create some useful directories"
 task :create_directories do
   H.config['directories_to_create'].each { |dir| mkpath dir.expand }
 end
 
-
-desc "Install RVM with the latest ruby version (ignoring dotfiles)"
-task :rvm do
-  system 'curl -sSL https://get.rvm.io | bash -s stable --ruby --ignore-dotfiles'
-end
-
-
 namespace :vim do
   desc "Install the Vundle plugin manager"
   task :vundle do
-    H.clone 'gmarik/Vundle.vim', '~/.vim/bundle/Vundle.vim'
+    system 'git clone https://github.com/gmarik/Vundle.vim ~/.vim/bundle/Vundle.vim.git'
   end
 
   desc '"Import error"? SEGFAULT? Explosions around your house? vim:halp ftw!'
@@ -138,10 +131,9 @@ namespace :vim do
   end
 end
 
-
 desc "Clone the tmuxinator projects to ~/.tmuxinator"
 task :tmuxinator_projects do
-  H.clone 'whatyouhide/tmuxinator-projects', '~/.tmuxinator'
+  system 'git clone git@github.com:whatyouhide/tmuxinator-projects.git'
 end
 
 

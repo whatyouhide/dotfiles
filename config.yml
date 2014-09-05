@@ -20,7 +20,6 @@ symlinks:
   # destination links. You cannot use globbing nor environment variables, but you
   # can use ~ at the beginning of a string.
   custom:
-    ssh/config: ~/.ssh/config
     keyremap4macbook/private.xml: ~/Library/Application Support/KeyRemap4MacBook/private.xml
     ruby/rvm-global.gems: ~/.rvm/gemsets/global.gems
 
@@ -30,12 +29,3 @@ directories_to_create:
   - ~/Code
   - ~/tmp
   - ~/.ssh
-
-# Tasks to run when using the :new_machine rake task. Order matters.
-new_machine_tasks:
-  - install
-  - create_directories
-  - 'zsh:themes'
-  - 'zsh:syntax_highlighting'
-  - 'vim:vundle'
-  - tmuxinator_projects
