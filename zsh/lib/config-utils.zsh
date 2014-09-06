@@ -21,3 +21,23 @@ is-linux() {
     false
   fi
 }
+
+# Check if MAMP is installed on the system (which obviously has to be OSX).
+is-mamp-installed() {
+  is-osx && [[ -d /Applications/MAMP ]]
+}
+
+# Return the path to the `bin/` directory of the latest version of the PHP
+# shipped with MAMP.
+mamp-latest-php-bin-dir() {
+  local _pwd=$(pwd)
+  local _mamp_php_dir='/Applications/MAMP/bin/php'
+  local _php_versions
+
+  cd "$_mamp_php_dir"
+  _php_versions=($(ls -d php*))
+  _php_latest="$_mamp_php_dir/"$_php_versions[-1]'/bin'
+  cd "$_pwd"
+
+  echo -n "$_php_latest"
+}
