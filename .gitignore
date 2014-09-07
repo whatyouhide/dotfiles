@@ -6,7 +6,6 @@ vim/works-in-progress.vim
 
 # zsh
 zsh/zshenv
-zsh/extra
 
 # Machine-specific config files.
 colorschemes

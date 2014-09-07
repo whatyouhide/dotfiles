@@ -16,7 +16,6 @@ source "$ZSH/lib/functions.zsh"
 source "$ZSH/lib/path.zsh"
 source "$ZSH/lib/aliases.zsh"
 source "$ZSH/lib/exports.zsh"
-source "$ZSH/lib/hashes.zsh"
 source "$ZSH/lib/keybindings.zsh"
 source "$ZSH/lib/autoloads.zsh"
 source "$ZSH/lib/external-setups.zsh"
@@ -30,8 +29,8 @@ antigen bundle zsh-users/zsh-history-substring-search
 antigen apply
 
 # Source non version controlled files only if they exist.
-[[ -f "$HOME/.colorschemes" ]] && source "$HOME/.colorschemes"
-[[ -f "$ZSH/extra"             ]] && source "$ZSH/extra"
+[[ -s "$HOME/.colorschemes" ]] && source "$HOME/.colorschemes"
+[[ -s "$HOME/.extra.zsh"    ]] && source "$HOME/.extra.zsh"
 
 # Choose the prompt.
 prompt ${DOTFILES_ZSH_PROMPT:-freedom}
