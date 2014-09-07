@@ -1,24 +1,21 @@
-# Typing is awful.
-ZSH="$ZSH_CONFIG"
-
 # Utilities for setting up zsh (functions to check for commands existence and
 # other stuff like that).
-source "$ZSH/lib/config-utils.zsh"
+source "$ZSH_CONFIG/lib/config-utils.zsh"
 
 # Source antigen.
-source "$ZSH/.antigen/antigen.zsh"
+source "$ZSH_CONFIG/.antigen/antigen.zsh"
 
 # Source standard stuff.
-source "$ZSH/lib/fpath.zsh"
-source "$ZSH/lib/options.zsh"
-source "$ZSH/lib/zstyle.zsh"
-source "$ZSH/lib/functions.zsh"
-source "$ZSH/lib/path.zsh"
-source "$ZSH/lib/aliases.zsh"
-source "$ZSH/lib/exports.zsh"
-source "$ZSH/lib/keybindings.zsh"
-source "$ZSH/lib/autoloads.zsh"
-source "$ZSH/lib/external-setups.zsh"
+source "$ZSH_CONFIG/lib/fpath.zsh"
+source "$ZSH_CONFIG/lib/options.zsh"
+source "$ZSH_CONFIG/lib/zstyle.zsh"
+source "$ZSH_CONFIG/lib/functions.zsh"
+source "$ZSH_CONFIG/lib/path.zsh"
+source "$ZSH_CONFIG/lib/aliases.zsh"
+source "$ZSH_CONFIG/lib/exports.zsh"
+source "$ZSH_CONFIG/lib/keybindings.zsh"
+source "$ZSH_CONFIG/lib/autoloads.zsh"
+source "$ZSH_CONFIG/lib/external-setups.zsh"
 
 # Source antigen bundles.
 antigen bundle zsh-users/zsh-completions src
