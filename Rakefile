@@ -31,7 +31,7 @@ module H
     @config ||= YAML.load_file(DOTFILES/'config.yml')
   end
 
-  def copy_zshenv
+  def self.copy_zshenv
     return if (DOTFILES/'zsh/zshenv').exist?
     cp (DOTFILES/'zsh/zshenv.example'), (DOTFILES/'zsh/zshenv')
   end
