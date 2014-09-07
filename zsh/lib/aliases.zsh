@@ -34,7 +34,6 @@ alias clean-ds-stores="find . -name '*.DS_Store' -type f -ls -delete"
 # OSX specific aliases.
 if is-osx; then
   # Homebrew.
-  command-exists brew && compdef b=brew
   alias b='brew'
   alias bc='brew cask'
 fi

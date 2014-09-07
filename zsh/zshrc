@@ -2,27 +2,27 @@
 # other stuff like that).
 source "$ZSH_CONFIG/lib/config-utils.zsh"
 
-# Source antigen.
-source "$ZSH_CONFIG/.antigen/antigen.zsh"
-
-# Source standard stuff.
+# Zsh-related things.
 source "$ZSH_CONFIG/lib/fpath.zsh"
 source "$ZSH_CONFIG/lib/options.zsh"
 source "$ZSH_CONFIG/lib/zstyle.zsh"
-source "$ZSH_CONFIG/lib/functions.zsh"
-source "$ZSH_CONFIG/lib/path.zsh"
-source "$ZSH_CONFIG/lib/aliases.zsh"
-source "$ZSH_CONFIG/lib/exports.zsh"
 source "$ZSH_CONFIG/lib/keybindings.zsh"
 source "$ZSH_CONFIG/lib/autoloads.zsh"
+
+# Standard stuff.
+source "$ZSH_CONFIG/lib/path.zsh"
+source "$ZSH_CONFIG/lib/exports.zsh"
+source "$ZSH_CONFIG/lib/aliases.zsh"
+source "$ZSH_CONFIG/lib/functions.zsh"
+
+# Setups of external software (eg. RVM).
 source "$ZSH_CONFIG/lib/external-setups.zsh"
 
-# Source antigen bundles.
+# Source antigen bundles and apply everything
+source "$ZSH_CONFIG/.antigen/antigen.zsh"
 antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
-
-# Tell antigen we're done.
 antigen apply
 
 # Source non version controlled files only if they exist.

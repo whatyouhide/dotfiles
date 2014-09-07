@@ -5,7 +5,7 @@ bindkey -e
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
-# Bind Up and Down arrows to the classic hisstory search, which searches for a
+# Bind Up and Down arrows to the classic history search, which searches for a
 # command matching whatever is already sitting on the command line.
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
