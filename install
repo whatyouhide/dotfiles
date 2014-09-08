@@ -42,11 +42,6 @@ echo_info "Cloning dotfiles from GitHub"
 git clone https://github.com/whatyouhide/dotfiles.git "$DOTFILES"
 newline
 
-echo_info "Installing oh-my-zsh"
-git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-chsh -s `which zsh`
-newline
-
 echo_info "Installing RVM"
 curl -sSL https://get.rvm.io | bash -s stable --ruby --ignore-dotfiles
 newline
