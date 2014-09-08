@@ -77,7 +77,6 @@ Plugin 'elixir-lang/vim-elixir'
 
 " Themes.
 Plugin 'chriskempson/base16-vim'
-Plugin 'daylerees/colour-schemes', { 'rtp': 'vim/' }
 Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
