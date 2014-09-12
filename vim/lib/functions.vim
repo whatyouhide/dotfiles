@@ -4,15 +4,6 @@
 " (NOTE: some functions in this file are mapped. This mappings are located
 " inside vim/rc/mappings.vim.
 
-" Strip trailing whitespace except for a bunch of filetypes.
-function! StripTrailingWhitespace()
-  " Not on these filetypes.
-  if &ft =~ 'mkd'
-    return
-  endif
-
-  %s/\s\+$//e
-endfunction
 
 " Check if a file exists.
 function! FileExists(path)

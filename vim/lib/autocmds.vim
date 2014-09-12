@@ -3,9 +3,6 @@
 
 
 augroup vimrc_autocmds
-  " Remove trailing whitespace on write.
-  autocmd BufWritePre * call StripTrailingWhitespace()
-
   " Highlight the part of the line that goes over 80 characters.
   " (actually the highlight colors are in the theme setups, this is just
   " the match definition)

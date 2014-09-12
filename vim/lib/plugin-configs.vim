@@ -79,3 +79,7 @@ let g:syntastic_warning_symbol = '☛'
 let g:syntastic_style_warning_symbol = '⚑'
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+
+
+" Stripper
+let g:StripperIgnoreFileTypes = ['mkd', 'liquid']

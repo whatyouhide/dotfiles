@@ -26,11 +26,13 @@ Plugin 'SirVer/ultisnips'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'rking/ag.vim'
+Plugin 'itspriddle/vim-stripper'
 
 " Text manipulation.
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'tommcdo/vim-exchange'
 Plugin 'matze/vim-move'
+Plugin 'godlygeek/tabular'
 
 " Aesthetic.
 Plugin 'airblade/vim-gitgutter'
@@ -51,6 +53,7 @@ Plugin 'kana/vim-textobj-line'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'whatyouhide/vim-textobj-erb'
 Plugin 'whatyouhide/vim-textobj-xmlattr'
+Plugin 'whatyouhide/vim-textobj-star'
 Plugin 'PeterRincker/vim-argumentative'
 
 " OSX only.
