@@ -1,0 +1,39 @@
+-- Show how long each query takes.
+\timing
+
+-- Don't display the "help" message on startup.
+\set QUIET 1
+
+-- Be verbose with errors.
+\set VERBOSITY verbose
+
+-- Cool prompt.
+\set PROMPT1 '%M %[%033[0;36m%]%n %033[0;34m%]%/%[%033[0m%]% %R# '
+
+-- Cool unicode tables.
+\pset linestyle unicode
+\pset border 2
+
+-- Set the character that expresses nullity.
+\pset null ∅
+
+-- Use table format (with headers across the top) by default, but switch to
+-- expanded table format when there's a lot of data, which makes it much
+-- easier to read.
+\x auto
+
+-- Autocomplete keywords (like SELECT) in upper-case, even if you started
+-- typing them in lower case - this is wonderful.
+\set COMP_KEYWORD_CASE upper
+
+-- History!
+-- Don't store duplicate commands.
+\set HISTCONTROL ignoredups
+-- Use a separate history file per database.
+\set HISTFILE ~/.psql_history- :DBNAME
+-- Infinite history.
+\set HISTSIZE 10000
+
+-- Aliases.
+-- Clear the screen.
+\set clear '\\! clear;'
