@@ -3,6 +3,7 @@ vim/.netrwhist
 vim/bundle
 vim/spell
 vim/works-in-progress.vim
+vim/autoload/plug.vim
 
 # zsh
 zsh/zshenv

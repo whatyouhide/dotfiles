@@ -1,17 +1,5 @@
-" Get rid of the vi stuff and fully embrace vim.
+" Get rid of the vi stuff.
 set nocompatible
-
-
-" Source plugins I'm developing (works-in-progress.vim is not version
-" controlled) before regular plugins, in order to be able to have plugin
-" dopplegangers.
-if filereadable(expand("~/.vim/works-in-progress.vim"))
-  source ~/.vim/works-in-progress.vim
-endif
-
-" Plugins.
-source ~/.vim/lib/plugins.vim
-
 
 " Enable file type detection and do language-dependent indenting (this
 " also 'closes' vundle, and it's *required*).
@@ -20,6 +8,8 @@ filetype plugin indent on
 " Turn on syntax highlighting.
 syntax on
 
+" Plugins.
+source ~/.vim/lib/plugins.vim
 
 " Enable the matchit plugin.
 runtime macros/matchit.vim

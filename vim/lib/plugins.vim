@@ -1,85 +1,79 @@
-" Plugins (with Vundle)
-" ====================
+call plug#begin('~/.vim/bundle')
 
-" Required by vundle.
-filetype off
-
-" Set the runtime path to include Vundle and initialize.
-" set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Let Vundle manage Vundle, required.
-Plugin 'gmarik/Vundle.vim'
+" Source local plugins before everything else (in order to be able to override
+" existing plugins).
+if filereadable(expand("~/.vim/works-in-progress.vim"))
+  source ~/.vim/works-in-progress.vim
+endif
 
 " Generic bundles.
-Plugin 'tpope/vim-surround'       " No need to explain :)
-Plugin 'tpope/vim-dispatch'       " Wow! Run stuff ansynchronously
-Plugin 'tpope/vim-fugitive'       " Git wrapper
-Plugin 'tpope/vim-endwise'        " Add 'end', 'endfunction' and so on
-Plugin 'tpope/vim-repeat'         " Repeat custom commands
-Plugin 'tpope/vim-unimpaired'     " Use [ and ], often
-Plugin 'tpope/vim-eunuch'         " Unix utilities
-Plugin 'kien/ctrlp.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'rking/ag.vim'
-Plugin 'itspriddle/vim-stripper'
+Plug 'tpope/vim-surround'       " No need to explain :)
+Plug 'tpope/vim-dispatch'       " Wow! Run stuff ansynchronously
+Plug 'tpope/vim-fugitive'       " Git wrapper
+Plug 'tpope/vim-endwise'        " Add 'end', 'endfunction' and so on
+Plug 'tpope/vim-repeat'         " Repeat custom commands
+Plug 'tpope/vim-unimpaired'     " Use [ and ], often
+Plug 'tpope/vim-eunuch'         " Unix utilities
+Plug 'kien/ctrlp.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'SirVer/ultisnips'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'rking/ag.vim'
+Plug 'itspriddle/vim-stripper'
 
 " Text manipulation.
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'tommcdo/vim-exchange'
-Plugin 'matze/vim-move'
-Plugin 'godlygeek/tabular'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'tommcdo/vim-exchange'
+Plug 'matze/vim-move'
+Plug 'godlygeek/tabular'
 
 " Aesthetic.
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'bling/vim-airline'
-Plugin 'junegunn/goyo.vim'        " Distraction-free mode
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'bling/vim-airline'
+Plug 'junegunn/goyo.vim'        " Distraction-free mode
 
 " Misc.
-Plugin 'mattn/webapi-vim'         " Required by gist-vim
-Plugin 'mattn/gist-vim'           " :Gist portions of text
+Plug 'mattn/webapi-vim'         " Required by gist-vim
+Plug 'mattn/gist-vim'           " :Gist portions of text
 
 " Text objects.
-Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-entire'
-Plugin 'kana/vim-textobj-line'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'whatyouhide/vim-textobj-erb'
-Plugin 'whatyouhide/vim-textobj-xmlattr'
-Plugin 'whatyouhide/vim-textobj-star'
-Plugin 'PeterRincker/vim-argumentative'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-line'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'whatyouhide/vim-textobj-erb'
+Plug 'whatyouhide/vim-textobj-xmlattr'
+Plug 'whatyouhide/vim-textobj-star'
+Plug 'PeterRincker/vim-argumentative'
 
 " OSX only.
-Plugin 'henrik/vim-reveal-in-finder'
+Plug 'henrik/vim-reveal-in-finder', { 'on': 'Reveal' }
 
 " Plugin development.
-Plugin 'kana/vim-vspec'
+Plug 'kana/vim-vspec'
 
 " Language specific.
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-bundler'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'othree/html5.vim'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'mattn/emmet-vim'
-Plugin '2072/vim-syntax-for-PHP'
-Plugin '2072/PHP-Indenting-for-VIm'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'elzr/vim-json'
-Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'elixir-lang/vim-elixir'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
+Plug 'vim-ruby/vim-ruby'
+Plug 'othree/html5.vim'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'mattn/emmet-vim'
+Plug '2072/vim-syntax-for-PHP'
+Plug '2072/PHP-Indenting-for-VIm'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'elzr/vim-json'
+Plug 'pangloss/vim-javascript'
+Plug 'kchmck/vim-coffee-script'
+Plug 'elixir-lang/vim-elixir'
 
 " Themes.
-Plugin 'chriskempson/base16-vim'
-Plugin 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
+Plug 'altercation/vim-colors-solarized'
 
-call vundle#end()
+call plug#end()
