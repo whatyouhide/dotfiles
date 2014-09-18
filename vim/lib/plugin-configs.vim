@@ -69,6 +69,10 @@ let g:gist_open_browser_after_post = 1
 let g:gist_detect_filetype = 1
 
 
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
+
+
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'passive',
                            \ 'active_filetypes': [],

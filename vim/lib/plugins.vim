@@ -14,65 +14,66 @@ Plug 'tpope/vim-endwise'        " Add 'end', 'endfunction' and so on
 Plug 'tpope/vim-repeat'         " Repeat custom commands
 Plug 'tpope/vim-unimpaired'     " Use [ and ], often
 Plug 'tpope/vim-eunuch'         " Unix utilities
+Plug 'tpope/vim-vinegar'
 Plug 'kien/ctrlp.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rking/ag.vim'
+
 Plug 'itspriddle/vim-stripper'
 
-" Text manipulation.
+" " Text manipulation.
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'matze/vim-move'
 Plug 'godlygeek/tabular'
 
-" Aesthetic.
+" " Aesthetic.
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'bling/vim-airline'
-Plug 'junegunn/goyo.vim'        " Distraction-free mode
+Plug 'junegunn/goyo.vim'
 
-" Misc.
+" " Misc.
 Plug 'mattn/webapi-vim'         " Required by gist-vim
 Plug 'mattn/gist-vim'           " :Gist portions of text
 
-" Text objects.
+" " Text objects.
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-line'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'whatyouhide/vim-textobj-erb'
 Plug 'whatyouhide/vim-textobj-xmlattr'
-Plug 'whatyouhide/vim-textobj-star'
+Plug 'thinca/vim-textobj-between'
 Plug 'PeterRincker/vim-argumentative'
 
-" OSX only.
-Plug 'henrik/vim-reveal-in-finder', { 'on': 'Reveal' }
 
-" Plugin development.
+" " OSX only.
+Plug 'henrik/vim-reveal-in-finder', { 'on': 'Reveal' }
+Plug 'itspriddle/vim-marked', { 'for': 'mkd', 'on': 'MarkedOpen' }
+
+" " Plugin development.
 Plug 'kana/vim-vspec'
 
-" Language specific.
+" " Language specific.
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 Plug 'vim-ruby/vim-ruby'
 Plug 'othree/html5.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'plasticboy/vim-markdown'
-Plug 'mattn/emmet-vim'
 Plug '2072/vim-syntax-for-PHP'
 Plug '2072/PHP-Indenting-for-VIm'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
 Plug 'elixir-lang/vim-elixir'
+Plug 'shmup/vim-sql-syntax'
 
-" Themes.
+" " Themes.
 Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
 
