@@ -13,6 +13,9 @@ if command-exists pygmentize; then
   alias cat='pygmentize -O style=friendly -f console256 -g'
 fi
 
+# todo.txt
+command-exists 'todo.sh' && alias t=todo.sh
+
 # Common aliases.
 alias v='vim'
 alias x='exit'
