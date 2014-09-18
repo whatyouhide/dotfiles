@@ -3,26 +3,20 @@
 
 
 augroup vimrc_autocmds
-  " Highlight the part of the line that goes over 80 characters.
-  " (actually the highlight colors are in the theme setups, this is just
-  " the match definition)
-  autocmd BufRead,BufNewFile * match OverLength /\%81v.\+/
-  highlight OverLength ctermbg=5
-
   " Only show cursorline in the current window.
   autocmd WinLeave * set nocursorline
   autocmd WinEnter * set cursorline
 augroup END
 
 
-augroup trailing
+augroup opts
   autocmd!
   autocmd InsertEnter * :set nolist
   autocmd InsertLeave * :set list
 augroup END
 
 
-augroup vimrc_filetypes
+augroup filetypes
   autocmd!
 
   " Set some file types.

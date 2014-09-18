@@ -16,11 +16,15 @@ nnoremap k gk
 
 " 'D' to delete to the end of the line (by default, 'D' just does a 'dd').
 " This also catches up with 'C', which changes to the end of the line.
+" Also, do the exact same thing with 'Y'.
 nnoremap D d$
+nnoremap Y y$
 
 " H and L in order to move to the beginning/ending of the current line.
 nnoremap H ^
 nnoremap L $
+vnoremap H ^
+vnoremap L $
 
 " Keep search matches in the middle of the screen.
 nnoremap n nzz
@@ -31,10 +35,6 @@ nnoremap d<CR> :Dispatch<CR>
 
 
 " Ctrl-keys
-
-" Ctrl-a and Ctrl-e in order to move to the bol/eol in insert mode (shell like).
-inoremap <C-a> <C-o>I
-inoremap <C-e> <C-o>A
 
 " Ctrl-s to save and return to normal mode if previously in insert mode.
 nnoremap <C-s> :w<CR>
@@ -68,9 +68,3 @@ vmap ∆ <Plug>MoveBlockDown
 vmap <A-j> <Plug>MoveBlockDown
 vmap ˚ <Plug>MoveBlockUp
 vmap <A-k> <Plug>MoveBlockUp
-
-
-" Fn-keys
-
-" Toggle NERDTree.
-nnoremap <F2> :NERDTreeTabsToggle<CR>
