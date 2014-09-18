@@ -43,11 +43,11 @@ module H
 
     # Return an array of paths to the files that will be linked to ~.
     def self.default
-      (@symlinks['default'] + @symlinks['development']).to_list_of_dotfiles
+      (@symlinks['default'] + @symlinks['personal-pc']).to_list_of_dotfiles
     end
 
-    def self.development_to_clean
-      @symlinks['development'].to_list_of_dotfiles.map(&:home_and_dotted)
+    def self.personalpc_to_clean
+      @symlinks['personal-pc'].to_list_of_dotfiles.map(&:home_and_dotted)
     end
 
     # Return an hash of [src, dest] paths.
@@ -101,9 +101,9 @@ task :clean do
   H::Symlinks.all.each { |el| rm_f el }
 end
 
-desc "Clean non-development dotfiles"
-task :clean_non_development do
-  H::Symlinks.development_to_clean.each { |el| rm_f el }
+desc "Clean non-personal-pc dotfiles"
+task :clean_non_personalpc do
+  H::Symlinks.personalpc_to_clean.each { |el| rm_f el }
 end
 
 desc "Create some useful directories"

@@ -10,11 +10,12 @@ symlinks:
     - tmux/tmux.conf
     - git/gitconfig
     - misc/*
-  development:
+  personal-pc:
     - ruby/gemrc
     - ruby/rspec
     - ruby/rubocop.yml
     - javascript/*
+    - todotxt/todo.cfg
 
   # In these hash, the keys are the source links and the values are the
   # destination links. You cannot use globbing nor environment variables, but you
