@@ -16,6 +16,13 @@ augroup opts
 augroup END
 
 
+augroup line_numbers
+  autocmd!
+  au InsertEnter * set norelativenumber
+  au InsertLeave * set relativenumber
+augroup END
+
+
 augroup filetypes
   autocmd!
 
