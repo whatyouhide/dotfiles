@@ -20,45 +20,48 @@ Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'rking/ag.vim'
+Plug 'rking/ag.vim', { 'on': 'Ag' }
 
 Plug 'itspriddle/vim-stripper'
+Plug 'schickling/vim-bufonly'
+Plug 'Arkham/vim-quickfixdo'
 
-" " Text manipulation.
+" Text manipulation.
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'matze/vim-move'
 Plug 'godlygeek/tabular'
 
-" " Aesthetic.
+" Aesthetic.
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
-" " Misc.
-Plug 'mattn/webapi-vim'         " Required by gist-vim
-Plug 'mattn/gist-vim'           " :Gist portions of text
+" Misc.
+Plug 'mattn/webapi-vim', { 'on': 'Gist' }
+Plug 'mattn/gist-vim', { 'on': 'Gist' }
 
-" " Text objects.
+" Text objects.
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-line'
-Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 Plug 'whatyouhide/vim-textobj-erb'
 Plug 'whatyouhide/vim-textobj-xmlattr'
 Plug 'thinca/vim-textobj-between'
 Plug 'PeterRincker/vim-argumentative'
 
 
-" " OSX only.
+" OSX only.
 Plug 'henrik/vim-reveal-in-finder', { 'on': 'Reveal' }
 Plug 'itspriddle/vim-marked', { 'for': 'mkd', 'on': 'MarkedOpen' }
 
-" " Plugin development.
+" Plugin development.
 Plug 'kana/vim-vspec'
+Plug 'junegunn/vader.vim', { 'on': 'Vader', 'for': 'Vader' }
 
-" " Language specific.
+" Language specific.
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 Plug 'vim-ruby/vim-ruby'
@@ -73,7 +76,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'elixir-lang/vim-elixir'
 Plug 'shmup/vim-sql-syntax'
 
-" " Themes.
+" Colorschemes.
 Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
 

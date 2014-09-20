@@ -26,8 +26,10 @@ set exrc
 " Only allow secure commands in per-project .vimrcs.
 set secure
 
-" Turn line numbers on using relative numbers. Cool. Cool cool cool.
+" Turn line numbers on using relative numbers for lines that aren't the curren
+" line, and absolute number for the current line.
 set relativenumber
+set number
 
 " Highlight current line.
 set cursorline
@@ -60,8 +62,7 @@ set gdefault
 set splitbelow
 set splitright
 
-" Toggle paste mode with <F7> (useful when pasting from the system command
-" line.
+" Toggle paste mode with <F7> (useful when pasting from the system clipboard).
 set pastetoggle=<F7>
 
 " Remove ugly splits separators.
@@ -75,7 +76,7 @@ set listchars=tab:▸\ ,trail:·
 " Wild menu.
 set wildmenu
 set wildignore+=.git
-set wildignore+=*._DS_Store
+set wildignore+=*._DS_Store,*.sass-cache
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png
 
 " Spell checking.
