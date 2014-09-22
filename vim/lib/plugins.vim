@@ -29,8 +29,9 @@ Plug 'Arkham/vim-quickfixdo'
 " Text manipulation.
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tommcdo/vim-exchange'
-Plug 'matze/vim-move'
-Plug 'godlygeek/tabular'
+Plug 'matze/vim-move', { 'on': [
+      \ '<Plug>MoveBlockDown', '<Plug>MoveBlockUp',
+      \ '<Plug>MoveLineDown', '<Plug>MoveLineUp'] }
 
 " Aesthetic.
 Plug 'airblade/vim-gitgutter'
@@ -67,14 +68,11 @@ Plug 'tpope/vim-bundler'
 Plug 'vim-ruby/vim-ruby'
 Plug 'othree/html5.vim'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'plasticboy/vim-markdown'
-Plug '2072/vim-syntax-for-PHP'
-Plug '2072/PHP-Indenting-for-VIm'
+Plug 'plasticboy/vim-markdown', { 'for': 'mkd' }
 Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
 Plug 'elixir-lang/vim-elixir'
-Plug 'shmup/vim-sql-syntax'
 
 " Colorschemes.
 Plug 'chriskempson/base16-vim'
