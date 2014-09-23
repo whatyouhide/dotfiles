@@ -1,6 +1,3 @@
-" Where tweaks to colorschemes are stored.
-let g:vim_theme_tweaks = '~/.vim/theme-tweaks/'
-
 " Choose a dark and a light themes...
 let g:light_colorscheme = $DOTFILES_VIM_LIGHT_COLORSCHEME
 let g:dark_colorscheme = $DOTFILES_VIM_DARK_COLORSCHEME

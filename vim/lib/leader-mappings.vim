@@ -1,7 +1,5 @@
-" <Leader> mappings
-" =================
-
 " These are mappings involving the <Leader> key.
+
 
 " This is a workaround (instead of using `let mapleader = ' '`); the latter
 " doesn't show 'showcmd' on the command line.
@@ -30,10 +28,6 @@ nnoremap <Leader>D :Dispatch!<Space>
 
 " it: set spelllang to italian.
 nnoremap <Leader>it :set spelllang=it<CR>
-
-" csl and csd: change colorscheme (light/dark).
-nnoremap <Leader>csl :call SetThemeTo(g:light_colorscheme, 'light')<CR>
-nnoremap <Leader>csd :call SetThemeTo(g:dark_colorscheme, 'dark')<CR>
 
 " s: check with syntastic.
 nnoremap <Leader>s :SyntasticCheck<CR>

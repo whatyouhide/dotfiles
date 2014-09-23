@@ -1,31 +1,28 @@
-" Functions
-" =========
-
 " (NOTE: some functions in this file are mapped. This mappings are located
-" inside vim/rc/mappings.vim.
+" inside mappings.vim.
 
 
-" Check if a file exists.
-function! FileExists(path)
-  return !empty(glob(a:path))
-endfunction
-
-
-" Source a theme setup from `dotfiles/vim/rc/theme-setups`.
-function! SetThemeTo(theme, dark_or_light)
-  let l:path = g:vim_theme_tweaks . a:theme . '-' . a:dark_or_light . '.vim'
-
-  exec 'colorscheme ' . a:theme
-  exec 'set background=' . a:dark_or_light
-
-  if FileExists(l:path)
-    exec 'source ' l:path
+" When a colorscheme (or the bg option) changes, this function gets called.
+" If it finds a file inside g:theme_tweaks_dir named '{colorscheme}.vim', it
+" will source it. It's ideal for tweaking vim colorschemes in order to make them
+" work perfectly.
+" g:theme_tweaks_dir defaults to '~/.vim/theme-tweaks'. There must be no
+" trailing slash.
+function! TweakColorscheme()
+  " Set the default value.
+  if !exists('g:theme_tweaks_dir')
+    let g:theme_tweaks_dir = '~/.vim/theme-tweaks'
   endif
 
-  " Refresh Airline if in a script.
-  if exists(':AirlineRefresh')
-    exec ':AirlineRefresh'
+  " Find the path of the file and, if that file exists, source it.
+  let l:path = g:theme_tweaks_dir . '/' . g:colors_name . '.vim'
+  if filereadable(expand(l:path))
+    execute 'source ' . l:path
   endif
+
+  " Refresh Airline if present (so that you can set Airline options in the
+  " tweaks files, and they'll get read).
+  if exists(':AirlineRefresh') | exec 'AirlineRefresh' | endif
 endfunction
 
 
@@ -44,13 +41,14 @@ endfunction
 " This is done since GUI vim don't screw up themes like console vim (at least
 " with iTerm themes) does.
 function! ColorschemeBasedOnTime()
+  call DayNightCommands('set bg=light', 'set bg=dark')
+
   if has('gui_running')
-    call DayNightCommands('set bg=light', 'set bg=dark')
     exec 'colorscheme ' . g:gui_colorscheme
   elseif !has('gui_running')
     call DayNightCommands(
-      \ 'call SetThemeTo(g:light_colorscheme, "light")',
-      \ 'call SetThemeTo(g:dark_colorscheme, "dark")'
-      \ )
+          \ 'colorscheme ' . g:light_colorscheme,
+          \ 'colorscheme ' . g:dark_colorscheme
+          \ )
   endif
 endfunction

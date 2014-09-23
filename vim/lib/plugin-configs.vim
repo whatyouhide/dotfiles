@@ -7,11 +7,10 @@ let g:goyo_margin_top = 1
 let g:goyo_margin_bottom = 1
 let g:goyo_width = 85
 
-function! g:goyo_before()
-  exec ':NERDTreeClose'
-endfunction
-
-let g:goyo_callbacks = [function('g:goyo_before'), function('ColorschemeBasedOnTime')]
+let g:goyo_callbacks = [
+      \ function('ColorschemeBasedOnTime'),
+      \ function('ColorschemeBasedOnTime')
+      \ ]
 
 
 " Airline
@@ -32,18 +31,6 @@ let g:move_map_keys = 0
 " TComment
 " Don't comment blank lines.
 let g:tcomment#blank_lines = 0
-
-
-" NERDTree
-let NERDTreeIgnore = ['\.DS_Store$', '\.git$', '\.sass-cache$']
-let NERDTreeShowHidden = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeQuitOnOpen = 1
-
-" vim-nerdtree-tabs
-let g:nerdtree_tabs_open_on_gui_startup = 0
-let g:nerdtree_tabs_open_on_console_startup = 0
 
 
 " Ultisnips

@@ -65,7 +65,7 @@ set splitright
 " Toggle paste mode with <F7> (useful when pasting from the system clipboard).
 set pastetoggle=<F7>
 
-" Remove ugly splits separators.
+" Remove ugly splits/window/pane (whatever you call them) separators.
 set fillchars=""
 
 " Highlight stuff with special characters.
@@ -83,7 +83,6 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png
 " (note: `spell` is disabled by default, and it's enabled through autocommands
 " on files that need it)
 set spelllang=en,it
-set spellfile=~/.vim/spell/techspeak.utf-8.add
 
 " Clipboard management: when you delete/yank to the unnamed register ("*), send
 " that to the clipboard (this works in a tmux session because of
