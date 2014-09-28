@@ -21,14 +21,19 @@ Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
-
 Plug 'itspriddle/vim-stripper'
+
+" Approving.
 Plug 'schickling/vim-bufonly'
 Plug 'Arkham/vim-quickfixdo'
+Plug 'sjl/vitality.vim'
+Plug 'terryma/vim-expand-region'
+Plug 'Raimondi/delimitMate'
 
 " Text manipulation.
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tommcdo/vim-exchange'
+Plug 'junegunn/vim-easy-align', { 'on': ['EasyAlign', 'LiveEasyAlign'] }
 Plug 'matze/vim-move', { 'on': [
       \ '<Plug>MoveBlockDown', '<Plug>MoveBlockUp',
       \ '<Plug>MoveLineDown', '<Plug>MoveLineUp'] }
@@ -42,6 +47,7 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 " Misc.
 Plug 'mattn/webapi-vim', { 'on': 'Gist' }
 Plug 'mattn/gist-vim', { 'on': 'Gist' }
+Plug 'sjl/strftimedammit.vim'
 
 " Text objects.
 Plug 'kana/vim-textobj-user'

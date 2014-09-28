@@ -7,10 +7,23 @@ let g:goyo_margin_top = 1
 let g:goyo_margin_bottom = 1
 let g:goyo_width = 85
 
-let g:goyo_callbacks = [
-      \ function('ColorschemeBasedOnTime'),
-      \ function('ColorschemeBasedOnTime')
-      \ ]
+function! GoyoEnter()
+  set norelativenumber nonumber
+  if has('gui_running') | set fullscreen | endif
+  if exists('$TMUX')
+    silent !tmux set status off
+  endif
+endfunction
+
+function! GoyoLeave()
+  set relativenumber number
+  if has('gui_running') | set nofullscreen | endif
+  if exists('$TMUX')
+    silent !tmux set status on
+  endif
+endfunction
+
+let g:goyo_callbacks = [function('GoyoEnter'), function('GoyoLeave')]
 
 
 " Airline
@@ -34,16 +47,18 @@ let g:tcomment#blank_lines = 0
 
 
 " Ultisnips
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsEditSplit = "vertical"
-let g:UltiSnipsSnippetDirectories=["ulti-snippets"]
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsEditSplit = 'vertical'
+let g:UltiSnipsSnippetDirectories = ['ulti-snippets']
+let g:UltiSnipsSnippetsDir = '~/.vim/'. g:UltiSnipsSnippetDirectories[0]
 
 
 " CtrlP
-let g:ctrlp_custom_ignore = '\v[\/](\.DS_Store|\.git|node_modules|\.sass-cache|tmp)$'
-let g:ctrlp_dont_split = 'nerdtree'
-let g:ctrlp_max_height = 25
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_match_window =
+      \ 'top,order:ttb,min:5,max:5'
+let g:ctrlp_custom_ignore =
+      \ '\v[\/](\.DS_Store|\.git|node_modules|\.sass-cache|tmp)$'
 
 
 " GitGutter
