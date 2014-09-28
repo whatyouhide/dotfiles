@@ -23,3 +23,4 @@ source ~/.vim/lib/mappings.vim
 source ~/.vim/lib/leader-mappings.vim
 source ~/.vim/lib/plugin-configs.vim
 source ~/.vim/lib/colorscheme-setup.vim
+source ~/.vim/lib/dropbox-sources.vim

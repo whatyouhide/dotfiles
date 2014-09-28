@@ -9,7 +9,9 @@ let g:goyo_width = 85
 
 function! GoyoEnter()
   set norelativenumber nonumber
+
   if has('gui_running') | set fullscreen | endif
+
   if exists('$TMUX')
     silent !tmux set status off
   endif
@@ -17,7 +19,7 @@ endfunction
 
 function! GoyoLeave()
   set relativenumber number
-  if has('gui_running') | set nofullscreen | endif
+
   if exists('$TMUX')
     silent !tmux set status on
   endif
