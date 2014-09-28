@@ -6,6 +6,9 @@
 scriptencoding utf-8
 set encoding=utf-8
 
+" Use 256 colors.
+set t_Co=256
+
 " Tabs and backspace should behave cool, shouldn't they?
 set tabstop=2                   " tabs are 2 spaces width
 set expandtab                   " expand tabs to spaces
