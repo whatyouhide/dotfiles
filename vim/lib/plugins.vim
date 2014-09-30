@@ -26,9 +26,7 @@ Plug 'itspriddle/vim-stripper'
 " Approving.
 Plug 'schickling/vim-bufonly'
 Plug 'Arkham/vim-quickfixdo'
-Plug 'sjl/vitality.vim'
-Plug 'terryma/vim-expand-region'
-Plug 'Raimondi/delimitMate'
+Plug 'sjl/tslime.vim'
 
 " Text manipulation.
 Plug 'AndrewRadev/splitjoin.vim'
@@ -79,6 +77,7 @@ Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
 Plug 'elixir-lang/vim-elixir'
+Plug 'wlangstroth/vim-racket'
 
 " Colorschemes.
 Plug 'chriskempson/base16-vim'
