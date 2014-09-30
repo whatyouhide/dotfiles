@@ -38,10 +38,9 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 
 # dir = cd dir.
-# The cdpath allows to cd into directories contained in the ones listed in
-# cdpath.
+# The cdpath allows to cd into directories contained in the ones listed in the
+# `cdpath` array, which is usually defined in a non version-controlled file.
 setopt auto_cd
-cdpath=($HOME $HOME/Sites $HOME/Code $HOME/Dropbox)
 
 
 # History
