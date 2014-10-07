@@ -58,7 +58,7 @@ let g:UltiSnipsSnippetsDir = '~/.vim/'. g:UltiSnipsSnippetDirectories[0]
 " CtrlP
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_match_window =
-      \ 'top,order:ttb,min:5,max:5'
+      \ 'bottom,order:btt,min:6,max:6'
 let g:ctrlp_custom_ignore =
       \ '\v[\/](\.DS_Store|\.git|node_modules|\.sass-cache|tmp)$'
 
