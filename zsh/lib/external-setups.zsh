@@ -5,4 +5,9 @@
 export rvm_reload_flag=1
 
 # Direnv.
-type direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
+command-exists direnv && eval "$(direnv hook zsh)"
+
+# z.
+if command-exists brew && [[ -s "`brew --prefix`/etc/profile.d/z.sh" ]]; then
+  source "`brew --prefix`/etc/profile.d/z.sh"
+fi
