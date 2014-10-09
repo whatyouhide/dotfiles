@@ -68,10 +68,6 @@ let g:ctrlp_custom_ignore =
 let g:gitgutter_sign_column_always = 1
 
 
-" tslime.vim
-let g:tslime_ensure_trailing_newlines = 1
-
-
 " Gist.vim
 let g:gist_open_browser_after_post = 1
 let g:gist_detect_filetype = 1

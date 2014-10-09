@@ -26,7 +26,8 @@ Plug 'itspriddle/vim-stripper'
 " Approving.
 Plug 'schickling/vim-bufonly'
 Plug 'Arkham/vim-quickfixdo'
-Plug 'sjl/tslime.vim'
+Plug 'joker1007/vim-markdown-quote-syntax'
+Plug 'benmills/vimux'
 
 " Text manipulation.
 Plug 'AndrewRadev/splitjoin.vim'
