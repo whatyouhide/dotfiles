@@ -52,4 +52,7 @@ augroup filetypes
   autocmd FileType mkd setlocal shiftwidth=4
   autocmd FileType mkd setlocal tabstop=4
   autocmd FileType mkd setlocal softtabstop=4
+
+  " SML (proglang @ Coursera)
+  autocmd FileType sml vnoremap <buffer> <leader>r :call VimuxSlime(';\n')<cr>
 augroup END
