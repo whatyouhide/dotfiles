@@ -1,9 +1,12 @@
 " Choose a dark and a light themes...
-let g:term_colorscheme = $DOTFILES_VIM_TERM_COLORSCHEME
-let g:gui_colorscheme = $DOTFILES_VIM_GUI_COLORSCHEME
+let g:colorscheme_light = $VIM_LIGHT_COLORSCHEME
+let g:colorscheme_dark = $VIM_DARK_COLORSCHEME
 " ...with defaults.
-if empty(g:term_colorscheme) | let g:term_colorscheme = 'base16-ocean' | endif
-if empty(g:gui_colorscheme)  | let g:gui_colorscheme = 'base16-ocean'  | endif
+if empty(g:colorscheme_light) | let g:colorscheme_light = 'base16-ocean' | endif
+if empty(g:colorscheme_dark)  | let g:colorscheme_dark  = 'base16-ocean' | endif
 
+let s:hour = strftime('%H')
+let s:shade = (s:hour >= 8 && s:hour < 21) ? 'light' : 'dark'
 
-exec 'colorscheme ' . {has('gui_running') ? 'gui' : 'term'}_colorscheme
+exec 'colorscheme ' g:colorscheme_{s:shade}
+exec 'set background=' . s:shade

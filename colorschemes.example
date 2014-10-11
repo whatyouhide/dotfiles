@@ -1,9 +1,4 @@
-export DOTFILES_VIM_LIGHT_COLORSCHEME='hemisu-light'
-export DOTFILES_VIM_DARK_COLORSCHEME='railscasts'
+export VIM_LIGHT_COLORSCHEME='solarized'
+export VIM_DARK_COLORSCHEME='gotham'
 
-export DOTFILES_GUI_VIM_COLORSCHEME='base16-ashes'
-
-export DOTFILES_TMUX_LIGHT_THEME='hemisu-light'
-export DOTFILES_TMUX_DARK_THEME='railscasts'
-
-export DOTFILES_ZSH_PROMPT='whatyouhide'
+export DOTFILES_ZSH_PROMPT='freedom'
