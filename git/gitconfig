@@ -25,7 +25,9 @@
 
 # Colors.
 [color]
-  ui = always
+  interactive = auto
+  ui = auto
+  pager = true
 [color "branch"]
   current = yellow reverse
   local = yellow
@@ -45,9 +47,11 @@
   name = Andrea Leopardi
   email = an.leopardi@gmail.com
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [github]
   user = whatyouhide
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+[ghi]
+  pager = less
