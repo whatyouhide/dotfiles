@@ -34,3 +34,9 @@ nnoremap <Leader>s :SyntasticCheck<CR>
 
 " cr: reload the currently active Chrome tab.
 nnoremap <Leader>cr :call system('chrome-refresh')<CR>:echo 'Refreshing Chrome...'<CR>
+
+" Vimux.
+nnoremap <Leader>tq :VimuxCloseRunner<CR>
+nnoremap <Leader>ti :VimuxInspectRunner<CR>
+nnoremap <Leader>tz :VimuxZoomRunner<CR>
+nnoremap <Leader>td :call VimuxSendKeys('C-d')<CR>

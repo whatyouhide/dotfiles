@@ -63,6 +63,10 @@ let g:ctrlp_custom_ignore =
       \ '\v[\/](\.DS_Store|\.git|node_modules|\.sass-cache|tmp)$'
 
 
+" Vimux
+let g:VimuxHeight = "30"
+
+
 " GitGutter
 " Make the sign column always visible.
 let g:gitgutter_sign_column_always = 1
