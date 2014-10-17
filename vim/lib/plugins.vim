@@ -22,12 +22,15 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'itspriddle/vim-stripper'
+Plug 'benmills/vimux'
 
 " Approving.
 Plug 'schickling/vim-bufonly'
 Plug 'Arkham/vim-quickfixdo'
 Plug 'joker1007/vim-markdown-quote-syntax'
-Plug 'benmills/vimux'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'vim-scripts/paredit.vim'
+Plug 'sunaku/vim-ruby-minitest'
 
 " Text manipulation.
 Plug 'AndrewRadev/splitjoin.vim'
@@ -79,6 +82,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
 Plug 'elixir-lang/vim-elixir'
 Plug 'wlangstroth/vim-racket'
+Plug 'fatih/vim-go'
+Plug 'guns/vim-clojure-static'
 
 " Colorschemes.
 Plug 'chriskempson/base16-vim'
