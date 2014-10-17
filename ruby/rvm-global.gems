@@ -2,5 +2,6 @@ tmuxinator
 git-up
 launchy
 pry
+yard
 
 bundler

@@ -91,3 +91,7 @@ set spelllang=en,it
 " that to the clipboard (this works in a tmux session because of
 " reattach-to-user-namespace in tmux.conf, on OSX).
 set clipboard=unnamed
+
+" Completion.
+set omnifunc=syntaxcomplete#Complete
+set completefunc=syntaxcomplete#Complete

@@ -27,7 +27,6 @@ Plug 'benmills/vimux'
 " Approving.
 Plug 'schickling/vim-bufonly'
 Plug 'Arkham/vim-quickfixdo'
-Plug 'joker1007/vim-markdown-quote-syntax'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'vim-scripts/paredit.vim'
 Plug 'sunaku/vim-ruby-minitest'
