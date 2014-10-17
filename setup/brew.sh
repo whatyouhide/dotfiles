@@ -38,6 +38,7 @@ tap caskroom/versions
 # GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 install coreutils
 install findutils
+install readline
 
 # More recent versions of some OSX tools
 install homebrew/dupes/grep
@@ -51,12 +52,14 @@ install zsh
 install direnv
 install tmux
 install reattach-to-user-namespace
+install z
 
 # Git.
 install git
+install hub
 install git-flow
 install gith
-install hub
+install ghi
 
 # Tools.
 install wget --enable-iri
@@ -64,8 +67,9 @@ install rsync
 install watch
 install imagesnap
 
-# Vim.
+# Editors.
 install macvim --override-system-vim --with-lua --with-luajit
+install emacs --HEAD --use-git-head --cocoa --with-gnutls
 
 # Dev tools.
 install ctags
@@ -74,7 +78,17 @@ install the_silver_searcher
 # Web dev.
 install ngrok
 install node
+install imagemagick
 install qt
+
+# Databases.
+install postgresql
+install redis
+
+# Misc.
+install todo-txt
+install archey
+install cloc
 
 # Linkings.
 brew link python
@@ -99,6 +113,7 @@ instacask iterm2-nightly
 instacask google-chrome google-chrome-canary
 instacask firefox-aurora
 instacask opera
+instacask textmate
 
 # Misc.
 instacask copy
@@ -107,6 +122,10 @@ instacask google-drive
 instacask ynab
 instacask vlc
 instacask onepassword
+instacask keycastr
+instacask licecap
+instacask shiori
+instacask spotify
 
 # Communication.
 instacask telegram
