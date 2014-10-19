@@ -21,7 +21,7 @@ symlinks:
   # destination links. You cannot use globbing nor environment variables, but you
   # can use ~ at the beginning of a string.
   custom:
-    keyremap4macbook/private.xml: ~/Library/Application Support/KeyRemap4MacBook/private.xml
+    karabiner/private.xml: ~/Library/Application Support/Karabiner/private.xml
     ruby/rvm-global.gems: ~/.rvm/gemsets/global.gems
 
 # Directories to create when running the corresponding rake task.
