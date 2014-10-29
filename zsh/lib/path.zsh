@@ -10,6 +10,9 @@ fi
 # Go code.
 export PATH="$PATH:$GOPATH/bin"
 
+# MacTex.
+export PATH="$PATH:/usr/texbin"
+
 # Standard PATH entries.
 export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:/usr/local/bin"
