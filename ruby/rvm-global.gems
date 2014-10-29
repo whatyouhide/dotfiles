@@ -1,7 +1,10 @@
 tmuxinator
 git-up
 launchy
+
 pry
 yard
+wwtd
 
 bundler
+executable-hooks
