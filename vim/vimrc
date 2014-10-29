@@ -26,3 +26,4 @@ source ~/.vim/lib/colorscheme-setup.vim
 
 " Non version-controlled sourcing.
 source ~/Dropbox/Applications/vim/*.vim
+if FileExists('~/.extra.vim') | source ~/.extra.vim | endif

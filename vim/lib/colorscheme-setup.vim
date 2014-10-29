@@ -6,7 +6,7 @@ if empty(g:colorscheme_light) | let g:colorscheme_light = 'base16-ocean' | endif
 if empty(g:colorscheme_dark)  | let g:colorscheme_dark  = 'base16-ocean' | endif
 
 let s:hour = strftime('%H')
-let s:shade = (s:hour >= 8 && s:hour < 19) ? 'light' : 'dark'
+let s:shade = (s:hour >= 8 && s:hour < 17) ? 'light' : 'dark'
 
 exec 'colorscheme ' g:colorscheme_{s:shade}
 exec 'set background=' . s:shade

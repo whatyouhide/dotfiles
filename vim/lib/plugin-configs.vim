@@ -95,3 +95,9 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 " Stripper
 let g:StripperIgnoreFileTypes = ['mkd', 'liquid']
+
+
+" Latex-Box.
+let g:tex_flavor = 'latex'
+let g:LatexBox_latexmk_async = 0
+let g:LatexBox_viewer = 'open'

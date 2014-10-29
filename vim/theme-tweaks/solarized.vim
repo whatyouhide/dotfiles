@@ -1,6 +1,6 @@
 if &bg ==# 'light'
   highlight SignColumn                ctermbg=7 ctermfg=4 guibg=#003742
-  highlight CursorLineNr              ctermbg=7 ctermfg=4 guibg=#003742
+  highlight CursorLineNr              ctermbg=7 ctermfg=4 guibg=#fdf6e3
   highlight VertSplit                 ctermbg=7 guibg=#003742
   highlight GitGutterAdd              ctermbg=7 guibg=#003742
   highlight GitGutterChange           ctermbg=7 guibg=#003742

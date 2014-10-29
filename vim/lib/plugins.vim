@@ -29,7 +29,8 @@ Plug 'schickling/vim-bufonly'
 Plug 'Arkham/vim-quickfixdo'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'vim-scripts/paredit.vim'
-Plug 'cohama/lexima.vim'
+
+Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 " Text manipulation.
 Plug 'AndrewRadev/splitjoin.vim'
@@ -44,7 +45,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-Plug 'whatyouhide/vim-lengthmatters'
 
 " Misc.
 Plug 'mattn/webapi-vim', { 'on': 'Gist' }

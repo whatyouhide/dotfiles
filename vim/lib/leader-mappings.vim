@@ -3,7 +3,10 @@
 
 " This is a workaround (instead of using `let mapleader = ' '`); the latter
 " doesn't show 'showcmd' on the command line.
+let mapleader = ' '
 map <Space> <Leader>
+
+let maplocalleader = '\'
 
 
 " vi[nstall-plugins], vr[reload], ve[dit-vimrc].
@@ -41,3 +44,4 @@ nnoremap <Leader>tq :VimuxCloseRunner<CR>
 nnoremap <Leader>ti :VimuxInspectRunner<CR>
 nnoremap <Leader>tz :VimuxZoomRunner<CR>
 nnoremap <Leader>td :call VimuxSendKeys('C-d')<CR>
+nnoremap <Leader>trr :w<CR>:call VimuxRunLastCommand()<CR>
