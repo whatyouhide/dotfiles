@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if ping -c 1 google.com > /dev/null 2>&1; then
+  echo "online"
+  exit 0
+else
+  echo "offline"
+  exit 1
+fi
