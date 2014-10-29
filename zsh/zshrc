@@ -10,8 +10,8 @@ source "$ZSH_CONFIG/lib/keybindings.zsh"
 source "$ZSH_CONFIG/lib/autoloads.zsh"
 
 # Standard stuff.
-source "$ZSH_CONFIG/lib/path.zsh"
 source "$ZSH_CONFIG/lib/exports.zsh"
+source "$ZSH_CONFIG/lib/path.zsh"
 source "$ZSH_CONFIG/lib/aliases.zsh"
 source "$ZSH_CONFIG/lib/functions.zsh"
 

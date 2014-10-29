@@ -7,6 +7,9 @@ if [[ -d "$HOME/.rvm" ]]; then
   export PATH="$PATH:$HOME/.rvm/bin"
 fi
 
+# Go code.
+export PATH="$PATH:$GOPATH/bin"
+
 # Standard PATH entries.
 export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:/usr/local/bin"

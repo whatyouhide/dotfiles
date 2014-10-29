@@ -18,6 +18,8 @@ export GIT_TEMPLATE_DIR="$DOTFILES/git/git-template-dir"
 # Options for Homebrew Cask.
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+export GOPATH="$HOME/Code/gocode/"
+
 # CUSTOM EXPORTS
 
 # Where to store gitshots.
