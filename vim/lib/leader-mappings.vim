@@ -9,6 +9,7 @@ map <Space> <Leader>
 " vi[nstall-plugins], vr[reload], ve[dit-vimrc].
 nmap <Leader>vr :source ~/.vimrc<CR>:AirlineRefresh<CR>
 nmap <Leader>ve :tabedit ~/.vimrc<CR>
+nmap <Leader>vp :tabedit ~/.vim/lib/plugins.vim<CR>
 
 " Toggle search highlighting.
 nnoremap <Leader>/ :set hlsearch!<CR>
