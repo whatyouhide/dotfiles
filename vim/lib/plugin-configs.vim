@@ -101,3 +101,6 @@ let g:StripperIgnoreFileTypes = ['mkd', 'liquid']
 let g:tex_flavor = 'latex'
 let g:LatexBox_latexmk_async = 0
 let g:LatexBox_viewer = 'open'
+let g:LatexBox_latexmk_preview_continuously = 1
+let g:LatexBox_quickfix = 2
+let g:LatexBox_build_dir = 'build'

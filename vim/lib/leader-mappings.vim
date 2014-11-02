@@ -44,4 +44,5 @@ nnoremap <Leader>tq :VimuxCloseRunner<CR>
 nnoremap <Leader>ti :VimuxInspectRunner<CR>
 nnoremap <Leader>tz :VimuxZoomRunner<CR>
 nnoremap <Leader>td :call VimuxSendKeys('C-d')<CR>
+nnoremap <Leader>tp :call VimuxPromptCommand()<CR>
 nnoremap <Leader>trr :w<CR>:call VimuxRunLastCommand()<CR>

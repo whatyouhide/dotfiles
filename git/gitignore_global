@@ -1,15 +1,4 @@
-###################
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-
-# Packages #
-############
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
+# Archives
 *.7z
 *.dmg
 *.gz
@@ -18,12 +7,10 @@
 *.tar
 *.zip
 
-# Logs and databases #
-######################
+# Logs and databases
 *.log
 
-# OS generated files #
-######################
+# OS
 .DS_Store
 .DS_Store?
 ._*
@@ -33,15 +20,6 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-# Custom stuff #
-################
-*.sublime-workspace
-*.sublime-project
+# Tools.
 .sass-cache
 node_modules
-.vagrant
-
-# Ruby and Rails development #
-##############################
-.zeus.sock
-.yardoc
