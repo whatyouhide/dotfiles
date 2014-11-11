@@ -10,7 +10,7 @@ set encoding=utf-8
 set t_Co=256
 
 " Tabs and backspace should behave cool, shouldn't they?
-set tabstop=2                   " tabs are 2 spaces width
+set tabstop=2                   " tabs are 2 spaces wide
 set expandtab                   " expand tabs to spaces
 set shiftwidth=2                " indent with two spaces
 set softtabstop=2               " just make this equal to shiftwidth
@@ -20,7 +20,7 @@ set smartindent                 " don't indent 2 spaces everytime, be smart
 " Autowrap is enabled by default if I set the textwidth option.
 set textwidth=80
 
-" Without this, vim doesn't use RVM ruby.
+" Without this, vim doesn't use RVM's Ruby.
 set shell=sh
 
 " Use per-project .vimrc files.
@@ -97,3 +97,6 @@ set clipboard=unnamed
 " Completion.
 set omnifunc=syntaxcomplete#Complete
 set completefunc=syntaxcomplete#Complete
+
+" Concealing characters is cool, right?
+set conceallevel=2
