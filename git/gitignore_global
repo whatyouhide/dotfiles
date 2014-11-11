@@ -9,6 +9,7 @@
 
 # Logs and databases
 *.log
+*.rdb
 
 # OS
 .DS_Store
