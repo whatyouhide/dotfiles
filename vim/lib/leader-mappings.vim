@@ -6,13 +6,26 @@
 let mapleader = ' '
 map <Space> <Leader>
 
+" Local leader (mainly used by LaTeX plugins like Latex-Box, still useful).
 let maplocalleader = '\'
 
 
-" vi[nstall-plugins], vr[reload], ve[dit-vimrc].
+" v<...>: vim stuff.
 nmap <Leader>vr :source ~/.vimrc<CR>:AirlineRefresh<CR>
 nmap <Leader>ve :tabedit ~/.vimrc<CR>
 nmap <Leader>vp :tabedit ~/.vim/lib/plugins.vim<CR>
+
+" g<...>: Gstatus.
+nnoremap <Leader>gs :Gstatus<CR>:resize 25<CR>
+nnoremap <Leader>gP :Gpush<CR>
+
+" t<...>: Vimux.
+nnoremap <Leader>tq :VimuxCloseRunner<CR>
+nnoremap <Leader>ti :VimuxInspectRunner<CR>
+nnoremap <Leader>tz :VimuxZoomRunner<CR>
+nnoremap <Leader>td :call VimuxSendKeys('C-d')<CR>
+nnoremap <Leader>tp :call VimuxPromptCommand()<CR>
+nnoremap <Leader>trr :w<CR>:call VimuxRunLastCommand()<CR>
 
 " Toggle search highlighting.
 nnoremap <Leader>/ :set hlsearch!<CR>
@@ -23,26 +36,8 @@ nnoremap <Leader>p <C-^>
 " m: distraction free mode (using Goyo).
 nnoremap <Leader>m :Goyo<CR>
 
-" gs: git status (via fugitive).
-nnoremap <Leader>gs :Gstatus<CR>:resize 25<CR>
-
-" d and D: Dispatch.vim stuff.
-nnoremap <Leader>d :Dispatch<Space>
-nnoremap <Leader>D :Dispatch!<Space>
-
 " it: set spelllang to italian.
 nnoremap <Leader>it :set spelllang=it<CR>
 
 " s: check with syntastic.
 nnoremap <Leader>s :SyntasticCheck<CR>
-
-" cr: reload the currently active Chrome tab.
-nnoremap <Leader>cr :call system('chrome-refresh')<CR>:echo 'Refreshing Chrome...'<CR>
-
-" Vimux.
-nnoremap <Leader>tq :VimuxCloseRunner<CR>
-nnoremap <Leader>ti :VimuxInspectRunner<CR>
-nnoremap <Leader>tz :VimuxZoomRunner<CR>
-nnoremap <Leader>td :call VimuxSendKeys('C-d')<CR>
-nnoremap <Leader>tp :call VimuxPromptCommand()<CR>
-nnoremap <Leader>trr :w<CR>:call VimuxRunLastCommand()<CR>

@@ -6,7 +6,7 @@ if filereadable(expand("~/.vim/works-in-progress.vim"))
   source ~/.vim/works-in-progress.vim
 endif
 
-" Generic bundles.
+" Generic plugins.
 Plug 'tpope/vim-surround'       " No need to explain :)
 Plug 'tpope/vim-dispatch'       " Wow! Run stuff ansynchronously
 Plug 'tpope/vim-fugitive'       " Git wrapper
@@ -14,23 +14,21 @@ Plug 'tpope/vim-endwise'        " Add 'end', 'endfunction' and so on
 Plug 'tpope/vim-repeat'         " Repeat custom commands
 Plug 'tpope/vim-unimpaired'     " Use [ and ], often
 Plug 'tpope/vim-eunuch'         " Unix utilities
-Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-vinegar'        " Better netrw
+Plug 'tpope/vim-commentary'     " Comment out stuff
 Plug 'kien/ctrlp.vim'
-Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'itspriddle/vim-stripper'
 Plug 'benmills/vimux'
+Plug 'schickling/vim-bufonly'
 
 " Approving.
-Plug 'schickling/vim-bufonly'
 Plug 'Arkham/vim-quickfixdo'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'vim-scripts/paredit.vim'
-
-Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 " Text manipulation.
 Plug 'AndrewRadev/splitjoin.vim'
@@ -42,8 +40,8 @@ Plug 'matze/vim-move', { 'on': [
 
 " Aesthetic.
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
+Plug 'scrooloose/syntastic'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " Misc.
@@ -60,7 +58,6 @@ Plug 'whatyouhide/vim-textobj-erb'
 Plug 'whatyouhide/vim-textobj-xmlattr'
 Plug 'thinca/vim-textobj-between'
 Plug 'PeterRincker/vim-argumentative'
-
 
 " OSX only.
 Plug 'henrik/vim-reveal-in-finder', { 'on': 'Reveal' }
@@ -83,7 +80,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'elixir-lang/vim-elixir'
 Plug 'wlangstroth/vim-racket'
 Plug 'fatih/vim-go'
-Plug 'guns/vim-clojure-static'
+Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 " Colorschemes.
 Plug 'chriskempson/base16-vim'
