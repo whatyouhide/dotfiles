@@ -112,9 +112,12 @@ task :create_directories do
 end
 
 namespace :vim do
-  desc "Install the Vundle plugin manager"
-  task :vundle do
-    system 'git clone https://github.com/gmarik/Vundle.vim ~/.vim/bundle/Vundle.vim.git'
+  desc "Install the vim-plug plugin manager"
+  task :plug do
+    mkdir_p '~/.vim/autoload'.expand
+    system 'curl --progress-bar -o ~/.vim/autoload/plug.vim \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    system 'vim +PlugInstall +qall'
   end
 
   desc '"Import error"? SEGFAULT? Explosions around your house? vim:halp ftw!'
@@ -129,6 +132,13 @@ namespace :vim do
     brew 'linkapps'
     brew 'link python'
   end
+end
+
+task :chsh do
+  path = '/usr/local/bin/zsh'
+  fail('Install zsh with brew!') unless path.exist?
+  system "sudo echo #{path} >> /etc/shells"
+  system "chsh #{`whoami`} -s #{path}"
 end
 
 desc "Clone the tmuxinator projects to ~/.tmuxinator"

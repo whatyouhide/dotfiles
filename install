@@ -13,10 +13,13 @@ function echo_info() { echo_colored "$1" "$CYAN"; }
 function newline() { echo; }
 
 
-# Stop execution if the $DOTFILES environment variable is not set.
+# Stop execution if the $DOTFILES environment variable is not set or if zsh is
+# not present.
 if [ -z "$DOTFILES" ]; then
-  echo_error 'Set the $DOTFILES env variable before running this.'
-  exit 1
+  echo_error 'Set the $DOTFILES env variable before running this.' && exit 1
+fi
+if ! type zsh >/dev/null 2>&1; then
+  echo_error '"zsh" is required but is not installed' && exit 1
 fi
 
 

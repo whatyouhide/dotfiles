@@ -2,8 +2,8 @@ call plug#begin('~/.vim/bundle')
 
 " Source local plugins before everything else (in order to be able to override
 " existing plugins).
-if filereadable(expand("~/.vim/works-in-progress.vim"))
-  source ~/.vim/works-in-progress.vim
+if filereadable(expand("~/.vim/tmp-plugins.vim"))
+  source ~/.vim/tmp-plugins.vim
 endif
 
 " Generic plugins.

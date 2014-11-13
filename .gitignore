@@ -2,7 +2,7 @@
 vim/.netrwhist
 vim/bundle
 vim/spell
-vim/works-in-progress.vim
+vim/tmp-plugins.vim
 vim/autoload/plug.vim*
 
 # zsh
