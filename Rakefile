@@ -31,11 +31,6 @@ module H
     @config ||= YAML.load_file(DOTFILES/'config.yml')
   end
 
-  def self.copy_zshenv
-    return if (DOTFILES/'zsh/zshenv').exist?
-    cp (DOTFILES/'zsh/zshenv.example'), (DOTFILES/'zsh/zshenv')
-  end
-
   # Module to handle symlinks.
   module Symlinks
     extend Rake::FileUtilsExt
@@ -90,7 +85,6 @@ end
 
 desc "Create the necessary symlinks, overriding existing files in ~"
 task :install do
-  H.copy_zshenv
   H::Symlinks.install_default!
   H::Symlinks.install_custom!
 end
