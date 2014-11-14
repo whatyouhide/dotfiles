@@ -1,4 +1,0 @@
-export VIM_LIGHT_COLORSCHEME='solarized'
-export VIM_DARK_COLORSCHEME='gotham'
-
-export DOTFILES_ZSH_PROMPT='freedom'
