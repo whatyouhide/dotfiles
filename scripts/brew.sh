@@ -13,10 +13,9 @@ echo_warning() { echo "$fg[yellow]$@$reset_color" }
 is-installed() { [[ -n `command brew ls --versions $1` ]] }
 
 # Brew commands.
-brew()      { echo -n '=> '; echo_info "brew" $@; command brew $@ }
-tap()       { brew tap $1 }
-install()   { brew install $@ }
-instacask() { brew cask install $@ }
+brew()    { echo -n '=> '; echo_info "brew" $@; command brew $@ }
+tap()     { brew tap $1 }
+install() { brew install $@ }
 
 
 # Updates and taps =============================================================
@@ -58,7 +57,6 @@ install z
 install git
 install hub
 install git-flow
-install gith
 install ghi
 
 # Tools.
@@ -90,57 +88,10 @@ install todo-txt
 install archey
 install cloc
 
-# Linkings.
+
+# Wrapping up =================================================================
+
 brew link python
 brew link python3
-
-
-# Cask ========================================================================
-
-install brew-cask
-
-# Utilities.
-instacask spectacle
-instacask flux
-instacask the-unarchiver
-instacask caffeine
-instacask appcleaner
-instacask karabiner
-instacask alfred
-
-# Dev.
-instacask iterm2-nightly
-instacask google-chrome google-chrome-canary
-instacask firefox-aurora
-instacask opera
-instacask textmate
-
-# Misc.
-instacask copy
-instacask dropbox
-instacask google-drive
-instacask ynab
-instacask vlc
-instacask onepassword
-instacask keycastr
-instacask licecap
-instacask shiori
-instacask spotify
-
-# Communication.
-instacask telegram
-instacask skype
-
-# QuickLook plugins.
-instacask qlcolorcode qlstephen qlmarkdown betterzipql
-
-
-# Cleanup =====================================================================
-
-brew linkapps
-brew cleanup -s
-
-brew cask alfred link
-brew cask cleanup
 
 brew doctor
