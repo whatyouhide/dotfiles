@@ -7,6 +7,4 @@ vim/autoload/plug.vim*
 
 # zsh
 zsh/zshenv
-
-# Machine-specific config files.
-colorschemes
+zsh/antigen.zsh

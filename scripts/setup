@@ -1,0 +1,52 @@
+#!/bin/bash
+
+echo_colored() { echo -e "${2}$1\033[0m"; }
+fail()         { echo_colored "$1" "\033[1;31m"; exit 1; }
+echo_info()    { echo_colored "==> $1" "\033[1;36m"; }
+newline()      { echo; }
+
+
+check_env_variables() {
+  [[ -n "$DOTFILES" ]] || fail 'The $DOTFILES env variable is not set'
+}
+
+prepare_symlink() {
+  local _prepared=".$(basename ${1%.symlink})"
+  echo -n "$_prepared"
+}
+
+symlink_files() {
+  echo_info "Symlinking all files ending in '.symlink'"
+  local _files=$(find $DOTFILES -name '*.symlink')
+
+  for abs_file in $_files; do
+    ln -sfv "$abs_file" "$HOME/$(prepare_symlink $abs_file)"
+  done
+
+  newline
+}
+
+run_install_scripts() {
+  local _files=$(find $DOTFILES -name 'install.sh')
+
+  for file in $_files; do
+    echo_info "Running ${file#$DOTFILES/}"
+    bash "$file"
+    newline
+  done
+}
+
+main() {
+  case "$1" in
+    "vim-plug")
+      vim +PlugInstall +qall
+      ;;
+    "")
+      check_env_variables
+      symlink_files
+      run_install_scripts
+      ;;
+  esac
+}
+
+main "$@"
