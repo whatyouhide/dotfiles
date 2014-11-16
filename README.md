@@ -1,3 +1,9 @@
-# OSX (and some Linux) dotfiles
+# Dotfiles
 
-Major refactoring in process - better README coming soon!
+## Installation
+
+One-liner:
+
+``` bash
+curl -s http://dotfiles.whatyouhi.de/install | bash
+```

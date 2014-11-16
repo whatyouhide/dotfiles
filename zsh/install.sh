@@ -9,3 +9,8 @@ if [[ ! -s "$ROOT/antigen.zsh" ]]; then
   _url='https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh'
   curl -# --output "$ROOT/antigen.zsh" "$_url"
 fi
+
+# zshenv
+if [[ ! -e "$HOME/.zshenv" ]]; then
+  cp -v "$ROOT/zshenv.example" "$HOME/.zshenv"
+fi

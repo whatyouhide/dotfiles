@@ -8,3 +8,6 @@ vim/autoload/plug.vim*
 # zsh
 zsh/zshenv
 zsh/antigen.zsh
+
+# Vagrant.
+.vagrant

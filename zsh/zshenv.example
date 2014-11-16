@@ -1,8 +1,6 @@
 # Path to the dotfiles.
 export DOTFILES="$HOME/dotfiles"
 
-# Where zsh configurations are stored.
+# zsh config.
 export ZSH_CONFIG="$DOTFILES/zsh"
-
-# Where vim configurations are stored.
-export VIM_CONFIG="$DOTFILES/vim"
+export ZSH_PROMPT="freedom"

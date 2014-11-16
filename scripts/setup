@@ -18,7 +18,6 @@ symlink_files() {
     local _symlinked=".$(basename ${abs_file%.symlink})"
     ln -sfv "$abs_file" "$HOME/$_symlinked"
   done
-
   newline
 }
 
@@ -31,6 +30,7 @@ run_install_scripts() {
     echo_info "Running ${file#$DOTFILES/}"
     bash "$file"
   done
+  newline
 }
 
 main() {

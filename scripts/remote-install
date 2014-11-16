@@ -12,13 +12,18 @@ is_osx()       { [[ $(uname) == 'Darwin' ]]; }
 
 
 change_shell_to_zsh() {
-  [[ "$SHELL" =~ 'zsh' ]] || chsh -s "$(which zsh)" "$(whoami)"
+  [[ "$SHELL" =~ 'zsh' ]] && return
+
+  echo_info "Changing shell to $(which zsh)"
+  chsh -s "$(which zsh)" "$(whoami)" < /dev/tty
+  newline
 }
 
 clone_dotfiles() {
   [[ -e "$DOTFILES" ]] && return
   echo_info 'Cloning dotfiles from GitHub'
-  [[ -e "$DOTFILES" ]] || command git clone "$REPO_URL" "$DOTFILES" && newline
+  [[ -e "$DOTFILES" ]] || command git clone "$REPO_URL" "$DOTFILES"
+  newline
 }
 
 ensure_xcode() {
@@ -51,6 +56,9 @@ main() {
   clone_dotfiles
   change_shell_to_zsh
   is_osx && install_homebrew
+
+  cd "$DOTFILES"
+  ./scripts/setup
 }
 
 main "$@"
