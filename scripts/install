@@ -1,63 +1,56 @@
 #!/bin/bash
 
-# Define some colors and printing functions.
-RED="\033[1;31m"
-GREEN="\033[1;33m"
-CYAN="\033[1;36m"
-END="\033[0m"
+REPO_URL='https://github.com/whatyouhide/dotfiles.git'
 
-function echo_colored() { echo -e "${2}$1${END}"; }
-function echo_ok() { echo_colored "$1" "$GREEN"; }
-function echo_error() { echo_colored "$1" "$RED"; }
-function echo_info() { echo_colored "$1" "$CYAN"; }
-function newline() { echo; }
+# Utility functions.
+echo_colored() { echo -e "${2}$1\033[0m"; }
+echo_info()    { echo -n '==> '; echo_colored "$1" "\033[1;36m"; }
+fail()         { echo_colored "$1" "\033[1;31m" && exit 1; }
+newline()      { echo; }
+exists()       { type "$1" >/dev/null 2>&1; }
+is_osx()       { [[ $(uname) == 'Darwin' ]]; }
 
 
-# Stop execution if the $DOTFILES environment variable is not set or if zsh is
-# not present.
-if [ -z "$DOTFILES" ]; then
-  echo_error 'Set the $DOTFILES env variable before running this.' && exit 1
-fi
-if ! type zsh >/dev/null 2>&1; then
-  echo_error '"zsh" is required but is not installed' && exit 1
-fi
+change_shell_to_zsh() {
+  [[ "$SHELL" =~ 'zsh' ]] || chsh -s "$(which zsh)" "$(whoami)"
+}
 
+clone_dotfiles() {
+  [[ -e "$DOTFILES" ]] && return
+  echo_info 'Cloning dotfiles from GitHub'
+  [[ -e "$DOTFILES" ]] || command git clone "$REPO_URL" "$DOTFILES" && newline
+}
 
-# Proceed only if the user is sure she installed the command-line tools and
-# agreed to the Xcode license. No need to install Xcode anymore!
-echo_info 'Before going on, I need to be sure you installed the command-line'
-echo_info 'tools and agreed to the Xcode license. Since xcodebuild is kind of'
-echo_info 'an asshole, just install Xcode and do yourself a favor. Then:'
-echo      '  xcode-select --install'
-echo      '  sudo xcodebuild -license'
+ensure_xcode() {
+  echo_info 'I need to be sure you installed the command-line tools and agreed'
+  echo_info 'to the Xcode license. After installing Xcode, do:'
+  echo      '  xcode-select --install'
+  echo      '  sudo xcodebuild -license'
+  read -p 'Did you? [yn] ' -n 1 < /dev/tty
+  newline
 
-# Read from the terminal please :(
-read -p 'Did you? [yn] ' -n 1 < /dev/tty
-newline
-if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-  echo_ok 'Ok, see you later then!'
-  exit 0
-fi
+  [[ $REPLY == "y" ]] || exit 0
+}
 
+install_homebrew() {
+  exists brew && return
+  echo_info "Installing Homebrew"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  newline
+}
 
+check_for_stuff() {
+  [[ -z "$DOTFILES" ]] && fail '$DOTFILES is not set'
+  exists git || fail 'git is required but not installed'
+  exists zsh || fail 'zsh is required but not installed'
+  is_osx && ensure_xcode
+}
 
-echo_info "Cloning dotfiles from GitHub"
-git clone https://github.com/whatyouhide/dotfiles.git "$DOTFILES"
-newline
+main() {
+  check_for_stuff
+  clone_dotfiles
+  change_shell_to_zsh
+  is_osx && install_homebrew
+}
 
-echo_info "Installing RVM"
-curl -sSL https://get.rvm.io | bash -s stable --ruby --ignore-dotfiles
-newline
-
-echo_info "Installing Homebrew"
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-newline
-
-echo_info "Just to be sure, removing ~/.profile and ~/.zprofile"
-rm -v ~/.profile ~/.zprofile
-newline
-
-
-echo_info 'Be sure to reload your shell in order to see changes'
-echo_info 'Also hop up into $DOTFILES and list rake tasks with `rake -T`'
-echo_ok   'Finally, `zsh` in order to use zsh'
+main "$@"

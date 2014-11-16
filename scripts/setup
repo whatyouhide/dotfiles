@@ -10,37 +10,35 @@ check_env_variables() {
   [[ -n "$DOTFILES" ]] || fail 'The $DOTFILES env variable is not set'
 }
 
-prepare_symlink() {
-  local _prepared=".$(basename ${1%.symlink})"
-  echo -n "$_prepared"
-}
-
 symlink_files() {
   echo_info "Symlinking all files ending in '.symlink'"
   local _files=$(find $DOTFILES -name '*.symlink')
 
   for abs_file in $_files; do
-    ln -sfv "$abs_file" "$HOME/$(prepare_symlink $abs_file)"
+    local _symlinked=".$(basename ${abs_file%.symlink})"
+    ln -sfv "$abs_file" "$HOME/$_symlinked"
   done
 
   newline
 }
 
-run_install_scripts() {
-  local _files=$(find $DOTFILES -name 'install.sh')
+install_rvm() {
+  curl -sSL -# https://get.rvm.io | bash -s stable --ruby --ignore-dotfiles
+}
 
-  for file in $_files; do
+run_install_scripts() {
+  for file in $(find $DOTFILES -name 'install.sh'); do
     echo_info "Running ${file#$DOTFILES/}"
     bash "$file"
-    newline
   done
 }
 
 main() {
   case "$1" in
     "vim-plug")
-      vim +PlugInstall +qall
-      ;;
+      vim +PlugInstall +qall ;;
+    "rvm")
+      install_rvm ;;
     "")
       check_env_variables
       symlink_files
