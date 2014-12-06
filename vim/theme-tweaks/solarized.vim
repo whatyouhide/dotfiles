@@ -22,4 +22,4 @@ highlight clear TabLine
 highlight clear TabLineFill
 
 " listchar
-highlight SpecialKey ctermbg=none
+highlight SpecialKey ctermbg=none cterm=none
