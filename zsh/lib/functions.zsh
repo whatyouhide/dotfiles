@@ -4,7 +4,7 @@ compdef g=git
 g() {
   local cmd='git'
   command-exists hub && cmd='hub'
-  ([[ $# > 0 ]] && command $cmd "$@") || command $cmd status
+  ([[ $# > 0 ]] && command "$cmd" "$@") || command "$cmd" status
 }
 
 
@@ -16,7 +16,7 @@ zeep() {
 }
 
 
-# Server the current directory on a given port, which defaults to port 3000.
+# Serve the current directory on a given port, which defaults to 3000.
 serve() {
   port="${1:-3000}"
   ruby -run -e httpd . -p $port

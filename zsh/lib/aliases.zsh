@@ -17,7 +17,6 @@ fi
 command-exists 'todo.sh' && alias t=todo.sh
 
 # Common aliases.
-alias v='vim'
 alias x='exit'
 
 # Ruby development.
@@ -36,13 +35,5 @@ alias clean-ds-stores="find . -name '*.DS_Store' -type f -ls -delete"
 
 # OSX specific aliases.
 if is-osx; then
-  # Homebrew.
   alias b='brew'
-  alias bc='brew cask'
-fi
-
-# Linux specific aliases (mostly Debian/*buntu).
-if is-linux; then
-  alias ss='sudo service'
-  alias apt='sudo apt-get'
 fi
