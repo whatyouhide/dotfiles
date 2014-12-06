@@ -15,17 +15,22 @@ nmap <Leader>vr :source ~/.vimrc<CR>:AirlineRefresh<CR>
 nmap <Leader>ve :tabedit ~/.vimrc<CR>
 nmap <Leader>vp :tabedit ~/.vim/lib/plugins.vim<CR>
 
-" g<...>: Gstatus.
+" g<...>: fugitive.
 nnoremap <Leader>gs :Gstatus<CR>:resize 25<CR>
 nnoremap <Leader>gP :Gpush<CR>
 
 " t<...>: Vimux.
-nnoremap <Leader>tq :VimuxCloseRunner<CR>
-nnoremap <Leader>ti :VimuxInspectRunner<CR>
-nnoremap <Leader>tz :VimuxZoomRunner<CR>
-nnoremap <Leader>td :call VimuxSendKeys('C-d')<CR>
+nnoremap <Leader>tc :call VimuxCloseRunner()<CR>
+nnoremap <Leader>ti :call VimuxInspectRunner()<CR>
+nnoremap <Leader>tz :call VimuxZoomRunner()<CR>
 nnoremap <Leader>tp :call VimuxPromptCommand()<CR>
+nnoremap <Leader>tt :call VimuxRunTestCommand()<CR>
 nnoremap <Leader>trr :w<CR>:call VimuxRunLastCommand()<CR>
+nnoremap <Leader>tcd :call VimuxRunCommand('cd ' . getcwd())<CR>
+
+" (l?)cd: cd to the current file's directory.
+nnoremap <Leader>cd :cd %:p:h<CR>
+nnoremap <Leader>lcd :lcd %:p:h<CR>
 
 " Toggle search highlighting.
 nnoremap <Leader>/ :set hlsearch!<CR>

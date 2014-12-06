@@ -104,3 +104,12 @@ let g:LatexBox_viewer = 'open -a Skim'
 let g:LatexBox_latexmk_preview_continuously = 1
 let g:LatexBox_quickfix = 2
 let g:LatexBox_show_warnings = 1
+let g:LatexBox_Folding = 1
+let g:LatexBox_latexmk_options = '--shell-escape'
+
+
+" vim-go
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1

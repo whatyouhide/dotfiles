@@ -29,49 +29,10 @@ function! TweakColorscheme()
   endif
 endfunction
 
-
-" Eat a character matching
-function! AbbrevEatSpace()
-  let c = nr2char(getchar(0))
-  return (c =~ '\s') ? '' : c
-endfunction
-
-" Create an abbreviation (with 'iabbrev'). If the third parameter is
-" 'spaceless', the space after the abbreviation will disappear.
-function! Abbrev(from, to, ...)
-  let cmd = join(['iabbrev <silent>', a:from, a:to], ' ')
-
-  if a:0 > 0 && a:1 ==? 'spaceless'
-    let cmd .= '<C-R>=AbbrevEatSpace()<CR>'
-  endif
-
-  exec cmd
-endfunction
-
-
-" Get the currently visually selected text.
-" Thanks to http://goo.gl/4MCjnS
-function! VisualSelection()
-  let [lnum1, col1] = getpos("'<")[1:2]
-  let [lnum2, col2] = getpos("'>")[1:2]
-  let lines = getline(lnum1, lnum2)
-  let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
-  let lines[0] = lines[0][col1 - 1:]
-  return join(lines, "\n")
-endfunction
-
-
-" Sent the visually selected text to a tmux pane through Vimux (this emulates
-" the functionality of tslime.vim).
-function! VimuxSlime(...)
-  let text = VisualSelection()
-  call VimuxOpenRunner()
-  call VimuxSendText(text)
-
-  if a:0 > 0
-    let after_keys = a:1
-    call VimuxSendText(after_keys)
+function! VimuxRunTestCommand()
+  if exists('b:vimux_test_command')
+    call VimuxRunCommand('clear; ' . b:vimux_test_command)
   else
-    call VimuxSendText("\n")
+    echo 'The b:vimux_test_command variable is not defined.'
   endif
 endfunction
