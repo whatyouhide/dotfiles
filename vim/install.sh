@@ -5,6 +5,10 @@ ROOT="$DOTFILES/vim"
 # Link the main vim directory (after removing the symlink in ~).
 rm -f "$HOME/.vim" && ln -sv "$ROOT" "$HOME/.vim"
 
+if [[ ! -e "$HOME/.colors.vim" ]]; then
+  cp -v "$ROOT/colors.vim.example" "$HOME/.colors.vim"
+fi
+
 # Temporary plugins.
 touch "$ROOT/tmp-plugins.vim"
 

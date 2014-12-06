@@ -43,6 +43,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/syntastic'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'whatyouhide/vim-lengthmatters'
 
 " Misc.
 Plug 'mattn/webapi-vim', { 'on': 'Gist' }
@@ -81,6 +82,8 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'wlangstroth/vim-racket'
 Plug 'fatih/vim-go'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'JuliaLang/julia-vim'
+Plug 'whatyouhide/vim-tmux-syntax'
 
 " Colorschemes.
 Plug 'chriskempson/base16-vim'

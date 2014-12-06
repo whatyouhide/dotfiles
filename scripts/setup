@@ -33,8 +33,17 @@ run_install_scripts() {
   newline
 }
 
+show_help() {
+  echo "  scripts/setup          # Symlink and run install.sh scripts"
+  echo "  scripts/setup help     # Show this help"
+  echo "  scripts/setup vim-plug # Install vim-plug"
+  echo "  scripts/setup rvm      # Install RVM"
+}
+
 main() {
   case "$1" in
+    "help")
+      show_help ;;
     "vim-plug")
       vim +PlugInstall +qall ;;
     "rvm")

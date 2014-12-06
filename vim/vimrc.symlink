@@ -18,10 +18,11 @@ runtime macros/matchit.vim
 source ~/.vim/lib/options.vim
 source ~/.vim/lib/functions.vim
 source ~/.vim/lib/autocmds.vim
-source ~/.vim/lib/commands.vim
 source ~/.vim/lib/mappings.vim
 source ~/.vim/lib/leader-mappings.vim
 source ~/.vim/lib/plugin-configs.vim
+
+if FileExists('~/.colors.vim') | source ~/.colors.vim | endif
 source ~/.vim/lib/colorscheme-setup.vim
 
 " Non version-controlled sourcing.

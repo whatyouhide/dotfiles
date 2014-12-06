@@ -1,0 +1,5 @@
+let g:colorscheme_light = 'solarized'
+let g:colorscheme_dark = 'gotham'
+
+let g:day_starts_at = 9
+let g:day_ends_at = 17
