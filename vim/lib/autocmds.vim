@@ -42,13 +42,6 @@ augroup filetypes
   " Set some file types.
   autocmd BufRead,BufNewFile *.md,*.mmd,*.markdown,*.md.erb set filetype=mkd
 
-  " Turn spell-checking on for specific filetypes.
+  " Turn spell-checking on for git commits.
   autocmd FileType gitcommit setlocal spell
-  autocmd FileType mkd setlocal spell
-
-  " Markdown specific options.
-  autocmd FileType mkd setlocal textwidth=80
-  autocmd FileType mkd setlocal shiftwidth=4
-  autocmd FileType mkd setlocal tabstop=4
-  autocmd FileType mkd setlocal softtabstop=4
 augroup END
