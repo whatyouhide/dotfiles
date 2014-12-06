@@ -25,7 +25,4 @@ source ~/.vim/lib/plugin-configs.vim
 source ~/.vim/lib/colorscheme-setup.vim
 
 " Non version-controlled sourcing.
-if isdirectory($HOME . '/Dropbox/Applications/vim')
-  source ~/Dropbox/Applications/vim/*.vim
-endif
 if FileExists('~/.extra.vim') | source ~/.extra.vim | endif
