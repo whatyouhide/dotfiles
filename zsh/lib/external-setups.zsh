@@ -4,6 +4,9 @@
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 export rvm_reload_flag=1
 
+# Kiex.
+[[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
+
 # Direnv.
 command-exists direnv && eval "$(direnv hook zsh)"
 

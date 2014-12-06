@@ -25,6 +25,11 @@ install_rvm() {
   curl -sSL -# https://get.rvm.io | bash -s stable --ruby --ignore-dotfiles
 }
 
+install_kiex() {
+  local _url="https://raw.githubusercontent.com/taylor/kiex/master/install"
+  \curl -sSL "$_url" | bash -s
+}
+
 run_install_scripts() {
   for file in $(find $DOTFILES -name 'install.sh'); do
     echo_info "Running ${file#$DOTFILES/}"
@@ -48,6 +53,8 @@ main() {
       vim +PlugInstall +qall ;;
     "rvm")
       install_rvm ;;
+    "kiex")
+      install_kiex ;;
     "")
       check_env_variables
       symlink_files
