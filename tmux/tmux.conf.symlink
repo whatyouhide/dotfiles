@@ -126,6 +126,6 @@ set -g status-right "#[fg=colour3]#(is-online) #[fg=colour9]#(osx-battery) #[fg=
 
 setw -g window-status-separator ""
 setw -g window-status-style "fg=colour12"
-setw -g window-status-format "#[fg=colour11] #I #W"
-setw -g window-status-current-format "#[fg=colour4] #I #W"
+setw -g window-status-format "#[fg=colour11] #W"
+setw -g window-status-current-format "#[fg=colour2] #W"
 setw -g window-status-activity-style "fg=colour12,bold"
