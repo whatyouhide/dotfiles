@@ -10,6 +10,9 @@ fi
 # Go code.
 export PATH="$PATH:$GOPATH/bin"
 
+# Elixir.
+export PATH="$PATH:$HOME/.ex_doc/bin"
+
 # MacTex.
 export PATH="$PATH:/usr/texbin"
 

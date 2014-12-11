@@ -30,6 +30,16 @@ install_kiex() {
   \curl -sSL "$_url" | bash -s
 }
 
+install_ex_doc() {
+  local _path="$HOME/.ex_doc"
+  local _url="https://github.com/elixir-lang/ex_doc.git"
+  local _pwd="$(pwd)"
+  command git clone "$_url" "$_path"
+  cd "$_path"
+  mix do deps.get, compile
+  cd "$_pwd"
+}
+
 run_install_scripts() {
   for file in $(find $DOTFILES -name 'install.sh'); do
     echo_info "Running ${file#$DOTFILES/}"
@@ -55,6 +65,8 @@ main() {
       install_rvm ;;
     "kiex")
       install_kiex ;;
+    "ex_doc")
+      install_ex_doc ;;
     "")
       check_env_variables
       symlink_files
