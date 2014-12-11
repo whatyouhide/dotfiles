@@ -58,3 +58,5 @@
 [ghi]
   pager = less
 	token = !security find-internet-password -a whatyouhide -s github.com -l 'ghi token' -w
+[url "https://"]
+	insteadOf = git://
