@@ -46,3 +46,6 @@ nnoremap <Leader>it :set spelllang=it<CR>
 
 " s: check with syntastic.
 nnoremap <Leader>s :SyntasticCheck<CR>
+
+" cob: toggle between the custom light and dark backgrounds.
+nnoremap <Leader>cob :call ToggleLightAndDarkColorschemes()<CR>

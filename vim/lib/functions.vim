@@ -29,6 +29,16 @@ function! TweakColorscheme()
   endif
 endfunction
 
+" Toggle between dark and light colorschemes as defined by the
+" `g:colorscheme_[light|dark]` variables.
+function! ToggleLightAndDarkColorschemes()
+  if g:colors_name ==# g:colorscheme_light
+    execute 'colorscheme ' . g:colorscheme_dark
+  else
+    execute 'colorscheme ' . g:colorscheme_light
+  endif
+endfunction
+
 function! VimuxRunTestCommand()
   if exists('b:vimux_test_command')
     call VimuxRunCommand('clear; ' . b:vimux_test_command)
