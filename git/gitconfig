@@ -1,6 +1,7 @@
 # Aliases.
 [alias]
   c = commit
+  ch = checkout
   st = status
   s = status -s
   df = diff --color --color-words --abbrev
