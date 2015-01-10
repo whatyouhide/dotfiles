@@ -1,6 +1,7 @@
 tmuxinator
 git-up
 launchy
+rerun
 
 pry
 yard
@@ -8,3 +9,4 @@ wwtd
 
 bundler
 executable-hooks
+
