@@ -9,3 +9,5 @@ if getcwd() =~ 'exercism'
     endif
   endfor
 end
+
+set wildignore+=docs/*,deps/*
