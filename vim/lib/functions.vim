@@ -34,8 +34,10 @@ endfunction
 function! ToggleLightAndDarkColorschemes()
   if g:colors_name ==# g:colorscheme_light
     execute 'colorscheme ' . g:colorscheme_dark
+    set bg=dark
   else
     execute 'colorscheme ' . g:colorscheme_light
+    set bg=light
   endif
 endfunction
 
