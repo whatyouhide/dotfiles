@@ -57,8 +57,8 @@ let g:UltiSnipsSnippetsDir = '~/.vim/'. g:UltiSnipsSnippetDirectories[0]
 
 " CtrlP
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_match_window =
-      \ 'bottom,order:btt,min:6,max:6'
+let g:ctrlp_match_window = 'bottom,order:btt,min:6,max:6'
+let g:ctrlp_tabpage_position = 'l' " (last)
 let g:ctrlp_custom_ignore =
       \ '\v[\/](\.DS_Store|\.git|node_modules|\.sass-cache|tmp)$'
 
@@ -95,6 +95,13 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 " Stripper
 let g:StripperIgnoreFileTypes = ['mkd', 'liquid']
+
+
+" vim-lengthmatters
+let g:lengthmatters_excluded = [
+      \   'unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m',
+      \   'nerdtree', 'help', 'qf', 'Dockerfile'
+      \ ]
 
 
 " Latex-Box.

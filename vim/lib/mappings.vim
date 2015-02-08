@@ -33,6 +33,10 @@ nnoremap N Nzz
 " Dispatch is so useful! (other mappings in leader-mappings.vim)
 nnoremap d<CR> :Dispatch<CR>
 
+" GitGutter stuff (similar to what unimpaired.vim does).
+nnoremap [h :GitGutterPrevHunk<CR>
+nnoremap ]h :GitGutterNextHunk<CR>
+
 
 " Ctrl-keys
 

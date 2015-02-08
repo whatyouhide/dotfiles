@@ -78,12 +78,14 @@ Plug 'plasticboy/vim-markdown', { 'for': 'mkd' }
 Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
-Plug 'elixir-lang/vim-elixir'
+" Plug 'elixir-lang/vim-elixir'
 Plug 'wlangstroth/vim-racket'
 Plug 'fatih/vim-go'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'JuliaLang/julia-vim'
 Plug 'whatyouhide/vim-tmux-syntax'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'kennethzfeng/vim-raml'
 
 " Colorschemes.
 Plug 'chriskempson/base16-vim'

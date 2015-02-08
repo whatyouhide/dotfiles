@@ -32,14 +32,17 @@ nnoremap <Leader>tcd :call VimuxRunCommand('cd ' . getcwd())<CR>
 nnoremap <Leader>cd :cd %:p:h<CR>
 nnoremap <Leader>lcd :lcd %:p:h<CR>
 
+" m<...>: Mix.
+nnoremap <Leader>mt :Mix test %<CR>
+
 " Toggle search highlighting.
 nnoremap <Leader>/ :set hlsearch!<CR>
 
 " p: go to the previously open file.
 nnoremap <Leader>p <C-^>
 
-" m: distraction free mode (using Goyo).
-nnoremap <Leader>m :Goyo<CR>
+" df: distraction free mode (using Goyo).
+nnoremap <Leader>df :Goyo<CR>
 
 " it: set spelllang to italian.
 nnoremap <Leader>it :set spelllang=it<CR>

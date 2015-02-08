@@ -10,4 +10,4 @@ if getcwd() =~ 'exercism'
   endfor
 end
 
-set wildignore+=docs/*,deps/*
+set wildignore+=*/docs,*/deps

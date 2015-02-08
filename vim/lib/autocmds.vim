@@ -14,6 +14,8 @@ augroup custom_misc
   " for you to press other keys.
   autocmd InsertEnter * set timeoutlen=0
   autocmd InsertLeave * set timeoutlen=800
+
+  autocmd User EnterMixProject set wildignore+=*/deps,*/_build
 augroup END
 
 
