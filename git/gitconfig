@@ -47,8 +47,8 @@
 
 # Personal stuff.
 [user]
-  name = Andrea Leopardi
-  email = an.leopardi@gmail.com
+	name = Andrea Leopardi
+	email = an.leopardi@gmail.com
 [credential]
 	helper = osxkeychain
 [github]
