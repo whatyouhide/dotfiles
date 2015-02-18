@@ -22,3 +22,5 @@ if has('gui_macvim')
 elseif has('gui_gtk')
   set guifont=Inconsolata-g\ Medium\ 11
 end
+
+colorscheme monokai

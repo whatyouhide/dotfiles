@@ -16,12 +16,6 @@ fi
 # todo.txt
 command-exists 'todo.sh' && alias t=todo.sh
 
-# Common aliases.
-alias x='exit'
-
-# Ruby development.
-alias be="bundle exec"
-
 # tmux.
 alias thack='tmux new-session -As hack'
 
@@ -31,9 +25,3 @@ alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo
 
 # Recursively delete `.DS_Store` files
 alias clean-ds-stores="find . -name '*.DS_Store' -type f -ls -delete"
-
-
-# OSX specific aliases.
-if is-osx; then
-  alias b='brew'
-fi
