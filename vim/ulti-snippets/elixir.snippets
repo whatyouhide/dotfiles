@@ -1,0 +1,62 @@
+global !p
+# Converts underscore_syntax to CamelCase.
+def underscore_to_camelcase(string):
+		return ''.join(map(lambda s: s.capitalize(), string.split('_')))
+
+# Converts a `path` to an Elixir module name. The path is assumed to be without
+# finale extension. Example: foo/bar/baz_bong => Foo.Bar.BazBong
+def convert_to_module(path):
+		components = path.split('/')
+		aliases    = map(underscore_to_camelcase, components)
+		return '.'.join(aliases)
+
+# Returns the proper Elixir module name given a `path` (assumed to be in
+# `lib/`).
+def module_from_path(path):
+		path       = re.sub(r'^lib/', '', path)
+		path, _ext = os.path.splitext(path)
+		return convert_to_module(path)
+
+# Returns the a proper Elixir module name given a `path` (assumed to be a test
+# inside `test/`).
+def module_from_test_path(path):
+		path = re.sub(r'^test/', '', path)
+		path = re.sub(r'_test\.exs$', '', path)
+		return convert_to_module(path)
+endglobal
+
+snippet defm "Regular module definition" b
+defmodule $1 do
+	$2
+end
+endsnippet
+
+snippet defmod "Automatically-named-module definition" b
+defmodule `!p snip.rv = module_from_path(path)` do
+	$1
+end
+endsnippet
+
+snippet deft "Regular test module definition" b
+defmodule $1Test do
+	use ExUnit.Case, async: true
+	alias `!p snip.rv = t[1]`
+
+	$2
+end
+endsnippet
+
+snippet deftest "Automatically-named-test-module definition" b
+defmodule `!p snip.rv = module_from_test_path(path)`Test do
+	use ExUnit.Case, async: true
+	alias `!p snip.rv = module_from_test_path(path)`
+
+	$2
+end
+endsnippet
+
+snippet t "Single test macro" b
+test "$1" do
+	$2
+end
+endsnippet
