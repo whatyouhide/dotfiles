@@ -86,13 +86,11 @@ Plug 'JuliaLang/julia-vim'
 Plug 'whatyouhide/vim-tmux-syntax'
 Plug 'kennethzfeng/vim-raml'
 Plug 'evanmiller/nginx-vim-syntax'
+Plug 'mustache/vim-mustache-handlebars'
 
 " Colorschemes.
 Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'whatyouhide/vim-gotham'
-Plug 'sickill/vim-monokai'
-Plug 'larssmit/vim-getafe'
-Plug 'tomasr/molokai'
 
 call plug#end()
