@@ -118,11 +118,11 @@ set -g message-style "none"
 
 set -g status-left-style "none"
 set -g status-left-length "100"
-set -g status-left "#[fg=colour6][#S] #[fg=colour2]#{pane_current_path} "
+set -g status-left "#[fg=colour6]#S #[fg=colour2]#{pane_current_path} "
 
 set -g status-right-style "none"
 set -g status-right-length "100"
-set -g status-right "#[fg=colour3]#(is-online) #[fg=colour9]#(osx-battery) #[fg=colour4]%l:%M %p #[fg=colour6]#(whoami)"
+set -g status-right "#[fg=colour9]#(osx-battery) #[fg=colour4]%l:%M %p"
 
 setw -g window-status-separator ""
 setw -g window-status-style "fg=colour12"
