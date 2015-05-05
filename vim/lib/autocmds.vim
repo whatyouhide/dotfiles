@@ -21,12 +21,12 @@ augroup END
 
 " Relative line numbers in normal mode, regular in insert mode.
 augroup custom_linenr
-  autocmd!
+  " autocmd!
 
-  au InsertEnter,WinLeave,FocusLost *
-        \ if !exists('#goyo') | set norelativenumber | endif
-  au InsertLeave,WinEnter,FocusGained *
-        \ if !exists('#goyo') | set relativenumber | endif
+  " au InsertEnter,WinLeave,FocusLost *
+  "       \ if !exists('#goyo') | set norelativenumber | endif
+  " au InsertLeave,WinEnter,FocusGained *
+  "       \ if !exists('#goyo') | set relativenumber | endif
 augroup END
 
 
@@ -43,6 +43,9 @@ augroup filetypes
 
   " Set some file types.
   autocmd BufRead,BufNewFile *.md,*.mmd,*.markdown,*.md.erb set filetype=mkd
+
+  autocmd BufRead,BufNewFile *gitconfig set filetype=gitconfig
+  autocmd BufRead,BufNewFile *gitconfig_* set filetype=gitconfig
 
   " Turn spell-checking on for git commits.
   autocmd FileType gitcommit setlocal spell
