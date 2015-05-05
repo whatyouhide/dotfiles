@@ -29,11 +29,6 @@ set exrc
 " Only allow secure commands in per-project .vimrcs.
 set secure
 
-" Turn line numbers on using relative numbers for lines that aren't the curren
-" line, and absolute number for the current line.
-set relativenumber
-set number
-
 " Highlight current line.
 set cursorline
 
