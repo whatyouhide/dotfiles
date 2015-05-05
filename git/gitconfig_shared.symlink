@@ -1,0 +1,39 @@
+# Aliases.
+[alias]
+	c = commit
+	ch = checkout
+	df = diff --color --color-words --abbrev
+	lg = log --branches --graph --pretty=format:'%C(yellow)%h %C(reset)%s%C(red)%d %C(blue)%an%C(reset), %C(cyan)%ar'
+	br = branch -v --all
+	recommit = commit -C ORIG_HEAD
+	oops = reset --soft HEAD~1
+	tags = tag -l -n
+
+[merge]
+	log = true
+
+[push]
+	default = matching
+
+[core]
+	excludesfile = ~/.gitignore_global
+	attributesfile = ~/.gitattributes
+
+# Colors.
+[color]
+	interactive = auto
+	ui = auto
+	pager = true
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
