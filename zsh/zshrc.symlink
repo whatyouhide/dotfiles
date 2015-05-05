@@ -39,6 +39,7 @@ stty -ixon
 if   $AUTOSTART_TMUX        \
   && command-exists tmux    \
   && [[ `tmux -V` =~ 1.9 ]] \
+  && [[ -z "$INSIDE_EMACS" ]] \
   && [[ -z $TMUX ]]
 then
   command tmux new-session -As hack
