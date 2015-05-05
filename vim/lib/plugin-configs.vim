@@ -68,8 +68,9 @@ let g:VimuxHeight = "30"
 
 
 " GitGutter
-" Make the sign column always visible.
+" Make the sign column always visible when enabled.
 let g:gitgutter_sign_column_always = 1
+let g:gitgutter_enabled = 0
 
 
 " Gist.vim
@@ -90,7 +91,23 @@ let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_warning_symbol = '☛'
 let g:syntastic_style_warning_symbol = '⚑'
 
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+
+" vim-airline
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'n',
+      \ 'i'  : 'i',
+      \ 'R'  : 'r',
+      \ 'c'  : 'c',
+      \ 'v'  : 'v',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 's',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
+let g:airline_section_y = airline#section#create(['%L'])
+
 
 
 " Stripper

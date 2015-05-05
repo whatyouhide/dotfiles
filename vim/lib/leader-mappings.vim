@@ -50,5 +50,9 @@ nnoremap <Leader>it :set spelllang=it<CR>
 " s: check with syntastic.
 nnoremap <Leader>s :SyntasticCheck<CR>
 
+" gg: GitGutter.
+nnoremap <Leader>gg :GitGutterToggle<CR>
+nnoremap <Leader>ga :GitGutterStageHunk<CR>
+
 " cob: toggle between the custom light and dark backgrounds.
 nnoremap <Leader>cob :call ToggleLightAndDarkColorschemes()<CR>
