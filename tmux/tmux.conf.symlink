@@ -24,6 +24,9 @@ set-option -g history-limit 10000
 set-option -g allow-rename off
 
 
+# Nothing works with computers :( This makes C-<arrow> keys work in Emacs under
+# tmux.
+set-window-option -g xterm-keys on
 
 
 
