@@ -20,6 +20,9 @@
 ehthumbs.db
 Thumbs.db
 
-# Tools.
+# Tools
 .sass-cache
 node_modules
+
+# Stuff
+TODO.md
