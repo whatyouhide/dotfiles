@@ -20,9 +20,6 @@ set smartindent                 " don't indent 2 spaces everytime, be smart
 " Autowrap is enabled by default if I set the textwidth option.
 set textwidth=80
 
-" Without this, vim doesn't use RVM's Ruby.
-set shell=sh
-
 " Use per-project .vimrc files.
 set exrc
 
@@ -95,3 +92,13 @@ set completefunc=syntaxcomplete#Complete
 
 " Concealing characters is cool, right?
 set conceallevel=2
+
+if $TERM_PROGRAM =~ "iTerm"
+  if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  endif
+endif

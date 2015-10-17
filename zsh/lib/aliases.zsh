@@ -8,13 +8,13 @@ else
 fi
 alias l="ls -lAFh ${colorflag}"
 
+alias g=git
+compdef g=git
+
 # `cat` with beautiful colors. Requires Pygments installed.
 if command-exists pygmentize; then
-  alias cat='pygmentize -O style=friendly -f console256 -g'
+  alias ccat='pygmentize -O style=friendly -f console256 -g'
 fi
-
-# todo.txt
-command-exists 'todo.sh' && alias t=todo.sh
 
 # tmux.
 alias thack='tmux new-session -As hack'
@@ -25,3 +25,6 @@ alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo
 
 # Recursively delete `.DS_Store` files
 alias clean-ds-stores="find . -name '*.DS_Store' -type f -ls -delete"
+
+# Ruby development.
+alias be='bundle exec'

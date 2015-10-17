@@ -1,18 +1,9 @@
 # Use git in a cooler way: 'g' for status, g {args} for normal git.
 # If 'hub' is available, use 'hub' as git.
-compdef g=git
-g() {
+git() {
   local cmd='git'
   command-exists hub && cmd='hub'
   ([[ $# > 0 ]] && command "$cmd" "$@") || command "$cmd" status
-}
-
-
-# Zip a given directory to an archive with the same {name}.zip and use a bunch
-# of useful OSX-oriented options.
-zeep() {
-  local target=$1
-  zip -r "$1.zip" -x '*.DS_Store' -9
 }
 
 

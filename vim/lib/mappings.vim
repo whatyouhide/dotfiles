@@ -50,11 +50,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Ctrl-u in insert mode to uppercase the word before the cursor.
-" (thanks to Steve Losh)
-inoremap <C-u> <Esc>gUiwea
-
-
 " Alt-keys
 
 " Cycle tabs using Alt-h/l.

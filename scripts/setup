@@ -21,10 +21,6 @@ symlink_files() {
   newline
 }
 
-install_rvm() {
-  curl -sSL -# https://get.rvm.io | bash -s stable --ruby --ignore-dotfiles
-}
-
 install_kiex() {
   local _url="https://raw.githubusercontent.com/taylor/kiex/master/install"
   \curl -sSL "$_url" | bash -s
@@ -52,7 +48,6 @@ show_help() {
   echo "  scripts/setup          # Symlink and run install.sh scripts"
   echo "  scripts/setup help     # Show this help"
   echo "  scripts/setup vim-plug # Install vim-plug"
-  echo "  scripts/setup rvm      # Install RVM"
 }
 
 main() {
@@ -61,8 +56,6 @@ main() {
       show_help ;;
     "vim-plug")
       vim +PlugInstall +qall ;;
-    "rvm")
-      install_rvm ;;
     "kiex")
       install_kiex ;;
     "ex_doc")

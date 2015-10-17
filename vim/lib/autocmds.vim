@@ -18,18 +18,6 @@ augroup custom_misc
   autocmd User EnterMixProject set wildignore+=*/deps,*/_build
 augroup END
 
-
-" Relative line numbers in normal mode, regular in insert mode.
-augroup custom_linenr
-  " autocmd!
-
-  " au InsertEnter,WinLeave,FocusLost *
-  "       \ if !exists('#goyo') | set norelativenumber | endif
-  " au InsertLeave,WinEnter,FocusGained *
-  "       \ if !exists('#goyo') | set relativenumber | endif
-augroup END
-
-
 " Tweak the colorscheme with custom changes (if present) whenever the
 " colorscheme/background changes.
 augroup colorschemes
@@ -37,12 +25,11 @@ augroup colorschemes
   au ColorScheme * call TweakColorscheme()
 augroup END
 
-
 augroup filetypes
   autocmd!
 
   " Set some file types.
-  autocmd BufRead,BufNewFile *.md,*.mmd,*.markdown,*.md.erb set filetype=mkd
+  autocmd BufRead,BufNewFile *.md,*.mmd,*.markdown,*.md.erb set filetype=markdown
 
   autocmd BufRead,BufNewFile *gitconfig set filetype=gitconfig
   autocmd BufRead,BufNewFile *gitconfig_* set filetype=gitconfig

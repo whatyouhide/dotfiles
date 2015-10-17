@@ -9,15 +9,12 @@ map <Space> <Leader>
 " Local leader (mainly used by LaTeX plugins like Latex-Box, still useful).
 let maplocalleader = '\'
 
-
-" v<...>: vim stuff.
-nmap <Leader>vr :source ~/.vimrc<CR>:AirlineRefresh<CR>
-nmap <Leader>ve :tabedit ~/.vimrc<CR>
-nmap <Leader>vp :tabedit ~/.vim/lib/plugins.vim<CR>
-
-" g<...>: fugitive.
+" g<...>: git (fugitive, GitGutter).
 nnoremap <Leader>gs :Gstatus<CR>:resize 25<CR>
-nnoremap <Leader>gP :Gpush<CR>
+noremap  <Leader>gb :Gbrowse<CR>
+noremap  <Leader>gB :Gbrowse!<CR>
+nnoremap <Leader>gg :GitGutterToggle<CR>
+nnoremap <Leader>ga :GitGutterStageHunk<CR>
 
 " t<...>: Vimux.
 nnoremap <Leader>tc :call VimuxCloseRunner()<CR>
@@ -27,10 +24,6 @@ nnoremap <Leader>tp :call VimuxPromptCommand()<CR>
 nnoremap <Leader>tt :call VimuxRunTestCommand()<CR>
 nnoremap <Leader>trr :w<CR>:call VimuxRunLastCommand()<CR>
 nnoremap <Leader>tcd :call VimuxRunCommand('cd ' . getcwd())<CR>
-
-" (l?)cd: cd to the current file's directory.
-nnoremap <Leader>cd :cd %:p:h<CR>
-nnoremap <Leader>lcd :lcd %:p:h<CR>
 
 " m<...>: Mix.
 nnoremap <Leader>mt :Mix test %<CR>
@@ -46,13 +39,6 @@ nnoremap <Leader>df :Goyo<CR>
 
 " it: set spelllang to italian.
 nnoremap <Leader>it :set spelllang=it<CR>
-
-" s: check with syntastic.
-nnoremap <Leader>s :SyntasticCheck<CR>
-
-" gg: GitGutter.
-nnoremap <Leader>gg :GitGutterToggle<CR>
-nnoremap <Leader>ga :GitGutterStageHunk<CR>
 
 " cob: toggle between the custom light and dark backgrounds.
 nnoremap <Leader>cob :call ToggleLightAndDarkColorschemes()<CR>
