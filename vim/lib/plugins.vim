@@ -63,6 +63,7 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'whatyouhide/vim-tmux-syntax'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'elixir-lang/vim-elixir'
 
 " Colorschemes.
 Plug 'chriskempson/base16-vim'
