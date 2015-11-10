@@ -125,7 +125,7 @@ set -g status-left "#[fg=colour6]#S #[fg=colour2]#{pane_current_path} "
 
 set -g status-right-style "none"
 set -g status-right-length "100"
-set -g status-right "#[fg=colour9]#(osx-battery) #[fg=colour4]%l:%M %p"
+set -g status-right "#[fg=colour4]%l:%M %p"
 
 setw -g window-status-separator ""
 setw -g window-status-style "fg=colour12"
