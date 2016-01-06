@@ -1,0 +1,37 @@
+#!/bin/bash
+
+echo_colored() { echo -e "${2}$1\033[0m"; }
+fail()         { echo_colored "$1" "\033[1;31m"; exit 1; }
+echo_info()    { echo_colored "==> $1" "\033[1;36m"; }
+newline()      { echo; }
+
+check_env_variables() {
+  [[ -n "$DOTFILES" ]] || fail 'The $DOTFILES env variable is not set'
+}
+
+symlink_files() {
+  echo_info "Symlinking all files ending in '.symlink'"
+  local _files=$(find $DOTFILES -name '*.symlink')
+
+  for abs_file in $_files; do
+    local _symlinked=".$(basename ${abs_file%.symlink})"
+    ln -sfv "$abs_file" "$HOME/$_symlinked"
+  done
+  newline
+}
+
+run_install_scripts() {
+  for file in $(find $DOTFILES -name 'install.sh'); do
+    echo_info "Running ${file#$DOTFILES/}"
+    bash "$file"
+  done
+  newline
+}
+
+main() {
+    check_env_variables
+    symlink_files
+    run_install_scripts
+}
+
+main "$@"
