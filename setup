@@ -1,12 +1,18 @@
 #!/bin/bash
 
+set -e
+
 echo_colored() { echo -e "${2}$1\033[0m"; }
 fail()         { echo_colored "$1" "\033[1;31m"; exit 1; }
 echo_info()    { echo_colored "==> $1" "\033[1;36m"; }
-newline()      { echo; }
 
 check_env_variables() {
   [[ -n "$DOTFILES" ]] || fail 'The $DOTFILES env variable is not set'
+}
+
+create_directories() {
+    echo_info "Creating a bunch of directories"
+    mkdir -pv "$HOME/bin" "$HOME/tmp"
 }
 
 symlink_files() {
@@ -17,7 +23,7 @@ symlink_files() {
     local _symlinked=".$(basename ${abs_file%.symlink})"
     ln -sfv "$abs_file" "$HOME/$_symlinked"
   done
-  newline
+  echo
 }
 
 run_install_scripts() {
@@ -25,11 +31,12 @@ run_install_scripts() {
     echo_info "Running ${file#$DOTFILES/}"
     bash "$file"
   done
-  newline
+  echo
 }
 
 main() {
     check_env_variables
+    create_directories
     symlink_files
     run_install_scripts
 }
