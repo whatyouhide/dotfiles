@@ -1,3 +1,6 @@
+# Contains basic environment variables setup that will be used by the whole
+# config. This is sourced before everything else in ~/.zshenv.
+
 # Path to the dotfiles.
 export DOTFILES="$HOME/dotfiles"
 

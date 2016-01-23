@@ -1,0 +1,6 @@
+[[ -s "$HOME/.env-setup.zsh" ]] && source "$HOME/.env-setup.zsh"
+
+source "$ZSH_CONFIG/lib/exports.zsh"
+source "$ZSH_CONFIG/lib/path.zsh"
+
+[[ -s "$HOME/.extra-env.zsh" ]] && source "$HOME/.extra-env.zsh"
