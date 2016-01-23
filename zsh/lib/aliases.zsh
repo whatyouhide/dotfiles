@@ -25,6 +25,3 @@ alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo
 
 # Recursively delete `.DS_Store` files
 alias clean-ds-stores="find . -name '*.DS_Store' -type f -ls -delete"
-
-# Ruby development.
-alias be='bundle exec'

@@ -12,14 +12,6 @@ _LESS="less --no-init --quit-if-one-screen"
 export MANPAGER="$_LESS"
 export PAGER="$_LESS"
 
-# Template directory which git uses when you 'git init'.
-export GIT_TEMPLATE_DIR="$DOTFILES/git/git-template-dir"
-
-# Options for Homebrew Cask.
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-export GOPATH="$HOME/Code/gocode"
-
 # CUSTOM EXPORTS
 
 # Where to store gitshots.
