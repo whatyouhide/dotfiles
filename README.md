@@ -42,6 +42,10 @@ Now run:
 chsh -s "$(which zsh)" "$(whoami)"
 ```
 
+On OSX, be sure to nuke `/etc/zprofile`, empty `/etc/paths`, and remove
+`path_helper`-related lines from `/etc/profile`, as they slow things up and mess
+up with the `PATH` (which I'd like to be in control of).
+
 ### Cloning the dotfiles
 
 Clone the dotfiles:
