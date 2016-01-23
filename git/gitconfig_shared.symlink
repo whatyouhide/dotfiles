@@ -16,6 +16,8 @@
 	default = matching
 [pull]
 	rebase = true
+[rebase]
+  autoStash = true
 
 # Colors.
 [color]
