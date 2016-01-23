@@ -34,11 +34,18 @@ run_install_scripts() {
   echo
 }
 
+print_todos() {
+    echo_info "Remember to do these:"
+    echo "Set the git email in ~/.gitconfig (git config --global user.email foo@bar)"
+    echo "Set the git name in ~/.gitconfig (git config --global user.name ...)"
+}
+
 main() {
     check_env_variables
     create_directories
     symlink_files
     run_install_scripts
+    print_todos
 }
 
 main "$@"
