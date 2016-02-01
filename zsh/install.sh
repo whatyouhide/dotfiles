@@ -15,6 +15,10 @@ if [[ ! -s "$HOME/.env-setup.zsh" ]]; then
   cp -v "$ROOT/env-setup.zsh.example" "$HOME/.env-setup.zsh"
 fi
 
+if [[ ! -s "$HOME/.extra-env.zsh" ]]; then
+  cp -v "$ROOT/extra-env.zsh.example" "$HOME/.extra-env.zsh"
+fi
+
 # Remove the default /etc/zprofile if on OSX.
 if [[ $(uname) == "Darwin" && -s /etc/zprofile ]]; then
     if [[ $(whoami) == "root" ]]; then
