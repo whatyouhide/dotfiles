@@ -12,7 +12,8 @@ check_env_variables() {
 
 create_directories() {
     echo_info "Creating a bunch of directories"
-    mkdir -pv "$HOME/bin" "$HOME/tmp"
+    mkdir -p "$HOME/bin" && echo "Created ~/bin"
+    mkdir -p "$HOME/tmp" && echo "Created ~/tmp"
 }
 
 symlink_files() {
