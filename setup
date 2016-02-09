@@ -27,6 +27,22 @@ symlink_files() {
   echo
 }
 
+copy_example_files() {
+    echo_info "Copying all files ending in '.example'"
+    local _files=$(find $DOTFILES -name '*.example')
+
+    for abs_file in $_files; do
+        local _dst="$HOME/.$(basename ${abs_file%.example})"
+
+        if [[ -s "$_dst" ]]; then
+            echo "File $_dst exists and will not be overridden"
+        else
+            cp -v "$abs_file" "$_dst"
+        fi
+    done
+    echo
+}
+
 run_install_scripts() {
   for file in $(find $DOTFILES -name 'install.sh'); do
     echo_info "Running ${file#$DOTFILES/}"
@@ -46,6 +62,7 @@ main() {
     check_env_variables
     create_directories
     symlink_files
+    copy_example_files
     run_install_scripts
     print_todos
 }
