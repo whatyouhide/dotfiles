@@ -1,3 +1,7 @@
+#!/bin/sh
+
 for f in $DOTFILES/bin/*; do
-    ln -sfv "$f" "$HOME/bin"
+    if [[ -x "$f" ]]; then
+        ln -sfv "$f" "$HOME/bin"
+    fi
 done
