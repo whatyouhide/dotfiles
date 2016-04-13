@@ -23,6 +23,7 @@ Thumbs.db
 # Tools
 .sass-cache
 node_modules
+.orientdb_history
 
 # Stuff
 TODO.md
