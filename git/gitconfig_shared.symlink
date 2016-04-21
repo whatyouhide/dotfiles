@@ -8,7 +8,7 @@
 	tags = tag -l -n
 	oops = reset --soft HEAD~1
 	recommit = commit -C ORIG_HEAD
-  pr-merged = !git checkout master && git pull && git fetch --all --prune
+  pr-merged = !CURR_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git checkout master && git pull && git fetch --all --prune && git branch -D "$CURR_BRANCH"
 
 # Merge/pull/push
 [merge]
