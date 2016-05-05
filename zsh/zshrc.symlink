@@ -35,8 +35,8 @@ prompt ${ZSH_PROMPT:-freedom}
 stty -ixon
 
 # Start tmux possibly.
-if   $AUTOSTART_TMUX        \
-  && command-exists tmux    \
+if   [[ $AUTOSTART_TMUX == 'true' ]] \
+  && command-exists tmux \
   && [[ `tmux -V` =~ 1.9 || `tmux -V` =~ 2. ]] \
   && [[ -z "$INSIDE_EMACS" ]] \
   && [[ -z $TMUX ]]

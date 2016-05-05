@@ -16,8 +16,3 @@ export PAGER="$_LESS"
 
 # Where to store gitshots.
 export GITSHOTS="$HOME/Copy/Images/gitshots"
-
-# Whether to autostart tmux when sourcing zshrc, defaulting to true. This
-# options is meant to be overridden in zsh/extra, which is sourced after every
-# other file.
-export AUTOSTART_TMUX=true
