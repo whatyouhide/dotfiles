@@ -1,7 +1,5 @@
-# Start with a clean slate, with only the scripts in the `bin` directory of the
-# $DOTFILES and `~/bin`.
+# Start with a clean slate, with only the scripts in `~bin`.
 PATH="$HOME/bin"
-PATH="$PATH:$DOTFILES/bin"
 
 # Standard PATH entries.
 export PATH="$PATH:/usr/local/sbin"
