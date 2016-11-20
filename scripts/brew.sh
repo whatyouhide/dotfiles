@@ -11,7 +11,6 @@ brew install readline
 brew install homebrew/dupes/grep
 brew install zsh
 brew install direnv
-brew install tmux
 brew install reattach-to-user-namespace
 brew install the_silver_searcher
 brew install ssh-copy-id
