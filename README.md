@@ -3,66 +3,51 @@
 ## Installation
 
 These instructions are to be followed when installing these dotfiles on a new
-machine.
+machine. Do these steps:
 
-### XCode
+  1. **XCode**: If running on a Mac, you need part of XCode. You don't need the
+  whole XCode. Just run any command that is in Apple's Command Line Tools and it
+  will prompt to install them. For example, just open `Terminal.app` and run `$
+  make`.
 
-You don't need the whole XCode. Just run any command that is in Apple's Command
-Line Tools and it will prompt to install them. For example, just open
-`Terminal.app` and run `$ make`.
+  1. [**Homebrew**][homebrew]: install it by running:
 
-### Homebrew
+  ```sh
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  ```
 
-Install [Homebrew][homebrew] by running:
+  1. **Git**: ensure you have `git` installed (it's present by default on macOS).
 
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+  1. Ensure you have the `$DOTFILES` environment variable set. For example:
 
-Now install at least `git` (`brew install git hub`).
+  ```sh
+  export DOTFILES="$HOME/dotfiles"
+  ```
 
-### Changing the shell
+  1. **zsh**: install zsh with `$ brew install zsh`, then add the new installed
+     `zsh` to `/etc/shells` (so that `chsh` will consider it a "safe" shell) and
+     change to the newly added shell:
 
-To change your shell to `zsh`, first install `zsh`:
+  ```sh
+  echo "$(which zsh)" | sudo tee -a /etc/shells > /dev/null
+  chsh -s "$(which zsh)" "$(whoami)"
+  ```
 
-```bash
-brew install zsh
-```
+  On macOS, be sure to:
 
-Add the newly installed `zsh` to `/etc/shells` (so that `chsh` will consider it
-a "safe" shell):
+    * delete `/etc/zprofile`
+    * empty out `/etc/paths`
+    * remove `path_helper`-related lines from `/etc/profile`
 
-```bash
-echo "$(which zsh)" | sudo tee -a /etc/shells > /dev/null
-```
+  as they slow things down and mess up with `PATH`.
 
-Now run:
+  1. Clone the dotfiles and run the setup script:
 
-```bash
-chsh -s "$(which zsh)" "$(whoami)"
-```
-
-On OSX, be sure to nuke `/etc/zprofile`, empty `/etc/paths`, and remove
-`path_helper`-related lines from `/etc/profile`, as they slow things up and mess
-up with the `PATH` (which I'd like to be in control of).
-
-### Cloning the dotfiles
-
-Clone the dotfiles:
-
-```bash
-hub clone whatyouhide/dotfiles ~/dotfiles
-```
-
-### Setting up the dotfiles
-
-Run the following commands to setup the dotfiles:
-
-```bash
-cd ~/dotfiles
-export DOTFILES="$HOME/dotfiles"
-./setup
-```
+  ```sh
+  git clone git@github.com:whatyouhide/dotfiles.git "$DOTFILES"
+  cd "$DOTFILES"
+  ./setup
+  ```
 
 
 [homebrew]: http://brew.sh/

@@ -1,4 +1,8 @@
-#!/bin/sh
+#!/bin/bash
+
+if [ ! type "$1" >/dev/null 2>&1 ]; do
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
 brew update -v
 brew upgrade
@@ -9,8 +13,9 @@ brew install coreutils
 brew install findutils
 brew install readline
 brew install homebrew/dupes/grep
-brew install zsh
 brew install direnv
 brew install reattach-to-user-namespace
 brew install the_silver_searcher
 brew install ssh-copy-id
+
+brew doctor
