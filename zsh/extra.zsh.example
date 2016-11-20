@@ -3,4 +3,8 @@
 
 # For example:
 #
-# cdpath=($HOME/Code $HOME/tmp)
+#     cdpath=($HOME/Code $HOME/tmp)
+#
+# or:
+#
+#     eval "$(direnv hook zsh)"

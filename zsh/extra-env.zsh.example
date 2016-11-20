@@ -3,3 +3,5 @@
 # (https://github.com/taylor/kiex) sourcing line here:
 
 # [[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
+
+export PATH="$HOME/Dropbox/bin:$PATH"
