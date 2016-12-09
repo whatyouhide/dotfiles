@@ -8,17 +8,6 @@ else
 fi
 alias l="ls -lAFh ${colorflag}"
 
-alias g=git
-compdef g=git
-
-# `cat` with beautiful colors. Requires Pygments installed.
-if command-exists pygmentize; then
-  alias ccat='pygmentize -O style=friendly -f console256 -g'
-fi
-
-# tmux.
-alias thack='tmux new-session -As hack'
-
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"

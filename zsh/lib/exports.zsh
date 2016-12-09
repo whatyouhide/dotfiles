@@ -11,8 +11,3 @@ export VISUAL=vim
 _LESS="less --no-init --quit-if-one-screen"
 export MANPAGER="$_LESS"
 export PAGER="$_LESS"
-
-# CUSTOM EXPORTS
-
-# Where to store gitshots.
-export GITSHOTS="$HOME/Copy/Images/gitshots"
