@@ -2,6 +2,8 @@
 bindkey -e
 
 # Bind Ctrl-p and Ctrl-n (in emacs mode) to zsh-history-substring-search.
+zle -N history-substring-search-up
+zle -N history-substring-search-down
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
