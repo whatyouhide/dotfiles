@@ -48,6 +48,13 @@ machine. Do these steps:
      cd "$DOTFILES"
      ./setup
      ```
+   
+  1. After installing Dropbox, link the (Google fonts) fonts directory:
+  
+     ```sh
+     sudo rm -rfv ~/Library/Fonts
+     sudo ln -sfv ~/Dropbox/Applications/Fonts ~/Library/Fonts
+     ```
 
 
 [homebrew]: http://brew.sh/
