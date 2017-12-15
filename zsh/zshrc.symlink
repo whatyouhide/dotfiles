@@ -16,6 +16,14 @@ source "$ZSH_CONFIG/lib/keybindings.zsh"
 source "$ZSH_CONFIG/lib/autoloads.zsh"
 source "$ZSH_CONFIG/lib/aliases.zsh"
 
+chpwd_elixir_hook() {
+  if [[ -s "$PWD/.elixir-version" ]]; then
+    kiex use $(cat "$PWD/.elixir-version")
+  fi
+}
+
+add-zsh-hook chpwd chpwd_elixir_hook
+
 # Source antigen bundles and apply everything
 source $(brew --prefix)/share/antigen/antigen.zsh
 antigen bundle zsh-users/zsh-completions src
