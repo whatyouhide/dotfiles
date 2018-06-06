@@ -6,7 +6,7 @@
 	df = diff --color --color-words --abbrev
 	lg = log --branches --graph --pretty=format:'%C(yellow)%h %C(reset)%s%C(red)%d %C(blue)%an%C(reset), %C(cyan)%ar'
 	tags = tag -l -n
-	pr-merged = !CURR_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git checkout master && git pull && git fetch --all --prune && git branch -D "$CURR_BRANCH"
+	pr-merged = !CURR_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git checkout "${1-master}" && git pull && git fetch --all --prune && git branch -D "$CURR_BRANCH"
 	tg = "!f() { git tag -a $1 -m $1; }; f"
 
 # Merge/pull/push

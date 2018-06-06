@@ -55,7 +55,7 @@ print_todos() {
     echo_info "Remember to do these:"
     echo "Set the git email in ~/.gitconfig (git config --global user.email foo@bar)"
     echo "Set the git name in ~/.gitconfig (git config --global user.name ...)"
-    echo "Set the GitHub config according to https://github.com/blog/180-local-github-config"
+    echo "Generate a GitHub token for authentication (https://github.com/settings/tokens)"
 }
 
 main() {
