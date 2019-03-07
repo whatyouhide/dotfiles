@@ -24,6 +24,8 @@ Thumbs.db
 .sass-cache
 node_modules
 .orientdb_history
+.elixir_ls
 
 # Stuff
 TODO.md
+.tool-versions
