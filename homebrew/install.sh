@@ -10,8 +10,5 @@ brew install coreutils
 brew install findutils
 brew install readline
 brew install homebrew/dupes/grep
-brew install direnv
-brew install reattach-to-user-namespace
-brew install the_silver_searcher
 brew install ssh-copy-id
 brew install antigen
