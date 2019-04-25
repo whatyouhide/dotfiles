@@ -25,6 +25,7 @@ Thumbs.db
 node_modules
 .orientdb_history
 .elixir_ls
+.vscode
 
 # Stuff
 TODO.md
