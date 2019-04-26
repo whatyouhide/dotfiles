@@ -1,0 +1,5 @@
+[include]
+	path = ~/.gitconfig_shared
+[user]
+	email = an.leopardi@gmail.com
+	name = Andrea Leopardi
