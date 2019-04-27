@@ -16,14 +16,6 @@ source "$ZSH_CONFIG/lib/keybindings.zsh"
 source "$ZSH_CONFIG/lib/autoloads.zsh"
 source "$ZSH_CONFIG/lib/aliases.zsh"
 
-chpwd_elixir_hook() {
-  if [[ -s "$PWD/.elixir-version" ]]; then
-    kiex use $(cat "$PWD/.elixir-version")
-  fi
-}
-
-add-zsh-hook chpwd chpwd_elixir_hook
-
 # Source antigen bundles and apply everything
 source $(brew --prefix)/share/antigen/antigen.zsh
 antigen bundle zsh-users/zsh-completions src
@@ -33,10 +25,7 @@ antigen bundle hlissner/zsh-autopair
 antigen apply
 
 # Source non version controlled files only if they exist.
-[[ -s "$HOME/.extra.zsh" ]] && source "$HOME/.extra.zsh"
+[[ -s "$HOME/.zshrc-extra" ]] && source "$HOME/.zshrc-extra"
 
 # Choose the prompt.
 prompt ${ZSH_PROMPT:-freedom}
-
-# Use Ctrl-s everywhere. In vim for example.
-stty -ixon

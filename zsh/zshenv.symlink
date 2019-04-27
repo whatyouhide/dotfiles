@@ -1,6 +1,32 @@
-[[ -s "$HOME/.env-setup.zsh" ]] && source "$HOME/.env-setup.zsh"
+# Path to the dotfiles.
+export DOTFILES="$HOME/dotfiles"
 
-source "$ZSH_CONFIG/lib/exports.zsh"
-source "$ZSH_CONFIG/lib/path.zsh"
+# zsh config.
+export ZSH_CONFIG="$DOTFILES/zsh"
+export ZSH_PROMPT="freedom"
 
-[[ -s "$HOME/.extra-env.zsh" ]] && source "$HOME/.extra-env.zsh"
+# Prefer US English and use UTF-8
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
+# Don’t clear the screen after quitting less and make less quit itself
+# when the content fits one screen.
+_LESS="less --no-init --quit-if-one-screen"
+export MANPAGER="$_LESS"
+export PAGER="$_LESS"
+
+# Start with a clean slate, with only the scripts in `~bin`.
+PATH="$HOME/bin"
+
+# Standard PATH entries.
+export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/usr/bin"
+export PATH="$PATH:/usr/sbin"
+export PATH="$PATH:/bin"
+export PATH="$PATH:/sbin"
+
+# Extra PATH entries.
+export PATH="$HOME/Dropbox/bin:$PATH"
+
+[[ -s "$HOME/.zshenv-extra" ]] && source "$HOME/.zshenv-extra"

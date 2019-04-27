@@ -1,0 +1,4 @@
+# Here goes stuff that modifies the environment but that you don't want to
+# commit to the dotfiles repo. For example:
+
+# [[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"

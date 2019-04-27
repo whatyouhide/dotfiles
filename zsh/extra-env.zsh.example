@@ -1,7 +1,0 @@
-# Here goes stuff that modifies the environment but that you don't want to
-# commit to the dotfiles repo. For example, you can put the kiex
-# (https://github.com/taylor/kiex) sourcing line here:
-
-# [[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
-
-export PATH="$HOME/Dropbox/bin:$PATH"
