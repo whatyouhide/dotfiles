@@ -29,4 +29,7 @@ export PATH="$PATH:/sbin"
 # Extra PATH entries.
 export PATH="$HOME/Dropbox/bin:$PATH"
 
+# Fix for Homebrew-installed asdf.
+export ASDF_DIR=$(brew --prefix asdf)
+
 [[ -s "$HOME/.zshenv-extra" ]] && source "$HOME/.zshenv-extra"
