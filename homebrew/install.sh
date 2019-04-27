@@ -10,6 +10,10 @@ brew install hub
 brew install coreutils
 brew install findutils
 brew install readline
-brew install homebrew/dupes/grep
 brew install ssh-copy-id
+
+# For zsh
 brew install antigen
+
+# Version manager (Elixir, Erlang)
+brew install asdf
