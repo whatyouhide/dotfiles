@@ -51,16 +51,16 @@ machine. Do these steps:
 
   1. **asdf**: if you're using [asdf][asdf] installed through Homebrew, then:
 
-    1. Add `source $(brew --prefix asdf)/asdf.sh` to `~/.zshenv-extra`
+     1. Add `source $(brew --prefix asdf)/asdf.sh` to `~/.zshenv-extra`
 
-    1. Add `source $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash` to `~/.zshrc-extra`
+     1. Add `source $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash` to `~/.zshrc-extra`
 
-    1. If you want to use Elixir master from a local installation, do:
+     1. If you want to use Elixir master from a local installation, do:
 
-      ```sh
-      ln -sv /path/to/elixir ~/.asdf/installs/elixir/master
-      asdf reshim elixir master
-      ```
+        ```sh
+        ln -sv /path/to/elixir ~/.asdf/installs/elixir/master
+        asdf reshim elixir master
+        ```
    
   1. After installing Dropbox, link the (Google fonts) fonts directory:
   
