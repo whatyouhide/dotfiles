@@ -18,12 +18,6 @@ machine. Do these steps:
 
   1. **Git**: ensure you have `git` installed (it's present by default on macOS).
 
-  1. Ensure you have the `$DOTFILES` environment variable set. For example:
-
-     ```sh
-     export DOTFILES="$HOME/dotfiles"
-     ```
-
   1. **zsh**: install zsh with `$ brew install zsh`, then add the new installed
      `zsh` to `/etc/shells` (so that `chsh` will consider it a "safe" shell) and
      change to the newly added shell:
@@ -40,6 +34,14 @@ machine. Do these steps:
        * remove `path_helper`-related lines from `/etc/profile`
 
      as they slow things down and mess up with `PATH`.
+
+  1. Ensure you have the `$DOTFILES` environment variable set. For example:
+
+     ```sh
+     export DOTFILES="$HOME/dotfiles"
+     ```
+
+  1. Copy SSH keys from 1Password.
 
   1. Clone the dotfiles and run the setup script:
 
