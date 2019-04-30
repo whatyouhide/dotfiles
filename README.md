@@ -51,13 +51,13 @@ machine. Do these steps:
      ./setup
      ```
 
-  1. **asdf**: if you're using [asdf][asdf] installed through Homebrew, then:
+  1. **asdf**: if you're using [asdf][asdf] installed through Homebrew, the figure out the prefix with `brew --prefix asdf` (for example, `/usr/local/opt/asdf`) and use that in these lines:
 
-     1. Add `source $(brew --prefix asdf)/asdf.sh` to `~/.zshenv-extra`
+     1. Add `/usr/local/opt/asdf/asdf.sh` to `~/.zshenv-extra`
 
-     1. Add `source $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash` to `~/.zshrc-extra`
+     1. Add `/usr/local/opt/asdf/etc/bash_completion.d/asdf.bash` to `~/.zshrc-extra`
 
-     1. If you want to use Elixir master from a local installation, do:
+     1. If you want to use Elixir master from a local installation, clone Elixir and then do:
 
         ```sh
         ln -sv /path/to/elixir ~/.asdf/installs/elixir/master
