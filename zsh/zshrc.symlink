@@ -4,10 +4,6 @@ if [[ -z "$ZSH_CONFIG" ]]; then
     echo "~/.extra-env.zsh"
 fi
 
-# Utilities for setting up zsh (functions to check for commands existence and
-# other stuff like that).
-source "$ZSH_CONFIG/lib/config-utils.zsh"
-
 # Stuff that doesn't export environment variables (those go in .zshenv).
 source "$ZSH_CONFIG/lib/fpath.zsh"
 source "$ZSH_CONFIG/lib/options.zsh"

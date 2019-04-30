@@ -82,27 +82,9 @@ prompt_freedom_before_char() {
   echo '%(?.%F{magenta}.%F{red})→%f'
 }
 
-# Execute before a command gets executed.
-prompt_freedom_preexec() {
-  prompt_freedom_start=$SECONDS
-}
-
 # Execute when a command finishes, before re-creating the prompt.
 prompt_freedom_precmd() {
-  local start=${prompt_freedom_start:-$SECONDS}
-  local duration=$(( SECONDS - start ))
-
-  if (( duration > 0 )); then
-    RPROMPT="%F{yellow}${duration}s%f"
-  else
-    RPROMPT=''
-  fi
-
-  unset prompt_freedom_start
-
-  # Output a new line after every command. If every new prompt started with a
-  # newline, we'd have a newline before the prompt even when just using `clear`
-  # or C-l.
+  # Output a new line after every command.
   echo ''
 }
 
@@ -125,7 +107,6 @@ prompt_freedom_append_to_prompt() {
 prompt_freedom_setup() {
   autoload -U add-zsh-hook
   add-zsh-hook precmd prompt_freedom_precmd
-  add-zsh-hook preexec prompt_freedom_preexec
 
   prompt_freedom_setup_prompt_variable
   prompt_freedom_append_to_prompt '$(prompt_freedom_path) '
