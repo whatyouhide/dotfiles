@@ -51,6 +51,8 @@ machine. Do these steps:
      ./setup
      ```
 
+  1. You should have `hub` installed (if not, `brew install hub`). Go to https://github.com/settings/tokens and generate a new token with all `repo` permissions. Copy the token and use it as a password when running `hub clone SOME_REPO`. Otherwise, paste it into `~/.config/hub`.
+
   1. **asdf**: if you're using [asdf][asdf] installed through Homebrew, the figure out the prefix with `brew --prefix asdf` (for example, `/usr/local/opt/asdf`) and use that in these lines:
 
      1. Add `/usr/local/opt/asdf/asdf.sh` to `~/.zshenv-extra`
