@@ -1,0 +1,40 @@
+#!/usr/bin/env zsh
+
+docker-kill-running () {
+    docker kill $(docker ps -q)
+}
+
+docker-rm-stopped () {
+    docker rm $(docker ps -a -q)
+}
+
+docker-helper () {
+    case $1 in
+        kill-running)
+            docker-kill-running
+            ;;
+
+        rm-stopped)
+            docker-rm-stopped
+            ;;
+
+        kill-and-rm-all)
+            docker-kill-running
+            docker-rm-stopped
+            ;;
+
+        --help | -h)
+            echo "docker-helper COMMAND"
+            echo ""
+            echo "docker-helper kill-running         kill all running containers"
+            echo "docker-helper rm-stopped           remove all stopped containers"
+            echo "docker-helper kill-and-rm-all      kill all running containers and remove them"
+            ;;
+
+        *)
+            echo "Unknown command, see docker-helper -h"
+            ;;
+    esac
+}
+
+docker-helper "$@"
