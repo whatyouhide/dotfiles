@@ -1,38 +1,41 @@
 #!/usr/bin/env zsh
 
-docker-kill-running () {
-    docker kill $(docker ps -q)
-}
-
-docker-rm-stopped () {
-    docker rm $(docker ps -a -q)
+docker-helper-print-help () {
+    echo "docker-helper COMMAND"
+    echo ""
+    echo "docker-helper kill-running         kill all running containers"
+    echo "docker-helper rm-stopped           remove all stopped containers"
+    echo "docker-helper kill-and-rm-all      kill all running containers and remove them"
+    echo "docker-helper gc                   runs docker-gc (from Spotify)"
+    echo "docker-helper prune                prunes all networks, volumes, containers, caches"
 }
 
 docker-helper () {
     case $1 in
         kill-running)
-            docker-kill-running
+            docker kill $(docker ps -q)
             ;;
 
         rm-stopped)
-            docker-rm-stopped
+            docker rm $(docker ps -a -q)
             ;;
 
         kill-and-rm-all)
-            docker-kill-running
-            docker-rm-stopped
+            docker-helper kill-running
+            docker-helper rm-stopped
             ;;
 
-        --help | -h)
-            echo "docker-helper COMMAND"
-            echo ""
-            echo "docker-helper kill-running         kill all running containers"
-            echo "docker-helper rm-stopped           remove all stopped containers"
-            echo "docker-helper kill-and-rm-all      kill all running containers and remove them"
+        gc)
+            docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc \
+                spotify/docker-gc
+            ;;
+
+        prune)
+            docker system prune --all --force
             ;;
 
         *)
-            echo "Unknown command, see docker-helper -h"
+            docker-helper-print-help        
             ;;
     esac
 }
