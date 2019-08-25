@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+convert-paper-img () {
+    case $1 in
+        --help | -h)
+            echo "convert-paper-img INPUT OUTPUT"
+            ;;
+
+        *)
+            convert "$1" -gravity South -chop 0x300 "$2"
+            ;;
+    esac
+}
+
+convert-paper-img "$@"
