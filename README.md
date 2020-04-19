@@ -53,11 +53,9 @@ machine. Do these steps:
 
   1. You should have `hub` installed (if not, `brew install hub`). Go to https://github.com/settings/tokens and generate a new token with all `repo` permissions. Copy the token and use it as a password when running `hub clone SOME_REPO`. Otherwise, paste it into `~/.config/hub`.
 
-  1. **asdf**: if you're using [asdf][asdf] installed through Homebrew, the figure out the prefix with `brew --prefix asdf` (for example, `/usr/local/opt/asdf`) and use that in these lines:
+  1. **asdf**: if you're using [asdf][asdf] installed through Homebrew, then figure out the prefix with `brew --prefix asdf` (for example, `/usr/local/opt/asdf`) and use that in these lines:
 
-     1. Add `/usr/local/opt/asdf/asdf.sh` to `~/.zshenv-extra`
-
-     1. Add `/usr/local/opt/asdf/etc/bash_completion.d/asdf.bash` to `~/.zshrc-extra`
+     1. Add `source /usr/local/opt/asdf/asdf.sh` to `~/.zshenv-extra`
 
      1. If you want to use Elixir master from a local installation, clone Elixir and then do:
 
@@ -65,13 +63,6 @@ machine. Do these steps:
         ln -sv /path/to/elixir ~/.asdf/installs/elixir/master
         asdf reshim elixir master
         ```
-   
-  1. After installing Dropbox, link the (Google fonts) fonts directory:
-  
-     ```sh
-     sudo rm -rfv ~/Library/Fonts
-     sudo ln -sfv ~/Dropbox/Applications/Fonts ~/Library/Fonts
-     ```
 
 [asdf]: https://github.com/asdf-vm/asdf
 [homebrew]: http://brew.sh/
