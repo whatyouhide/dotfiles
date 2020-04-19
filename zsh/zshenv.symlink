@@ -26,10 +26,18 @@ export PATH="$PATH:/usr/sbin"
 export PATH="$PATH:/bin"
 export PATH="$PATH:/sbin"
 
-# Extra PATH entries.
-export PATH="$HOME/Dropbox/bin:$PATH"
+export EDITOR="code --wait"
 
 # Fix for Homebrew-installed asdf.
 export ASDF_DIR=$(brew --prefix asdf)
+
+# Necessary to work around issues in Ansible
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# Enable shell history in Erlang/Elixiir.
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+# Source asdf.
+source /usr/local/opt/asdf/asdf.sh
 
 [[ -s "$HOME/.zshenv-extra" ]] && source "$HOME/.zshenv-extra"
