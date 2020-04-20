@@ -28,8 +28,9 @@ export PATH="$PATH:/sbin"
 
 export EDITOR="code --wait"
 
-# Fix for Homebrew-installed asdf.
+# Fix for Homebrew-installed asdf and source asdf.
 export ASDF_DIR=$(brew --prefix asdf)
+source /usr/local/opt/asdf/asdf.sh
 
 # Necessary to work around issues in Ansible
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
@@ -37,7 +38,7 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 # Enable shell history in Erlang/Elixiir.
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-# Source asdf.
-source /usr/local/opt/asdf/asdf.sh
+# Java stuff.
+export JAVA_HOME="$(/usr/libexec/java_home)"
 
 [[ -s "$HOME/.zshenv-extra" ]] && source "$HOME/.zshenv-extra"
