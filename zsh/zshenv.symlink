@@ -35,6 +35,10 @@ source /usr/local/opt/asdf/asdf.sh
 # Necessary to work around issues in Ansible
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
+# Go setup.
+export GOPATH="$HOME/Code/go"
+export PATH="$GOPATH/bin:$PATH"
+
 # Enable shell history in Erlang/Elixiir.
 export ERL_AFLAGS="-kernel shell_history enabled"
 
