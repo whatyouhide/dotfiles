@@ -1,0 +1,21 @@
+#!/bin/sh -e
+
+CLUSTER="$1"
+
+if [ -z "$CLUSTER" ]; then
+    echo "Argument required for cluster name, for example:"
+    echo ""
+    echo "  compose-admin events-prod-rabbitmq"
+    exit 1
+fi
+
+echo "Allowing IP... "
+compose-allow-ip "$CLUSTER" > /dev/null 2>&1 && echo "IP allowed successfully"
+
+OUTPUT="$(composedotcom admin get-url --deployment="$CLUSTER" --credentials)"
+
+echo "$OUTPUT" | grep "Password" | cut -f2 | pbcopy
+echo "Password copied to clipboard"
+
+echo "Opening URL..."
+echo "$OUTPUT" | grep "Admin URL" | cut -f2 | xargs open
