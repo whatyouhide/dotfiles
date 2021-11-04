@@ -1,6 +1,8 @@
 #!/bin/sh -e
 
+IP_NAME="Andrea (automated)"
 CLUSTER="$1"
+IP="$(curl ifconfig.me)"
 
 if [ -z "$CLUSTER" ]; then
     echo "Argument required for cluster name, for example:"
@@ -9,13 +11,20 @@ if [ -z "$CLUSTER" ]; then
     exit 1
 fi
 
+if ! type composedotcom > /dev/null 2>&1; then
+    echo "The composedotcom binary is not in the path."
+    exit 1
+fi
+
 echo "Allowing IP... "
-compose-allow-ip "$CLUSTER" > /dev/null 2>&1 && echo "IP allowed successfully"
+composedotcom allowlist delete --deployment "$CLUSTER" --ip-name="$IP_NAME" > /dev/null || true
+composedotcom allowlist add --deployment "$CLUSTER" --ip-name="$IP_NAME" --ip="$IP"
 
 OUTPUT="$(composedotcom admin get-url --deployment="$CLUSTER" --credentials)"
 
 echo "$OUTPUT" | grep "Password" | cut -f2 | pbcopy
-echo "Password copied to clipboard"
+echo "Password copied to clipboard. When the admin dashboard opens, type \"admin\" as the"
+echo "username and paste the contents of the clipboard in the \"password\" field."
 
 echo "Opening URL..."
 echo "$OUTPUT" | grep "Admin URL" | cut -f2 | xargs open

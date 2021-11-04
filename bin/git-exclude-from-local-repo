@@ -3,7 +3,7 @@
 set -e
 
 pattern="$1"
-repo="`git rev-parse --show-toplevel`"
+repo="$(git rev-parse --show-toplevel)"
 exclude_file="$repo/.git/info/exclude"
 
 touch "$exclude_file"

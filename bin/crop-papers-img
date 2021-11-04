@@ -1,4 +1,7 @@
-#!/usr/bin/env zsh
+#!/bin/bash
+
+# Crop images to the right format from Papers.app (iPad OS) to Keynote 16:9.
+# I use this for slides.
 
 convert-paper-img () {
     case $1 in

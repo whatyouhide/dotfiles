@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+docker run -it --rm --network=host cassandra cqlsh "$@"

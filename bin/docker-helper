@@ -25,17 +25,12 @@ docker-helper () {
             docker-helper rm-stopped
             ;;
 
-        gc)
-            docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc \
-                spotify/docker-gc
-            ;;
-
         prune)
             docker system prune --all --force
             ;;
 
         *)
-            docker-helper-print-help        
+            docker-helper-print-help
             ;;
     esac
 }
