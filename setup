@@ -7,7 +7,7 @@ fail()         { echo_colored "$1" "\033[1;31m"; exit 1; }
 echo_info()    { echo_colored "==> $1" "\033[1;36m"; }
 
 check_env_variables() {
-  [[ -n "$DOTFILES" ]] || fail 'The $DOTFILES env variable is not set'
+  [[ -n "$DOTFILES" ]] || fail "The \$DOTFILES env variable is not set"
 }
 
 create_directories() {
@@ -17,22 +17,29 @@ create_directories() {
 }
 
 symlink_files() {
+  local _files
+  local _symlinked
+
   echo_info "Symlinking all files ending in '.symlink'"
-  local _files=$(find $DOTFILES -name '*.symlink')
+  _files=$(find "$DOTFILES" -name '*.symlink')
 
   for abs_file in $_files; do
-    local _symlinked=".$(basename ${abs_file%.symlink})"
+    _symlinked=".$(basename "${abs_file%.symlink}")"
     ln -sfv "$abs_file" "$HOME/$_symlinked"
   done
+
   echo
 }
 
 copy_example_files() {
+    local _files
+    local _dst
+
     echo_info "Copying all files ending in '.example'"
-    local _files=$(find $DOTFILES -name '*.example')
+    _files=$(find "$DOTFILES" -name '*.example')
 
     for abs_file in $_files; do
-        local _dst="$HOME/.$(basename ${abs_file%.example})"
+        _dst="$HOME/.$(basename "${abs_file%.example}")"
 
         if [[ -s "$_dst" ]]; then
             echo "File $_dst exists and will not be overridden"
@@ -40,6 +47,7 @@ copy_example_files() {
             cp -v "$abs_file" "$_dst"
         fi
     done
+
     echo
 }
 
@@ -48,6 +56,7 @@ run_install_scripts() {
     echo_info "Running ${file#$DOTFILES/}"
     bash "$file"
   done
+
   echo
 }
 
