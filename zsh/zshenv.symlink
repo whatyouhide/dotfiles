@@ -29,8 +29,8 @@ export PATH="$PATH:/sbin"
 export EDITOR="code --wait"
 
 # Fix for Homebrew-installed asdf and source asdf.
-export ASDF_DIR=$(brew --prefix asdf)
-source /usr/local/opt/asdf/asdf.sh
+export ASDF_DIR="$(brew --prefix asdf)/libexec"
+source "$ASDF_DIR/asdf.sh"
 
 # Necessary to work around issues in Ansible
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
