@@ -5,14 +5,5 @@ if ! type "$1" >/dev/null 2>&1; then
     exit 1
 fi
 
-brew install git
-brew install github/gh/gh
-brew install coreutils
-brew install readline
-brew install ssh-copy-id
+brew bundle install
 
-# For zsh
-brew install antigen
-
-# Version manager (Elixir, Erlang)
-brew install asdf
