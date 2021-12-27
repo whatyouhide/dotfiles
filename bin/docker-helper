@@ -6,7 +6,6 @@ docker-helper-print-help () {
     echo "docker-helper kill-running         kill all running containers"
     echo "docker-helper rm-stopped           remove all stopped containers"
     echo "docker-helper kill-and-rm-all      kill all running containers and remove them"
-    echo "docker-helper gc                   runs docker-gc (from Spotify)"
     echo "docker-helper prune                prunes all networks, volumes, containers, caches"
 }
 
@@ -30,6 +29,7 @@ docker-helper () {
             ;;
 
         *)
+            echo "Unknown command"
             docker-helper-print-help
             ;;
     esac
