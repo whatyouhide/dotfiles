@@ -9,6 +9,10 @@
 	tg = "!f() { git tag -a $1 -m $1; }; f"
 	ch = checkout
 
+# Use the right branch name when creating new repos
+[init]
+        defaultBranch = main
+
 # Merge/pull/push
 [merge]
 	log = true
