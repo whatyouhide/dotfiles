@@ -28,6 +28,9 @@ export PATH="$PATH:/sbin"
 
 export EDITOR="code --wait"
 
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Fix for Homebrew-installed asdf and source asdf.
 export ASDF_DIR="$(brew --prefix asdf)/libexec"
 source "$ASDF_DIR/asdf.sh"
