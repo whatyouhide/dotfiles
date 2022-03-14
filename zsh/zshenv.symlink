@@ -42,7 +42,4 @@ export PATH="$GOPATH/bin:$PATH"
 # Enable shell history in Erlang/Elixiir.
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-# Java stuff.
-export JAVA_HOME="$(/usr/libexec/java_home)"
-
 [[ -s "$HOME/.zshenv-extra" ]] && source "$HOME/.zshenv-extra"
