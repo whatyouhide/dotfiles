@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function main {
+    local _current_branch
+    local _main_branch
+
+    _current_branch="$(git rev-parse --abbrev-ref HEAD)"
+    _main_branch="$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
+
+    git checkout "$_main_branch"
+    git pull
+    git branch -D "$_current_branch"
+    git fetch --all --prune
+}
+
+main "#@"
