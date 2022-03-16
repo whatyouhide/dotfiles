@@ -13,3 +13,5 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # Recursively delete `.DS_Store` files
 alias clean-ds-stores="find . -name '*.DS_Store' -type f -ls -delete"
+
+alias cat="bat --paging=never"
