@@ -10,11 +10,7 @@ machine. Do these steps:
   will prompt to install them. For example, just open `Terminal.app` and run `$
   make`.
 
-  1. [**Homebrew**][homebrew]: install it by running:
-
-     ```sh
-     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-     ```
+  1. [**Homebrew**][homebrew]: install it following the website's instructions.
 
   1. **Git**: ensure you have `git` installed (it's present by default on macOS).
 
