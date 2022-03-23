@@ -28,6 +28,10 @@ symlink_files() {
     ln -sfv "$abs_file" "$HOME/$_symlinked"
   done
 
+  echo_info "Symlinking SSH config"
+  mkdir -p "$HOME/.ssh"
+  ln -sfv "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Synced Applications/ssh/config" "$HOME/.ssh/config"
+
   echo
 }
 
