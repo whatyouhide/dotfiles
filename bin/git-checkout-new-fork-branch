@@ -1,0 +1,9 @@
+#!/bin/bash -e
+
+BRANCH="$1"
+UPSTREAM_BRANCH="${2:-"origin/main"}"
+
+test -z "$BRANCH" && echo "** Error: missing name of the new branch as first argument" && exit 1
+
+echo "Checking out new branch $BRANCH from: $UPSTREAM_BRANCH"
+git checkout -b "$1" --no-track "$UPSTREAM_BRANCH"
