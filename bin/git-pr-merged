@@ -16,15 +16,16 @@ function main {
     # Set $_remote to "upstream" if it exists or to "origin" otherwise.
     if git remote | grep -q upstream; then
         _remote="upstream"
+        progress "Fetching all remotes and pruning remote branches"
+	git fetch upstream --prune
+	git fetch origin --prune
     else
         _remote="origin"
+	git fetch origin --prune
     fi
 
     progress "Checking out branch: $_main_branch"
     git checkout "$_main_branch"
-
-    progress "Fetching all remotes and pruning remote branches"
-    git fetch --all --prune
 
     progress "Resetting current branch to $_remote/$_main_branch"
     git reset --hard "$_remote/$_main_branch"
