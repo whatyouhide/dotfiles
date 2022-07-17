@@ -47,18 +47,14 @@ machine. Do these steps:
      ./setup
      ```
 
-  1. You should have `hub` installed (if not, `brew install hub`). Go to https://github.com/settings/tokens and generate a new token with all `repo` permissions. Copy the token and use it as a password when running `hub clone SOME_REPO`. Otherwise, paste it into `~/.config/hub`.
+  1. You should have `hub` installed (if not, `brew install hub`). Go to <https://github.com/settings/tokens> and generate a new token with all `repo` permissions. Copy the token and use it as a password when running `hub clone SOME_REPO`. Otherwise, paste it into `~/.config/hub`.
 
   1. **asdf**: if you're using [asdf][asdf] installed through Homebrew, then figure out the prefix with `brew --prefix asdf` (for example, `/usr/local/opt/asdf`) and use that in these lines:
 
      1. Add `source /usr/local/opt/asdf/asdf.sh` to `~/.zshenv-extra`
 
-     1. If you want to use Elixir master from a local installation, clone Elixir and then do:
-
-        ```sh
-        ln -sv /path/to/elixir ~/.asdf/installs/elixir/master
-        asdf reshim elixir master
-        ```
+     1. If you want to use Elixir from a local installation, clone Elixir and then follow [asdf's guide][asdf-guide-local-elixir]
 
 [asdf]: https://github.com/asdf-vm/asdf
+[asdf-guide-local-elixir]: https://github.com/asdf-vm/asdf-elixir#compiling-from-a-git-reference-or-from-source
 [homebrew]: http://brew.sh/
