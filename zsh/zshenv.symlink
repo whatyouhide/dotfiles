@@ -45,4 +45,7 @@ export PATH="$GOPATH/bin:$PATH"
 # Enable shell history in Erlang/Elixiir.
 export ERL_AFLAGS="-kernel shell_history enabled"
 
+# Use a TTY in GPG.
+export GPG_TTY="$(tty)"
+
 [[ -s "$HOME/.zshenv-extra" ]] && source "$HOME/.zshenv-extra"
