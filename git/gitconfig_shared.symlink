@@ -17,7 +17,7 @@
 [merge]
 	log = true
 [push]
-	default = matching
+	default = current
 [pull]
 	rebase = true
 [rebase]
