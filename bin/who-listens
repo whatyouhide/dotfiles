@@ -1,0 +1,39 @@
+#!/bin/bash -e
+
+print_usage() {
+    echo "Usage: who-listens [pattern] [--kill]"
+    echo
+    echo "  pattern: pattern to search for"
+    echo "   --kill: kill the processes using the port"
+    echo
+    echo "Examples:"
+    echo
+    echo "  who-listens"
+    echo "  who-listens 8080"
+    echo "  who-listens 8080 --kill"
+}
+
+_main() {
+    if [ $# -eq 0 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P
+    elif [ $# -eq 1 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color "$1"
+    elif [ $# -eq 2 ] && [ "$2" == "--kill" ]; then
+        local _pids
+        _pids="$(sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i "$1" | awk '{print $2}')"
+
+        if [ ${#_pids} -eq 0 ]; then
+            echo "No process found" && exit 0
+        fi
+
+        for _pid in $_pids; do
+            sudo kill -s TERM "$_pid"
+            echo "Killed process: $_pid"
+        done
+
+    else
+        print_usage
+    fi
+}
+
+_main "$@"

@@ -30,3 +30,4 @@ node_modules
 # Stuff
 TODO.md
 .tool-versions
+.elixir-tools
