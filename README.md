@@ -6,11 +6,20 @@ These instructions are to be followed when installing these dotfiles on a new
 machine. Do these steps:
 
   1. **XCode**: If running on a Mac, you need part of XCode. You don't need the
-  whole XCode. Just run any command that is in Apple's Command Line Tools and it
-  will prompt to install them. For example, just open `Terminal.app` and run `$
-  make`.
+     whole XCode. Open the terminal and run
 
-  1. [**Homebrew**][homebrew]: install it following the website's instructions.
+     ```sh
+     xcode-select --install
+     ```
+
+     which will prompt the installer.
+
+  1. [**Homebrew**][homebrew]: install it following the website's instructions,
+     then export its path for now:
+
+     ```sh
+     export PATH="/opt/homebrew/bin:$PATH"
+     ```
 
   1. **Git**: ensure you have `git` installed (it's present by default on macOS).
 
@@ -23,7 +32,7 @@ machine. Do these steps:
      chsh -s "$(which zsh)" "$(whoami)"
      ```
 
-     Now:
+     Now do these:
 
        * delete `/etc/zprofile`
        * empty out `/etc/paths`
@@ -37,7 +46,8 @@ machine. Do these steps:
      export DOTFILES="$HOME/dotfiles"
      ```
 
-  1. Copy SSH keys from 1Password.
+  1. Copy SSH keys from 1Password (after doing `mkdir ~/.ssh`), into
+     `~/.ssh/id_rsa` and `~/.ssh/id_rsa.pub`.
 
   1. Clone the dotfiles and run the setup script:
 
@@ -47,20 +57,20 @@ machine. Do these steps:
      ./setup
      ```
 
-  1. You should have `hub` installed (if not, `brew install hub`). Go to
-     <https://github.com/settings/tokens> and generate a new token with all
-     `repo` permissions. Copy the token and use it as a password when running
-     `hub clone SOME_REPO`. Otherwise, paste it into `~/.config/hub`.
+  1. Authenticate to GitHub by doing:
 
-  1. **asdf**: if you're using [asdf][asdf] installed through Homebrew, then
-     figure out the prefix with `brew --prefix asdf` (for example,
-     `/usr/local/opt/asdf`) and use that in these lines:
+     ```sh
+     gh auth login
+     ```
 
-     1. Add `source /usr/local/opt/asdf/asdf.sh` to `~/.zshenv-extra`
+     GitHub takes care of the whole flow for you, by redirecting you to a
+     browser to do the authentication.
 
-     1. If you want to use Elixir from a local installation, clone Elixir and
-        then follow [asdf's guide][asdf-guide-local-elixir]
+  1. **asdf**: you're using [asdf] installed via Homebrew. Add this to `~/.zshenv-extra`:
+
+     ```sh
+     echo "\nsource $(brew --prefix asdf)/libexec/asdf.sh" >> ~/.zshenv.extra
+     ```
 
 [asdf]: https://github.com/asdf-vm/asdf
-[asdf-guide-local-elixir]: https://github.com/asdf-vm/asdf-elixir#compiling-from-a-git-reference-or-from-source
 [homebrew]: http://brew.sh/
