@@ -9,3 +9,6 @@ rm -f Brewfile
 
 echo "Dumping"
 brew bundle dump
+
+sed -i '' '/^vscode/d' ./Brewfile
+

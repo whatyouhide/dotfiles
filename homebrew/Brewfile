@@ -21,18 +21,15 @@ brew "asdf"
 brew "awk"
 brew "awscli"
 brew "bash-completion"
+brew "libssh2"
 brew "bat"
 brew "caddy"
 brew "glib"
 brew "cairo"
-brew "cassandra"
 brew "clang-format"
-brew "cloc"
 brew "cmake"
 brew "colordiff"
-brew "libssh2"
 brew "curl"
-brew "earthly"
 brew "exa"
 brew "exiftool"
 brew "tesseract"
@@ -60,28 +57,40 @@ brew "libpq"
 brew "libuv"
 brew "libxslt"
 brew "make"
+brew "mas"
 brew "mysql", restart_service: true
 brew "nss"
 brew "pandoc"
 brew "pinentry-mac"
 brew "pngquant"
-brew "postgresql@14", restart_service: true
 brew "protobuf"
 brew "python@3.9"
-brew "redis"
 brew "shellcheck"
 brew "ssh-copy-id", link: true
 brew "subversion"
 brew "telnet"
 brew "terraform"
-brew "terraformer"
 brew "tree"
 brew "wabt"
-brew "websocat"
-brew "wget"
 brew "wxwidgets"
-brew "yq"
 brew "zola"
 brew "zsh"
 brew "cjntaylor/personal/autoconf@2.69"
+cask "cleanshot"
+cask "dash"
 cask "google-cloud-sdk"
+cask "obsidian"
+cask "spotify"
+cask "tableplus"
+cask "visual-studio-code"
+cask "whatsapp"
+mas "1Password for Safari", id: 1569813296
+mas "HiCoffee", id: 1507361706
+mas "Keynote", id: 409183694
+mas "Magnet", id: 441258766
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Paprika Recipe Manager 3", id: 1303222628
+mas "Slack", id: 803453959
+mas "Surfshark", id: 1437809329
+mas "Tailscale", id: 1475387142
