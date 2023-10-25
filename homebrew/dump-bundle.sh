@@ -7,8 +7,10 @@ cd "$BUNDLE_DIR"
 echo "Removing current Brewfile..."
 rm -f Brewfile
 
-echo "Dumping"
+echo "Dumping..."
 brew bundle dump
 
+echo "Removing VS Code extensions..."
 sed -i '' '/^vscode/d' ./Brewfile
 
+echo "Done!"
