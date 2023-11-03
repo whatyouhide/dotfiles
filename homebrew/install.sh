@@ -5,5 +5,4 @@ if ! type "brew" >/dev/null 2>&1; then
     exit 1
 fi
 
-brew bundle install --file homebrew/Brewfile
-
+brew bundle install --file homebrew/Brewfile --no-lock --cleanup
