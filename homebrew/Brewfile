@@ -2,6 +2,7 @@ tap "cjntaylor/personal"
 tap "dbt-labs/dbt"
 tap "github/gh"
 tap "homebrew/bundle"
+tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "mike-engel/jwt-cli"
 brew "readline"
@@ -41,6 +42,7 @@ brew "foreman"
 brew "gh"
 brew "ghostscript"
 brew "git"
+brew "git-lfs"
 brew "gnu-sed"
 brew "gnupg"
 brew "go"
@@ -59,6 +61,7 @@ brew "libxslt"
 brew "make"
 brew "mas"
 brew "nss"
+brew "openjdk@11"
 brew "pandoc"
 brew "parquet-cli"
 brew "pinentry-mac"
@@ -101,6 +104,7 @@ cask "whatsapp"
 cask "zoom"
 cask "zotero"
 mas "1Password for Safari", id: 1569813296
+mas "Day One", id: 1055511498
 mas "HiCoffee", id: 1507361706
 mas "Keynote", id: 409183694
 mas "Klack", id: 6446206067
@@ -109,6 +113,8 @@ mas "Mimeo Photos", id: 1282504627
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Paprika Recipe Manager 3", id: 1303222628
+mas "Reeder", id: 1529448980
 mas "Slack", id: 803453959
+mas "Streaks", id: 963034692
 mas "Surfshark", id: 1437809329
 mas "Tailscale", id: 1475387142
