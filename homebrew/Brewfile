@@ -1,19 +1,20 @@
-tap "cjntaylor/personal"
 tap "dbt-labs/dbt"
 tap "github/gh"
 tap "homebrew/bundle"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "mike-engel/jwt-cli"
+tap "timrogers/tap"
 brew "readline"
-brew "pyyaml"
 brew "ansible"
+brew "pyyaml"
 brew "yamllint"
 brew "ansible-lint"
 brew "antigen"
 brew "webp"
 brew "aom"
 brew "asciinema"
+brew "m4"
 brew "autoconf"
 brew "automake"
 brew "coreutils"
@@ -25,7 +26,7 @@ brew "bash-completion"
 brew "libssh2"
 brew "bat"
 brew "caddy"
-brew "glib"
+brew "glib", link: false
 brew "cairo"
 brew "clang-format"
 brew "cmake"
@@ -43,13 +44,18 @@ brew "gh"
 brew "ghostscript"
 brew "git"
 brew "git-lfs"
+brew "glew"
+brew "glfw"
 brew "gnu-sed"
 brew "gnupg"
 brew "go"
+brew "pkg-config"
 brew "gobject-introspection"
 brew "gpp"
+brew "graphviz"
 brew "guile"
 brew "gzip"
+brew "helm"
 brew "libheif"
 brew "imagemagick"
 brew "jq"
@@ -82,19 +88,27 @@ brew "yarn"
 brew "zola"
 brew "zsh"
 brew "mike-engel/jwt-cli/jwt-cli"
+brew "timrogers/tap/litra"
+cask "airbuddy"
 cask "alt-tab"
+cask "appcleaner"
 cask "arc"
 cask "bettertouchtool"
 cask "cardhop"
 cask "cleanshot"
 cask "dash"
 cask "dropbox"
+cask "dynamic-dark-mode"
 cask "fantastical"
 cask "google-cloud-sdk"
-cask "iterm2"
+cask "iterm2-beta"
+cask "kindle"
+cask "microsoft-auto-update"
+cask "microsoft-outlook"
+cask "microsoft-teams"
 cask "ngrok"
-cask "notion"
 cask "obsidian"
+cask "ollama"
 cask "orbstack"
 cask "raycast"
 cask "spotify"
@@ -105,14 +119,18 @@ cask "zoom"
 cask "zotero"
 mas "1Password for Safari", id: 1569813296
 mas "Day One", id: 1055511498
+mas "Hand Mirror", id: 1502839586
 mas "HiCoffee", id: 1507361706
 mas "Keynote", id: 409183694
 mas "Klack", id: 6446206067
 mas "Magnet", id: 441258766
+mas "Mela", id: 1568924476
 mas "Mimeo Photos", id: 1282504627
+mas "MusicBox", id: 1614730313
 mas "Numbers", id: 409203825
+mas "Omnivore", id: 1564031042
 mas "Pages", id: 409201541
-mas "Paprika Recipe Manager 3", id: 1303222628
+mas "ReadKit", id: 1615798039
 mas "Reeder", id: 1529448980
 mas "Slack", id: 803453959
 mas "Streaks", id: 963034692
