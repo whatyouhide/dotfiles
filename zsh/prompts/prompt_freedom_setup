@@ -1,65 +1,58 @@
 # Some configurations first.
 
 # Set some variables to print the git prompt.
-FREEDOM_GIT_PROMPT_AHEAD="↑"
-FREEDOM_GIT_PROMPT_BEHIND="↓"
-FREEDOM_GIT_PROMPT_UNTRACKED="+"
-FREEDOM_GIT_PROMPT_DIRTY="*"
-
+ANDREA_PROMPT_GIT_AHEAD="↑"
+ANDREA_PROMPT_GIT_BEHIND="↓"
+ANDREA_PROMPT_GIT_UNTRACKED="+"
+ANDREA_PROMPT_GIT_DIRTY="*"
 
 # Return the username of the current user.
-prompt_freedom_username() {
+prompt_andrea_username() {
   echo '%F{cyan}%n%f'
 }
 
-# Return the current machine name.
-prompt_freedom_host() {
-  echo '%F{green}%m%f'
-}
-
 # Return the current path.
-prompt_freedom_path() {
+prompt_andrea_path() {
   echo '%F{blue}%~%f'
 }
 
-
 # Tell if we're in a git repository.
-prompt_freedom_git_is_repo() {
-  [[ -d '.git' ]] || command git rev-parse --is-inside-work-tree > /dev/null 2>&1
+prompt_andrea_git_is_repo() {
+  [[ -d '.git' ]] || command git rev-parse --is-inside-work-tree >/dev/null 2>&1
 }
 
 # Find the git branch we're on.
-prompt_freedom_git_current_branch() {
+prompt_andrea_git_current_branch() {
   echo $(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
 }
 
 # Check if the current git repository is dirty.
-prompt_freedom_git_is_dirty() {
+prompt_andrea_git_is_dirty() {
   ! command git diff --quiet --ignore-submodules HEAD &>/dev/null
 }
 
 # Git prompt infos used by `custom_git_prompt`.
 # Suffix and prefix.
-prompt_freedom_git_prompt_addons() {
-  _INDEX=$(command git status --porcelain -b 2> /dev/null)
+prompt_ANDREA_PROMPT_GIT_addons() {
+  _INDEX=$(command git status --porcelain -b 2>/dev/null)
   local _SUFFIX=''
 
   # Check if the repository is dirty.
   # This command has an exit status of 0 if the repository is clean.
-  if prompt_freedom_git_is_dirty; then
-    _SUFFIX="$_SUFFIX$FREEDOM_GIT_PROMPT_DIRTY"
+  if prompt_andrea_git_is_dirty; then
+    _SUFFIX="$_SUFFIX$ANDREA_PROMPT_GIT_DIRTY"
   fi
 
   # Check if there are untracked files.
-  if $(echo "$_INDEX" | grep '^??' &> /dev/null); then
-    _SUFFIX="$_SUFFIX$FREEDOM_GIT_PROMPT_UNTRACKED"
+  if $(echo "$_INDEX" | grep '^??' &>/dev/null); then
+    _SUFFIX="$_SUFFIX$ANDREA_PROMPT_GIT_UNTRACKED"
   fi
 
   # Check if ahead/behind of remote.
-  if $(echo "$_INDEX" | grep '^## .*ahead' &> /dev/null); then
-    _SUFFIX="$_SUFFIX$FREEDOM_GIT_PROMPT_AHEAD"
-  elif $(echo "$_INDEX" | grep '^## .*behind' &> /dev/null); then
-    _SUFFIX="$_SUFFIX$FREEDOM_GIT_PROMPT_BEHIND"
+  if $(echo "$_INDEX" | grep '^## .*ahead' &>/dev/null); then
+    _SUFFIX="$_SUFFIX$ANDREA_PROMPT_GIT_AHEAD"
+  elif $(echo "$_INDEX" | grep '^## .*behind' &>/dev/null); then
+    _SUFFIX="$_SUFFIX$ANDREA_PROMPT_GIT_BEHIND"
   fi
 
   # If there are addons (length of string is non-zero), prefix them with
@@ -71,49 +64,47 @@ prompt_freedom_git_prompt_addons() {
 
 # Print a customized git prompt. This is only a wrapper around oh-my-zsh
 # `git_prompt_info`, with a few addons and colors.
-prompt_freedom_git_prompt() {
-  ! prompt_freedom_git_is_repo && return
-  echo "%F{242}($(prompt_freedom_git_current_branch)$(prompt_freedom_git_prompt_addons))%f "
+prompt_andrea_git_prompt() {
+  ! prompt_andrea_git_is_repo && return
+  echo "%F{242}($(prompt_andrea_git_current_branch)$(prompt_ANDREA_PROMPT_GIT_addons))%f"
+}
+
+# Print the current kubernetes context.
+prompt_andrea_kube_context() {
+  if kubectx >/dev/null 2>&1; then
+    echo "%F{magenta}[k8s $(kubectx --current)]%f"
+  fi
 }
 
 # Returns the character that should appear before the cursor, colored based on
 # the last exit status.
-prompt_freedom_before_char() {
+prompt_andrea_before_char() {
   echo '%(?.%F{magenta}.%F{red})→%f'
 }
 
 # Execute when a command finishes, before re-creating the prompt.
-prompt_freedom_precmd() {
+prompt_andrea_precmd() {
   # Output a new line after every command.
   echo ''
 }
 
-# Initialize the PROMPT variable with the username or, if in a ssh shell, the
-# username and the host.
-prompt_freedom_setup_prompt_variable() {
-  if [[ -z $SSH_CONNECTION ]]; then
-    PROMPT='$(prompt_freedom_username) '
-  else
-    PROMPT='%F{yellow}[ssh]%f $(prompt_freedom_username)@$(prompt_freedom_host) '
-  fi
-}
-
 # Append a string to the prompt.
-prompt_freedom_append_to_prompt() {
+prompt_andrea_append_to_prompt() {
   PROMPT="$PROMPT""$1"
 }
 
 # Setup function.
-prompt_freedom_setup() {
+prompt_andrea_setup() {
   autoload -U add-zsh-hook
-  add-zsh-hook precmd prompt_freedom_precmd
+  add-zsh-hook precmd prompt_andrea_precmd
 
-  prompt_freedom_setup_prompt_variable
-  prompt_freedom_append_to_prompt '$(prompt_freedom_path) '
-  prompt_freedom_append_to_prompt '$(prompt_freedom_git_prompt) '
-  prompt_freedom_append_to_prompt $'\n'
-  prompt_freedom_append_to_prompt '$(prompt_freedom_before_char) '
+  PROMPT=''
+  prompt_andrea_append_to_prompt '$(prompt_andrea_path) '
+  prompt_andrea_append_to_prompt '$(prompt_andrea_git_prompt) '
+  prompt_andrea_append_to_prompt '$(prompt_andrea_kube_context) '
+  prompt_andrea_append_to_prompt $'\n'
+  prompt_andrea_append_to_prompt '$(prompt_andrea_before_char) '
 }
 
 # Init.
-prompt_freedom_setup "$@"
+prompt_andrea_setup "$@"
