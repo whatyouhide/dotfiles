@@ -72,7 +72,7 @@ prompt_andrea_git_prompt() {
 # Print the current kubernetes context.
 prompt_andrea_kube_context() {
   if kubectx >/dev/null 2>&1; then
-    echo "%F{magenta}[k8s $(kubectx --current)]%f"
+    echo "%F{magenta}🐳[$(kubectx --current)]%f"
   fi
 }
 

@@ -30,4 +30,4 @@ if [[ -f .env ]]; then
 fi
 
 # Choose the prompt.
-prompt ${ZSH_PROMPT:-freedom}
+prompt "andrea"

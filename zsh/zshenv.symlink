@@ -3,7 +3,6 @@ export DOTFILES="$HOME/dotfiles"
 
 # zsh config.
 export ZSH_CONFIG="$DOTFILES/zsh"
-export ZSH_PROMPT="freedom"
 
 # Prefer US English and use UTF-8
 export LC_ALL="en_US.UTF-8"
