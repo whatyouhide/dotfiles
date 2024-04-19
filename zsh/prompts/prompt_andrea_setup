@@ -1,16 +1,3 @@
-# Some configurations first.
-
-# Set some variables to print the git prompt.
-ANDREA_PROMPT_GIT_AHEAD="↑"
-ANDREA_PROMPT_GIT_BEHIND="↓"
-ANDREA_PROMPT_GIT_UNTRACKED="+"
-ANDREA_PROMPT_GIT_DIRTY="*"
-
-# Return the username of the current user.
-prompt_andrea_username() {
-  echo '%F{cyan}%n%f'
-}
-
 # Return the current path.
 prompt_andrea_path() {
   echo '%F{blue}%~%f'
@@ -23,56 +10,29 @@ prompt_andrea_git_is_repo() {
 
 # Find the git branch we're on.
 prompt_andrea_git_current_branch() {
-  echo $(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
-}
-
-# Check if the current git repository is dirty.
-prompt_andrea_git_is_dirty() {
-  ! command git diff --quiet --ignore-submodules HEAD &>/dev/null
-}
-
-# Git prompt infos used by `custom_git_prompt`.
-# Suffix and prefix.
-prompt_ANDREA_PROMPT_GIT_addons() {
-  _INDEX=$(command git status --porcelain -b 2>/dev/null)
-  local _SUFFIX=''
-
-  # Check if the repository is dirty.
-  # This command has an exit status of 0 if the repository is clean.
-  if prompt_andrea_git_is_dirty; then
-    _SUFFIX="$_SUFFIX$ANDREA_PROMPT_GIT_DIRTY"
-  fi
-
-  # Check if there are untracked files.
-  if $(echo "$_INDEX" | grep '^??' &>/dev/null); then
-    _SUFFIX="$_SUFFIX$ANDREA_PROMPT_GIT_UNTRACKED"
-  fi
-
-  # Check if ahead/behind of remote.
-  if $(echo "$_INDEX" | grep '^## .*ahead' &>/dev/null); then
-    _SUFFIX="$_SUFFIX$ANDREA_PROMPT_GIT_AHEAD"
-  elif $(echo "$_INDEX" | grep '^## .*behind' &>/dev/null); then
-    _SUFFIX="$_SUFFIX$ANDREA_PROMPT_GIT_BEHIND"
-  fi
-
-  # If there are addons (length of string is non-zero), prefix them with
-  # a space character.
-  [[ -n "$_SUFFIX" ]] && _SUFFIX=" $_SUFFIX"
-
-  echo $_SUFFIX
+  git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
 }
 
 # Print a customized git prompt. This is only a wrapper around oh-my-zsh
 # `git_prompt_info`, with a few addons and colors.
 prompt_andrea_git_prompt() {
   ! prompt_andrea_git_is_repo && return
-  echo "%F{242}($(prompt_andrea_git_current_branch)$(prompt_ANDREA_PROMPT_GIT_addons))%f"
+  echo "%F{242}($(prompt_andrea_git_current_branch))%f"
 }
 
 # Print the current kubernetes context.
 prompt_andrea_kube_context() {
-  if kubectx >/dev/null 2>&1; then
-    echo "%F{magenta}🐳[$(kubectx --current)]%f"
+  KCTX=$(kubectx --current)
+  exit_status=$?
+
+  if [ "$exit_status" -eq "0" ]; then
+    echo "%F{magenta}🐳[$KCTX]%f"
+  fi
+}
+
+prompt_andrea_aws_profile() {
+  if [ -n "$AWS_PROFILE" ]; then
+    echo "%F{magenta}💾[$AWS_PROFILE]%f"
   fi
 }
 
@@ -82,12 +42,6 @@ prompt_andrea_before_char() {
   echo '%(?.%F{magenta}.%F{red})→%f'
 }
 
-# Execute when a command finishes, before re-creating the prompt.
-prompt_andrea_precmd() {
-  # Output a new line after every command.
-  echo ''
-}
-
 # Append a string to the prompt.
 prompt_andrea_append_to_prompt() {
   PROMPT="$PROMPT""$1"
@@ -95,13 +49,11 @@ prompt_andrea_append_to_prompt() {
 
 # Setup function.
 prompt_andrea_setup() {
-  autoload -U add-zsh-hook
-  add-zsh-hook precmd prompt_andrea_precmd
-
-  PROMPT=''
+  PROMPT=""
   prompt_andrea_append_to_prompt '$(prompt_andrea_path) '
   prompt_andrea_append_to_prompt '$(prompt_andrea_git_prompt) '
   prompt_andrea_append_to_prompt '$(prompt_andrea_kube_context) '
+  prompt_andrea_append_to_prompt '$(prompt_andrea_aws_profile) '
   prompt_andrea_append_to_prompt $'\n'
   prompt_andrea_append_to_prompt '$(prompt_andrea_before_char) '
 }
