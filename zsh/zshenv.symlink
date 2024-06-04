@@ -30,16 +30,11 @@ export EDITOR="code --wait"
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Fix for Homebrew-installed asdf and source asdf.
-export ASDF_DIR="$(brew --prefix asdf)/libexec"
-source "$ASDF_DIR/asdf.sh"
+# asdf
+. "$(brew --prefix asdf)/libexec/asdf.sh"
 
 # Necessary to work around issues in Ansible
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
-# Go setup.
-export GOPATH="$HOME/Code/go"
-export PATH="$GOPATH/bin:$PATH"
 
 # Enable shell history in Erlang/Elixiir.
 export ERL_AFLAGS="-kernel shell_history enabled"
