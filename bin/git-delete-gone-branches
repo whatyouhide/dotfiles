@@ -1,3 +1,0 @@
-#!/bin/bash -e
-
-git branch -av | grep '\[gone\]' | awk '{print $1}' | xargs -t git branch -D

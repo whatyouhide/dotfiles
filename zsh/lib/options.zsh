@@ -14,7 +14,6 @@ setopt no_beep
 # + user).
 export REPORTTIME=3
 
-
 # Completion
 
 # Show completion menu on successive tab presses.
@@ -28,7 +27,6 @@ unsetopt menu_complete
 # inserted or menu completion is performed.
 setopt always_to_end
 
-
 # Changing directories
 
 # Make cd push the old directory onto the directory stack.
@@ -41,7 +39,6 @@ setopt pushd_ignore_dups
 # The cdpath allows to cd into directories contained in the ones listed in the
 # `cdpath` array, which is usually defined in a non version-controlled file.
 setopt auto_cd
-
 
 # History
 

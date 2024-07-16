@@ -8,6 +8,5 @@ alias cat="bat --paging=never --theme=base16 --style=header-filename,header-file
 alias clean-ds-stores="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Docker and Kubernetes.
-alias dc="docker compose"
 alias kctx="kubectx"
 alias k="kubectl"

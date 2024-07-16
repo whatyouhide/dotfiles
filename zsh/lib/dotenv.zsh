@@ -1,4 +1,4 @@
-# Copypasted from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/dotenv/dotenv.plugin.zsh.
+# Copypasted (or vendored, uh) from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/dotenv/dotenv.plugin.zsh.
 
 ## Settings
 

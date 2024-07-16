@@ -3,17 +3,29 @@
 set -e
 
 echo_colored() { echo -e "${2}$1\033[0m"; }
-fail()         { echo_colored "$1" "\033[1;31m"; exit 1; }
-echo_info()    { echo_colored "==> $1" "\033[1;36m"; }
+echo_info() { echo_colored "==> $1" "\033[1;36m"; }
+
+fail() {
+  echo_colored "$1" "\033[1;31m"
+  exit 1
+}
 
 check_env_variables() {
   [[ -n "$DOTFILES" ]] || fail "The \$DOTFILES env variable is not set"
 }
 
 create_directories() {
-    echo_info "Creating a bunch of directories"
-    mkdir -p "$HOME/bin" && echo "Created ~/bin"
-    mkdir -p "$HOME/tmp" && echo "Created ~/tmp"
+  echo_info "Creating a bunch of directories"
+
+  for dir in "Code" "Writing" "bin" "tmp"; do
+    local _path="$HOME/$dir"
+
+    if [ -d "$_path" ]; then
+      echo "Directory already exists: $_path"
+    else
+      mkdir -p "$_path" && echo "Directory created successfully: $_path"
+    fi
+  done
 }
 
 symlink_files() {
@@ -36,23 +48,23 @@ symlink_files() {
 }
 
 copy_example_files() {
-    local _files
-    local _dst
+  local _files
+  local _dst
 
-    echo_info "Copying all files ending in '.example'"
-    _files=$(find "$DOTFILES" -name '*.example')
+  echo_info "Copying all files ending in '.example'"
+  _files=$(find "$DOTFILES" -name '*.example')
 
-    for abs_file in $_files; do
-        _dst="$HOME/.$(basename "${abs_file%.example}")"
+  for abs_file in $_files; do
+    _dst="$HOME/.$(basename "${abs_file%.example}")"
 
-        if [[ -s "$_dst" ]]; then
-            echo "File $_dst exists and will not be overridden"
-        else
-            cp -v "$abs_file" "$_dst"
-        fi
-    done
+    if [[ -s "$_dst" ]]; then
+      echo "File $_dst exists and will not be overridden"
+    else
+      cp -v "$abs_file" "$_dst"
+    fi
+  done
 
-    echo
+  echo
 }
 
 run_install_scripts() {
@@ -65,21 +77,21 @@ run_install_scripts() {
 }
 
 print_todos() {
-    echo_info "Remember to do these:"
-    echo "Set the git email in ~/.gitconfig (git config --global user.email foo@bar)"
-    echo "Set the git name in ~/.gitconfig (git config --global user.name ...)"
+  echo_info "Remember to do these:"
+  echo "Set the git email in ~/.gitconfig (git config --global user.email foo@bar)"
+  echo "Set the git name in ~/.gitconfig (git config --global user.name ...)"
 
-    echo "Generate a GitHub token for authentication (https://github.com/settings/tokens)"
-    echo "and use that as the password when doing a 'git push'"
+  echo "Generate a GitHub token for authentication (https://github.com/settings/tokens)"
+  echo "and use that as the password when doing a 'git push'"
 }
 
 main() {
-    check_env_variables
-    create_directories
-    symlink_files
-    copy_example_files
-    run_install_scripts
-    print_todos
+  check_env_variables
+  create_directories
+  symlink_files
+  copy_example_files
+  run_install_scripts
+  print_todos
 }
 
 main "$@"

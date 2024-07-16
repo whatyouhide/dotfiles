@@ -1,3 +1,5 @@
+# -*- mode: shellscript -*-
+
 # Path to the dotfiles.
 export DOTFILES="$HOME/dotfiles"
 

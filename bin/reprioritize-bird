@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Taken from: https://www.swyx.io/what-to-do-when-icloud-is-stuck-on-uploading-items/
-
-if BIRD_PID="$(pgrep bird)"; then
-    CURRENT_PRIO="$(ps -fl -C "$BIRD_PID" | tail -n 1 | awk '{print $10;}')"
-    echo "PID of the bird process is $BIRD_PID (with current priority $CURRENT_PRIO)"
-    renice -n -10 -p "$BIRD_PID"
-fi
