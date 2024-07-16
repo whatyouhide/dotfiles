@@ -1,3 +1,5 @@
+# -*- mode: shellscript -*-
+
 # For stuff not related to the environment (which is taken care of in
 # ~/.extra-env.zsh).
 
