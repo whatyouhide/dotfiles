@@ -35,8 +35,17 @@ machine. Do these steps:
      Now do these:
 
        * delete `/etc/zprofile`
-       * empty out `/etc/paths`
+
        * remove `path_helper`-related lines from `/etc/profile`
+
+       * make sure `/etc/paths` contains this:
+
+         ```shell
+         /usr/bin
+         /bin
+         /usr/sbin
+         /sbin
+         ```
 
      These slow things down and mess up with `$PATH`.
 
