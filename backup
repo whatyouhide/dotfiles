@@ -1,0 +1,35 @@
+#!/bin/bash
+
+set -e
+
+echo_colored() { echo -e "${2}$1\033[0m"; }
+echo_info() { echo_colored "==> $1" "\033[1;36m"; }
+
+fail() {
+    echo_colored "$1" "\033[1;31m"
+    exit 1
+}
+
+backup-file() {
+    local _src="$1"
+
+    if [[ -f "$_src" ]]; then
+        echo "Backing up $_src"
+        cp "$_src" "$_backup_dir"
+    else
+        echo "Skipping $_src, it doesn't exist"
+    fi
+}
+
+main() {
+    echo_info "Backing up interesting files to iCloud..."
+
+    backup-file "$HOME/.wyh_history"
+
+    echo_colored "Done"
+}
+
+_backup_dir="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Backups/dotfiles/$(date +'%Y-%m-%d %H:%M:%S')"
+mkdir -p "$_backup_dir"
+
+main "$@"
