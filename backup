@@ -10,12 +10,15 @@ fail() {
     exit 1
 }
 
-backup-file() {
+backup-file-or-dir() {
     local _src="$1"
 
     if [[ -f "$_src" ]]; then
         echo "Backing up $_src"
-        cp "$_src" "$_backup_dir"
+        cp "$_src" "$_backup_dir/"
+    elif [[ -d "$_src" ]]; then
+        echo "Backing up $_src"
+        cp -r "$_src" "$_backup_dir/"
     else
         echo "Skipping $_src, it doesn't exist"
     fi
@@ -24,7 +27,8 @@ backup-file() {
 main() {
     echo_info "Backing up interesting files to iCloud..."
 
-    backup-file "$HOME/.wyh_history"
+    backup-file-or-dir "$HOME/.wyh_history"
+    backup-file-or-dir "$HOME/.invoicer"
 
     echo_colored "Done"
 }
