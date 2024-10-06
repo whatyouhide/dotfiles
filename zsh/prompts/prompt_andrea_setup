@@ -20,22 +20,6 @@ prompt_andrea_git_prompt() {
   echo "%F{242}($(prompt_andrea_git_current_branch))%f"
 }
 
-# Print the current kubernetes context.
-prompt_andrea_kube_context() {
-  KCTX=$(kubectx --current)
-  exit_status=$?
-
-  if [ "$exit_status" -eq "0" ]; then
-    echo "%F{magenta}🐳[$KCTX]%f"
-  fi
-}
-
-prompt_andrea_aws_profile() {
-  if [ -n "$AWS_PROFILE" ]; then
-    echo "%F{magenta}💾[$AWS_PROFILE]%f"
-  fi
-}
-
 # Returns the character that should appear before the cursor, colored based on
 # the last exit status.
 prompt_andrea_before_char() {
@@ -52,8 +36,6 @@ prompt_andrea_setup() {
   PROMPT=""
   prompt_andrea_append_to_prompt '$(prompt_andrea_path) '
   prompt_andrea_append_to_prompt '$(prompt_andrea_git_prompt) '
-  prompt_andrea_append_to_prompt '$(prompt_andrea_kube_context) '
-  prompt_andrea_append_to_prompt '$(prompt_andrea_aws_profile) '
   prompt_andrea_append_to_prompt $'\n'
   prompt_andrea_append_to_prompt '$(prompt_andrea_before_char) '
 }
