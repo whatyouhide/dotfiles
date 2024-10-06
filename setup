@@ -17,7 +17,7 @@ check_env_variables() {
 create_directories() {
   echo_info "Creating a bunch of directories"
 
-  for dir in "Code" "Writing" "bin" "tmp"; do
+  for dir in "Code" "Writing" "bin" "tmp" ".ssh"; do
     local _path="$HOME/$dir"
 
     if [ -d "$_path" ]; then
@@ -39,10 +39,6 @@ symlink_files() {
     _symlinked=".$(basename "${abs_file%.symlink}")"
     ln -sfv "$abs_file" "$HOME/$_symlinked"
   done
-
-  echo_info "Symlinking SSH config"
-  mkdir -p "$HOME/.ssh"
-  ln -sfv "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Synced Applications/ssh/config" "$HOME/.ssh/config"
 
   echo
 }
@@ -77,12 +73,17 @@ run_install_scripts() {
 }
 
 print_todos() {
-  echo_info "Remember to do these:"
-  echo "Set the git email in ~/.gitconfig (git config --global user.email foo@bar)"
-  echo "Set the git name in ~/.gitconfig (git config --global user.name ...)"
-
-  echo "Generate a GitHub token for authentication (https://github.com/settings/tokens)"
-  echo "and use that as the password when doing a 'git push'"
+  echo_info "Remember to do these!"
+  echo
+  echo "  1. Set the git email in ~/.gitconfig (git config --global user.email foo@bar)"
+  echo
+  echo "  2. Set the git name in ~/.gitconfig (git config --global user.name ...)"
+  echo
+  echo "  3. Generate a GitHub token for authentication (https://github.com/settings/tokens)"
+  echo "     and use that as the password when doing a 'git push'"
+  echo
+  echo "  4. Get a good version of the SSH config from 1Password and put it in ~/.ssh/config"
+  echo
 }
 
 main() {
