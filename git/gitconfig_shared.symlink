@@ -8,6 +8,7 @@
 	tags = tag -l -n
 	tg = "!f() { git tag -a $1 -m $1; }; f"
 	ch = checkout
+	sync = fetch --all --prune
 
 # Use the right branch name when creating new repos
 [init]
