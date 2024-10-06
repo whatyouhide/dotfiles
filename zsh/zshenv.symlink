@@ -16,9 +16,9 @@ _LESS="less --no-init --quit-if-one-screen"
 export MANPAGER="$_LESS"
 export PAGER="$_LESS"
 
+## Path
 # Start with a clean slate, with only the scripts in `~bin`.
 PATH="$HOME/bin"
-
 # Standard PATH entries.
 export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:/usr/local/bin"
@@ -26,6 +26,9 @@ export PATH="$PATH:/usr/bin"
 export PATH="$PATH:/usr/sbin"
 export PATH="$PATH:/bin"
 export PATH="$PATH:/sbin"
+# Tools I generally use.
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 export EDITOR="code --wait"
 
@@ -38,10 +41,13 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Necessary to work around issues in Ansible
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-# Enable shell history in Erlang/Elixiir.
+# Enable shell history in Erlang/Elixir.
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Use a TTY in GPG.
 export GPG_TTY="$(tty)"
+
+# Java (if installed).
+type /usr/libexec/java_home &>/dev/null && export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
 
 [[ -s "$HOME/.zshenv-extra" ]] && source "$HOME/.zshenv-extra"
