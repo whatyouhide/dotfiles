@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Prune remote branches.
+git fetch --all --prune
+
+git branch -v |
+    grep '\[gone\]' |
+    sed 's/[ ]*$//' |
+    sed 's/^[*+]//' |
+    awk '{print $1}' |
+    xargs -I {} git branch -D {}
