@@ -14,23 +14,19 @@ machine. Do these steps:
 
      which will prompt the installer.
 
-  1. [**Homebrew**][homebrew]: install it following the website's instructions,
-     then export its path for now:
+  1. [**Homebrew**][homebrew].
 
-     ```sh
-     export PATH="/opt/homebrew/bin:$PATH"
-     ```
+     1. Install it following the website's instructions.
+
+     1. Export its path (only *for now*):
+
+        ```sh
+        export PATH="/opt/homebrew/bin:$PATH"
+        ```
 
   1. **Git**: ensure you have `git` installed (it's present by default on macOS).
 
-  1. **zsh**: install zsh with `$ brew install zsh`, then add the
-     newly-installed `zsh` to `/etc/shells` (so that `chsh` will consider it a
-     "safe" shell) and change to the newly added shell:
-
-     ```sh
-     echo "$(which zsh)" | sudo tee -a /etc/shells > /dev/null
-     chsh -s "$(which zsh)" "$(whoami)"
-     ```
+  1. **zsh**: these days, zsh is the default shell on macOS. Cool, but double check by opening up a terminal and running `echo $0`, which should print `-zsh`.
 
      Now do these:
 
@@ -61,7 +57,7 @@ machine. Do these steps:
   1. Clone the dotfiles and run the setup script:
 
      ```sh
-     git clone git@github.com:whatyouhide/dotfiles.git "$DOTFILES"
+     git clone https://github.com/whatyouhide/dotfiles.git "$DOTFILES"
      cd "$DOTFILES"
      ./setup
      ```
