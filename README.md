@@ -62,6 +62,14 @@ machine. Do these steps:
      ./setup
      ```
 
+  1. **asdf**: you're using [asdf] installed via Homebrew. Add this to `~/.zshenv-extra`:
+
+     ```sh
+     echo "\nsource $(brew --prefix asdf)/libexec/asdf.sh" >> ~/.zshenv.extra
+     ```
+
+### GitHub
+
   1. Authenticate to GitHub by doing:
 
      ```sh
@@ -70,6 +78,10 @@ machine. Do these steps:
 
      GitHub takes care of the whole flow for you, by redirecting you to a
      browser to do the authentication.
+
+  1. Now that you have 1Password, log in as necessary and *enable the SSH agent*.
+
+  1. Generate a new SSH key for this computer and add it to your GitHub account.
 
   1. Set up GPG signing of commits (mostly following [this guide](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)).
 
@@ -104,12 +116,6 @@ machine. Do these steps:
         echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
         killall gpg-agent
         ```
-
-  1. **asdf**: you're using [asdf] installed via Homebrew. Add this to `~/.zshenv-extra`:
-
-     ```sh
-     echo "\nsource $(brew --prefix asdf)/libexec/asdf.sh" >> ~/.zshenv.extra
-     ```
 
 [asdf]: https://github.com/asdf-vm/asdf
 [homebrew]: http://brew.sh/
