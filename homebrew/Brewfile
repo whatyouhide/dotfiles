@@ -112,19 +112,16 @@ cask "wireshark"
 cask "zoom"
 cask "zotero"
 mas "1Password for Safari", id: 1569813296
+mas "BrightIntosh", id: 6452471855
 mas "Day One", id: 1055511498
+mas "Flighty", id: 1358823008
 mas "Hand Mirror", id: 1502839586
-mas "HiCoffee", id: 1507361706
 mas "Keynote", id: 409183694
 mas "Klack", id: 6446206067
 mas "Magnet", id: 441258766
 mas "Mela", id: 1568924476
-mas "Mimeo Photos", id: 1282504627
-mas "MusicBox", id: 1614730313
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Reeder", id: 1529448980
 mas "Slack", id: 803453959
-mas "Streaks", id: 963034692
-mas "Tailscale", id: 1475387142
+mas "Tripsy", id: 1429967544
 mas "Xcode", id: 497799835
