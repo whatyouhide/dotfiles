@@ -83,39 +83,13 @@ machine. Do these steps:
 
   1. Generate a new SSH key for this computer and add it to your GitHub account.
 
-  1. Set up GPG signing of commits (mostly following [this guide](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)).
+     ```sh
+     ssh-keygen -t ed25519 -C <email>
+     ```
 
-     1. Add the `signinkey` and `gpgsign` configs to `~/.gitconfig` (the
-        `signinkey` is in 1Password). Then, add this line to `~/.zshenv-extra`:
+  1. Add the newly-generated key to 1Password.
 
-        ```sh
-        export GPG_TTY=$(tty)
-        ```
-
-     1. Export the public and private GPG keys from the previous machine:
-
-        ```sh
-        gpg --list-secret-keys # Get the ID like this
-        gpg --export <ID> > public.key
-        gpg --export-secret-key <ID> private.key
-        ```
-
-     1. Move these files on the new machine and run:
-
-        ```sh
-        gpg --import public.key
-        gpg --import private.key
-        ```
-
-        Make sure that `gpg --list-secret-keys` shows the key.
-
-     1. Set up macOS GPG signing with pinentry.
-
-        ```sh
-        brew install pinentry-mac
-        echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
-        killall gpg-agent
-        ```
+  1. Set up GPG signing of commits *through 1Password*. When you create the new entry in 1Password, it should automatically suggest to use 1Password for signing commits. It'll tell you to modify `~/.gitconfig`, so follow the instructions. If you still want to use GPG, see [this file](./gpg.md).
 
 [asdf]: https://github.com/asdf-vm/asdf
 [homebrew]: http://brew.sh/

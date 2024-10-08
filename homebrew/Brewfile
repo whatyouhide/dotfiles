@@ -1,4 +1,3 @@
-tap "github/gh"
 tap "homebrew/bundle"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
@@ -80,6 +79,7 @@ brew "zola"
 brew "zsh"
 brew "mike-engel/jwt-cli/jwt-cli"
 brew "timrogers/tap/litra"
+cask "1password"
 cask "alt-tab"
 cask "arc"
 cask "bettertouchtool"
@@ -102,7 +102,6 @@ cask "whatsapp"
 cask "wireshark"
 cask "zoom"
 cask "zotero"
-mas "1Password for Safari", id: 1569813296
 mas "BrightIntosh", id: 6452471855
 mas "Day One", id: 1055511498
 mas "Flighty", id: 1358823008
