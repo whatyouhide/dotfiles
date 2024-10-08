@@ -89,7 +89,7 @@ machine. Do these steps:
 
   1. Add the newly-generated key to 1Password.
 
-  1. Set up GPG signing of commits *through 1Password*. When you create the new entry in 1Password, it should automatically suggest to use 1Password for signing commits. It'll tell you to modify `~/.gitconfig`, so follow the instructions. If you still want to use GPG, see [this file](./gpg.md).
+  1. Set up GPG signing of commits *through 1Password*. When you create the new entry in 1Password, it should automatically suggest to use 1Password for signing commits. It'll tell you to modify `~/.gitconfig`, so follow the instructions. If you still want to use GPG, see [this file](./gpg.md). For this to work, you also need to add the key as a *signing key* in GitHub ([guide](https://blog.1password.com/git-commit-signing/)).
 
 [asdf]: https://github.com/asdf-vm/asdf
 [homebrew]: http://brew.sh/
