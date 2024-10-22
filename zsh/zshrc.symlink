@@ -24,6 +24,8 @@ antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle hlissner/zsh-autopair
 antigen apply
 
+type direnv > /dev/null && eval "$(direnv hook zsh)"
+
 # Source non version controlled files only if they exist.
 [[ -s "$HOME/.zshrc-extra" ]] && source "$HOME/.zshrc-extra"
 
