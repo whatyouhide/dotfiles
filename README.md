@@ -1,9 +1,10 @@
 # Dotfiles 🥑
 
+My dotfiles, I don't think they'll work for ya but who knows. This is for Macs.
+
 ## Installation
 
-These instructions are to be followed when installing these dotfiles on a new
-machine. Do these steps:
+Do these steps:
 
   1. **XCode**: If running on a Mac, you need part of XCode. You don't need the
      whole XCode. Open the terminal and run
@@ -51,9 +52,6 @@ machine. Do these steps:
      export DOTFILES="$HOME/dotfiles"
      ```
 
-  1. Copy SSH keys from 1Password (after doing `mkdir ~/.ssh`), into
-     `~/.ssh/id_rsa` and `~/.ssh/id_rsa.pub`.
-
   1. Clone the dotfiles and run the setup script:
 
      ```sh
@@ -62,11 +60,24 @@ machine. Do these steps:
      ./setup
      ```
 
-  1. **asdf**: you're using [asdf] installed via Homebrew. Add this to `~/.zshenv-extra`:
+  1. Log in to 1Password with at least your personal account.
 
-     ```sh
-     echo "\nsource $(brew --prefix asdf)/libexec/asdf.sh" >> ~/.zshenv.extra
-     ```
+  1. Copy SSH keys from 1Password (after doing `mkdir ~/.ssh`), into
+     `~/.ssh/id_rsa` and `~/.ssh/id_rsa.pub`.
+
+### Apps
+
+#### Arc
+
+  1. Log in to Arc and sync workspaces and whatnot. Doing this sooner rather than later means that you have all your websites and stuff.
+
+  1. Install the right extensions, like 1Password.
+
+  1. Make it the default browser.
+
+### Obsidian
+
+  1. Go to *iCloud Drive* in the Finder, right-click on *Obsidian*'s directory, and select "Keep Downloaded".
 
 ### GitHub
 
@@ -91,5 +102,4 @@ machine. Do these steps:
 
   1. Set up GPG signing of commits *through 1Password*. When you create the new entry in 1Password, it should automatically suggest to use 1Password for signing commits. It'll tell you to modify `~/.gitconfig`, so follow the instructions. If you still want to use GPG, see [this file](./gpg.md). For this to work, you also need to add the key as a *signing key* in GitHub ([guide](https://blog.1password.com/git-commit-signing/)).
 
-[asdf]: https://github.com/asdf-vm/asdf
 [homebrew]: http://brew.sh/
