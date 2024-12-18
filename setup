@@ -5,9 +5,22 @@ set -e
 echo_colored() { echo -e "${2}$1\033[0m"; }
 echo_info() { echo_colored "==> $1" "\033[1;36m"; }
 
+echo_info() {
+  gum style \
+    --foreground 212 --border-foreground 212 --border double \
+    --align left --width 50 --margin "1 0" --padding "0 1" \
+    "💁 $1"
+}
+
 fail() {
   echo_colored "$1" "\033[1;31m"
   exit 1
+}
+
+ensure_gum_installed() {
+  if ! type "gum" >/dev/null 2>&1; then
+    fail "gum is not installed. Run 'brew install gum' to install it and re-run this script."
+  fi
 }
 
 check_env_variables() {
@@ -15,7 +28,7 @@ check_env_variables() {
 }
 
 create_directories() {
-  echo_info "Creating a bunch of directories"
+  echo_info "Creating directories"
 
   for dir in "Code" "Writing" "bin" "tmp" ".ssh"; do
     local _path="$HOME/$dir"
@@ -39,8 +52,6 @@ symlink_files() {
     _symlinked=".$(basename "${abs_file%.symlink}")"
     ln -sfv "$abs_file" "$HOME/$_symlinked"
   done
-
-  echo
 }
 
 copy_example_files() {
@@ -64,35 +75,29 @@ copy_example_files() {
 }
 
 run_install_scripts() {
+  echo_info "Running all install.sh scripts"
+
   for file in $(find $DOTFILES -name 'install.sh'); do
-    echo_info "Running ${file#$DOTFILES/}"
+    gum style "🏗️  Running ${file#$DOTFILES/}" --foreground 33 --bold
+    echo
     bash "$file"
+    echo
   done
-
-  echo
-}
-
-print_todos() {
-  echo_info "Remember to do these!"
-  echo
-  echo "  1. Set the git email in ~/.gitconfig (git config --global user.email foo@bar)"
-  echo
-  echo "  2. Set the git name in ~/.gitconfig (git config --global user.name ...)"
-  echo
-  echo "  3. Generate a GitHub token for authentication (https://github.com/settings/tokens)"
-  echo "     and use that as the password when doing a 'git push'"
-  echo
-  echo "  4. Get a good version of the SSH config from 1Password and put it in ~/.ssh/config"
-  echo
 }
 
 main() {
+  ensure_gum_installed
   check_env_variables
   create_directories
   symlink_files
   copy_example_files
   run_install_scripts
-  print_todos
+
+  gum style "🚀 Setup complete!" \
+    --foreground 35 --bold \
+    --margin "1 0" --padding "0 1" \
+    --border "rounded" --border-foreground 35 \
+    --width 50 --align center
 }
 
 main "$@"

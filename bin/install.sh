@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 for f in $DOTFILES/bin/*; do
     if [ -x "$f" ]; then

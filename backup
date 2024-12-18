@@ -1,9 +1,13 @@
-#!/bin/bash
+#!/bin/bash -e
 
-set -e
+echo_info() {
+    gum style \
+        --foreground 212 --border-foreground 212 --border double \
+        --align left --width 50 --margin "1 0" --padding "0 1" \
+        "💁 $1"
+}
 
 echo_colored() { echo -e "${2}$1\033[0m"; }
-echo_info() { echo_colored "==> $1" "\033[1;36m"; }
 
 fail() {
     echo_colored "$1" "\033[1;31m"
@@ -30,7 +34,11 @@ main() {
     backup-file-or-dir "$HOME/.wyh_history"
     backup-file-or-dir "$HOME/.invoicer"
 
-    echo_colored "Done"
+    gum style "🚀 Backup complete" \
+        --foreground 35 --bold \
+        --margin "1 0" --padding "0 1" \
+        --border "rounded" --border-foreground 35 \
+        --width 50 --align center
 }
 
 _backup_dir="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Backups/dotfiles/$(date +'%Y-%m-%d %H:%M:%S')"

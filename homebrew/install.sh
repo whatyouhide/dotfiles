@@ -9,17 +9,8 @@ install() {
     brew bundle install --file homebrew/Brewfile --no-lock --cleanup
 }
 
-echo ""
-read -r -p "Do you want to install Homebrew packages? (Y/n) " confirmation
-
-case $confirmation in
-"")
+if gum confirm "Do you want to install Homebrew packages?"; then
     install
-    ;;
-"Y")
-    install
-    ;;
-"n")
+else
     echo "Skipping Homebrew packages then!"
-    ;;
-esac
+fi
