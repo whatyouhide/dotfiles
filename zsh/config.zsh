@@ -2,8 +2,7 @@
 
 if [[ -z "$ZSH_CONFIG" ]]; then
     echo "You need to set the ZSH_CONFIG env variable to the path where"
-    echo "the zsh config is located. You can do that in ~/.zshenv or in"
-    echo "~/.extra-env.zsh"
+    echo "the zsh config is located. You can do that in ~/.zshenv"
 fi
 
 # Stuff that doesn't export environment variables (those go in .zshenv).
@@ -24,10 +23,7 @@ antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle hlissner/zsh-autopair
 antigen apply
 
-type direnv > /dev/null && eval "$(direnv hook zsh)"
-
-# Source non version controlled files only if they exist.
-[[ -s "$HOME/.zshrc-extra" ]] && source "$HOME/.zshrc-extra"
+type direnv >/dev/null && eval "$(direnv hook zsh)"
 
 # Choose the prompt.
 prompt "andrea"

@@ -1,4 +1,0 @@
-# -*- mode: shellscript -*-
-
-# Here goes stuff that modifies the environment but that you don't want to
-# commit to the dotfiles repo, like AWS credentials or stuff like that.
