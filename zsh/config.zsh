@@ -23,7 +23,7 @@ antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle hlissner/zsh-autopair
 antigen apply
 
-type direnv >/dev/null && eval "$(direnv hook zsh)"
-
 # Choose the prompt.
 prompt "andrea"
+
+type direnv >/dev/null && eval "$(direnv hook zsh)"
