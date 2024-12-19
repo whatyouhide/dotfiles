@@ -51,6 +51,6 @@ export GPG_TTY="$(tty)"
 export KERL_CONFIGURE_OPTIONS="--with-ssl=$(brew --prefix openssl@1.1) --with-wx-config=$(brew --prefix wxwidgets)/bin/wx-config --without-javac --without-odbc"
 
 # Java (if installed).
-type /usr/libexec/java_home &>/dev/null && export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
+type java &>/dev/null && export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
 
 [[ -s "$HOME/.zshenv-extra" ]] && source "$HOME/.zshenv-extra"
