@@ -2,6 +2,8 @@
 
 set -e
 
+DOTFILES="$HOME/dotfiles"
+
 echo_colored() { echo -e "${2}$1\033[0m"; }
 echo_info() { echo_colored "==> $1" "\033[1;36m"; }
 
@@ -21,10 +23,6 @@ ensure_gum_installed() {
   if ! type "gum" >/dev/null 2>&1; then
     fail "gum is not installed. Run 'brew install gum' to install it and re-run this script."
   fi
-}
-
-check_env_variables() {
-  [[ -n "$DOTFILES" ]] || fail "The \$DOTFILES env variable is not set"
 }
 
 create_directories() {
@@ -87,7 +85,6 @@ run_install_scripts() {
 
 main() {
   ensure_gum_installed
-  check_env_variables
   create_directories
   symlink_files
   copy_example_files

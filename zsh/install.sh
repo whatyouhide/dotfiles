@@ -14,16 +14,16 @@ else
     touch "$HOME/.zshenv"
 fi
 
-if grep -q 'source "$DOTFILES/zsh/config.zsh"' "$HOME/.zshrc"; then
+if grep -q 'source "$HOME/dotfiles/zsh/config.zsh"' "$HOME/.zshrc"; then
     echo "Source line already exists in ~/.zshrc"
 else
-    echo 'source "$DOTFILES/zsh/config.zsh"' >>"$HOME/.zshrc"
+    echo 'source "$HOME/dotfiles/zsh/config.zsh"' >>"$HOME/.zshrc"
     echo "Added source line to ~/.zshrc"
 fi
 
-if grep -q 'source "$DOTFILES/zsh/env.zsh"' "$HOME/.zshenv"; then
+if grep -q 'source "$HOME/dotfiles/zsh/env.zsh"' "$HOME/.zshenv"; then
     echo "Source line already exists in ~/.zshenv"
 else
-    echo 'source "$DOTFILES/zsh/env.zsh"' >>"$HOME/.zshenv"
+    echo 'source "$HOME/dotfiles/zsh/env.zsh"' >>"$HOME/.zshenv"
     echo "Added source line to ~/.zshenv"
 fi

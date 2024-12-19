@@ -1,10 +1,7 @@
 # -*- mode: shellscript -*-
 
-# Path to the dotfiles.
-export DOTFILES="$HOME/dotfiles"
-
 # zsh config.
-export ZSH_CONFIG="$DOTFILES/zsh"
+export ZSH_CONFIG="$HOME/dotfiles/zsh"
 
 # Prefer US English and use UTF-8
 export LC_ALL="en_US.UTF-8"
