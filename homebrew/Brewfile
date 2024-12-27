@@ -100,10 +100,11 @@ cask "bettertouchtool"
 cask "cardhop"
 cask "chatgpt"
 cask "contexts"
+cask "discord"
 cask "docker"
 cask "fantastical"
 cask "figma"
-cask "iterm2@beta"
+cask "ghostty"
 cask "karabiner-elements"
 cask "keyboardcleantool"
 cask "kindle"
@@ -115,7 +116,6 @@ cask "obsidian"
 cask "raycast"
 cask "setapp"
 cask "spotify"
-cask "tableplus"
 cask "tailscale"
 cask "temurin"
 cask "todoist"
@@ -127,6 +127,7 @@ cask "zotero"
 mas "BrightIntosh", id: 6452471855
 mas "Day One", id: 1055511498
 mas "Flighty", id: 1358823008
+mas "GoodLinks", id: 1474335294
 mas "Hand Mirror", id: 1502839586
 mas "Keynote", id: 409183694
 mas "Klack", id: 6446206067
