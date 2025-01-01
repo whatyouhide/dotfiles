@@ -26,6 +26,7 @@ brew "aws-shell"
 brew "awscli"
 brew "bash-completion"
 brew "libssh2"
+brew "libgit2@1.7"
 brew "bat"
 brew "btop"
 brew "clang-format"
@@ -64,7 +65,6 @@ brew "libheif"
 brew "imagemagick"
 brew "jq"
 brew "k9s"
-brew "libgit2@1.7"
 brew "libpq", link: true
 brew "libuv"
 brew "libxslt"
@@ -73,6 +73,8 @@ brew "mas"
 brew "microplane"
 brew "nss"
 brew "openjdk@11"
+brew "openssl@1.1"
+brew "overmind"
 brew "pandoc"
 brew "pinentry-mac"
 brew "pipx"
@@ -135,5 +137,6 @@ mas "Magnet", id: 441258766
 mas "Mela", id: 1568924476
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Reeder", id: 1529448980
 mas "Slack", id: 803453959
 mas "Xcode", id: 497799835
