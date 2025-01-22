@@ -45,7 +45,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export GPG_TTY="$(tty)"
 
 # This fixes a bunch of headaches on macOS when installing Erlang with asdf/kerl.
-export KERL_CONFIGURE_OPTIONS="--with-ssl=$(brew --prefix openssl@1.1) --with-wx-config=$(brew --prefix wxwidgets)/bin/wx-config --without-javac --without-odbc"
+export KERL_CONFIGURE_OPTIONS="--with-ssl=$(brew --prefix openssl@3) --with-wx-config=$(brew --prefix wxwidgets)/bin/wx-config --without-javac --without-odbc"
 
 # Java (if installed).
 type java &>/dev/null && export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
