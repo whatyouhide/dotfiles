@@ -33,7 +33,7 @@ export EDITOR="code --wait"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # asdf
-. "$(brew --prefix asdf)/libexec/asdf.sh"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # Necessary to work around issues in Ansible
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
@@ -49,5 +49,8 @@ export KERL_CONFIGURE_OPTIONS="--with-ssl=$(brew --prefix openssl@3) --with-wx-c
 
 # Java (if installed).
 type java &>/dev/null && export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
+
+# Who can remember the path to the iCloud directory?
+export ICLOUD_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
 
 [[ -s "$HOME/.zshenv-extra" ]] && source "$HOME/.zshenv-extra"
