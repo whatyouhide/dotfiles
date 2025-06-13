@@ -1,6 +1,8 @@
 # `ls` replacement.
 alias l="eza --long --binary --group --classify --git --all"
 
+alias ll="tree --gitignore --du -h -C -p"
+
 # `cat` replacement.
 alias cat="bat --paging=never --theme=base16 --style=header-filename,header-filesize,grid"
 
