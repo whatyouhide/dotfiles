@@ -1,5 +1,7 @@
 # -*- mode: shellscript -*-
 
+# This gets sourced by ~/.zshenv. See install.sh for more details.
+
 # zsh config.
 export ZSH_CONFIG="$HOME/dotfiles/zsh"
 
@@ -27,7 +29,7 @@ export PATH="$PATH:/sbin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
-export EDITOR="code --wait"
+export EDITOR="vim"
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -48,9 +50,9 @@ export GPG_TTY="$(tty)"
 export KERL_CONFIGURE_OPTIONS="--with-ssl=$(brew --prefix openssl@3) --with-wx-config=$(brew --prefix wxwidgets)/bin/wx-config --without-javac --without-odbc"
 
 # Java (if installed).
-type java &>/dev/null && export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
+if java -version >/dev/null 2>&1; then
+    export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
+fi
 
 # Who can remember the path to the iCloud directory?
 export ICLOUD_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
-
-[[ -s "$HOME/.zshenv-extra" ]] && source "$HOME/.zshenv-extra"

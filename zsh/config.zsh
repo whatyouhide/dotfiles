@@ -1,5 +1,7 @@
 # -*- mode: shellscript -*-
 
+# This gets sourced by ~/.zshrc. See install.sh for more details.
+
 if [[ -z "$ZSH_CONFIG" ]]; then
     echo "You need to set the ZSH_CONFIG env variable to the path where"
     echo "the zsh config is located. You can do that in ~/.zshenv"
