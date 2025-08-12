@@ -1,3 +1,4 @@
+tap "charmbracelet/tap"
 tap "github/gh"
 tap "homebrew/bundle"
 tap "homebrew/services"
@@ -111,6 +112,7 @@ brew "yq"
 brew "yt-dlp"
 brew "zola"
 brew "zsh"
+brew "charmbracelet/tap/crush"
 brew "mike-engel/jwt-cli/jwt-cli"
 brew "minio/stable/mc"
 brew "mongodb/brew/mongodb-database-tools"
@@ -146,14 +148,17 @@ cask "setapp"
 cask "spotify"
 cask "tailscale-app"
 cask "todoist-app"
+cask "visual-studio-code"
 cask "whatsapp"
 cask "wireshark-app"
+cask "zed"
 cask "zoom"
 cask "zotero"
 mas "BrightIntosh", id: 6452471855
 mas "Diarly", id: 1387167765
 mas "Drafts", id: 1435957248
 mas "Flighty", id: 1358823008
+mas "Flow", id: 1423210932
 mas "GoodLinks", id: 1474335294
 mas "Hand Mirror", id: 1502839586
 mas "HiCoffee", id: 1507361706
