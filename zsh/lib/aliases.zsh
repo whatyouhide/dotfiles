@@ -9,6 +9,8 @@ alias cat="bat --paging=never --theme=base16 --style=header-filename,header-file
 # Recursively delete `.DS_Store` files
 alias clean-ds-stores="find . -name '*.DS_Store' -type f -ls -delete"
 
+alias ip="curl ifconfig.me"
+
 # Docker and Kubernetes.
 alias kctx="kubectx"
 alias k="kubectl"
