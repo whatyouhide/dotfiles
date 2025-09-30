@@ -26,6 +26,7 @@ node_modules
 .orientdb_history
 .elixir_ls
 .vscode
+.expert
 
 # Stuff
 TODO.md

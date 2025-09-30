@@ -134,6 +134,7 @@ cask "figma"
 cask "ghostty"
 cask "github-copilot-for-xcode"
 cask "google-chrome"
+cask "granola"
 cask "httpie-desktop"
 cask "karabiner-elements"
 cask "keyboardcleantool"
@@ -151,14 +152,16 @@ cask "todoist-app"
 cask "visual-studio-code"
 cask "whatsapp"
 cask "wireshark-app"
+cask "xcodes-app"
 cask "zed"
 cask "zoom"
 cask "zotero"
 mas "BrightIntosh", id: 6452471855
+mas "Day One", id: 1055511498
 mas "Diarly", id: 1387167765
 mas "Drafts", id: 1435957248
 mas "Flighty", id: 1358823008
-mas "Flow", id: 1423210932
+mas "FocusFlights", id: 6648771147
 mas "GoodLinks", id: 1474335294
 mas "Hand Mirror", id: 1502839586
 mas "HiCoffee", id: 1507361706
