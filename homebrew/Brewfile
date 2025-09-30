@@ -32,6 +32,7 @@ brew "bat"
 brew "btop"
 brew "ccache"
 brew "clang-format"
+brew "cloc"
 brew "cmake"
 brew "codex"
 brew "colordiff"
@@ -71,6 +72,7 @@ brew "httpstat"
 brew "libheif"
 brew "imagemagick"
 brew "jq"
+brew "just"
 brew "k6"
 brew "k9s"
 brew "libgit2@1.7"
@@ -92,10 +94,11 @@ brew "periphery"
 brew "pinentry-mac"
 brew "pipx"
 brew "pngquant"
+brew "postgresql@15", restart_service: :changed
 brew "postgresql@16"
 brew "protobuf"
 brew "python@3.9"
-brew "redis"
+brew "redis", restart_service: :changed
 brew "shellcheck"
 brew "subversion"
 brew "swiftformat"
@@ -110,12 +113,14 @@ brew "xcode-build-server"
 brew "yarn"
 brew "yq"
 brew "yt-dlp"
+brew "zig@0.14"
 brew "zola"
 brew "zsh"
 brew "charmbracelet/tap/crush"
 brew "mike-engel/jwt-cli/jwt-cli"
 brew "minio/stable/mc"
 brew "mongodb/brew/mongodb-database-tools"
+brew "mongodb/brew/mongodb-community@8.0"
 brew "timrogers/tap/litra"
 brew "withgraphite/tap/graphite"
 cask "1password"
@@ -127,6 +132,7 @@ cask "cardhop"
 cask "chatgpt"
 cask "claude"
 cask "contexts"
+cask "craft"
 cask "discord"
 cask "docker-desktop"
 cask "fantastical"
@@ -141,11 +147,11 @@ cask "keyboardcleantool"
 cask "linear-linear"
 cask "logi-options+"
 cask "loom"
-cask "mongodb-compass"
 cask "notion"
 cask "obsidian"
 cask "raycast"
 cask "setapp"
+cask "sonic-pi"
 cask "spotify"
 cask "tailscale-app"
 cask "todoist-app"
@@ -153,15 +159,13 @@ cask "visual-studio-code"
 cask "whatsapp"
 cask "wireshark-app"
 cask "xcodes-app"
-cask "zed"
 cask "zoom"
 cask "zotero"
+mas "1Password for Safari", id: 1569813296
 mas "BrightIntosh", id: 6452471855
-mas "Day One", id: 1055511498
 mas "Diarly", id: 1387167765
 mas "Drafts", id: 1435957248
 mas "Flighty", id: 1358823008
-mas "FocusFlights", id: 6648771147
 mas "GoodLinks", id: 1474335294
 mas "Hand Mirror", id: 1502839586
 mas "HiCoffee", id: 1507361706
@@ -170,6 +174,7 @@ mas "Klack", id: 6446206067
 mas "Magnet", id: 441258766
 mas "Mela", id: 1568924476
 mas "Numbers", id: 409203825
+mas "Obsidian Web Clipper", id: 6720708363
 mas "Pages", id: 409201541
 mas "Reeder", id: 1529448980
 mas "Slack", id: 803453959
