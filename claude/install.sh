@@ -19,3 +19,5 @@ for f in $HOME/dotfiles/claude/commands/*; do
         echo "Skipping linking commands/$(basename "$f"), it already exists in $CONFIG_DIR/commands/"
     fi
 done
+
+ln -sfv "$HOME/dotfiles/claude/settings.json" "$CONFIG_DIR/settings.json"

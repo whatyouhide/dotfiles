@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {},
+  "permissions": {
+    "allow": [
+      "Bash(mix deps.get:*)",
+      "Bash(mix test:*)",
+      "Bash(mix format:*)",
+      "Bash(mix credo:*)",
+      "Bash(mix docs:*)",
+      "Bash(mix xref:*)",
+      "Bash(mix compile:*)",
+      "Bash(mix lint:*)",
+      "Bash(mix help:*)",
+      "Bash(git show:*)",
+      "Bash(git log:*)",
+      "Bash(gt info:*)",
+      "Bash(gh pr:*)",
+      "Bash(gh run:*)",
+      "Bash(cat:*)",
+      "Bash(grep:*)",
+      "Bash(curl:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:hexdocs.pm)",
+      "WebFetch(domain:hex.pm)"
+    ],
+    "deny": []
+  },
+  "model": "opus",
+  "enableAllProjectMcpServers": true,
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Claude Code needs your attention\" with title \"Claude Code\" sound name \"Blow\"'"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true,
+    "ralph-wiggum@claude-code-plugins": true
+  },
+  "feedbackSurveyState": {
+    "lastShownTime": 1754056149463
+  }
+}
