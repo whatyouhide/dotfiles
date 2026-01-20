@@ -20,6 +20,7 @@
       "Bash(cat:*)",
       "Bash(grep:*)",
       "Bash(curl:*)",
+      "Bash(find:*)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:hexdocs.pm)",
