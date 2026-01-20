@@ -25,6 +25,7 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:hexdocs.pm)",
       "WebFetch(domain:hex.pm)",
+      "WebFetch(domain:stackoverflow.com)",
       "WebSearch"
     ],
     "deny": []
