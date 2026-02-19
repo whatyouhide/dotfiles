@@ -33,3 +33,6 @@ TODO.md
 .tool-versions
 .elixir-tools
 .lexical
+
+# AI
+.claude/settings.local.json
