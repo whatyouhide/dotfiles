@@ -11,16 +11,23 @@
       "Bash(mix xref:*)",
       "Bash(mix compile:*)",
       "Bash(mix lint:*)",
+      "Bash(mix assets.build:*)",
+      "Bash(mix tailwind.install:*)",
       "Bash(mix help:*)",
       "Bash(git show:*)",
       "Bash(git log:*)",
       "Bash(gt info:*)",
       "Bash(gh pr:*)",
       "Bash(gh run:*)",
+      "Bash(gh issue view:*)",
       "Bash(cat:*)",
       "Bash(grep:*)",
       "Bash(curl:*)",
       "Bash(find:*)",
+      "Bash(wc:*)",
+      "Bash(sentry issue list:*)",
+      "Bash(sentry issue view:*)",
+      "Bash(sentry issue explain:*)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:hexdocs.pm)",
@@ -30,7 +37,7 @@
     ],
     "deny": []
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "enableAllProjectMcpServers": true,
   "hooks": {
     "Notification": [
@@ -45,9 +52,12 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); cwd=$(echo \"$input\" | jq -r '.workspace.current_dir'); path_display=$(echo \"$cwd\" | sed \"s|^$HOME|~|\"); is_git_repo() { cd \"$1\" 2>/dev/null || return 1; [[ -d '.git' ]] || git rev-parse --is-inside-work-tree >/dev/null 2>&1; }; get_git_branch() { cd \"$1\" 2>/dev/null || return 1; git symbolic-ref -q HEAD 2>/dev/null | sed -e 's|^refs/heads/||'; }; path_part=$(printf '\\033[34m%s\\033[0m' \"$path_display\"); git_part=\"\"; if is_git_repo \"$cwd\"; then branch=$(get_git_branch \"$cwd\"); if [[ -n \"$branch\" ]]; then git_part=$(printf ' \\033[2m(%s)\\033[0m' \"$branch\"); fi; fi; arrow_part=$(printf '\\033[35m→\\033[0m'); printf '%s%s %s' \"$path_part\" \"$git_part\" \"$arrow_part\""
+  },
   "enabledPlugins": {
-    "swift-lsp@claude-plugins-official": true,
-    "ralph-wiggum@claude-code-plugins": true
+    "swift-lsp@claude-plugins-official": true
   },
   "feedbackSurveyState": {
     "lastShownTime": 1754056149463
