@@ -1,23 +1,23 @@
 #!/bin/bash
 
-CONFIG_DIR="$HOME/.claude"
+CONFIG_DIRS=("$HOME/.claude" "$HOME/.claude-personal")
 
-mkdir -p "$(dirname "$CONFIG_DIR")"
+FILES_TO_LINK=("settings.json")
 
-for f in $HOME/dotfiles/claude/agents/*; do
-    if [ -x "$f" ]; then
-        ln -sfv "$f" "$CONFIG_DIR/agents/"
-    else
-        echo "Skipping linking agents/$(basename "$f"), it already exists in $CONFIG_DIR/agents/"
-    fi
+for CONFIG_DIR in "${CONFIG_DIRS[@]}"; do
+    # Link settings file.
+    for f in "${FILES_TO_LINK[@]}"; do
+        ln -sfv "$HOME/dotfiles/claude/settings.json" "$CONFIG_DIR/settings.json"
+    done
+
+    # Link sub-agents.
+    mkdir -p "$CONFIG_DIR/agents"
+
+    for f in $HOME/dotfiles/claude/agents/*; do
+        if [ -x "$f" ]; then
+            ln -sfv "$f" "$CONFIG_DIR/agents/"
+        else
+            echo "Skipping linking agents/$(basename "$f"), it already exists in $CONFIG_DIR/agents/"
+        fi
+    done
 done
-
-for f in $HOME/dotfiles/claude/commands/*; do
-    if [ -x "$f" ]; then
-        ln -sfv "$f" "$CONFIG_DIR/commands/"
-    else
-        echo "Skipping linking commands/$(basename "$f"), it already exists in $CONFIG_DIR/commands/"
-    fi
-done
-
-ln -sfv "$HOME/dotfiles/claude/settings.json" "$CONFIG_DIR/settings.json"

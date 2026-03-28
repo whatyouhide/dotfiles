@@ -4,6 +4,7 @@
   "permissions": {
     "allow": [
       "Bash(mix deps.get:*)",
+      "Bash(mix deps.tree:*)",
       "Bash(mix test:*)",
       "Bash(mix format:*)",
       "Bash(mix credo:*)",
@@ -16,6 +17,7 @@
       "Bash(mix help:*)",
       "Bash(git show:*)",
       "Bash(git log:*)",
+      "Bash(git status:*)",
       "Bash(gt info:*)",
       "Bash(gh pr:*)",
       "Bash(gh run:*)",
@@ -31,33 +33,25 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:hexdocs.pm)",
+      "WebFetch(domain:erlang.org)",
+      "WebFetch(domain:elixir-lang.org)",
       "WebFetch(domain:hex.pm)",
       "WebFetch(domain:stackoverflow.com)",
+      "WebFetch(domain:docs.datadoghq.com)",
       "WebSearch"
     ],
     "deny": []
   },
   "model": "opus[1m]",
   "enableAllProjectMcpServers": true,
-  "hooks": {
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "osascript -e 'display notification \"Claude Code needs your attention\" with title \"Claude Code\" sound name \"Blow\"'"
-          }
-        ]
-      }
-    ]
-  },
+  "hooks": {},
   "statusLine": {
     "type": "command",
-    "command": "input=$(cat); cwd=$(echo \"$input\" | jq -r '.workspace.current_dir'); path_display=$(echo \"$cwd\" | sed \"s|^$HOME|~|\"); is_git_repo() { cd \"$1\" 2>/dev/null || return 1; [[ -d '.git' ]] || git rev-parse --is-inside-work-tree >/dev/null 2>&1; }; get_git_branch() { cd \"$1\" 2>/dev/null || return 1; git symbolic-ref -q HEAD 2>/dev/null | sed -e 's|^refs/heads/||'; }; path_part=$(printf '\\033[34m%s\\033[0m' \"$path_display\"); git_part=\"\"; if is_git_repo \"$cwd\"; then branch=$(get_git_branch \"$cwd\"); if [[ -n \"$branch\" ]]; then git_part=$(printf ' \\033[2m(%s)\\033[0m' \"$branch\"); fi; fi; arrow_part=$(printf '\\033[35m→\\033[0m'); printf '%s%s %s' \"$path_part\" \"$git_part\" \"$arrow_part\""
+    "command": "bash /Users/andrea/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "swift-lsp@claude-plugins-official": true
+    "swift-lsp@claude-plugins-official": true,
+    "telegram@claude-plugins-official": true
   },
   "feedbackSurveyState": {
     "lastShownTime": 1754056149463

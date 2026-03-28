@@ -23,14 +23,12 @@ Thumbs.db
 # Tools
 .sass-cache
 node_modules
-.orientdb_history
 .elixir_ls
 .vscode
 .expert
 
 # Stuff
 TODO.md
-.tool-versions
 .elixir-tools
 .lexical
 
