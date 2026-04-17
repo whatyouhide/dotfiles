@@ -1,0 +1,284 @@
+#!/opt/homebrew/bin/python3.13
+"""gp — Ghostty Project launcher. Like tmuxp, but for Ghostty."""
+
+import argparse
+import os
+import shlex
+import subprocess
+import sys
+import tomllib
+from pathlib import Path
+
+CONFIG_DIR = Path.home() / ".config" / "ghostty-projects"
+
+
+def esc(s: str) -> str:
+    """Escape a string for an AppleScript double-quoted literal."""
+    return s.replace("\\", "\\\\").replace('"', '\\"')
+
+
+def as_cmd(s: str) -> str:
+    """Collapse a possibly multi-line string into an executable command.
+
+    Single-line commands are returned as-is.  Multi-line blocks are
+    wrapped in  bash -e -c '…'  so execution aborts on the first error.
+    Blank lines and # comments are stripped.
+
+        command = '''
+        # sync first
+        git pull --rebase
+        mix deps.get
+        mix ecto.migrate
+        '''
+    """
+    lines = [l.strip() for l in s.strip().splitlines()]
+    lines = [l for l in lines if l and not l.startswith("#")]
+    if not lines:
+        return ""
+    if len(lines) == 1:
+        return lines[0]
+    script = "; ".join(lines)
+    escaped = script.replace("'", "'\\''")
+    return f"bash -e -c '{escaped}'"
+
+
+def resolve_windows(project: dict) -> tuple[str, list[dict]]:
+    """Return (expanded root, list of window dicts with panes)."""
+    root = os.path.expanduser(project.get("root", "~"))
+    windows = project.get("windows")
+    if windows is None:
+        panes = project.get("panes", [])
+        if not panes:
+            sys.exit("Project defines no panes or windows.")
+        windows = [{"panes": panes}]
+    return root, windows
+
+
+def build_applescript(project: dict, mode: str = "start") -> str:
+    """Generate AppleScript that sets up the project layout in Ghostty.
+
+    mode="start": creates a new window with all tabs/panes.
+    mode="run":   splits the current tab into panes (no new window).
+    """
+    root, windows = resolve_windows(project)
+    prescript = as_cmd(project.get("prescript", ""))
+
+    if mode == "run":
+        windows = windows[:1]
+
+    lines = ['tell application "Ghostty"']
+    if mode == "start":
+        lines.append("    activate")
+    commands: list[tuple[str, str]] = []
+
+    for wi, win in enumerate(windows):
+        win_root = os.path.expanduser(win.get("root", root))
+        panes = win.get("panes", [])
+
+        for pi, pane in enumerate(panes):
+            if isinstance(pane, str):
+                pane = {"command": pane}
+
+            cmd = as_cmd(pane.get("command", ""))
+            direction = pane.get("split", "right")
+            pane_root = os.path.expanduser(pane.get("root", win_root))
+
+            cfg = f"c{wi}p{pi}"
+            term = f"t{wi}p{pi}"
+
+            if pi == 0 and wi == 0 and mode == "run":
+                # Reuse the current terminal
+                lines.append(
+                    f"    set {term} to focused terminal"
+                    f" of selected tab of front window"
+                )
+                commands.append((term, f"cd {shlex.quote(pane_root)}"))
+                if prescript:
+                    lines.append(
+                        f'    input text "{esc(prescript)}\\n" to {term}'
+                    )
+            else:
+                lines.append("")
+                lines.append(f"    set {cfg} to new surface configuration")
+                lines.append(
+                    f'    set initial working directory of {cfg}'
+                    f' to "{esc(pane_root)}"'
+                )
+
+                if pi == 0:
+                    if wi == 0:
+                        lines.append(
+                            f"    set w to new window"
+                            f" with configuration {cfg}"
+                        )
+                        lines.append(
+                            f"    set {term} to focused terminal"
+                            f" of selected tab of w"
+                        )
+                        if prescript:
+                            lines.append(
+                                f'    input text'
+                                f' "{esc(prescript)}\\n" to {term}'
+                            )
+                    else:
+                        lines.append(
+                            f"    new tab in w"
+                            f" with configuration {cfg}"
+                        )
+                        lines.append(
+                            f"    set {term} to focused terminal"
+                            f" of selected tab of w"
+                        )
+                else:
+                    from_idx = pane.get("from", pi - 1)
+                    src = f"t{wi}p{from_idx}"
+                    lines.append(
+                        f"    set {term} to split {src} direction {direction}"
+                        f" with configuration {cfg}"
+                    )
+
+            if cmd:
+                commands.append((term, cmd))
+
+    if commands:
+        lines.append("")
+        for term, cmd in commands:
+            lines.append(f'    input text "{esc(cmd)}\\n" to {term}')
+
+    lines.append("end tell")
+    return "\n".join(lines)
+
+
+def load_project(name: str) -> dict:
+    path = CONFIG_DIR / f"{name}.toml"
+    if not path.exists():
+        sys.exit(
+            f"Project '{name}' not found at {path}\n"
+            f"Create it with:  gp edit {name}"
+        )
+    with open(path, "rb") as f:
+        return tomllib.load(f)
+
+
+# ── Commands ─────────────────────────────────────────────────────────
+
+
+def run_script(project, mode, dry_run):
+    script = build_applescript(project, mode=mode)
+    if dry_run:
+        print(script)
+        return
+    r = subprocess.run(["osascript", "-e", script], capture_output=True, text=True)
+    if r.returncode != 0:
+        sys.exit(f"osascript error:\n{r.stderr}")
+
+
+def cmd_start(args):
+    run_script(load_project(args.name), "start", args.dry_run)
+
+
+def cmd_run(args):
+    run_script(load_project(args.name), "run", args.dry_run)
+
+
+def cmd_list(_args):
+    if not CONFIG_DIR.exists():
+        print(f"No projects yet. Create one with:  gp edit <name>")
+        return
+    files = sorted(CONFIG_DIR.glob("*.toml"))
+    if not files:
+        print("No projects yet. Create one with:  gp edit <name>")
+        return
+    for f in files:
+        with open(f, "rb") as fh:
+            p = tomllib.load(fh)
+        wins = p.get("windows", [{"panes": p.get("panes", [])}])
+        nw = len(wins)
+        np = sum(len(w.get("panes", [])) for w in wins)
+        tabs = "tab" if nw == 1 else "tabs"
+        panes = "pane" if np == 1 else "panes"
+        print(f"  {f.stem:20s}  {nw} {tabs}, {np} {panes}")
+
+
+def cmd_edit(args):
+    CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+    path = CONFIG_DIR / f"{args.name}.toml"
+    if not path.exists():
+        path.write_text(TEMPLATE.format(name=args.name))
+        print(f"Created {path}")
+    editor = os.environ.get("EDITOR", "vim")
+    os.execvp(editor, [editor, str(path)])
+
+
+TEMPLATE = '''\
+name = "{name}"
+root = "~/Code/{name}"
+
+# Each [[windows]] becomes a tab in one Ghostty window.
+# First pane per tab needs no split direction.
+# Directions: "right" | "left" | "down" | "up"
+# Optional: from = N to split from pane N (0-indexed) instead of previous.
+#
+# Flat format also works — use [[panes]] instead of [[windows]].
+
+[[windows]]
+name = "code"
+
+  [[windows.panes]]
+  command = "nvim ."
+
+  [[windows.panes]]
+  command = "echo ready"
+  split = "right"
+
+# [[windows]]
+# name = "server"
+#
+#   [[windows.panes]]
+#   command = "mix phx.server"
+#
+#   [[windows.panes]]
+#   command = "npm run dev"
+#   split = "down"
+'''
+
+
+# ── CLI ──────────────────────────────────────────────────────────────
+
+
+def main():
+    p = argparse.ArgumentParser(
+        prog="gp", description="Ghostty Project — like tmuxp, for Ghostty"
+    )
+    sub = p.add_subparsers(dest="cmd")
+
+    s = sub.add_parser("start", aliases=["s"], help="Launch a project in a new window")
+    s.add_argument("name")
+    s.add_argument("-n", "--dry-run", action="store_true",
+                   help="Print the generated AppleScript without running it")
+    s.set_defaults(fn=cmd_start)
+
+    r = sub.add_parser("run", aliases=["r"],
+                        help="Split the current tab into panes and run commands")
+    r.add_argument("name")
+    r.add_argument("-n", "--dry-run", action="store_true",
+                   help="Print the generated AppleScript without running it")
+    r.set_defaults(fn=cmd_run)
+
+    sub.add_parser("list", aliases=["ls"], help="List projects").set_defaults(
+        fn=cmd_list
+    )
+
+    e = sub.add_parser("edit", aliases=["e"], help="Edit or create a project config")
+    e.add_argument("name")
+    e.set_defaults(fn=cmd_edit)
+
+    args = p.parse_args()
+    if not args.cmd:
+        p.print_help()
+        sys.exit(1)
+    args.fn(args)
+
+
+if __name__ == "__main__":
+    main()
