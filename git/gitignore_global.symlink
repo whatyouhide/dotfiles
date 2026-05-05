@@ -26,6 +26,7 @@ node_modules
 .elixir_ls
 .vscode
 .expert
+.dexter.db*
 
 # Stuff
 TODO.md
