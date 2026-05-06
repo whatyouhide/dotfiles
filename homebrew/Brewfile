@@ -19,14 +19,17 @@ tap "supabase/tap"
 tap "timrogers/tap"
 tap "withgraphite/tap"
 tap "yakitrak/yakitrak"
+brew "openssl@3"
+brew "readline"
+brew "sqlite"
+brew "tree"
+brew "ansible"
+brew "ansible-lint"
 brew "antigen"
 brew "cairo"
 brew "icu4c@76"
 brew "openjdk"
-brew "openssl@3"
-brew "readline"
 brew "antlr"
-brew "webp"
 brew "aom"
 brew "apache-flink"
 brew "asciinema"
@@ -56,6 +59,7 @@ brew "ffmpeg"
 brew "findutils"
 brew "flyctl"
 brew "fop"
+brew "webp"
 brew "gdk-pixbuf"
 brew "gh"
 brew "tesseract"
@@ -86,6 +90,7 @@ brew "jq"
 brew "just"
 brew "k6"
 brew "k9s"
+brew "lazygit"
 brew "libass"
 brew "libgit2@1.7"
 brew "libpq", link: true
@@ -121,9 +126,10 @@ brew "tailscale", link: false
 brew "telnet"
 brew "terraformer"
 brew "tflint"
+brew "tmuxp"
 brew "todoist-cli"
-brew "tree"
 brew "watch"
+brew "worktrunk"
 brew "wxwidgets"
 brew "wxwidgets@3.2"
 brew "xcbeautify"
@@ -152,6 +158,7 @@ brew "withgraphite/tap/graphite"
 brew "yakitrak/yakitrak/obsidian-cli"
 cask "1password"
 cask "1password-cli"
+cask "adobe-acrobat-reader"
 cask "arc"
 cask "betterdisplay"
 cask "bettertouchtool"
@@ -170,10 +177,11 @@ cask "figma"
 cask "ghostty"
 cask "github"
 cask "google-chrome"
+cask "google-gemini"
 cask "granola"
 cask "httpie-desktop"
 cask "karabiner-elements"
-cask "linear-linear"
+cask "linear"
 cask "logi-options+"
 cask "loom"
 cask "neohtop"
@@ -181,10 +189,13 @@ cask "notion"
 cask "obsidian"
 cask "productdevbook/tap/portkiller"
 cask "raycast"
+cask "remnote"
 cask "setapp"
 cask "sonic-pi"
 cask "spotify"
+cask "sublime-merge"
 cask "tailscale-app"
+cask "telegram"
 cask "thebrowsercompany-dia"
 cask "todoist-app"
 cask "whatsapp"
@@ -200,14 +211,14 @@ mas "Flighty", id: 1358823008
 mas "GoodLinks", id: 1474335294
 mas "Hand Mirror", id: 1502839586
 mas "HiCoffee", id: 1507361706
-mas "Keynote", id: 409183694
+mas "Keynote", id: 361285480
 mas "Klack", id: 6446206067
 mas "Magnet", id: 441258766
 mas "Mela", id: 1568924476
 mas "MusicBox", id: 1614730313
-mas "Numbers", id: 409203825
+mas "mymind", id: 1532801185
+mas "Numbers", id: 361304891
 mas "Obsidian Web Clipper", id: 6720708363
-mas "Pages", id: 409201541
 mas "Pages", id: 361309726
 mas "Reeder", id: 1529448980
 mas "Slack", id: 803453959
