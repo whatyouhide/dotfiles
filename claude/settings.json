@@ -31,6 +31,7 @@
       "Bash(sentry event view:*)",
       "Bash(sentry issue explain:*)",
       "Bash(sentry issue list:*)",
+      "Bash(sentry issue view:*)",
       "Bash(wc:*)",
       "WebFetch(domain:docs.datadoghq.com)",
       "WebFetch(domain:elixir-lang.org)",
