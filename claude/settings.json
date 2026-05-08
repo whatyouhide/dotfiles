@@ -38,6 +38,7 @@
       "Bash(sentry issue list:*)",
       "Bash(sentry issue view:*)",
       "Bash(wc:*)",
+      "Skill(graphite)",
       "WebFetch(domain:docs.datadoghq.com)",
       "WebFetch(domain:elixir-lang.org)",
       "WebFetch(domain:erlang.org)",
