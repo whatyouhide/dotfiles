@@ -1,0 +1,19 @@
+# Agent skills installed into ~/.agents/skills via `npx skills add ...`.
+#
+# Format (one per line, comments with #):
+#   <source>                       install every skill from the source
+#   <source> --skill <name>        install one named skill from the source
+#
+# `<source>` accepts the same forms `npx skills add` takes: a full GitHub URL,
+# or shorthand `<owner>/<repo>`. Run `bash agents/install.sh` to apply.
+
+# Whole sources
+pbakaus/impeccable
+ibelick/ui-skills
+Leonxlnx/taste-skill
+raphaelsalaja/userinterface-wiki
+
+# Single skills
+anthropics/skills --skill skill-creator
+vercel-labs/agent-skills --skill web-design-guidelines
+withgraphite/agent-skills --skill graphite
