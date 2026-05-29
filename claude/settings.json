@@ -79,9 +79,10 @@
       }
     }
   },
+  "theme": "auto",
   "preferredNotifChannel": "iterm2",
+  "skipAutoPermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754056149463
-  },
-  "skipAutoPermissionPrompt": true
+  }
 }
