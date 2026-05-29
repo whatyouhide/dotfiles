@@ -13,3 +13,6 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
+# Here do the same but for some SSH terminals and other stuff that I don't care researching really.
+bindkey '^[OA' up-line-or-beginning-search
+bindkey '^[OB' down-line-or-beginning-search
