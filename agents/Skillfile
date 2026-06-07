@@ -17,3 +17,4 @@ raphaelsalaja/userinterface-wiki
 anthropics/skills --skill skill-creator
 vercel-labs/agent-skills --skill web-design-guidelines
 withgraphite/agent-skills --skill graphite
+schpet/linear-cli --skill linear-cli
