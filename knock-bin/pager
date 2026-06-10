@@ -1,0 +1,215 @@
+#!/bin/bash -e
+#
+# Take the on-call pager for a fixed PagerDuty rotation.
+#
+# Creates a temporary schedule "override" so you become on-call for the next
+# N hours, then PagerDuty automatically reverts to the normal rotation.
+#
+#   pager take [HOURS]   Take the pager for the next HOURS hours (default 1).
+#   pager untake         Remove your upcoming/active overrides on the rotation.
+#   pager status         Show who is on call now (and any active override).
+#   pager whoami         Show the PagerDuty user id we resolved for you.
+
+# ---- Fixed config -----------------------------------------------------------
+
+SCHEDULE_ID="PWHULG0"
+DEFAULT_HOURS=1
+API="https://api.pagerduty.com"
+ACCEPT="Accept: application/vnd.pagerduty+json;version=2"
+
+# 1Password secret reference for the PagerDuty API token. Lives in the Knock
+# work account, so the read is pinned to OP_ACCOUNT below.
+OP_ACCOUNT="team-knock.1password.com"
+OP_TOKEN_REF="op://Private/PagerDuty API user key/credential"
+
+# ---- Helpers ----------------------------------------------------------------
+
+die() {
+    gum style --foreground 196 "✗ $*" >&2
+    exit 1
+}
+
+token() {
+    op read --account "$OP_ACCOUNT" "$OP_TOKEN_REF" 2>/dev/null || die "couldn't read token from '$OP_TOKEN_REF'"
+}
+
+# api METHOD PATH [curl args...] -> response body on stdout, fails on HTTP >=400
+api() {
+    local method="$1" path="$2"
+    shift 2
+    local body status
+    body="$(curl -sS -w $'\n%{http_code}' -X "$method" "$API$path" \
+        -H "Authorization: Token token=$TOKEN" -H "$ACCEPT" \
+        -H "Content-Type: application/json" "$@")"
+    status="${body##*$'\n'}"
+    body="${body%$'\n'*}"
+    if [ "$status" -ge 400 ]; then
+        die "PagerDuty $method $path -> HTTP $status: $body"
+    fi
+    printf '%s' "$body"
+}
+
+# Resolve the PagerDuty user id for the current human (user-scoped token).
+resolve_user_id() {
+    api GET /users/me | jq -r '.user.id // empty'
+}
+
+iso_now() { date -u +%Y-%m-%dT%H:%M:%SZ; }
+iso_in_hours() { date -u -v+"${1}"H +%Y-%m-%dT%H:%M:%SZ; }
+iso_in_days() { date -u -v+"${1}"d +%Y-%m-%dT%H:%M:%SZ; }
+
+# ISO-8601 UTC timestamp -> friendly local time, e.g. "Tue 10 Jun 18:30".
+human_time() {
+    local epoch
+    epoch="$(date -ju -f "%Y-%m-%dT%H:%M:%SZ" "$1" +%s 2>/dev/null)" || epoch=""
+    [ -n "$epoch" ] || {
+        printf '%s' "$1"
+        return
+    }
+    date -r "$epoch" "+%a %d %b %H:%M"
+}
+
+# ISO-8601 UTC timestamp -> "for another 2 hours" (empty if in the past).
+time_remaining() {
+    local epoch now diff
+    epoch="$(date -ju -f "%Y-%m-%dT%H:%M:%SZ" "$1" +%s 2>/dev/null)" || return
+    now="$(date -u +%s)"
+    diff=$((epoch - now))
+    ((diff > 0)) || return
+    local n unit
+    if ((diff < 3600)); then
+        n=$(((diff + 30) / 60))
+        ((n < 1)) && n=1
+        unit=minute
+    elif ((diff < 86400)); then
+        n=$(((diff + 1800) / 3600))
+        unit=hour
+    else
+        n=$(((diff + 43200) / 86400))
+        unit=day
+    fi
+    printf 'for another %d %s%s' "$n" "$unit" "$([ "$n" -eq 1 ] || echo s)"
+}
+
+# ---- Commands ---------------------------------------------------------------
+
+cmd_take() {
+    local hours="${1:-$DEFAULT_HOURS}"
+    case "$hours" in *[!0-9]* | "") die "HOURS must be a positive integer, got '$hours'" ;; esac
+
+    local start end user payload
+    start="$(iso_now)"
+    end="$(iso_in_hours "$hours")"
+    user="$(resolve_user_id)"
+
+    payload="$(jq -n --arg s "$start" --arg e "$end" --arg u "$user" \
+        '{overrides:[{start:$s, end:$e, user:{id:$u, type:"user_reference"}}]}')"
+
+    local oid oend
+    IFS=$'\t' read -r oid oend < <(
+        api POST "/schedules/$SCHEDULE_ID/overrides" -d "$payload" |
+            jq -r '.overrides[0] | [.id, .end] | @tsv'
+    )
+
+    gum format <<EOF
+**📟 You've got the pager** until $(human_time "$oend")
+_override $oid_
+EOF
+}
+
+cmd_untake() {
+    local user since until ids
+    user="$(resolve_user_id)"
+    since="$(iso_now)"
+    until="$(iso_in_days 30)"
+
+    # editable=true returns only manually-created overrides (not the base layer).
+    ids="$(api GET "/schedules/$SCHEDULE_ID/overrides?since=$since&until=$until&editable=true&overflow=true" |
+        jq -r --arg u "$user" '.overrides[] | select(.user.id == $u) | .id')"
+
+    if [ -z "$ids" ]; then
+        gum format <<<"_No upcoming overrides of yours on this rotation._"
+        return
+    fi
+
+    local n=0
+    while read -r id; do
+        [ -n "$id" ] || continue
+        api DELETE "/schedules/$SCHEDULE_ID/overrides/$id" >/dev/null
+        n=$((n + 1))
+    done <<<"$ids"
+
+    gum format <<EOF
+**✓ Removed $n override(s)** — rotation is back to normal.
+EOF
+}
+
+cmd_status() {
+    local rows="" who until until_h rem
+    while IFS=$'\t' read -r who until; do
+        [ -n "$who" ] || continue
+        if [ -n "$until" ]; then
+            until_h="until $(human_time "$until")"
+            rem="$(time_remaining "$until")" || rem=""
+            [ -n "$rem" ] && until_h="$until_h _($rem)_"
+        else
+            until_h="until end of rotation"
+        fi
+        rows+="- **$who** — $until_h"$'\n'
+    done < <(
+        api GET "/oncalls?schedule_ids%5B%5D=$SCHEDULE_ID&earliest=true&time_zone=UTC" |
+            jq -r '.oncalls[]? | [.user.summary, (.end // "")] | @tsv'
+    )
+
+    [ -n "$rows" ] || {
+        gum format <<<"_No one is currently on call._"
+        return
+    }
+    printf '**On call for this rotation**\n%s' "$rows" | gum format
+}
+
+cmd_whoami() {
+    local id name
+    id="$(resolve_user_id)"
+    name="$(api GET "/users/$id" | jq -r '.user.summary // empty')"
+    gum format <<EOF
+**📟 ${name:-unknown}** \`$id\`
+EOF
+}
+
+# ---- Dispatch ---------------------------------------------------------------
+
+usage() {
+    sed -n '3,12p' "$0" | sed 's/^# \{0,1\}//'
+    exit "${1:-0}"
+}
+
+main() {
+    local cmd="${1:-}"
+    shift || true
+    case "$cmd" in
+    take)
+        TOKEN="$(token)"
+        cmd_take "$@"
+        ;;
+    untake)
+        TOKEN="$(token)"
+        cmd_untake "$@"
+        ;;
+    status)
+        TOKEN="$(token)"
+        cmd_status "$@"
+        ;;
+    whoami)
+        TOKEN="$(token)"
+        cmd_whoami "$@"
+        ;;
+    -h | --help | help | "") usage 0 ;;
+    *)
+        gum style --foreground 196 "✗ unknown command: $cmd" >&2
+        usage 1
+        ;;
+    esac
+}
+
+main "$@"
