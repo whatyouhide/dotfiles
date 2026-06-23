@@ -5,7 +5,7 @@
 # Creates a temporary schedule "override" so you become on-call for the next
 # N hours, then PagerDuty automatically reverts to the normal rotation.
 #
-#   pager take [HOURS]   Take the pager for the next HOURS hours (default 1).
+#   pager take [HOURS]   Take the pager for the next HOURS hours (prompts if omitted).
 #   pager untake         Remove your upcoming/active overrides on the rotation.
 #   pager status         Show who is on call now (and any active override).
 #   pager whoami         Show the PagerDuty user id we resolved for you.
@@ -94,7 +94,11 @@ time_remaining() {
 # ---- Commands ---------------------------------------------------------------
 
 cmd_take() {
-    local hours="${1:-$DEFAULT_HOURS}"
+    local hours="${1:-}"
+    if [ -z "$hours" ]; then
+        hours="$(gum choose --header "Take the pager for how many hours?" \
+            --selected "$DEFAULT_HOURS" 1 2 3 4 6 8 12 24)" || exit 0
+    fi
     case "$hours" in *[!0-9]* | "") die "HOURS must be a positive integer, got '$hours'" ;; esac
 
     local start end user payload
@@ -102,19 +106,28 @@ cmd_take() {
     end="$(iso_in_hours "$hours")"
     user="$(resolve_user_id)"
 
+    # Who's on call right now — that's who we're taking the pager from. Skip
+    # ourselves in case we already hold an active override.
+    local from
+    from="$(api GET "/oncalls?schedule_ids%5B%5D=$SCHEDULE_ID&earliest=true&time_zone=UTC" |
+        jq -r --arg u "$user" 'first(.oncalls[]? | select(.user.id != $u) | .user.summary) // empty')"
+
     payload="$(jq -n --arg s "$start" --arg e "$end" --arg u "$user" \
         '{overrides:[{start:$s, end:$e, user:{id:$u, type:"user_reference"}}]}')"
 
+    # POST returns an array of {status, override}; older responses return the
+    # override object directly as the array element.
     local oid oend
     IFS=$'\t' read -r oid oend < <(
         api POST "/schedules/$SCHEDULE_ID/overrides" -d "$payload" |
-            jq -r '.overrides[0] | [.id, .end] | @tsv'
+            jq -r '(.[0].override // .[0]) | [.id, .end] | @tsv'
     )
 
-    gum format <<EOF
-**📟 You've got the pager** until $(human_time "$oend")
-_override $oid_
-EOF
+    {
+        printf '**📟 You'\''ve got the pager** until %s\n' "$(human_time "$oend")"
+        [ -n "$from" ] && printf '_taken from %s_\n' "$from"
+        printf '_override %s_\n' "$oid"
+    } | gum format
 }
 
 cmd_untake() {
