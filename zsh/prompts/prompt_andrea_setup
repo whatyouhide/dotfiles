@@ -13,11 +13,26 @@ prompt_andrea_git_current_branch() {
   git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
 }
 
+prompt_andrea_aws_profile() {
+  if [[ ! -z "$AWS_PROFILE" ]]; then
+    echo "⌮ %F{182}${AWS_PROFILE}%f"
+  fi
+}
+
+# Print the selected Terraform CLI workspace, if we're in a TF dir.
+prompt_andrea_terraform_workspace() {
+  # Only show when there's Terraform config in the current dir.
+  [[ -n $(echo *.tf(N)) ]] || return
+  local ws='default'
+  [[ -f .terraform/environment ]] && ws="$(cat .terraform/environment)"
+  echo "[𓏲 TF: %F{99}${ws}%f]"
+}
+
 # Print a customized git prompt. This is only a wrapper around oh-my-zsh
 # `git_prompt_info`, with a few addons and colors.
 prompt_andrea_git_prompt() {
   ! prompt_andrea_git_is_repo && return
-  echo "%F{242}($(prompt_andrea_git_current_branch))%f"
+  echo "%F{242}(⎇ $(prompt_andrea_git_current_branch))%f"
 }
 
 # Returns the character that should appear before the cursor, colored based on
@@ -36,6 +51,8 @@ prompt_andrea_setup() {
   PROMPT=""
   prompt_andrea_append_to_prompt '$(prompt_andrea_path) '
   prompt_andrea_append_to_prompt '$(prompt_andrea_git_prompt) '
+  prompt_andrea_append_to_prompt '$(prompt_andrea_aws_profile) '
+  prompt_andrea_append_to_prompt '$(prompt_andrea_terraform_workspace) '
   prompt_andrea_append_to_prompt $'\n'
   prompt_andrea_append_to_prompt '$(prompt_andrea_before_char) '
 }
