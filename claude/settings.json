@@ -57,11 +57,129 @@
       "mcp__plugin_chrome-devtools-mcp_chrome-devtools__take_snapshot",
       "mcp__supabase__list_projects"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "sonnet",
   "enableAllProjectMcpServers": true,
-  "hooks": {},
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/andrea/.claude/hooks/peon-ping/peon.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/andrea/.claude/hooks/peon-ping/peon.sh",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/andrea/.claude/hooks/peon-ping/peon.sh",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/andrea/.claude/hooks/peon-ping/peon.sh",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/andrea/.claude/hooks/peon-ping/peon.sh",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/andrea/.claude/hooks/peon-ping/peon.sh",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/andrea/.claude/hooks/peon-ping/peon.sh",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/andrea/.claude/hooks/peon-ping/peon.sh",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/andrea/.claude/hooks/peon-ping/peon.sh",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "bash /Users/andrea/.claude/statusline-command.sh"
@@ -79,11 +197,14 @@
       }
     }
   },
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
   "theme": "auto",
   "preferredNotifChannel": "iterm2",
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754056149463
-  },
-  "skipWorkflowUsageWarning": true
+  }
 }
