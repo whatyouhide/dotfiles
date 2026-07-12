@@ -2,7 +2,11 @@
 
 CONFIG_DIRS=("$HOME/.claude" "$HOME/.claude-personal")
 
-FILES_TO_LINK=("settings.json" "CLAUDE.md")
+# settings.json is intentionally NOT symlinked: it churns constantly (hooks,
+# model, session state, "always allow" grants) and we don't want that
+# tracked wholesale. Only the allowed-commands list is version-controlled;
+# see sync-permissions.sh, invoked below.
+FILES_TO_LINK=("CLAUDE.md")
 
 for CONFIG_DIR in "${CONFIG_DIRS[@]}"; do
     # Link settings file.
@@ -21,3 +25,10 @@ for CONFIG_DIR in "${CONFIG_DIRS[@]}"; do
         fi
     done
 done
+
+# Seed/merge the tracked allowed-commands list into each config dir's
+# (untracked) settings.json.
+"$HOME/dotfiles/claude/sync-permissions.sh" apply
+
+# Link Codex for good measure too.
+ln -sfv "$HOME/dotfiles/claude/CLAUDE.md" "$HOME/.codex/AGENTS.md"

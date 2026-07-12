@@ -1,3 +1,7 @@
+## Library Updates
+
+  * When you're working on libraries (like my Elixir open source libraries), **do not** update `CHANGELOG.md` (or similar files) unless I explicitly tell you to.
+
 ## Git Operations
 
   * **Never commit anything** unless I explicitly tell you to commit. Prefer always leaving changes unstaged; I prefer to look at those for my code review workflow.
