@@ -1,22 +1,21 @@
-tap "anomalyco/tap"
-tap "caarlos0/tap"
-tap "charmbracelet/tap"
-tap "github/gh"
+tap "caarlos0/tap", trusted: true
+tap "charmbracelet/tap", trusted: true
+tap "github/gh", trusted: true
 tap "gromgit/fuse"
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "launchdarkly/tap"
+tap "launchdarkly/tap", trusted: true
 tap "mike-engel/jwt-cli"
-tap "minio/stable"
-tap "mongodb/brew"
-tap "mutagen-io/mutagen"
+tap "minio/stable", trusted: true
+tap "mongodb/brew", trusted: true
+tap "mutagen-io/mutagen", trusted: true
 tap "nikitabobko/tap", trusted: { casks: ["aerospace"] }
 tap "oven-sh/bun"
-tap "productdevbook/tap"
+tap "productdevbook/tap", trusted: true
 tap "schpet/tap"
-tap "supabase/tap"
+tap "supabase/tap", trusted: true
 tap "timrogers/tap"
-tap "withgraphite/tap"
+tap "withgraphite/tap", trusted: true
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
 # Library for command-line editing
@@ -35,8 +34,8 @@ brew "antigen"
 brew "cairo"
 # C/C++ and Java libraries for Unicode and globalization
 brew "icu4c@76"
-# Image format providing lossless and lossy compression for web images
-brew "webp"
+# TIFF library and utilities
+brew "libtiff"
 # Development kit for the Java programming language
 brew "openjdk"
 # ANother Tool for Language Recognition
@@ -267,6 +266,28 @@ brew "zig@0.14"
 brew "zola"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Service to open URLs
+brew "caarlos0/tap/xdg-open-svc"
+# The official command line interface for managing LaunchDarkly feature flags.
+brew "launchdarkly/tap/ldcli"
+# Super fast CLI tool to decode and encode JWTs built in Rust
+brew "mike-engel/jwt-cli/jwt-cli", trusted: true
+# MinIO Client for object storage and filesystems
+brew "minio/stable/mc"
+# This package contains standard utilities for interacting with MongoDB.
+brew "mongodb/brew/mongodb-database-tools"
+# High-performance, schema-free, document-oriented database
+brew "mongodb/brew/mongodb-community@8.0"
+# Fast file synchronization and network forwarding for remote development
+brew "mutagen-io/mutagen/mutagen"
+# CLI tool for linear.app that uses git branch names and directory names to open issues and team pages
+brew "schpet/tap/linear", link: false, trusted: true
+# Supabase CLI
+brew "supabase/tap/supabase"
+# Control Logitech Litra lights from the command line and Model Context Protocol (MCP) clients
+brew "timrogers/tap/litra", trusted: true
+# Allows you to manage your stacked changes and submit them for review on GitHub
+brew "withgraphite/tap/graphite"
 brew "yakitrak/yakitrak/obsidian-cli"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
@@ -320,7 +341,8 @@ cask "loom"
 cask "notion"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-cask "portkiller"
+# Menu bar app to find and kill processes running on open ports
+cask "productdevbook/tap/portkiller"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Spaced-repetition powered note-taking tool
