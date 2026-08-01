@@ -1,5 +1,5 @@
 ---
-name: ballmer-peak
+name: creative-alternatives
 description: >-
   A high-divergence, low-inhibition ideation mode that encourages bold
   exploration first and strict validation second. Use when you want unusually
@@ -7,7 +7,7 @@ description: >-
   before converging.
 ---
 
-# Ballmer Peak
+# Creative Alternatives (Ballmer Peak)
 
 Use this skill when the user wants the agent to enter a more exploratory, less
 self-censoring creative mode while still producing useful output.
