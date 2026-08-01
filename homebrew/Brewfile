@@ -1,7 +1,8 @@
 tap "caarlos0/tap", trusted: true
 tap "charmbracelet/tap", trusted: true
+tap "ellipse-software/tap", trusted: { formulae: ["bast-nightly"] }
 tap "github/gh", trusted: true
-tap "gromgit/fuse"
+tap "gromgit/fuse", trusted: true
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "launchdarkly/tap", trusted: true
@@ -10,10 +11,11 @@ tap "minio/stable", trusted: true
 tap "mongodb/brew", trusted: true
 tap "mutagen-io/mutagen", trusted: true
 tap "nikitabobko/tap", trusted: { casks: ["aerospace"] }
-tap "oven-sh/bun"
+tap "oven-sh/bun", trusted: true
 tap "productdevbook/tap", trusted: true
 tap "schpet/tap"
 tap "supabase/tap", trusted: true
+tap "supercmdlabs/supercmd", trusted: { casks: ["supercmd"] }
 tap "timrogers/tap"
 tap "withgraphite/tap", trusted: true
 # Cryptography and SSL/TLS Toolkit
@@ -268,6 +270,8 @@ brew "zola"
 brew "zsh"
 # Service to open URLs
 brew "caarlos0/tap/xdg-open-svc"
+# Browse SSH hosts, manage keys, and connect from the terminal
+brew "ellipse-software/tap/bast", trusted: true
 # The official command line interface for managing LaunchDarkly feature flags.
 brew "launchdarkly/tap/ldcli"
 # Super fast CLI tool to decode and encode JWTs built in Rust
@@ -280,6 +284,8 @@ brew "mongodb/brew/mongodb-database-tools"
 brew "mongodb/brew/mongodb-community@8.0"
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun"
 # CLI tool for linear.app that uses git branch names and directory names to open issues and team pages
 brew "schpet/tap/linear", link: false, trusted: true
 # Supabase CLI
@@ -295,8 +301,6 @@ cask "1password"
 cask "1password-cli"
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
-# Chromium based browser
-cask "arc"
 # Display management tool
 cask "betterdisplay"
 # Contacts manager
@@ -351,8 +355,6 @@ cask "remnote"
 cask "setapp"
 # Music streaming service
 cask "spotify"
-# Git client
-cask "sublime-merge"
 # Mesh VPN based on WireGuard
 cask "tailscale-app"
 # Messaging app with a focus on speed and security
@@ -383,7 +385,6 @@ mas "Magnet", id: 441258766
 mas "Mela", id: 1568924476
 mas "MusicBox", id: 1614730313
 mas "mymind", id: 1532801185
-mas "NeatNook", id: 6451318104
 mas "Numbers", id: 361304891
 mas "Obsidian Web Clipper", id: 6720708363
 mas "Pages", id: 361309726
