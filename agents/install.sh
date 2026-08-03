@@ -43,6 +43,13 @@ install_personal() {
     echo
 }
 
+# Link the agent-generic instructions file into every agent's config dir.
+for dir in "$HOME/.claude" "$HOME/.claude-personal"; do
+    ln -sfv "$SCRIPT_DIR/AGENTS.md" "$dir/CLAUDE.md"
+done
+
+ln -sfv "$SCRIPT_DIR/AGENTS.md" "$HOME/.codex/AGENTS.md"
+
 if gum confirm "Do you want to install agent skills?"; then
     install
     install_personal
