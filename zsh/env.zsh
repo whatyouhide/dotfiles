@@ -56,6 +56,11 @@ fi
 # asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
+# mise shims, so non-interactive shells (ssh host 'cmd', dotfiles-sync) find
+# mise-managed tools. Interactive shells get the full `mise activate` in
+# config.zsh, which overrides the shims.
+export PATH="${MISE_DATA_DIR:-$HOME/.local/share/mise}/shims:$PATH"
+
 # Enable shell history in Erlang/Elixir.
 export ERL_AFLAGS="-kernel shell_history enabled"
 
