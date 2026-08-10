@@ -1,4 +1,5 @@
 {
+  "defaultMode": "auto",
   "allow": [
     "Bash(MIX_ENV=test mix compile *)",
     "Bash(cat:*)",

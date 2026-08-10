@@ -4,8 +4,8 @@
 #
 # settings.json itself is no longer symlinked into dotfiles because it churns
 # constantly (hooks, model, session state, plugin config, ad-hoc "always
-# allow" grants). Only permissions.allow/deny is worth version-controlling,
-# so it's tracked separately here and merged in by hand.
+# allow" grants). Only permissions.allow/deny/defaultMode is worth
+# version-controlling, so it's tracked separately here and merged in by hand.
 #
 # Usage:
 #   claude/sync-permissions.sh export   Snapshot ~/.claude/settings.json's
@@ -34,7 +34,7 @@ case "$1" in
   export)
     SRC="$HOME/.claude/settings.json"
     [ -f "$SRC" ] || { echo "No $SRC found" >&2; exit 1; }
-    jq '{allow: (.permissions.allow // [] | sort), deny: (.permissions.deny // [] | sort)}' "$SRC" \
+    jq '{defaultMode: (.permissions.defaultMode // "default"), allow: (.permissions.allow // [] | sort), deny: (.permissions.deny // [] | sort)}' "$SRC" \
       > "$PERMISSIONS_FILE.tmp"
     mv "$PERMISSIONS_FILE.tmp" "$PERMISSIONS_FILE"
     echo "Exported permissions to $PERMISSIONS_FILE"
@@ -48,7 +48,8 @@ case "$1" in
       [ -f "$TARGET" ] || echo '{}' > "$TARGET"
       jq --slurpfile p "$PERMISSIONS_FILE" '
         .permissions.allow = (((.permissions.allow // []) + $p[0].allow) | unique) |
-        .permissions.deny  = (((.permissions.deny  // []) + $p[0].deny)  | unique)
+        .permissions.deny  = (((.permissions.deny  // []) + $p[0].deny)  | unique) |
+        if $p[0].defaultMode then .permissions.defaultMode = $p[0].defaultMode else . end
       ' "$TARGET" > "$TARGET.tmp"
       mv "$TARGET.tmp" "$TARGET"
       echo "Applied permissions to $TARGET"
