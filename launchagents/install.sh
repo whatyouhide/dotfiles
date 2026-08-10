@@ -2,7 +2,7 @@
 # Installs per-user LaunchAgents that listen on 127.0.0.1 and pipe to
 # pbcopy/pbpaste, plus xdg-open-svc for `open`. Paired with the
 # RemoteForward lines in ~/.ssh/config and the ~/bin shims on the
-# Linux dev box (see knock-devbox repo).
+# Linux devbox (deployed by the devbox's provisioning).
 set -euo pipefail
 
 DOTFILES="${DOTFILES:-$HOME/dotfiles}"

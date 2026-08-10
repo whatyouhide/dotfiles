@@ -17,8 +17,13 @@ source "$ZSH_CONFIG/lib/aliases.zsh"
 source "$ZSH_CONFIG/lib/dotenv.zsh"
 source "$ZSH_CONFIG/lib/hooks.zsh"
 
-# Source antigen bundles and apply everything
-source $(brew --prefix)/share/antigen/antigen.zsh
+# Source antigen bundles and apply everything. Antigen comes from Homebrew on
+# macOS and from the zsh-antigen apt package on the (Ubuntu) dev box.
+if [[ -e /usr/share/zsh-antigen/antigen.zsh ]]; then
+    source /usr/share/zsh-antigen/antigen.zsh
+else
+    source "$(brew --prefix)/share/antigen/antigen.zsh"
+fi
 antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
@@ -28,4 +33,11 @@ antigen apply
 # Choose the prompt.
 prompt "andrea"
 
+# When SSH'd in, prepend the hostname so it's obvious
+# the shell is remote.
+if [[ -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]]; then
+    PROMPT="%F{cyan}[%m] %f$PROMPT"
+fi
+
 type direnv >/dev/null && eval "$(direnv hook zsh)"
+type mise >/dev/null && eval "$(mise activate zsh)"

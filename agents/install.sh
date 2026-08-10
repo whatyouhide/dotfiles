@@ -6,6 +6,8 @@ SCRIPT_DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 SKILLFILE="$SCRIPT_DIR/Skillfile"
 SKILLS_DIR="$SCRIPT_DIR/skills"
 
+source "$SCRIPT_DIR/../lib.sh"
+
 if ! type "npx" >/dev/null 2>&1; then
     echo "npx not found, install Node first"
     exit 1
@@ -45,12 +47,14 @@ install_personal() {
 
 # Link the agent-generic instructions file into every agent's config dir.
 for dir in "$HOME/.claude" "$HOME/.claude-personal"; do
+    mkdir -p "$dir"
     ln -sfv "$SCRIPT_DIR/AGENTS.md" "$dir/CLAUDE.md"
 done
 
+mkdir -p "$HOME/.codex"
 ln -sfv "$SCRIPT_DIR/AGENTS.md" "$HOME/.codex/AGENTS.md"
 
-if gum confirm "Do you want to install agent skills?"; then
+if confirm "Do you want to install agent skills?"; then
     install
     install_personal
 else

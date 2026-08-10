@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Update a remote devbox's dotfiles and re-run setup there, without a full
+# provisioning run. The devbox pulls from GitHub, so only pushed commits
+# reach it.
+#
+# Usage: dotfiles-sync [host]
+# The host defaults to $DOTFILES_REMOTE_HOST, then to the `devbox` SSH alias.
+
+set -euo pipefail
+
+source "$HOME/dotfiles/lib.sh"
+
+HOST="${1:-${DOTFILES_REMOTE_HOST:-devbox}}"
+DOTFILES="$HOME/dotfiles"
+
+ensure_gum_installed
+
+if [ -n "$(git -C "$DOTFILES" log --oneline '@{upstream}..HEAD' 2>/dev/null)" ]; then
+    warn "Local dotfiles commits are not pushed — the devbox only sees what's on GitHub."
+fi
+
+echo_info "Syncing dotfiles on $HOST"
+
+ssh "$HOST" 'cd ~/dotfiles && git pull --ff-only && ./setup --profile devbox'
+
+gum style "🚀 $HOST is up to date!" \
+    --foreground 35 --bold \
+    --margin "1 0" --padding "0 1" \
+    --border rounded --border-foreground 35 \
+    --width 50 --align center

@@ -4,25 +4,89 @@ set -e
 
 DOTFILES="$HOME/dotfiles"
 
-echo_colored() { echo -e "${2}$1\033[0m"; }
-echo_info() { echo_colored "==> $1" "\033[1;36m"; }
+# Profiles pick which modules run. "mac" is the full setup; "devbox" is the
+# subset that makes sense on a remote Linux devbox (whose provisioning, e.g.
+# an Ansible playbook, clones this repo and runs `setup --profile devbox`).
+PROFILE="mac"
 
-echo_info() {
+MAC_MODULES=(homebrew zsh bin bat btop ghostty herdr launchagents claude agents)
+DEVBOX_MODULES=(zsh bin bat btop herdr claude agents)
+
+usage() {
+  echo "Usage: setup [--profile mac|devbox]"
+}
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --profile)
+      PROFILE="$2"
+      shift 2
+      ;;
+    --profile=*)
+      PROFILE="${1#*=}"
+      shift
+      ;;
+    -h | --help)
+      usage
+      exit 0
+      ;;
+    *)
+      usage >&2
+      exit 1
+      ;;
+  esac
+done
+
+case "$PROFILE" in
+  mac)
+    MODULES=("${MAC_MODULES[@]}")
+    ;;
+  devbox)
+    MODULES=("${DEVBOX_MODULES[@]}")
+    # The devbox profile runs unattended (Ansible, dotfiles-sync over SSH),
+    # so install scripts must not prompt.
+    export DOTFILES_NO_CONFIRMATION_PROMPT=true
+    ;;
+  *)
+    echo "Unknown profile: $PROFILE" >&2
+    usage >&2
+    exit 1
+    ;;
+esac
+
+source "$DOTFILES/lib.sh"
+
+print_banner() {
   gum style \
-    --foreground 212 --border-foreground 212 --border double \
-    --align left --width 50 --margin "1 0" --padding "0 1" \
-    "💁 $1"
+    --foreground 212 --border-foreground 212 --border thick \
+    --align center --width 50 --margin "1 0" --padding "1 2" \
+    "🥑 Dotfiles setup" \
+    "Profile: $PROFILE — OS: $(uname -s)"
 }
 
-fail() {
-  echo_colored "$1" "\033[1;31m"
-  exit 1
-}
+# Yell when the profile doesn't match the OS: "mac" belongs on macOS, "devbox"
+# on the Linux dev box. Continuing is allowed but needs explicit confirmation.
+check_profile_matches_os() {
+  local _os
+  _os="$(uname -s)"
 
-ensure_gum_installed() {
-  if ! type "gum" >/dev/null 2>&1; then
-    fail "gum is not installed. Run 'brew install gum' to install it and re-run this script."
-  fi
+  case "$PROFILE:$_os" in
+    mac:Darwin | devbox:Linux)
+      return 0
+      ;;
+  esac
+
+  gum style \
+    --foreground 196 --border-foreground 196 --border thick \
+    --align center --width 50 --margin "1 0" --padding "1 2" \
+    "🚨 PROFILE/OS MISMATCH 🚨" \
+    "You're running the '$PROFILE' profile on $_os." \
+    "Use --profile mac on macOS" \
+    "and --profile devbox on Linux."
+
+  # gum confirm directly, not confirm(): the devbox profile auto-confirms
+  # prompts, and a profile/OS mismatch must never be waved through silently.
+  gum confirm "Continue with the '$PROFILE' profile anyway?" || fail "Aborting."
 }
 
 create_directories() {
@@ -73,18 +137,20 @@ copy_example_files() {
 }
 
 run_install_scripts() {
-  echo_info "Running all install.sh scripts"
+  echo_info "Running install scripts ($PROFILE profile)"
 
-  for file in $(find $DOTFILES -name 'install.sh'); do
-    gum style "🏗️  Running ${file#$DOTFILES/}" --foreground 33 --bold
+  for module in "${MODULES[@]}"; do
+    gum style "🏗️  Running $module/install.sh" --foreground 33 --bold
     echo
-    bash "$file"
+    bash "$DOTFILES/$module/install.sh"
     echo
   done
 }
 
 main() {
   ensure_gum_installed
+  print_banner
+  check_profile_matches_os
   create_directories
   symlink_files
   copy_example_files
@@ -97,4 +163,4 @@ main() {
     --width 50 --align center
 }
 
-main "$@"
+main

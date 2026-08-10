@@ -31,28 +31,33 @@ export PATH="$PATH:$HOME/.local/bin"
 
 export EDITOR="vim"
 
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# macOS-only bits. This file is also sourced on Linux devboxes,
+# where none of this applies. Must come before the asdf
+# line below so asdf shims stay in front of the Homebrew paths.
+if [[ "$OSTYPE" == darwin* ]]; then
+    # Homebrew
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    # Necessary to work around issues in Ansible
+    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+    # This fixes a bunch of headaches on macOS when installing Erlang with asdf/kerl.
+    export KERL_CONFIGURE_OPTIONS="--with-ssl=$(brew --prefix openssl@3) --with-wx-config=$(brew --prefix wxwidgets)/bin/wx-config --without-javac --without-odbc"
+
+    # Java (if installed).
+    if java -version >/dev/null 2>&1; then
+        export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
+    fi
+
+    # Who can remember the path to the iCloud directory?
+    export ICLOUD_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
+fi
 
 # asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
-# Necessary to work around issues in Ansible
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # Enable shell history in Erlang/Elixir.
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Use a TTY in GPG.
 export GPG_TTY="$(tty)"
-
-# This fixes a bunch of headaches on macOS when installing Erlang with asdf/kerl.
-export KERL_CONFIGURE_OPTIONS="--with-ssl=$(brew --prefix openssl@3) --with-wx-config=$(brew --prefix wxwidgets)/bin/wx-config --without-javac --without-odbc"
-
-# Java (if installed).
-if java -version >/dev/null 2>&1; then
-    export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
-fi
-
-# Who can remember the path to the iCloud directory?
-export ICLOUD_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
