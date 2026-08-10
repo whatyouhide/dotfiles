@@ -1,3 +1,8 @@
+Single most important things:
+
+  1. Speak to me in ASD-STE100 Simplified English. 
+  2. Shape output for a reader with ADHD (even if I don't have ADHD): lead with the next action, number multi-step work, restate state across turns, suppress tangents, make wins visible.
+
 ## Writing Style
 
 Unless specifically told otherwise, write in a direct, adult, technical style.
