@@ -16,6 +16,9 @@
 #                                        config dir's settings.json (creating
 #                                        it if missing). Non-destructive:
 #                                        unions with whatever's already there.
+#                                        Also unsets preferredNotifChannel so
+#                                        OS notifications use the default
+#                                        channel on every box.
 
 set -euo pipefail
 
@@ -49,7 +52,8 @@ case "$1" in
       jq --slurpfile p "$PERMISSIONS_FILE" '
         .permissions.allow = (((.permissions.allow // []) + $p[0].allow) | unique) |
         .permissions.deny  = (((.permissions.deny  // []) + $p[0].deny)  | unique) |
-        if $p[0].defaultMode then .permissions.defaultMode = $p[0].defaultMode else . end
+        if $p[0].defaultMode then .permissions.defaultMode = $p[0].defaultMode else . end |
+        del(.preferredNotifChannel)
       ' "$TARGET" > "$TARGET.tmp"
       mv "$TARGET.tmp" "$TARGET"
       echo "Applied permissions to $TARGET"

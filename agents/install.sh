@@ -25,7 +25,7 @@ install() {
 
         gum style "📚 npx skills add $line" --foreground 33 --bold
         # shellcheck disable=SC2086 # word splitting is intentional
-        npx --yes skills add $line --global --agent '*' --yes < /dev/null
+        npx --yes skills add $line --global --agent claude-code codex --yes < /dev/null
         echo
     done 3< "$SKILLFILE"
 }
@@ -41,7 +41,7 @@ install_personal() {
     [ ${#dirs[@]} -eq 0 ] && { echo "No personal skills in $SKILLS_DIR yet."; return; }
 
     gum style "🛠  npx skills add $SKILLS_DIR (${#dirs[@]} personal)" --foreground 33 --bold
-    npx --yes skills add "$SKILLS_DIR" --global --agent '*' --skill '*' --yes < /dev/null
+    npx --yes skills add "$SKILLS_DIR" --global --agent claude-code codex --skill '*' --yes < /dev/null
     echo
 }
 
@@ -54,9 +54,11 @@ done
 mkdir -p "$HOME/.codex"
 ln -sfv "$SCRIPT_DIR/AGENTS.md" "$HOME/.codex/AGENTS.md"
 
-if confirm "Do you want to install agent skills?"; then
+# Personal skills always install; only remote (Skillfile) skills are optional.
+install_personal
+
+if confirm "Do you want to install remote agent skills?"; then
     install
-    install_personal
 else
-    echo "Skipping agent skills then!"
+    echo "Skipping remote agent skills then!"
 fi
