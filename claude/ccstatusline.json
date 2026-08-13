@@ -1,0 +1,105 @@
+{
+  "version": 3,
+  "lines": [
+    [
+      {
+        "id": "4368d559-5108-46c5-8c72-fd6b01d84456",
+        "type": "current-working-dir"
+      },
+      {
+        "id": "4",
+        "type": "separator"
+      },
+      {
+        "id": "5",
+        "type": "git-branch",
+        "color": "magenta"
+      },
+      {
+        "id": "6",
+        "type": "separator"
+      },
+      {
+        "id": "7",
+        "type": "git-changes",
+        "color": "yellow"
+      },
+      {
+        "id": "f447c93c-ed47-4ce2-981e-05a7a0928122",
+        "type": "flex-separator"
+      },
+      {
+        "id": "400ac914-e918-4ccf-8285-b22f5934508b",
+        "type": "claude-account-email"
+      }
+    ],
+    [
+      {
+        "id": "05c16db1-8647-4ca2-b74a-3de7ca85ed9b",
+        "type": "model"
+      },
+      {
+        "id": "b445784a-7624-4857-9ee5-db89692cdfd8",
+        "type": "separator"
+      },
+      {
+        "id": "cf5b097d-dd05-4953-82dd-32c115ba6508",
+        "type": "thinking-effort"
+      }
+    ],
+    [
+      {
+        "id": "a16908a0-2b3b-4ed6-8f8c-b98e99d34616",
+        "type": "session-cost"
+      },
+      {
+        "id": "60bf3670-cbab-4621-9e1b-ec3d04618b32",
+        "type": "flex-separator"
+      },
+      {
+        "id": "1cb7759d-26df-4cef-8774-723507d4ebe7",
+        "type": "session-usage"
+      },
+      {
+        "id": "ad6eca14-e249-4c7b-853c-2196fc056f24",
+        "type": "separator"
+      },
+      {
+        "id": "21f350ba-1811-4cc3-9689-e576af23b4a4",
+        "type": "weekly-usage",
+        "metadata": {
+          "display": "time"
+        }
+      },
+      {
+        "id": "31f24172-6442-45b5-81d7-eb6e8467bc54",
+        "type": "separator"
+      },
+      {
+        "id": "6f74d4df-945b-4587-8e65-43657f113fee",
+        "type": "context-bar"
+      }
+    ]
+  ],
+  "flexMode": "full-minus-40",
+  "compactThreshold": 60,
+  "colorLevel": 3,
+  "defaultPaddingSide": "both",
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "gitCacheTtlSeconds": 5,
+  "minimalistMode": false,
+  "powerline": {
+    "enabled": false,
+    "separators": [
+      "ÓÇ∞"
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [],
+    "autoAlign": false,
+    "continueThemeAcrossLines": false
+  }
+}
