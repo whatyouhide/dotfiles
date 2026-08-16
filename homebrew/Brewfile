@@ -44,8 +44,6 @@ brew "openjdk"
 brew "antlr"
 # Codec library for encoding and decoding AV1 video streams
 brew "aom"
-# Scalable batch and stream data processing
-brew "apache-flink"
 # Record and share terminal sessions
 brew "asciinema"
 # Extendable version manager with support for Ruby, Node.js, Erlang & more
@@ -202,8 +200,6 @@ brew "ninja"
 brew "nss"
 # Development kit for the Java programming language
 brew "openjdk@11"
-# Process manager for Procfile-based applications and tmux
-brew "overmind"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Identify unused code in Swift projects
@@ -232,12 +228,8 @@ brew "swiftlint"
 brew "tailscale", link: false
 # User interface to the TELNET protocol
 brew "telnet"
-# CLI tool to generate terraform files from existing infrastructure
-brew "terraformer"
 # Linter for Terraform files
 brew "tflint"
-# Tmux session manager. Built on libtmux
-brew "tmuxp"
 # Official command-line interface for Todoist
 brew "todoist-cli"
 # ODBC 3 connectivity for UNIX
@@ -260,8 +252,6 @@ brew "xcode-build-server"
 brew "yarn"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
-# Feature-rich command-line audio/video downloader
-brew "yt-dlp"
 # Programming language designed for robustness, optimality, and clarity
 brew "zig@0.14"
 # Fast static site generator in a single binary with everything built-in
@@ -349,8 +339,6 @@ cask "obsidian"
 cask "productdevbook/tap/portkiller"
 # Control your tools with a few keystrokes
 cask "raycast"
-# Spaced-repetition powered note-taking tool
-cask "remnote"
 # Collection of apps available by subscription
 cask "setapp"
 # Music streaming service
@@ -373,12 +361,10 @@ cask "zoom"
 cask "zotero"
 mas "Actions For Obsidian", id: 1659667937
 mas "BrightIntosh", id: 6452471855
-mas "Drafts", id: 1435957248
 mas "Flighty", id: 1358823008
 mas "FocusFlight", id: 6648771147
 mas "GoodLinks", id: 1474335294
 mas "Hand Mirror", id: 1502839586
-mas "HiCoffee", id: 1507361706
 mas "Keynote", id: 361285480
 mas "Klack", id: 6446206067
 mas "Magnet", id: 441258766
@@ -386,9 +372,7 @@ mas "Mela", id: 1568924476
 mas "MusicBox", id: 1614730313
 mas "mymind", id: 1532801185
 mas "Numbers", id: 361304891
-mas "Obsidian Web Clipper", id: 6720708363
 mas "Pages", id: 361309726
-mas "Reeder", id: 1529448980
 mas "Slack", id: 803453959
 mas "Tripsy", id: 1429967544
 mas "Velja", id: 1607635845
