@@ -14,3 +14,8 @@ alias ip="curl ifconfig.me"
 # Docker and Kubernetes.
 alias kctx="kubectx"
 alias k="kubectl"
+
+# Terraform
+alias tf="terraform"
+alias "tf-dev"="terraform workspace select development"
+alias "tf-prod"="terraform workspace select production"

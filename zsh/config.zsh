@@ -17,6 +17,10 @@ source "$ZSH_CONFIG/lib/aliases.zsh"
 source "$ZSH_CONFIG/lib/dotenv.zsh"
 source "$ZSH_CONFIG/lib/hooks.zsh"
 
+# This seems good for lots of open files and Docker and stuff. I'm too lazy
+# to dig deeper.
+ulimit -n 65536
+
 # Source antigen bundles and apply everything. Antigen comes from Homebrew on
 # macOS and from the zsh-antigen apt package on the (Ubuntu) dev box.
 if [[ -e /usr/share/zsh-antigen/antigen.zsh ]]; then
@@ -41,3 +45,6 @@ fi
 
 type direnv >/dev/null && eval "$(direnv hook zsh)"
 type mise >/dev/null && eval "$(mise activate zsh)"
+
+# Worktrunk
+if command -v wt > /dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
