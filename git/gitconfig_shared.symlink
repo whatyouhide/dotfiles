@@ -8,7 +8,7 @@
 	tags = tag -l -n
 	tg = "!f() { git tag -a $1 -m $1; }; f"
 	ch = checkout
-	sync = fetch --all --prune
+	sync = "!git fetch --all --prune && { [ \"$(git symbolic-ref --short -q HEAD)\" = main ] && git pull --ff-only || git fetch origin main:main ; } && gh poi"
 
 # Use the right branch name when creating new repos
 [init]
