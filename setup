@@ -9,8 +9,8 @@ DOTFILES="$HOME/dotfiles"
 # an Ansible playbook, clones this repo and runs `setup --profile devbox`).
 PROFILE="mac"
 
-MAC_MODULES=(homebrew zsh bin bat btop ghostty herdr launchagents claude agents)
-DEVBOX_MODULES=(zsh bin bat btop herdr claude agents)
+MAC_MODULES=(homebrew zsh bin bat btop ghostty herdr vim launchagents claude agents)
+DEVBOX_MODULES=(zsh bin bat btop herdr vim claude agents)
 
 usage() {
   echo "Usage: setup [--profile mac|devbox]"

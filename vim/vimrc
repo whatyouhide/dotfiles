@@ -1,0 +1,91 @@
+" Enable syntax highlighting
+syntax on
+
+" Enable filetype detection and plugin/indent loading
+filetype plugin indent on
+
+" Better colors for dark terminals (common on macOS)
+set background=dark
+
+" Show line numbers
+set number
+
+" Show relative line numbers (useful for navigation)
+set relativenumber
+
+" Highlight current line
+set cursorline
+
+" Enable 256 colors support
+set t_Co=256
+
+" Better search
+set hlsearch    " Highlight search results
+set incsearch   " Incremental search
+set ignorecase  " Case insensitive search
+set smartcase   " Unless you use capitals
+
+" Indentation
+set expandtab     " Use spaces instead of tabs
+set tabstop=4     " 1 tab = 4 spaces
+set shiftwidth=4  " Indent by 4 spaces
+set autoindent    " Auto indent new lines
+set smartindent   " Smart indent for code
+
+" Show matching brackets
+set showmatch
+
+" Enable mouse support (useful for quick edits)
+set mouse=a
+
+" Better command-line completion
+set wildmenu
+set wildmode=longest:full,full
+
+" Show whitespace characters
+set list
+set listchars=tab:→\ ,trail:·,extends:›,precedes:‹
+
+" Faster redrawing
+set ttyfast
+
+" Don't create backup files (you're probably using git anyway)
+set nobackup
+set nowritebackup
+set noswapfile
+
+" Better split navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Better JSON highlighting
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" YAML files
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" Markdown files
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+" Dockerfile
+autocmd BufNewFile,BufRead Dockerfile* set filetype=dockerfile
+
+" nginx config
+autocmd BufRead,BufNewFile */nginx/* set ft=nginx
+
+" .env files
+autocmd BufNewFile,BufRead .env* set filetype=sh
+
+" Use real tabs only in SSH config files
+autocmd FileType sshconfig setlocal noexpandtab tabstop=8 shiftwidth=8
+
+" Also handle the case where vim doesn't detect the filetype
+autocmd BufRead,BufNewFile ~/.ssh/config setlocal noexpandtab tabstop=8 shiftwidth=8
+autocmd BufRead,BufNewFile ~/.ssh/config.d/* setlocal noexpandtab tabstop=8 shiftwidth=8
+
+" Check all Markdown task boxes: replace every `- [ ]` with `- [x]`.
+" Useful for PR descriptions. Run :CheckAll or press \x (default leader).
+command! CheckAll silent! %s/- \[ \]/- [x]/g
+nnoremap <leader>x :CheckAll<CR>
