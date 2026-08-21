@@ -147,7 +147,7 @@ split_horizontal = "prefix+minus"
 # sidebar_min_width = 18
 
 # Maximum sidebar width when expanded (columns)
-# sidebar_max_width = 36
+sidebar_max_width = 45
 
 # Start with the sidebar collapsed. Changes take effect on the next launch.
 # sidebar_start_collapsed = false
@@ -193,7 +193,7 @@ split_horizontal = "prefix+minus"
 # prompt_new_tab_name = true
 
 # Ask for a workspace name before interactive creation.
-# prompt_new_workspace_name = false
+prompt_new_workspace_name = true
 
 # Draw borders around split panes.
 # pane_borders = true
@@ -202,7 +202,7 @@ split_horizontal = "prefix+minus"
 # pane_gaps = true
 
 # Show detected/reported agent labels in split pane borders when no manual pane name is set.
-# show_agent_labels_on_pane_borders = false
+show_agent_labels_on_pane_borders = true
 
 # Hide the tab row when a workspace has exactly one tab.
 # New tabs can still be created with the configured keybinding.
@@ -210,17 +210,24 @@ split_horizontal = "prefix+minus"
 
 # Agent panel ordering: "spaces" (grouped by space) or "priority" (attention queue).
 # "workspaces" is accepted as an alias for "spaces".
-# agent_panel_sort = "spaces"
+agent_panel_sort = "spaces"
+
+tab_bar_right = []
+tab_bar_right_separator = " · "
 
 # Expanded agent rows. Built-ins are state_icon, state_text, workspace, tab, pane, agent,
 # terminal_title, and terminal_title_stripped.
 # Custom values reported through pane metadata use a $name token.
 # A token occurrence may be styled with { token = "workspace", fg = "#89b4fa", bold = true, dim = false }.
-# Omitted style fields preserve the contextual default.
-# [ui.sidebar.agents]
-# Blank rows between agent entries. Set to 1 to restore the previous spacing.
-# row_gap = 0
-# rows = [["state_icon", "workspace", "tab"], ["agent"]]
+[ui.sidebar.agents]
+
+row_gap = 0
+
+rows = [
+  ["state_icon", "workspace"],
+  ["tab", "terminal_title"],
+]
+
 # Optional canonical agent IDs replace the default rows for matching agents.
 # [ui.sidebar.agents.rows_by_agent]
 # claude = [["state_icon", "workspace", "tab"], ["terminal_title_stripped"], ["agent"]]
@@ -228,18 +235,20 @@ split_horizontal = "prefix+minus"
 # Expanded space rows. Built-ins are state_icon, state_text, workspace, branch, and git_status.
 # Custom values reported through workspace metadata use a $name token, for example $jj_status.
 # Inline token styles accept strict #RGB/#RRGGBB foregrounds plus bold and dim booleans.
-# [ui.sidebar.spaces]
+[ui.sidebar.spaces]
+
 # Blank rows between space entries. Set to 1 to restore the previous spacing.
 # row_gap = 0
-# rows = [["state_icon", "workspace"], ["branch", "git_status"]]
+
+rows = [
+  ["state_icon", "workspace"],
+  ["git_status"],
+]
 
 # Accent color for highlights, borders, and navigation UI.
 # Accepts: hex (#89b4fa), named colors (cyan, blue, magenta), or rgb(r,g,b)
 # accent = "cyan"
 
-# Background notification popup delivery
-show_agent_labels_on_pane_borders = true
-agent_panel_sort = "spaces"
 [ui.toast]
 # off = disable pop-up notifications
 # herdr = show in-app toasts
@@ -248,7 +257,9 @@ agent_panel_sort = "spaces"
 # delivery = "off"
 # delay_seconds = 1
 
+# Background notification popup delivery.
 delivery = "terminal"
+
 [ui.toast.herdr]
 # position = "bottom-right"
 
