@@ -3,12 +3,12 @@
 
 # Aliases.
 [alias]
-	df = diff --color --color-words --abbrev
 	lg = log --branches --graph --pretty=format:'%C(yellow)%h %C(reset)%s%C(red)%d %C(blue)%an%C(reset), %C(cyan)%ar'
 	tags = tag -l -n
-	tg = "!f() { git tag -a $1 -m $1; }; f"
+	tag-release = "!f() { git tag -a \"$1\" -m \"Release $1\" ; }; f"
 	ch = checkout
 	sync = "!git fetch --all --prune && { [ \"$(git symbolic-ref --short -q HEAD)\" = main ] && git pull --ff-only || git fetch origin main:main ; } && gh poi"
+	amend = "git commit --amend --no-edit"
 
 # Use the right branch name when creating new repos
 [init]
