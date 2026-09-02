@@ -16,18 +16,30 @@ export MANPAGER="$_LESS"
 export PAGER="$_LESS"
 
 ## Path
-# Start with a clean slate, with only the scripts in `~bin`.
-PATH="$HOME/bin"
-# Standard PATH entries.
-export PATH="$PATH:/usr/local/sbin"
-export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:/usr/bin"
-export PATH="$PATH:/usr/sbin"
-export PATH="$PATH:/bin"
-export PATH="$PATH:/sbin"
-# Tools I generally use.
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:$HOME/.local/bin"
+# The first run in a shell starts from a clean slate. Later runs keep the
+# current PATH and move our entries back to the front; `typeset -U` drops the
+# duplicates. macOS login shells need the second run: /etc/zprofile runs
+# path_helper after ~/.zshenv and moves /usr/bin & co. in front of Homebrew,
+# so ~/.zprofile sources this file again (see install.sh). The guard is not
+# exported on purpose, so child shells start from a clean slate again.
+if [[ -z "$_dotfiles_path_set" ]]; then
+    path=()
+fi
+typeset -g _dotfiles_path_set=1
+typeset -U path
+path=(
+    "$HOME/bin"
+    /usr/local/sbin
+    /usr/local/bin
+    /usr/bin
+    /usr/sbin
+    /bin
+    /sbin
+    "$HOME/.cargo/bin"
+    "$HOME/.local/bin"
+    $path
+)
+export PATH
 
 export EDITOR="vim"
 
