@@ -10,7 +10,7 @@ if ! type "brew" >/dev/null 2>&1; then
 fi
 
 install() {
-    brew bundle install --file "$SCRIPT_DIR/Brewfile" --no-lock --cleanup
+    brew bundle install --file "$SCRIPT_DIR/Brewfile"
 }
 
 if confirm "Do you want to install Homebrew packages?"; then
