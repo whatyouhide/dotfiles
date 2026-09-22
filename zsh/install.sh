@@ -1,25 +1,8 @@
 #!/bin/bash
 
-if [ -f "$HOME/.zshrc" ]; then
-    echo "~/.zshrc already exists"
-else
-    echo "~/.zshrc not found, creating it..."
-    touch "$HOME/.zshrc"
-fi
-
-if [ -f "$HOME/.zshenv" ]; then
-    echo "~/.zshenv already exists"
-else
-    echo "~/.zshenv not found, creating it..."
-    touch "$HOME/.zshenv"
-fi
-
-if [ -f "$HOME/.zprofile" ]; then
-    echo "~/.zprofile already exists"
-else
-    echo "~/.zprofile not found, creating it..."
-    touch "$HOME/.zprofile"
-fi
+touch "$HOME/.zshrc"
+touch "$HOME/.zshenv"
+touch "$HOME/.zprofile"
 
 if grep -q 'source "$HOME/dotfiles/zsh/config.zsh"' "$HOME/.zshrc"; then
     echo "Source line already exists in ~/.zshrc"
