@@ -129,6 +129,12 @@ split_horizontal = "prefix+minus"
 # width = "80%"
 # height = "80%"
 
+[[keys.command]]
+key = "prefix+k"
+type = "shell"
+command = "herdr plugin pane open --plugin palette --entrypoint palette"
+description = "Command palette"
+
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
 # [keys.indexed]
