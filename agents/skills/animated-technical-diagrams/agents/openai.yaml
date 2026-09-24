@@ -1,0 +1,4 @@
+interface:
+  display_name: "Animated Technical Diagrams"
+  short_description: "Design clear, polished technical simulations"
+  default_prompt: "Use $animated-technical-diagrams to design an animated simulation for this technical article."
