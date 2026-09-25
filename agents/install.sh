@@ -46,13 +46,10 @@ install_personal() {
 }
 
 # Link the agent-generic instructions file into every agent's config dir.
-for dir in "$HOME/.claude" "$HOME/.claude-personal"; do
+for dir in "$HOME/.claude" "$HOME/.codex"; do
     mkdir -p "$dir"
-    ln -sfv "$SCRIPT_DIR/AGENTS.md" "$dir/CLAUDE.md"
+    ln -sfv "$SCRIPT_DIR/AGENTS.md" "$dir/AGENTS.md"
 done
-
-mkdir -p "$HOME/.codex"
-ln -sfv "$SCRIPT_DIR/AGENTS.md" "$HOME/.codex/AGENTS.md"
 
 # Personal skills always install; only remote (Skillfile) skills are optional.
 install_personal

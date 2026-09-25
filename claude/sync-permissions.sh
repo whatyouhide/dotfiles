@@ -24,7 +24,7 @@ set -euo pipefail
 
 DOTFILES="$HOME/dotfiles"
 PERMISSIONS_FILE="$DOTFILES/claude/permissions.json"
-CONFIG_DIRS=("$HOME/.claude" "$HOME/.claude-personal")
+CONFIG_DIRS=("$HOME/.claude")
 
 usage() {
   echo "Usage: $0 export|apply" >&2

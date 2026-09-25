@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CONFIG_DIRS=("$HOME/.claude" "$HOME/.claude-personal")
+CONFIG_DIRS=("$HOME/.claude")
 
 # settings.json is intentionally NOT symlinked: it churns constantly (hooks,
 # model, session state, "always allow" grants) and we don't want that
 # tracked wholesale. Only the allowed-commands list (see sync-permissions.sh,
 # invoked below) and the statusLine block (merged here) are version-controlled.
 #
-# CLAUDE.md is linked by agents/install.sh, which owns the agent-generic
+# AGENTS.md is linked by agents/install.sh, which owns the agent-generic
 # instructions file (agents/AGENTS.md).
 
 for CONFIG_DIR in "${CONFIG_DIRS[@]}"; do
