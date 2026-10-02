@@ -1,0 +1,6 @@
+{
+  "name": "status-band",
+  "version": "0.1.0",
+  "description": "Status band above the prompt: directory, git, model, effort, cost, rate limits and context.",
+  "types": "./types/index.d.ts"
+}
