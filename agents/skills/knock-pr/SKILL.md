@@ -3,6 +3,7 @@ name: knock-pr
 description: "Commit, push, and open a draft PR with Knock conventions."
 # Claude:
 disable-model-invocation: true
+argument-hint: "[ticket-number]"
 # Codex:
 policy:
   allow_implicit_invocation: false
@@ -10,7 +11,10 @@ policy:
 
 You're usually not supposed to commit or interface with GitHub without my consent, but this is the exception, as I've explicitly invoked this skill.
 
-Before starting, check if there's a Linear ticket in context: mentioned in the conversation or part of the branch name.
+Before starting, find the Linear ticket:
+
+* If I passed an argument when invoking this skill, that is the ticket number. Accept `123`, `PLA-123`, or `pla-123`; they all mean ticket `PLA-123`. The argument wins over any other ticket in context.
+* With no argument, check if there's a Linear ticket in context: mentioned in the conversation or part of the branch name.
 
 1. If on `main`, stop and ask the user what to do. Otherwise, ensure the current branch is named one of the following, renaming it if necessary (only if it has no upstream):
    * `andrea-<short-title>` if you have no Linear ticket.
