@@ -2,11 +2,7 @@
 name: knock-pr
 description: "Commit, push, and open a draft PR with Knock conventions."
 # Claude:
-disable-model-invocation: true
 argument-hint: "[ticket-number]"
-# Codex:
-policy:
-  allow_implicit_invocation: false
 ---
 
 You're usually not supposed to commit or interface with GitHub without my consent, but this is the exception, as I've explicitly invoked this skill.
