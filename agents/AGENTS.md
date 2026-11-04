@@ -42,3 +42,10 @@ Start with the answer. End when the answer is done.
   * **Never commit anything** unless I explicitly tell you to commit. Prefer always leaving changes unstaged; I prefer to look at those for my code review workflow.
     * The only exception to *staging* is when you need to rename files. Prefer `git mv` in those cases—even though it does stage files.
   * If you do commit (becaused I asked you to), never mention Claude in commit messages and leave commit descriptions empty. The only exception is if I tell you to work on a GitHub issue and tell you to commit your work: in those cases, use only "Closes #xx." (`xx` being the issue number) as the description.
+
+## UI/UX
+
+These rules apply whenever you work on UI/UX (websites, apps, whatever).
+
+  * Three people open every screen: the user experience (UX), developer experience (DX), and agent experience (AX) that edits it next. Serve all three, or you're robbing one to pay another.
+  * Kill any label that only exists to explain the layout. If the screen needs a caption, the screen is broken.
