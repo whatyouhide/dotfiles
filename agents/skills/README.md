@@ -30,7 +30,7 @@ Instructions for the skill go here.
 
 ## Installing
 
-`bash agents/install.sh` installs these into every agent (`--agent '*'`,
-globally) via `npx skills add`. Because that symlinks rather than copies,
-the installed skill points back at this directory — edit here and the change
-is live, no reinstall needed.
+`bash agents/install.sh` installs these globally for Claude Code and Codex
+(`--agent claude-code codex`) via `npx skills add`. That copies each skill
+into `~/.agents/skills`, so edits here take effect only after you run
+`install.sh` again.

@@ -15,7 +15,33 @@ raphaelsalaja/userinterface-wiki
 justinwetch/HIGAgentSkills
 
 # Single skills
-anthropics/skills --skill skill-creator
 vercel-labs/agent-skills --skill web-design-guidelines
 withgraphite/agent-skills --skill graphite
 schpet/linear-cli --skill linear-cli
+github/gh-stack --skill gh-stack
+zanwei/design-dna
+
+# Cloudflare
+cloudflare/skills --skill agents-sdk
+cloudflare/skills --skill cloudflare
+cloudflare/skills --skill cloudflare-email-service
+cloudflare/skills --skill cloudflare-one
+cloudflare/skills --skill cloudflare-one-migrations
+cloudflare/skills --skill durable-objects
+cloudflare/skills --skill turnstile-spin
+cloudflare/skills --skill web-perf
+cloudflare/skills --skill workers-best-practices
+cloudflare/skills --skill wrangler
+
+# Emil Kowalski
+emilkowalski/skills --skill animation-vocabulary
+emilkowalski/skills --skill apple-design
+emilkowalski/skills --skill emil-design-eng
+emilkowalski/skills --skill find-animation-opportunities
+emilkowalski/skills --skill improve-animations
+emilkowalski/skills --skill review-animations
+
+# Jakub Krehel
+jakubkrehel/skills --skill better-colors
+jakubkrehel/skills --skill better-typography
+jakubkrehel/skills --skill better-ui

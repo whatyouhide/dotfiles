@@ -31,8 +31,8 @@ install() {
 }
 
 # Install my own, personally-authored skills from agents/skills/. `skills add`
-# on a local path symlinks each skill into every agent dir, so the installed
-# copy points back here — edits in the repo take effect immediately, no reinstall.
+# on a local path copies each skill into ~/.agents/skills, so rerun this after
+# editing a skill in the repo.
 install_personal() {
     # nullglob so the loop is skipped cleanly when there are no skills yet.
     shopt -s nullglob
