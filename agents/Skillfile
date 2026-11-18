@@ -15,6 +15,7 @@ raphaelsalaja/userinterface-wiki
 justinwetch/HIGAgentSkills
 
 # Single skills
+heydamir/unslop --skill unslop
 vercel-labs/agent-skills --skill web-design-guidelines
 github/gh-stack --skill gh-stack
 zanwei/design-dna
@@ -37,6 +38,7 @@ emilkowalski/skills --skill apple-design
 emilkowalski/skills --skill emil-design-eng
 emilkowalski/skills --skill find-animation-opportunities
 emilkowalski/skills --skill improve-animations
+emilkowalski/skills --skill mobile-native
 emilkowalski/skills --skill review-animations
 
 # Jakub Krehel
