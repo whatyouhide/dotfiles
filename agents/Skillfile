@@ -16,8 +16,6 @@ justinwetch/HIGAgentSkills
 
 # Single skills
 vercel-labs/agent-skills --skill web-design-guidelines
-withgraphite/agent-skills --skill graphite
-schpet/linear-cli --skill linear-cli
 github/gh-stack --skill gh-stack
 zanwei/design-dna
 
