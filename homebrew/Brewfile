@@ -329,6 +329,8 @@ cask "google-chrome"
 cask "granola"
 # AI teammates that work across your apps and tools
 cask "grok-bot"
+# Desktop app for terminals and coding agents
+cask "herdr-app"
 # Testing client for REST, GraphQL, and HTTP APIs
 cask "httpie-desktop"
 # App to manage software development and track bugs
