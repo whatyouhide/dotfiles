@@ -16,9 +16,8 @@ tap "productdevbook/tap", trusted: true
 tap "schpet/tap"
 tap "supabase/tap", trusted: true
 tap "supercmdlabs/supercmd", trusted: { casks: ["supercmd"] }
+tap "terraform-linters/tap"
 tap "timrogers/tap"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
 # Library for command-line editing
 brew "readline"
 # Command-line interface for SQLite
@@ -39,6 +38,8 @@ brew "icu4c@76"
 brew "libtiff"
 # Development kit for the Java programming language
 brew "openjdk"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # ANother Tool for Language Recognition
 brew "antlr"
 # Codec library for encoding and decoding AV1 video streams
@@ -75,6 +76,8 @@ brew "clang-format"
 brew "cloc"
 # Cross-platform make
 brew "cmake"
+# Command-line tool to manage cert-manager
+brew "cmctl"
 # Color-highlighted diff(1) output
 brew "colordiff"
 # GNU File, Shell, and Text utilities
@@ -97,6 +100,8 @@ brew "findutils"
 brew "flyctl"
 # XSL-FO print formatter for making PDF or PS documents
 brew "fop"
+# Command-line fuzzy finder written in Go
+brew "fzf"
 # Toolkit for image loading and pixel buffer manipulation
 brew "gdk-pixbuf"
 # GitHub command-line tool
@@ -104,7 +109,7 @@ brew "gh"
 # OCR (Optical Character Recognition) engine
 brew "tesseract"
 # Interpreter for PostScript and PDF
-brew "ghostscript"
+brew "ghostscript", link: false
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
@@ -275,8 +280,8 @@ brew "mongodb/brew/mongodb-community@8.0"
 brew "mutagen-io/mutagen/mutagen"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
-# CLI tool for linear.app that uses git branch names and directory names to open issues and team pages
-brew "schpet/tap/linear", link: false, trusted: true
+# Work with Linear issues, projects and teams from the command line
+brew "schpet/tap/linear", trusted: true
 # Supabase CLI
 brew "supabase/tap/supabase"
 # Control Logitech Litra lights from the command line and Model Context Protocol (MCP) clients
@@ -288,6 +293,8 @@ cask "1password"
 cask "1password-cli"
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
+# 3D model slicing software for 3D printers, maintained by Bambu Lab
+cask "bambu-studio"
 # Display management tool
 cask "betterdisplay"
 # Contacts manager
@@ -298,8 +305,8 @@ cask "chatgpt"
 cask "claude"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
-# OpenAI's Codex desktop app for managing coding agents
-cask "codex-app"
+# Menu bar app for tracking agentic coding limits and usage
+cask "codexbar"
 # Allows switching between application windows
 cask "contexts"
 # Write, edit, and chat about your code with AI
@@ -320,6 +327,8 @@ cask "github"
 cask "google-chrome"
 # AI-powered notepad for meetings
 cask "granola"
+# AI teammates that work across your apps and tools
+cask "grok-bot"
 # Testing client for REST, GraphQL, and HTTP APIs
 cask "httpie-desktop"
 # App to manage software development and track bugs
@@ -344,6 +353,8 @@ cask "spotify"
 cask "tailscale-app"
 # Messaging app with a focus on speed and security
 cask "telegram"
+# Pluggable Terraform linter
+cask "terraform-linters/tap/tflint", trusted: true
 # To-do list
 cask "todoist-app"
 # Native desktop client for WhatsApp
@@ -359,9 +370,7 @@ cask "zotero"
 mas "Actions For Obsidian", id: 1659667937
 mas "BrightIntosh", id: 6452471855
 mas "Flighty", id: 1358823008
-mas "FocusFlight", id: 6648771147
 mas "GoodLinks", id: 1474335294
-mas "Hand Mirror", id: 1502839586
 mas "Keynote", id: 361285480
 mas "Klack", id: 6446206067
 mas "Magnet", id: 441258766
